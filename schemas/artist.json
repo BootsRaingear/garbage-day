@@ -1,0 +1,18 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+        "name": {
+            "type": "string",
+            "description": "Artist's internet handle",
+            "default": "nobody"
+        },
+        "stream": {
+            "type": "string",
+            "description": "Stream URL for artist (twitch/mixer/picarto)",
+            "default": "http://twitch.tv/thefpl.us"
+        }
+    },
+    "required": ["name", "stream"]
+}
