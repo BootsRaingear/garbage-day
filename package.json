@@ -32,6 +32,12 @@
 		"workspace": "Connections"		
 	},
 	{
+		"name": "obs-control",
+		"title": "Stream Control",
+		"file": "obs-control.html",
+		"workspace": "Connections"
+	},
+	{
 		"name": "artist",
 		"title": "Artist",
 		"width": 3,
