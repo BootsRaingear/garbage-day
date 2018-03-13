@@ -11,13 +11,16 @@
 				@apply --layout-center;
 				@apply --layout-flex-none;
 			}
-
+			
 		</style>
 		
-		<paper-button id="cycleRecording" raised on-tap="cycleRecording">
-			Cycle Recording
+		<paper-button id="startBreak" raise hidden="[[onBreak]]" on-tap "startBreak" disabled="[[disabled]]">
+			Start Break
 		</paper-button>
 		
+		<paper-button id="endBreak" raise hidden="[[!onBreak]]" on-tap "endBreak" disabled="[[disabled]]">
+			End Break
+		</paper-button>		
 	</template>
 	
 	<script src="gd-obs-control.js"></script>
