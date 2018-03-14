@@ -3,14 +3,26 @@
 <head>
 	<meta charset="UTF-8">
 	<script src="../bower_components/webcomponentsjs/webcomponents-loader.js"></script>
-	<link rel="import" href="elements/gd-artist/gd-obs-control.html">
-	<style>
-		body {
-			margin: 0;
-		}
-	</style>
+	<link rel="import" href="elements/gd-obs-control/gd-obs-control.html">
+	<custom-style>
+		<style>
+			body {
+				margin: 0;
+			}
+			
+			gd-obs-control {
+				margin-top: 15px;
+				padding: 12px 15px;
+				@apply --layout-flex;
+			}
+		</style>
+	</custom-style>
 </head>
 <body>
-	<gd-obs-control></gd-obs-control>
+	<div id=wrapper>
+		<div id="container">
+			<gd-obs-control></gd-obs-control>
+		</div>
+	</div>
 </body>
 </html>

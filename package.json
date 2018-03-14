@@ -34,6 +34,7 @@
 	{
 		"name": "obs-control",
 		"title": "Stream Control",
+		"width": 2,
 		"file": "obs-control.html",
 		"workspace": "Connections"
 	},

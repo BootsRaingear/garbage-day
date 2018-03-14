@@ -11,4 +11,5 @@ module.exports = function (nodecg) {
 	nodecgApiContext.set(nodecg);
 	
 	require('./obs');
+	require('./obs-control');	
 };

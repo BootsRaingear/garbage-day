@@ -1,5 +1,6 @@
 (function () {
 	const onBreak = nodecg.Replicant('onBreak');
+	const obsBroadcast = nodecg.Replicant('obsRecord');
 	const currentLayout = nodecg.Replicant('currentLayout');
 	
 	class GdObsControl extends Polymer.Element {
@@ -12,11 +13,6 @@
 				onBreak: {
 					type: Boolean,
 					value: false,					
-				},
-				disabled: {
-					type: Boolean,
-					value false,
-					reflectToAttribute: true
 				}
 			};
 		}
@@ -25,6 +21,9 @@
 			super.ready();
 			onBreak.on('change', newVal => {
 				this.onBreak = newVal;
+			});
+			obsRecord.on('change', newVal => {
+				this.obsRecord = newVal;
 			});
 		}
 		
@@ -35,6 +34,7 @@
 		endBreak() {
 			onBreak.value = false;
 		}
-		
-		customElements.define(GdObsControl.is, GdObsControl);		
-	})();
+				
+	}
+	customElements.define(GdObsControl.is, GdObsControl);			
+})();

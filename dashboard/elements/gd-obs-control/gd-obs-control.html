@@ -1,6 +1,4 @@
-<link rel="import" href="../../../bower_components/paper-toggle-button/paper-toggle-button.html">
-<link rel="import" href="../../../bower_components/polymer/lib/utils/render-status.html">
-<link rel="import" href="../../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../../../bower_components/paper-button/paper-button.html">
 
 <dom-module id="gd-obs-control">
 	<template>
@@ -12,13 +10,26 @@
 				@apply --layout-flex-none;
 			}
 			
+			#startBreak {
+				--paper-button: {
+					background-color: #5BA664;
+				};
+			}
+			#endBreak {
+				--paper-button: {
+					background-color: #C9513E;
+				};
+			}
+			
 		</style>
 		
-		<paper-button id="startBreak" raise hidden="[[onBreak]]" on-tap "startBreak" disabled="[[disabled]]">
+		
+		
+		<paper-button id="startBreak" raise hidden="[[onBreak]]" on-tap="startBreak">
 			Start Break
 		</paper-button>
 		
-		<paper-button id="endBreak" raise hidden="[[!onBreak]]" on-tap "endBreak" disabled="[[disabled]]">
+		<paper-button id="endBreak" raise hidden="[[!onBreak]]" on-tap="endBreak">
 			End Break
 		</paper-button>		
 	</template>

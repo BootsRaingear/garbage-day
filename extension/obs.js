@@ -9,10 +9,16 @@ const OBSUtility = require('nodecg-utility-obs');
 
 const nodecg = require('./util/nodecg-api-context').get();
 
-const obs = new OBSUtility(nodecg, {namespace: 'obs'});
+const OBS = new OBSUtility(nodecg, {namespace: 'obs'});
+const sceneList = nodecg.Replicant('obs:sceneList')
 const currentLayout = nodecg.Replicant('currentLayout');
 
-function cycleRecording() {
+const onBreak = nodecg.Replicant('onBreak');
+
+const currentScene = nodecg.Replicant('currentScene');
+
+
+function cycleRecording(obs) {
 	return new Promise((resolve,reject) => {
 		let rejected = false;
 		const timeout = setTimeout(() => {
@@ -48,20 +54,25 @@ function cycleRecording() {
 	});
 }
 
+
 module.exports = {
 	setCurrentScene(sceneName) {
-		return streamingOBS.setCurrentScene({
+		return OBS.setCurrentScene({
 			'scene-name': sceneName
 		});
 	},
 	
+	getCurrentScene() {
+		//return OBS.getCurrentScene().values;
+		//console.log(OBS.getCurrentScene().value);		
+	},	
 	
 	async cycleRecordings() {
 		nodecg.log.info('Cycling recordings...');
 
 		const cycleRecordingPromises = [];
-		if (obs._connected) {
-			cycleRecordingPromises.push(cycleRecording(obs));
+		if (OBS._connected) {
+			cycleRecordingPromises.push(cycleRecording(OBS));
 		} else {
 			nodecg.log.error('Recording OBS is disconnected! Not cycling its recording.');
 		}
@@ -75,5 +86,7 @@ module.exports = {
 
 		nodecg.log.info('Recordings successfully cycled.');
 	},
+	
+
 	
 }

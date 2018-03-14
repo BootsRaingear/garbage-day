@@ -17,6 +17,6 @@ class GdArtist extends Polymer.Element {
 	}
 	
 	save() {
-		nodecg.
+
 	}
 }
