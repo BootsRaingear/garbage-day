@@ -2,16 +2,18 @@
 <link rel="import" href="../../../bower_components/iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../../../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../../../bower_components/paper-input/paper-input.html">
+
 <dom-module id="gd-artist">
 	<template>
 		<style>
 			:host {
+				margin-right: 24px;
+				height: 356px;
 				@apply --layout-vertical;
-				width: 100%;				
 			}
 			
 			#artistInput {
-				@apply --layout-vertical
+				@apply --layout-vertical;
 			}
 			
 			#buttons {
@@ -27,22 +29,12 @@
 					padding: 0;
 					font-size: 16px;
 					font-weight: bold;
-					background-color: var(--bg-color);
 				}
 			}
 			
 		</style>
 		<div id="artistInput">
-			<paper-input
-				id="artistName"
-				label="Name"
-				value="{{artistName}}"
-			</paper-input>
-			<paper-input
-				id="artistStream"
-				label="Stream URL"
-				value="{{artistStream}}"
-			</paper-input
+
 		</div>
 		
 		<div id="buttons">
