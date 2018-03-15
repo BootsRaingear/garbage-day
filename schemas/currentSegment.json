@@ -14,11 +14,29 @@
 			"type": "string",
 			"default": ""
 		},
-		"ridiculists": {
-			"type": "array",
-			"items": {
-				"type": "string"
-			}
+		"ridiculist1": {
+			"type": "string",
+			"default": ""
+		},
+		"ridiculist2": {
+			"type": "string",
+			"default": ""
+		},
+		"ridiculist3": {
+			"type": "string",
+			"default": ""
+		},
+		"ridiculist4": {
+			"type": "string",
+			"default": ""
+		},
+		"ridiculist5": {
+			"type": "string",
+			"default": ""
+		},
+		"ridiculist6": {
+			"type": "string",
+			"default": ""
 		},
 		"artistName": {
 			"type": "string",
