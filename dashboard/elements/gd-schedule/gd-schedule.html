@@ -1,0 +1,173 @@
+<link rel="import" href="../../../bower_components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../../../bower_components/paper-input/paper-input.html">
+
+<dom-module id="gd-schedule">
+	<template>
+		<style>
+			:host {
+				@apply --layout-vertical;
+				@apply --layout-center;
+			}
+			
+			.row {
+				@apply --layout-horizontal;
+				@apply --layout-center;
+			}
+			
+			paper-input {
+				@apply --layout-flex;	
+				padding-left: 4px;
+				padding-right: 4px;
+			}
+			
+			#ridiculists {
+				@apply --layout-flex-2;
+			}
+			
+			#streamer {
+				@apply --layout-flex-2;
+			}
+
+			.divider {
+				border-bottom: 1px dashed
+				border-bottom: 1px;
+				margin-top: 10px;
+				margin-bottom: 10px;
+			}
+			
+		</style>
+	
+		<div id="hour">
+			<div class="row">
+				<paper-input
+					label="Hour #"
+					value="{{hour}}"
+					always-float-label>
+				</paper-input>
+				<paper-button id="fetch" raised on-tap="fetch">
+					Fetch
+				</paper-button>
+			</div>
+		</div>
+	
+		<div id="segment">
+			<div class="row">
+				<paper-input 
+					label="Segment Title" 
+					value="{{title}}" 
+					always-float-label>
+				</paper-input>
+				
+				<paper-input
+					label="Document Provider(s)"
+					value="{{docProvider}}"
+					always-float-label>
+				</paper-input>
+			</div>
+			<div class="row">
+				
+				<paper-input
+					label="Doc URL"
+					value={{docURL}}
+					always-float-label>
+				</paper-input>
+			</div>
+			<div id="ridiculistlist">
+				<div class="row">
+					<div id="ridiculists" data-index="0">
+						<paper-input
+							label="Host"
+							name="Ridiculist1"
+							always-float-label
+							value="{{ridiculists.1}}"
+						</paper-input>
+					</div>
+					<div id="ridiculists" data-index="1">
+						<paper-input
+							label="Ridiculist 2"
+							name="Ridiculist2"
+							always-float-label
+							value="{{ridiculists.2}}"
+						</paper-input>
+					</div>
+				</div>
+				<div class="row">
+					<div id="ridiculists" data-index="2">
+						<paper-input
+							label="Ridiculist 3"
+							name="Ridiculist3"
+							always-float-label
+							value="{{ridiculists.3}}"
+						</paper-input>
+					</div>
+					<div id="ridiculists" data-index="3">
+						<paper-input
+							label="Ridiculist 4"
+							name="Ridiculist4"
+							always-float-label
+							value="{{ridiculists.4}}"
+						</paper-input>
+					</div>
+				</div>
+				<div class="row">
+					<div id="ridiculists" data-index="4">
+						<paper-input
+							label="Ridiculist 5"
+							name="Ridiculist5"
+							always-float-label
+							value="{{ridiculists.5}}"
+						</paper-input>
+					</div>
+					<div id="ridiculists" data-index="5">
+						<paper-input
+							label="Ridiculist 6"
+							name="Ridiculist6"
+							always-float-label
+							value="{{ridiculists.6}}"
+						</paper-input>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div id="streamer">
+					<paper-input
+						label="Artist Name"
+						always-float-label
+						value="{{artistName}}">
+					</paper-input>					
+					<paper-input
+						label="Artist Stream URL"
+						always-float-label
+						value="{{artistUrl}}">
+					</paper-input>
+				</div>
+			</div>
+			<div class="row">
+				<div id="streamer">
+					<paper-input
+						label="Second Stream Name"
+						always-float-label
+						value="{{streamtwoName}}">
+					</paper-input>					
+					<paper-input
+						label="Second Stream URL"
+						always-float-label
+						value="{{streamtwoUrl}}">
+					</paper-input>
+				</div>
+			</div>		
+		</div>
+		
+		
+		<div id="update">
+			<paper-button id="update" raised on-tap="update">
+				Update
+			</paper-button>
+		</div>
+
+	
+				
+	</template>
+	<script src="gd-schedule.js"></script>
+</dom-module>

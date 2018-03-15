@@ -21,12 +21,10 @@ onBreak.on('change', newVal => {
 		nodecg.log.info('starting break');		
 		obs.setCurrentScene('3_interstitial');
 		obs.cycleRecordings();		
-
 	} else {
 		nodecg.log.info('ending break');
 		obs.cycleRecordings();
 		obs.setCurrentScene(currentScene.value);
-		console.log('scenelist - ' + sceneList.items.length);
 	}
 });
 

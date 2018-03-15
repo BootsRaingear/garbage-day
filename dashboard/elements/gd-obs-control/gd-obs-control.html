@@ -1,3 +1,4 @@
+<link rel="import" href="../../../bower_components/polymer/polymer-element.html">
 <link rel="import" href="../../../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../../../bower_components/iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../../../bower_components/iron-list/iron-list.html">
@@ -15,11 +16,13 @@
 			#startBreak {
 				--paper-button: {
 					background-color: #5BA664;
+					color: white;
 				};
 			}
 			#endBreak {
 				--paper-button: {
 					background-color: #C9513E;
+					color: white;
 				};
 			}
 			
@@ -38,7 +41,7 @@
 		
 		<div id="divider"></div>
 		
-		<iron-list id="sceneList" items="[[sceneList.items]]" as="obsScene">
+		<iron-list id="sceneList" items="[[sceneList]]" as="obsScene">
 			<template>
 				<div class="layoutList">
 					<paper-button class="selectLayout" on-tap="_handleSelectLayout" alt="Select Layout" raised>

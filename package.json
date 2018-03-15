@@ -39,10 +39,10 @@
 		"workspace": "Connections"
 	},
 	{
-		"name": "artist",
-		"title": "Artist",
-		"width": 3,
-		"file": "artist-panel.html",
+		"name": "schedule",
+		"title": "Schedule",
+		"width": 4,
+		"file": "schedule-panel.html",
 		"workspace": "Stream"
 	}
 	]
