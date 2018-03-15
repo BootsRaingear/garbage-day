@@ -9,8 +9,8 @@ const OBSUtility = require('nodecg-utility-obs');
 
 const nodecg = require('./util/nodecg-api-context').get();
 
-const OBS = new OBSUtility(nodecg, {namespace: 'obs'});
-const sceneList = nodecg.Replicant('obs:sceneList')
+const OBS = new OBSUtility(nodecg, {namespace: 'OBS'});
+const sceneList = nodecg.Replicant('OBS:sceneList')
 const currentLayout = nodecg.Replicant('currentLayout');
 
 const onBreak = nodecg.Replicant('onBreak');

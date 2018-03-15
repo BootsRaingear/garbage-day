@@ -1,4 +1,3 @@
-'use strict'
 (function () { 
 	const currentArtist = nodecg.Replicant('currentArtist');
 

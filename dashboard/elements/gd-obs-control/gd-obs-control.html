@@ -1,4 +1,6 @@
 <link rel="import" href="../../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../../../bower_components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../../../bower_components/iron-list/iron-list.html">
 
 <dom-module id="gd-obs-control">
 	<template>
@@ -24,14 +26,27 @@
 		</style>
 		
 		
+		<div id="breakButton">
+			<paper-button id="startBreak" raise hidden="[[onBreak]]" on-tap="startBreak">
+				Start Break
+			</paper-button>
+			
+			<paper-button id="endBreak" raise hidden="[[!onBreak]]" on-tap="endBreak">
+				End Break
+			</paper-button>		
+		</div>
 		
-		<paper-button id="startBreak" raise hidden="[[onBreak]]" on-tap="startBreak">
-			Start Break
-		</paper-button>
+		<div id="divider"></div>
 		
-		<paper-button id="endBreak" raise hidden="[[!onBreak]]" on-tap="endBreak">
-			End Break
-		</paper-button>		
+		<iron-list id="sceneList" items="[[sceneList.items]]" as="obsScene">
+			<template>
+				<div class="layoutList">
+					<paper-button class="selectLayout" on-tap="_handleSelectLayout" alt="Select Layout" raised>
+						[[obsScene]]
+					</paper-button>
+				</div>
+			</template>
+		</iron-list>
 	</template>
 	
 	<script src="gd-obs-control.js"></script>

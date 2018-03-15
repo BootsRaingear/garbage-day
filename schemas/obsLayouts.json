@@ -1,0 +1,15 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",	
+	"type": "array",
+	"items": {
+		"type": "string"
+	},
+	
+	"default": [
+		"1_live_restream",
+		"2_live_splash",
+		"5_genericsplash",
+		"6_live_pip_a",
+		"7_live_pip_b"
+	]	
+}

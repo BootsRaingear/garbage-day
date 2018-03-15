@@ -1,6 +1,7 @@
 (function () {
 	const onBreak = nodecg.Replicant('onBreak');
-	const currentLayout = nodecg.Replicant('currentLayout');
+	
+	const sceneList = nodecg.Replicant('obs:sceneList');
 	
 	class GdObsControl extends Polymer.Element {
 		static get is() {
