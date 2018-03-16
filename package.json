@@ -21,7 +21,17 @@
           "gif",
           "png"
         ]
-      }
+      },
+	  {
+		"name": "testimages",
+		"title": "Test Images",
+        "allowedTypes": [
+          "jpg",
+          "jpeg",
+          "gif",
+          "png"
+        ]
+	  }
     ],
 	"dashboardPanels": [
 	{
@@ -29,20 +39,27 @@
 		"title": "OBS",
 		"width": 3,
 		"file": "obs-panel.html",
-		"workspace": "Connections"		
+		"workspace": "Setup"		
 	},
 	{
 		"name": "obs-control",
-		"title": "Stream Control",
+		"title": "OBS Control",
 		"width": 2,
 		"file": "obs-control.html",
-		"workspace": "Connections"
+		"workspace": "Stream"
 	},
 	{
 		"name": "schedule",
 		"title": "Schedule Editor",
 		"width": 4,
 		"file": "schedule-panel.html",
+		"workspace": "Setup"
+	},
+	{
+		"name": "soundboard",
+		"title": "Sound Board",
+		"width": 5,
+		"file": "soundboard.html",
 		"workspace": "Stream"
 	}
 	]

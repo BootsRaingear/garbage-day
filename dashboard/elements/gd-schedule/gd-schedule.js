@@ -82,6 +82,7 @@
 				segment.value.artistURL = this.artistURL;
 				segment.value.streamtwoName = this.streamtwoName;
 				segment.value.streamtwoURL = this.streamtwoURL;
+				segment.value.updateMe = true;
 			} else {
 				console.log("[garbage-day] schedule.js, update() - hour out of range, idiot");
 			}
