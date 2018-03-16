@@ -1,7 +1,11 @@
 'use strict';
+const nodecg = require('./util/nodecg-api-context').get();
+const clone = require('clone');
 
-const currentCast = nodecg.Replicant('currentCast');
+const segment = nodecg.Replicant('segment');
+const segments = nodecg.Replicant('segments');
 
-function fetchSched(int hour) {
-	
-}
+segment.on('change', newVal => {
+	console.log("segment changed");
+	segments.value[segment.value.hour] = clone(segment.value);
+});
