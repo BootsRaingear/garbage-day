@@ -11,11 +11,9 @@
 		
 		<iron-list id="soundclips" items="{{soundclips}}" as="soundclip">
 			<template>
-				<div id="soundlist">
-					<paper-button class="playSound" on-tap="_handlePlaySound" alt="Play Sound" raised>
-						[[soundclip.name]]
-					</paper-button>
-				</div>
+				<paper-button class="playSound" on-tap="_handlePlaySound" alt="Play Sound" raised>
+					[[soundclip.name]]
+				</paper-button>
 			</template>
 		</iron-list>
 	</template>
