@@ -5,6 +5,7 @@ const clone = require('clone');
 
 const nodecg = require('./util/nodecg-api-context').get();
 const recentDonations = nodecg.Replicant('recentDonations');
+const donationTotal = nodecg.Replicant('donationTotal');
 
 let opts = {
 	reconnect: true
@@ -43,7 +44,9 @@ socket.on("event", event => {
 		nodecg.sendMessage("donation", message);
 		emitter.emit("donation", message);
 
-		console.log("recentDonationslength: " + recentDonations.value.length);
+		donationTotal.value += parseFloat(message.amount.amount);
+		
+		console.log("donationTotal: " + donationTotal.value);
 		if (recentDonations.value.length > 0)
 		{
 			var top;
@@ -58,8 +61,11 @@ socket.on("event", event => {
 			}
 		}
 		recentDonations.value[0] = clone(message);
-		console.log(recentDonations.value);
 	}
+});
+
+recentDonations.on('change', newVal => {
+	console.log("recent donations changed");
 });
 
 /*

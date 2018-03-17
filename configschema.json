@@ -2,6 +2,10 @@
     "$schema": "http://json-schema.org/draft-04/schema#",
     "type": "object",
     "properties": {
+		"marathonStart": {
+			"type": "string",
+			"value": "04/07/2018 12:00 CDT"
+		},
         "socket_token": {
             "type": "string",
             "value": "",

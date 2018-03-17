@@ -35,10 +35,11 @@
 			onBreak.value = false;
 		}
 		
+		/*
 		_handleSelectScene(e) {
 			//nodecg.sendMessage('obsChangeScene', e.model.obsScene.base);
 		}
-				
+		*/	
 	}
 	customElements.define(GdObsControl.is, GdObsControl);			
 })();
