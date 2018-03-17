@@ -12,14 +12,18 @@
 				onBreak: {
 					type: Boolean,
 					value: false,					
-				}
-			};
-		}
+				},
+				obsScenes: Array,
+			}
+		};				
 		
 		ready() {
 			super.ready();
 			onBreak.on('change', newVal => {
 				this.onBreak = newVal;
+			});
+			sceneList.on('change', newVal => {
+				this.scenes = newVal;
 			});
 		}
 		
@@ -29,6 +33,10 @@
 		
 		endBreak() {
 			onBreak.value = false;
+		}
+		
+		_handleSelectScene(e) {
+			//nodecg.sendMessage('obsChangeScene', e.model.obsScene.base);
 		}
 				
 	}

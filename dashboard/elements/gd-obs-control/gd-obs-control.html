@@ -41,10 +41,10 @@
 		
 		<div id="divider"></div>
 		
-		<iron-list id="sceneList" items="[[sceneList]]" as="obsScene">
+		<iron-list id="sceneList" items="[[obsScenes]]" as="obsScene">
 			<template>
 				<div class="layoutList">
-					<paper-button class="selectLayout" on-tap="_handleSelectLayout" alt="Select Layout" raised>
+					<paper-button class="selectScene" on-tap="_handleSelectScene" alt="Select Layout" raised>
 						[[obsScene]]
 					</paper-button>
 				</div>

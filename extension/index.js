@@ -13,4 +13,5 @@ module.exports = function (nodecg) {
 	require('./obs');
 	require('./obs-control');	
 	require('./schedule');
+	require('./soundboard');
 };
