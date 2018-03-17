@@ -1,68 +1,9 @@
 {
-		"name": "garbage-day",
-		"version": "0.5.0",
-		"nodecg": {
-				"compatibleRange": "~0.9.0",
-				"assetCategories": [
-						{
-								"name": "soundboard",
-								"title": "SoundBoard",
-								"allowedTypes": [
-										"mp3",
-										"ogg"
-								]
-						},
-						{
-								"name": "images",
-								"title": "Images",
-								"allowedTypes": [
-										"jpg",
-										"jpeg",
-										"gif",
-										"png"
-								]
-						},
-						{
-								"name": "testimages",
-								"title": "Test Images",
-								"allowedTypes": [
-										"jpg",
-										"jpeg",
-										"gif",
-										"png"
-								]
-						}
-				],
-				"dashboardPanels": [
-						{
-								"name": "obs-panel",
-								"title": "OBS",
-								"width": 3,
-								"file": "obs-panel.html",
-								"workspace": "Setup"
-						},
-						{
-								"name": "obs-control",
-								"title": "OBS Control",
-								"width": 2,
-								"file": "obs-control.html",
-								"workspace": "Stream"
-						},
-						{
-								"name": "schedule",
-								"title": "Schedule Editor",
-								"width": 4,
-								"file": "schedule-panel.html",
-								"workspace": "Setup"
-						},
-						{
-								"name": "soundboard",
-								"title": "Sound Board",
-								"width": 3,
-								"file": "soundboard.html",
-								"workspace": "Stream"
-						}
-				]
+	"name": "garbage-day",
+	"version": "0.5.0",
+	"nodecg": {
+		"compatibleRange": "~0.9.0",
+		"bundleDependencies": {			
 		},
 		"dependencies": {
 				"bower-npm-resolver": "^0.9.0",
@@ -70,6 +11,68 @@
 				"nodecg-utility-obs": "^4.1.2",
 				"request": "^2.67.0",
 				"request-promise": "^4.2.1",
-				"webhook-discord": "^2.0.6"
-		}
+				"webhook-discord": "^2.0.6",
+				"socket.io-client": "^2.0.3"				
+		},
+		"assetCategories": [
+			{
+				"name": "soundboard",
+				"title": "SoundBoard",
+				"allowedTypes": [
+					"mp3",
+					"ogg"
+				]
+			},
+			{
+				"name": "images",
+				"title": "Images",
+				"allowedTypes": [
+					"jpg",
+					"jpeg",
+					"gif",
+					"png"
+				]
+			},
+			{
+				"name": "testimages",
+				"title": "Test Images",
+				"allowedTypes": [
+					"jpg",
+					"jpeg",
+					"gif",
+					"png"
+				]
+			}
+	],
+		"dashboardPanels": [
+			{
+				"name": "obs-panel",
+				"title": "OBS",
+				"width": 3,
+				"file": "obs-panel.html",
+				"workspace": "Setup"
+			},
+			{
+				"name": "obs-control",
+				"title": "OBS Control",
+				"width": 2,
+				"file": "obs-control.html",
+				"workspace": "Stream"
+			},
+			{
+				"name": "schedule",
+				"title": "Schedule Editor",
+				"width": 4,
+				"file": "schedule-panel.html",
+				"workspace": "Setup"
+			},
+			{
+				"name": "soundboard",
+				"title": "Sound Board",
+				"width": 3,
+				"file": "soundboard.html",
+				"workspace": "Stream"
+			}
+		]
+	}
 }
