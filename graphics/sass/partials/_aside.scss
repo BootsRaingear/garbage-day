@@ -1,0 +1,22 @@
+aside { padding: 15px; color: $offwhite; font-family: $font; font-size:20px;  @include position(absolute,0,0,0); width:320px;
+
+  .intro-box { margin-bottom: 1.5em; }
+  
+  .current-hour {
+    .number { font-size:300%; font-weight: $bold; }
+  }
+  
+  
+  figure.logo { @include position(absolute,null,0,0); max-width:320px;
+    img { width:100%; }
+  }
+  
+  .reader-box { margin-bottom: 1.5em;
+    ul { padding-left: 1.5em; }
+    li { list-style: none; font-weight: $bold; line-height: 100%; margin-bottom: 0.75em; }
+  }
+  .artist-box {
+    .name { padding-left: 1.5em; font-weight: $bold; }
+  }
+  
+}

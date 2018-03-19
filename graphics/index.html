@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Gaaaaaaaaaarbage Day!</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bitter:400,400i,700">
+    <link rel="stylesheet" href="css/garbage.css">
+  </head>
+  <body>
+    <div id="app">
+      <div class="layout">
+        <main>
+          <figure v-if="primaryStream.show &amp;&amp; primaryStream.url">
+            <iframe :src="primaryStream.url" frameborder="0" allowfullscreen="false" scrolling="no"></iframe>
+          </figure>
+        </main>
+        <aside>
+          <div class="intro-box" v-if="introText">
+            <div class="text" v-html="introText"></div>
+          </div>
+          <div class="reader-box">
+            <div class="label">Your friends for the hour:</div>
+            <ul v-for="reader in readers">
+              <li class="reader">{{reader}}</li>
+            </ul>
+          </div>
+          <div class="artist-box" v-if="artist">
+            <div class="label">Your artist:</div>
+            <div class="name">{{artist}}</div>
+          </div>
+          <figure class="logo"><img :src="logoURL"></figure>
+        </aside>
+        <footer>
+          <div class="box hour-box" v-if="hour">
+            <div class="label">This is hour</div>
+            <div class="number-holder"><span class="number">{{hour}}</span><span class="total">/ 24</span></div>
+          </div>
+          <div class="topic-box box">
+            <div class="topic" v-if="title">
+              <div class="label">Currently reading</div>
+              <div class="title">{{title}}</div>
+            </div>
+            <div class="provider" v-if="provider">
+              <div class="label">Provided by</div>
+              <div class="name">{{provider}}</div>
+            </div>
+          </div>
+          <div class="total-box box" v-if="totalDonations">
+            <div class="label">Money Raised</div>
+            <div class="number">{{dollarAmount(totalDonations)}}</div>
+            <div class="sub">Money goes to the <b>Southern Poverty Law Center</b></div>
+          </div>
+          <div class="cta-box box">
+            <div class="label">Donate now at</div><a class="url">{{donateURL}}</a>
+          </div>
+        </footer>
+      </div>
+    </div>
+    <div class="javascripts">
+      <script src="js/libraries/vue.min.js"></script>
+      <script src="js/min/garbage.min.js"></script>
+    </div>
+  </body>
+</html>

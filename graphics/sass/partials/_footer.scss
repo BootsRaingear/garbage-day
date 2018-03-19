@@ -1,0 +1,31 @@
+footer { @include flex-container(); color:$offwhite; font-family: $font; font-weight: $light; font-size:18px; padding-top: 12px; padding-left: 40px;
+  
+  padding-right: 320px;
+  
+  //.box { }
+  
+  .box { padding-right: 20px; }
+  
+  
+  .hour-box { @include flex-item(170px); 
+    .label { padding-right: 20px;}
+    .number { font-size:500%; font-weight: $bold; line-height: 80%; }
+  }
+  
+  .topic-box { @include flex-item(25%); 
+    .label { font-weight: 200; }
+    .topic { margin-bottom: 10px; }
+    .title { font-weight: $bold; font-size:160%; line-height: 90%; }
+    .name { font-weight: $bold; font-size:130%; line-height: 90%; }
+  }
+  
+  .total-box { @include flex-item(25%); 
+    .number { font-size:225%; }
+    .sub { font-size:80%; }
+  }
+  
+  .cta-box { @include flex-item(25%); 
+    .url { font-weight: $bold; color:$red; font-size:225%; }
+  }
+  
+}

@@ -1,0 +1,21 @@
+footer
+  .box.hour-box(v-if="hour")
+    .label This is hour
+    .number-holder
+      span.number {{hour}}
+      span.total / 24
+  .topic-box.box
+    .topic(v-if="title")
+      .label Currently reading
+      .title {{title}}
+    .provider(v-if="provider")
+      .label Provided by
+      .name {{provider}}
+  .total-box.box(v-if="totalDonations")
+    .label Money Raised
+    .number {{dollarAmount(totalDonations)}}
+    .sub Money goes to the 
+      b Southern Poverty Law Center
+  .cta-box.box
+    .label Donate now at
+    a.url {{donateURL}}

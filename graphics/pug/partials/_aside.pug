@@ -1,0 +1,20 @@
+aside
+  
+  .intro-box(v-if="introText")
+    .text(v-html="introText")
+    
+  .reader-box
+    .label Your friends for the hour:
+    ul(v-for="reader in readers")
+      li.reader {{reader}}
+  
+  .artist-box(v-if="artist")
+    .label Your artist:
+    .name {{artist}}
+      
+  
+  
+  
+  
+  figure.logo
+    img(:src="logoURL")

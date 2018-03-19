@@ -1,0 +1,6 @@
+html, body { background: #131313; }
+.layout { @include flex-container(); 
+  main { @include flex-item(100%); }
+  //aside { @include flex-item(320px); }
+  footer { @include flex-item(100%); }
+}
