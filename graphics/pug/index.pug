@@ -7,12 +7,8 @@ html(lang="en")
     link(rel="stylesheet" href="css/garbage.css")
   body
     #app
-      .layout.double-screen
-        main 
-          figure.primary-screen
-            iframe(:src="primaryStream.url" frameborder="0" allowfullscreen="false" scrolling="no")
-          figure.secondary-screen
-            iframe(:src="secondaryStream.url" frameborder="0" allowfullscreen="false" scrolling="no")
+      .layout(v-bind:class="countScreens")
+        include partials/_main.pug
         include partials/_aside.pug
         include partials/_footer.pug
           

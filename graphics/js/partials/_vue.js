@@ -44,5 +44,38 @@ var app = new Vue({
     dollarAmount: function(n) {
       return '$' + n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
+    
+    
   },
+  computed: {
+    
+    primaryScreen: function() {
+      var self = this;
+      if (self.primaryStream.show && self.primaryStream.url) {
+        return true;
+      } else {
+        return false;
+      }
+    },
+    
+    secondaryScreen: function() {
+      var self = this;
+      if (self.secondaryStream.show && self.secondaryStream.url) {
+        return true;
+      } else {
+        return false;
+      }
+    },
+    
+    countScreens: function() {
+      var self = this;
+      //return self.primaryStream.url;
+      if (self.primaryScreen && self.secondaryScreen) {
+        return 'double-screen';
+      } else {
+        return 'single-screen';
+      }
+    }
+    
+  }
 });

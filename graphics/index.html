@@ -7,12 +7,12 @@
   </head>
   <body>
     <div id="app">
-      <div class="layout double-screen">
+      <div class="layout" v-bind:class="countScreens">
         <main> 
-          <figure class="primary-screen">
+          <figure class="primary-screen" v-if="primaryScreen">
             <iframe :src="primaryStream.url" frameborder="0" allowfullscreen="false" scrolling="no"></iframe>
           </figure>
-          <figure class="secondary-screen">
+          <figure class="secondary-screen" v-if="secondaryScreen">
             <iframe :src="secondaryStream.url" frameborder="0" allowfullscreen="false" scrolling="no"></iframe>
           </figure>
         </main>
