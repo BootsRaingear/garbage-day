@@ -10,7 +10,7 @@
 		
 		static get properties() {
 			return {
-				recentDonations: Array,
+				donationList: Array,
 				donationTotal: Number,
 				authUrl: String
 			}
@@ -21,7 +21,8 @@
 			super.ready();
 			
 			recentDonations.on('change', newVal => {
-				this.recentDonations = newVal;
+				this.donationList = newVal;
+				console.log(this.donationList);
 			});
 			slAuthUrl.on('change', newVal => {
 				this.authUrl = newVal;
