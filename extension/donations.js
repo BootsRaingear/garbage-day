@@ -1,36 +1,82 @@
-'use strict';
+const app = require('express')();
 const EventEmitter = require("events");
 const io = require("socket.io-client");
+
 const clone = require('clone');
 
 const nodecg = require('./util/nodecg-api-context').get();
+const StreamLabs = require('streamlabs');
+const streamlabs = new StreamLabs(
+		nodecg.bundleConfig.streamlabs.clientId, 
+		nodecg.bundleConfig.streamlabs.clientSecret, 
+		nodecg.bundleConfig.streamlabs.redirectUrl, 
+		"donations.read donations.create alerts.create socket.token"
+);
+
 const recentDonations = nodecg.Replicant('recentDonations');
 const donationTotal = nodecg.Replicant('donationTotal');
+const slTokens = nodecg.Replicant('slTokens');
+
+const slAuthUrl = nodecg.Replicant('slAuthUrl')
+slAuthUrl.value = streamlabs.authorizationUrl();
+
+app.get('/connect', (req, res) => {
+	streamlabs.connect(req.query.code)
+		.then((result) => {
+			res.json(result.data);
+			slTokens.value.access_token = result.data.access_token;
+			slTokens.value.refresh_token = result.data.refresh_token;
+			slTokens.value.expires = Date.now() + result.data.expires_in * 1000;
+		})
+		.catch((err) => { 
+			res.json(err.response.data);
+		});
+	//slTokens.value.access_token = result.access_token;
+	//slTokens.value.expires = result.expires_in
+});
+app.listen(8080);
+
+nodecg.listenFor('grabDonations', msg => {
+	
+	var access_token = 
+	if (slTokens.value.expires < Date.now()) {
+		streamlabs.reconnect(slTokens.value.refresh_token)
+			.then((result) => {
+				console.log(result.data);
+				slTokens.value.access_token = result.data.access_token;
+				slTokens.value.refresh_token = result.data.refresh_token;
+				slTokens.value.expires = Date.now() + result.data.expires_in * 1000;
+			})
+			.catch((err) => {
+				console.log(err.response.data);
+			});
+	}
+	
+	streamlabs.getDonations(10)
+		.then((result) => {
+			console.log(result.data.data);
+			console.log(result.data.data.length);
+			recentDonations.value = result.data.data;
+		})
+		.catch((err) => {
+			console.log(err.response.data);
+		});	
+});
 
 let opts = {
 	reconnect: true
 };
-
-// Apply options to defaults if they exist
-if(typeof nodecg.bundleConfig.socketio === "object") {
-	for(let i in nodecg.bundleConfig.socketio) {
-		opts[i] = nodecg.bundleConfig.socketio[i];
-	}
-}
-
-let socket = io.connect(`https://sockets.streamlabs.com/?token=${nodecg.bundleConfig.socket_token}`, opts);
+const socket = io.connect(`https://sockets.streamlabs.com/?token=${nodecg.bundleConfig.socketToken}`, opts);
 let emitter = new EventEmitter();
 
 socket.on("event", event => {
-	console.log("received event from streamlabs: ");
-	console.log(event);
-
     // No message? Must be an error, so we skip it because we already do raw emits.	
 	if(!(event.message instanceof Object)) {
 		nodecg.log.error(`Event ${event.event_id} had no ites in its event.message property, skipping.`);
 	}
 		
 	if (event.type == "donation" && event.message.length >= 1) {
+		console.log("new donation received!");
 		let message = {
 			id: event.message[0].id || event.message[0]._id || null,
 			name: event.message[0].name,
@@ -44,47 +90,9 @@ socket.on("event", event => {
 		nodecg.sendMessage("donation", message);
 		emitter.emit("donation", message);
 
+		// CHANGEME - do this in a more reliable way with streamlabs.getDonations
 		donationTotal.value += parseFloat(message.amount.amount);
 		
-		console.log("donationTotal: " + donationTotal.value);
-		if (recentDonations.value.length > 0)
-		{
-			var top;
-			if (recentDonations.value.length >= 10) 
-				top = 8;
-			else
-				top = recentDonations.value.length - 1;
-			
-			for(var i = top; i >= 0; i--)
-			{
-				recentDonations.value[i + 1] = clone(recentDonations.value[i]);
-			}
-		}
-		recentDonations.value[0] = clone(message);
 	}
 });
 
-recentDonations.on('change', newVal => {
-	console.log("recent donations changed");
-});
-
-/*
-streamlabs.on('twitch-event', event => {
-    // do work
-	console.log("I have received a notification from streamlabs here it is oh boy");
-	if (event.type == 'donation')
-	{
-		console.log("donation!");
-		if (recentDonations.value.length > 1)
-		{
-			for(i = recentDonations.value.length -1; i--; i >= 0)
-			{
-				recentDonations.value[i + 1] = clone(recentDonations.value[i]);
-			}
-		}
-		recentDonations.value[0] = clone(event.message);
-		
-		console.log(recentDonations.value);
-	}
-});
-*/

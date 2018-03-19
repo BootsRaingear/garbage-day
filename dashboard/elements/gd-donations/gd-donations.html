@@ -1,0 +1,27 @@
+<link rel="import" href="../../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../../../bower_components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../../../bower_components/paper-button/paper-button.html">
+
+<dom-module id="gd-donations">
+	<template>
+		<style>
+		</style>
+		<div>
+		<a href={{authUrl}} target="_blank">Auth URL</a>		
+		</div>
+		<div>
+			<paper-button id="grabDonations" on-tap="grabDonations">
+				Grab Donations
+			</paper-button>
+		</div>
+		
+		<iron-list id="recentDonations" items="[[recentDonations]]" as "donation" mutable-data>
+			<template>
+				<div class="itemWrapper">
+					[[donation.message]]
+				</div>
+			</template>
+		</iron-list>		
+	</template>
+	<script src="gd-donations.js"></script>
+</dom-module>		

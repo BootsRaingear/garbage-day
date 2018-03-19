@@ -21,7 +21,6 @@
 		}
 		
 		_handlePlaySound(e) {
-			console.log(e.model.soundclip.base);
 			nodecg.sendMessage('soundboardPlay', e.model.soundclip.base);
 		}
 		

@@ -19,7 +19,7 @@ const sceneList = nodecg.Replicant('OBS:sceneList');
 onBreak.on('change', newVal => {
 	if (onBreak.value === true) {
 		nodecg.log.info('starting break');		
-		obs.setCurrentScene('3_interstitial');
+		obs.setCurrentScene(nodecg.bundleConfig.obs.breakScene);
 		obs.cycleRecordings();		
 	} else {
 		nodecg.log.info('ending break');

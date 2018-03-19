@@ -3,8 +3,8 @@ const nodecg = require('./util/nodecg-api-context').get();
 nodecg.listenFor('soundboardPlay', filename => {	
 	var message = "!playsound " + filename;
 	var discord = require('./util/discord-webhook');
-	discord.hookId = '424268256807878659';
-	discord.hookToken = 'oFtvV2mMQgIV79gIrVErwchyUcVg0MjZC80vtAskhJjmQzKf7AR3-xMKOBTmhXCh6YRR';
+	discord.hookId = nodecg.bundleConfig.discord.webhooksId;
+	discord.hookToken = nodecg.bundleConfig.discord.webhooksToken;
 	discord.sendMessage(message);
 });
 

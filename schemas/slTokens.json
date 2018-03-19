@@ -1,0 +1,18 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",	
+	"type": "object",
+	"properties": {	
+		"access_token": {
+			"type": "string",
+			"default": "LeZWWe6d22yFVtGjn5FL4LjQ2w3G9tM7pYOiWedM"
+		},
+		"refresh_token": {
+			"type": "string",
+			"default": "zXoyvqIAXLN7pBo9pvjfadBt2FlJ4qSTjy07mnfg"
+		},
+		"expires": {
+			"type": "number",
+			"default": 0
+		}
+	}
+}

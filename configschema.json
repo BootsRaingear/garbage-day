@@ -6,18 +6,69 @@
 			"type": "string",
 			"value": "04/07/2018 12:00 CDT"
 		},
-        "socket_token": {
-            "type": "string",
-            "value": "",
-            "description": "The socket_token used to connect to StreamLabs"
-        },
-        "socketio": {
-            "type": "object",
-            "value": {
+		"obs": {
+			"type": "object",
+			"value": {
+				"breakScene": {
+					"type": "string",
+					"value": ""
+				}
+			}
+		},
+		"streamlabs" : {
+			"type": "object",
+			"additionalProperties": false,
+			"properties": {
+				"clientId": {
+					"type": "string",
+					"value": "",
+					"description": "The Client Id"
+				},
+				"clientSecret": {
+					"type": "string",
+					"value": "",
+					"description": "The Client Secret"
+				},
+				"redirectUrl": {
+					"type": "string",
+					"value": "",
+					"description": "The RedirectUrl with format 'http://yourdomain/callback'"
+				},
+				"scopes": {
+					"type": "string",
+					"value": "donations.read donations.create alerts.create socket.token",
+					"description": "They are 4 scopes: donations.read donations.create alerts.create socket.token"
+				
+				},
+				"socketToken": {
+					"type": "string",
+					"value": "",
+					"description": "The socket_token used to connect to StreamLabs"
+				},
+				"accessToken": {
+					"type": "string",
+					"value": ""
+				},
+				"code": {
+					"type": "string",
+					"value": ""
+				}
+			}
+		},
+		"discord": {
+			"type": "object",
+			"properties": {
+					"webhooksToken": {
+					"type": "string",
+					"value": ""
+				},
+					"webhooksId": {
+					"type": "string",
+					"value": ""
+				}
 
-            },
-            "description": "Optional values passed directly to the Socket.IO client"
-        },
-        "required": ["socket_token"]
+			}
+		},
+        "required": ["socket_token", "discord", "streamlabs"]
     }
 }

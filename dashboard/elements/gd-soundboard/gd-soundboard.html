@@ -8,7 +8,7 @@
 		<style>
 		</style>
 		
-		<iron-list id="soundclips" items="{{soundclips}}" as="soundclip">
+		<iron-list id="soundclips" items="[[soundclips]]" as="soundclip" mutable-data>
 			<template>
 				<paper-button class="playSound" on-tap="_handlePlaySound" alt="Play Sound" raised>
 					[[soundclip.name]]

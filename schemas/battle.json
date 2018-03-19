@@ -1,0 +1,26 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",	
+	"type": "object",
+	"properties": {	
+		"active": {
+			"type": "boolean",
+			"default": "false"
+		},
+		"options1": {
+			"type": "string",
+			"default": ""
+		},
+		"option1keyword": {
+			"type": "string",
+			"default": ""
+		},
+		"option2": {
+			"type": "string",
+			"default": ""
+		},
+		"option2keyword": {
+			"type": "string",
+			"default": ""
+		}
+	}
+}
