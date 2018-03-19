@@ -60,7 +60,7 @@
 				"title": "OBS Control",
 				"width": 2,
 				"file": "obs-control.html",
-				"workspace": "Stream"
+				"workspace": "Setup"
 			},
 			{
 				"name": "schedule",

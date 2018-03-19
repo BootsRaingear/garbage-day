@@ -4,9 +4,9 @@
 	"properties": {	
 		"active": {
 			"type": "boolean",
-			"default": "false"
+			"default": false
 		},
-		"options1": {
+		"option1title": {
 			"type": "string",
 			"default": ""
 		},
@@ -14,13 +14,21 @@
 			"type": "string",
 			"default": ""
 		},
-		"option2": {
+		"option1total": {
+			"type": "number",
+			"default": 0
+		},
+		"option2title": {
 			"type": "string",
 			"default": ""
 		},
 		"option2keyword": {
 			"type": "string",
 			"default": ""
+		},
+		"option2total": {
+			"type": "number",
+			"default": 0
 		}
 	}
 }

@@ -1,25 +1,49 @@
 <link rel="import" href="../../../bower_components/polymer/polymer-element.html">
 <link rel="import" href="../../../bower_components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../../../bower_components/iron-list/iron-list.html">
 <link rel="import" href="../../../bower_components/paper-button/paper-button.html">
 
 <dom-module id="gd-donations">
 	<template>
 		<style>
+			:host {
+				@apply --layout-vertical;				
+			}
+						
+			#grabDonations {
+				--paper-button: {
+					background-color: #5BA664;
+					color: white;
+				};
+			}
+			
+			.donation {
+				@apply --layout-vertical;
+				padding-left: 8px;
+				padding-right: 8px;
+				padding-bottom: 6px;
+				box-sizing: border-box;
+			}
+			
 		</style>
 		<div>
 		<a href={{authUrl}} target="_blank">Auth URL</a>		
 		</div>
+		
+		<div id="divider"></div>
+		
+			
 		<div>
-			<paper-button id="grabDonations" on-tap="grabDonations">
-				Grab Donations
-			</paper-button>
+			<h2>Recent Donations</h2>
 		</div>
 		
-		<iron-list id="recentDonations" items="[[recentDonations]]" as "donation" mutable-data>
+		<iron-list items="[[donationList]]" as="item" mutable-data>
 			<template>
-				<div class="itemWrapper">
-					[[donation.message]]
-				</div>
+				<div class="donation">
+					[[item.name]] 
+					[$[[item.formatted_amount]]]
+					[[item.message]]
+				<div>
 			</template>
 		</iron-list>		
 	</template>
