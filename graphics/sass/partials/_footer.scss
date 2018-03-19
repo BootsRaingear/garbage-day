@@ -1,31 +1,54 @@
 footer { @include flex-container(); color:$offwhite; font-family: $font; font-weight: $light; font-size:18px; padding-top: 12px; padding-left: 40px;
   
-  padding-right: 320px;
+  
   
   //.box { }
   
   .box { padding-right: 20px; }
   
   
-  .hour-box { @include flex-item(170px); 
+  .hour-box { 
     .label { padding-right: 20px;}
-    .number { font-size:500%; font-weight: $bold; line-height: 80%; }
+    .number { font-weight: $bold; line-height: 80%; }
   }
   
-  .topic-box { @include flex-item(25%); 
+  .topic-box { 
     .label { font-weight: 200; }
     .topic { margin-bottom: 10px; }
     .title { font-weight: $bold; font-size:160%; line-height: 90%; }
     .name { font-weight: $bold; font-size:130%; line-height: 90%; }
   }
   
-  .total-box { @include flex-item(25%); 
+  .total-box {
     .number { font-size:225%; }
     .sub { font-size:80%; }
   }
   
-  .cta-box { @include flex-item(25%); 
+  .cta-box {
     .url { font-weight: $bold; color:$red; font-size:225%; }
   }
   
+}
+
+
+.single-screen {
+  footer { padding-right: 320px; }
+  .hour-box { @include flex-item(170px);
+    .number { font-size:500%; }
+  }
+  .topic-box, .total-box, .cta-box { @include flex-item(25%);  }
+}
+
+.double-screen { 
+  footer { padding-right: 50vw; width:100%; padding-right: 250px; }
+  .hour-box, .topic-box { margin-bottom: 20px; }
+  .hour-box { @include flex-item(170px);
+    .number { font-size:320%;  }
+  }
+  
+  .topic-box { @include flex-container();
+    .topic, .provider { @include flex-item(50%); padding-right: 20px; }
+  }
+  
+  .topic-box, .total-box, .cta-box { @include flex-item(50%);  }
 }

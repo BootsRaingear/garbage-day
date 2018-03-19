@@ -3,4 +3,24 @@ html, body { background: #131313; }
   main { @include flex-item(100%); }
   //aside { @include flex-item(320px); }
   footer { @include flex-item(100%); }
+  
+  &.single-screen {
+    
+  }
+  
+}
+
+.single-screen { padding-right: 320px;
+  
+}
+
+.double-screen { padding-right: 450px;
+  
+  .primary-screen {
+    iframe { height: 42vw; }
+  }
+  
+  .secondary-screen { @include position(absolute,null,0,0); width:38%;
+    iframe { height: 21.5vw; }
+  }
 }

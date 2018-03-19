@@ -1,3 +1,4 @@
+- var testing = true
 doctype html
 html(lang="en")
   head
@@ -6,9 +7,20 @@ html(lang="en")
     link(rel="stylesheet" href="css/garbage.css")
   body
     #app
-      .layout
-        include partials/_main.pug
+      .layout.double-screen
+        main 
+          figure.primary-screen
+            iframe(:src="primaryStream.url" frameborder="0" allowfullscreen="false" scrolling="no")
+          figure.secondary-screen
+            iframe(:src="secondaryStream.url" frameborder="0" allowfullscreen="false" scrolling="no")
         include partials/_aside.pug
         include partials/_footer.pug
+          
+      //-
+        section(v-if="primaryStream")
+          .layout
+            include partials/_main.pug
+            include partials/_aside.pug
+            include partials/_footer.pug
     
     include partials/_javascripts.pug

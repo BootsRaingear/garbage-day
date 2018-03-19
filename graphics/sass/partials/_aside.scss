@@ -1,4 +1,4 @@
-aside { padding: 15px; color: $offwhite; font-family: $font; font-size:20px;  @include position(absolute,0,0,0); width:320px;
+aside { padding: 15px; color: $offwhite; font-family: $font; font-size:20px;  @include position(absolute,0,0);
 
   .intro-box { margin-bottom: 1.5em; }
   
@@ -19,4 +19,13 @@ aside { padding: 15px; color: $offwhite; font-family: $font; font-size:20px;  @i
     .name { padding-left: 1.5em; font-weight: $bold; }
   }
   
+}
+
+.single-screen {
+  aside { bottom: 0; width:320px; }
+}
+
+.double-screen {
+  aside { width:450px; bottom: 21.6vw; }
+  figure.logo { width: 120px; }
 }

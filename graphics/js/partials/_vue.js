@@ -28,10 +28,11 @@ var app = new Vue({
       url: "https://player.twitch.tv/?channel=thefplus"
     },
     
-    secondStream: {
+    secondaryStream: {
       show: true,
       name: "Frank West plays some dumb bullshit",
-      url:  "https://picarto.tv/CaptRedgrave"
+      //url:  "https://player.twitch.tv/?channel=omenbyhp"
+      url: "https://player.twitch.tv/?channel=thefplus"
     },
     
     totalDonations: 34646.25,
