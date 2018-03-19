@@ -217,21 +217,21 @@ html, body {
 
 .double-screen {
   padding-right: 450px; }
-  .double-screen .primary-screen iframe {
+  .double-screen .primary-screen iframe, .double-screen .primary-screen video {
     height: 42vw; }
   .double-screen .secondary-screen {
     position: absolute;
     right: 0;
     bottom: 0;
     width: 38%; }
-    .double-screen .secondary-screen iframe {
+    .double-screen .secondary-screen iframe, .double-screen .secondary-screen video {
       height: 21.5vw; }
 
 main {
   font-family: "Bitter", serif; }
   main img {
     max-width: 100%; }
-  main iframe {
+  main iframe, main video {
     width: 100%;
     height: 46.5vw; }
 
@@ -329,9 +329,6 @@ footer {
     font-weight: 600;
     color: #ee2a2a;
     font-size: 225%; }
-
-.single-screen footer {
-  padding-right: 320px; }
 
 .single-screen .hour-box {
   -ms-flex-preferred-size: 170px;

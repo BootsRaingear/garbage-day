@@ -17,10 +17,10 @@ html, body { background: #131313; }
 .double-screen { padding-right: 450px;
   
   .primary-screen {
-    iframe { height: 42vw; }
+    iframe, video { height: 42vw; }
   }
   
   .secondary-screen { @include position(absolute,null,0,0); width:38%;
-    iframe { height: 21.5vw; }
+    iframe, video { height: 21.5vw; }
   }
 }

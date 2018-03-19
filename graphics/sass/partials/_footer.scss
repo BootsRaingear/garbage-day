@@ -32,7 +32,7 @@ footer { @include flex-container(); color:$offwhite; font-family: $font; font-we
 
 
 .single-screen {
-  footer { padding-right: 320px; }
+  //footer { padding-right: 320px; }
   .hour-box { @include flex-item(170px);
     .number { font-size:500%; }
   }

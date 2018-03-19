@@ -32,7 +32,7 @@ var app = new Vue({
       show: true,
       name: "Frank West plays some dumb bullshit",
       //url:  "https://player.twitch.tv/?channel=omenbyhp"
-      url: "https://player.twitch.tv/?channel=thefplus"
+      url: "https://1-edge4-us-east.picarto.tv/mp4/GargoCorey.mp4"
     },
     
     totalDonations: 34646.25,
@@ -67,9 +67,17 @@ var app = new Vue({
       }
     },
     
+    secondaryScreenRawVideo: function() {
+      var self = this;
+      if (self.secondaryScreen && self.secondaryStream.url.includes('.mp4')) {
+        return true;
+      } else {
+        return false;
+      }
+    },
+    
     countScreens: function() {
       var self = this;
-      //return self.primaryStream.url;
       if (self.primaryScreen && self.secondaryScreen) {
         return 'double-screen';
       } else {
