@@ -220,12 +220,15 @@ html, body {
   .double-screen .primary-screen iframe, .double-screen .primary-screen video {
     height: 42vw; }
   .double-screen .secondary-screen {
-    position: absolute;
+    position: fixed;
     right: 0;
     bottom: 0;
     width: 38%; }
     .double-screen .secondary-screen iframe, .double-screen .secondary-screen video {
       height: 21.5vw; }
+
+[v-cloak] {
+  display: none !important; }
 
 main {
   font-family: "Bitter", serif;
@@ -392,7 +395,16 @@ footer {
   flex-wrap: wrap;
   -webkit-box-align: stretch;
   -ms-flex-align: stretch;
-  align-items: stretch; }
+  align-items: stretch;
+  -ms-flex-preferred-size: calc(100% - 170px);
+  flex-basis: calc(100% - 170px);
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  -ms-flex-negative: 1;
+  flex-shrink: 1;
+  -ms-flex-item-align: auto;
+  align-self: auto; }
   .double-screen .topic-box .topic, .double-screen .topic-box .provider {
     -ms-flex-preferred-size: 50%;
     flex-basis: 50%;
@@ -405,7 +417,7 @@ footer {
     align-self: auto;
     padding-right: 20px; }
 
-.double-screen .topic-box, .double-screen .total-box, .double-screen .cta-box {
+.double-screen .total-box, .double-screen .cta-box {
   -ms-flex-preferred-size: 50%;
   flex-basis: 50%;
   -webkit-box-flex: 1;
@@ -438,11 +450,12 @@ footer {
     -webkit-box-align: stretch;
     -ms-flex-align: stretch;
     align-items: stretch;
-    -webkit-transition: -webkit-transform 2s linear;
-    transition: -webkit-transform 2s linear;
-    -o-transition: transform 2s linear;
-    transition: transform 2s linear;
-    transition: transform 2s linear, -webkit-transform 2s linear; }
+    -webkit-transition: -webkit-transform 5s linear;
+    transition: -webkit-transform 5s linear;
+    -o-transition: transform 5s linear;
+    transition: transform 5s linear;
+    transition: transform 5s linear, -webkit-transform 5s linear;
+    /* transform: perspective( 600px ) rotateY( -20deg ); */ }
   .battle-screen .side {
     color: #eee;
     -ms-flex-preferred-size: calc(50% - 30px);
@@ -455,7 +468,9 @@ footer {
     -ms-flex-item-align: auto;
     align-self: auto;
     padding: 15px;
-    border: 2px solid #131313; }
+    border: 2px solid #131313;
+    -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5); }
     .battle-screen .side.left {
       background: #0e3d8e;
       text-align: right; }
@@ -490,9 +505,50 @@ footer {
       transform: scale(1.6);
       border: 2px solid #131313; }
   .battle-screen .keyword {
-    font-size: 200%; }
-  .battle-screen .total {
     font-size: 300%;
     font-weight: 600; }
+  .battle-screen .total {
+    font-size: 240%; }
   .battle-screen .desc {
     font-size: 80%; }
+
+.thermometer .outside {
+  position: absolute;
+  top: 40px;
+  bottom: 50px;
+  left: 40px;
+  width: 55px;
+  background: rgba(0, 0, 0, 0.85);
+  border-radius: 25px; }
+
+.thermometer .inside {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: -webkit-repeating-linear-gradient(left, #a2682a 0%, #be8c3c 8%, #be8c3c 18%, #d3b15f 27%, #faf0a0 35%, #ffffc2 40%, #faf0a0 50%, #d3b15f 58%, #be8c3c 67%, #b17b32 77%, #bb8332 83%, #d4a245 88%, #e1b453 93%, #a4692a 100%);
+  background-image: -o-repeating-linear-gradient(left, #a2682a 0%, #be8c3c 8%, #be8c3c 18%, #d3b15f 27%, #faf0a0 35%, #ffffc2 40%, #faf0a0 50%, #d3b15f 58%, #be8c3c 67%, #b17b32 77%, #bb8332 83%, #d4a245 88%, #e1b453 93%, #a4692a 100%);
+  background-image: repeating-linear-gradient(to right, #a2682a 0%, #be8c3c 8%, #be8c3c 18%, #d3b15f 27%, #faf0a0 35%, #ffffc2 40%, #faf0a0 50%, #d3b15f 58%, #be8c3c 67%, #b17b32 77%, #bb8332 83%, #d4a245 88%, #e1b453 93%, #a4692a 100%);
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+  -webkit-box-shadow: 8px 8px 16px #131313;
+  box-shadow: 8px 8px 16px #131313; }
+
+.thermometer .label {
+  color: #131313;
+  text-shadow: 1px 1px 1px #eee;
+  text-align: center;
+  display: none; }
+
+.thermometer .message-box {
+  position: absolute;
+  top: 60px;
+  left: 100px;
+  background: rgba(0, 0, 0, 0.85);
+  color: #eee;
+  padding: 1em;
+  max-width: 18em; }
+  .thermometer .message-box .number {
+    font-size: 300%;
+    font-weight: 600;
+    color: gold; }

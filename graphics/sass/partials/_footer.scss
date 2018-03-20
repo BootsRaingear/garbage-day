@@ -46,9 +46,8 @@ footer { @include flex-container(); color:$offwhite; font-family: $font; font-we
     .number { font-size:320%;  }
   }
   
-  .topic-box { @include flex-container();
+  .topic-box { @include flex-container(); @include flex-item(calc(100% - 170px));
     .topic, .provider { @include flex-item(50%); padding-right: 20px; }
   }
-  
-  .topic-box, .total-box, .cta-box { @include flex-item(50%);  }
+  .total-box, .cta-box { @include flex-item(50%);  }
 }

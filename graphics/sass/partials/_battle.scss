@@ -1,14 +1,14 @@
 .battle-screen { @include position(absolute,null,15px,15px); width:32em;
-  .battle { @include flex-container(); transition:transform 2s linear; }
-  .side { color:$white; @include flex-item(calc(50% - 30px)); padding: 15px; border:2px solid $black;
+  .battle { @include flex-container(); transition:transform 5s linear; /* transform: perspective( 600px ) rotateY( -20deg ); */ }
+  .side { color:$white; @include flex-item(calc(50% - 30px)); padding: 15px; border:2px solid $black; box-shadow: 5px 5px 5px rgba(0,0,0,0.5);
     &.left { background: darken($blue,30%); text-align: right; }
     &.right { background: darken($red,20%); }
   }
   .vs { @include flex-item(40px); position: relative; text-align: center; padding-top: 3.6em;
     span { font-size:160%; line-height: 165%; border-radius: 50%; background: $white; width:1.8em; height: 1.8em; display: block; text-align: center; margin-left: auto; margin-right: auto; transform:scale(1.6);  border: 2px solid $black; }
   }
-  .keyword { font-size:200%; }
-  .total { font-size:300%; font-weight: $bold; }
+  .keyword { font-size:300%; font-weight: $bold; }
+  .total { font-size:240%;  }
   .desc { font-size:80%; }
   
 }

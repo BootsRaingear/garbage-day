@@ -7,7 +7,7 @@ main
     iframe(:src="secondaryStream.url" frameborder="0" allowfullscreen="false" scrolling="no" v-else)
     
   .battle-screen(v-show="battle.active")
-    .battle(v-bind:class="weighBattle")
+    .battle(v-bind:style="weighBattle")
       .left.side
         .keyword {{battle.option1keyword}}
         .total {{dollarAmount(battle.option1total)}}
@@ -18,3 +18,11 @@ main
         .keyword {{battle.option2keyword}}
         .total {{dollarAmount(battle.option2total)}}
         .desc {{battle.option2title}}
+        
+  .thermometer(v-if="donationGoal.active")
+    .outside
+      .inside(v-bind:style="thermometerHeight")
+        //.label $4,311
+    .message-box
+      .number {{dollarAmount(donationGoal.amount)}}
+      .thing {{donationGoal.text}}

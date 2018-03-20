@@ -29,10 +29,10 @@ var app = new Vue({
     },
     
     secondaryStream: {
-      show: false,
+      show: true,
       name: "Frank West plays some dumb bullshit",
-      //url:  "https://player.twitch.tv/?channel=omenbyhp"
-      url: "https://1-edge4-us-east.picarto.tv/mp4/JacFox.mp4"
+      url: "https://player.twitch.tv/?channel=thefplus"
+      //url: "https://1-edge4-us-east.picarto.tv/mp4/JacFox.mp4"
     },
     
     totalDonations: 34646.25,
@@ -43,12 +43,18 @@ var app = new Vue({
       active: true,
       option1title: "we will mutually masturbate each other",
       option1keyword: "jerk",
-      option1total: 645,
+      option1total: 47,
       option2title: "we will commit suicide under horrific circumstances",
       option2keyword: "die",
-      option2total: 1313
-    }
+      option2total: 368
+    },
     
+    donationGoal: {
+      active: true,
+      text: "Fuckin', like, I dunno, we stop doing this?",
+      amount: 40000,
+      startAmount: 20000
+    }
     
   },
   methods: {
@@ -99,16 +105,42 @@ var app = new Vue({
     weighBattle: function() {
       var self = this;
       
-      var diff = 20;
+      var diff = 0;
+      
+      /*
+      return {
+        'transform': 'perspective( 600px ) rotateY( -20deg )'
+      };
+      */
       
       if (self.battle.option1total > self.battle.option2total) {
-        return 'transform: rotate3d(0.2, 1, 1, -'  + diff + ' deg);';
-      } else if (self.battle.option1total > self.battle.option2total) {
-        return 'transform: rotate3d(0.2, 1, 1, '  + diff + ' deg);';
+        diff = self.battle.option1total/(self.battle.option2total + self.battle.option1total) * 80 - 40;
+        return {
+          'transform': 'perspective( 600px ) rotateY( '+diff+'deg )'
+        };
+        //return 'transform: rotate3d(0.2, 1, 1, -'  + diff + ' deg);';
+      } else if (self.battle.option1total < self.battle.option2total) {
+        diff = self.battle.option2total/(self.battle.option1total + self.battle.option2total) * 80 - 40;
+        return {
+          'transform': 'perspective( 600px ) rotateY( -'+diff+'deg )'
+        };
       } else {
-        return false;
+        return {
+          'transform': 'perspective( 600px ) rotateY( 80deg )'
+        };
       }
       
+    },
+    
+    thermometerHeight: function() {
+      var self = this;
+      var n = parseInt(self.donationGoal.startAmount);
+      var x = parseInt(self.donationGoal.amount);
+      var pct = ((self.totalDonations - n) / (x - n) * 100);
+      
+      return {
+        'height': pct+'%'
+      };
       
     }
     

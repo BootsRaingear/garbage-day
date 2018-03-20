@@ -19,7 +19,7 @@
             <iframe :src="secondaryStream.url" frameborder="0" allowfullscreen="false" scrolling="no" v-else></iframe>
           </figure>
           <div class="battle-screen" v-show="battle.active">
-            <div class="battle" v-bind:class="weighBattle">
+            <div class="battle" v-bind:style="weighBattle">
               <div class="left side">
                 <div class="keyword">{{battle.option1keyword}}</div>
                 <div class="total">{{dollarAmount(battle.option1total)}}</div>
@@ -31,6 +31,17 @@
                 <div class="total">{{dollarAmount(battle.option2total)}}</div>
                 <div class="desc">{{battle.option2title}}</div>
               </div>
+            </div>
+          </div>
+          <div class="thermometer" v-if="donationGoal.active">
+            <div class="outside">
+              <div class="inside" v-bind:style="thermometerHeight">
+                <!--.label $4,311-->
+              </div>
+            </div>
+            <div class="message-box">
+              <div class="number">{{dollarAmount(donationGoal.amount)}}</div>
+              <div class="thing">{{donationGoal.text}}</div>
             </div>
           </div>
         </main>
