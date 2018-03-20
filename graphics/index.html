@@ -8,7 +8,7 @@
   <body>
     <div id="app">
       <div class="layout" v-bind:class="countScreens">
-        <main> 
+        <main>
           <figure class="primary-screen" v-if="primaryScreen">
             <iframe :src="primaryStream.url" frameborder="0" allowfullscreen="false" scrolling="no"></iframe>
           </figure>
@@ -18,6 +18,21 @@
             </video>
             <iframe :src="secondaryStream.url" frameborder="0" allowfullscreen="false" scrolling="no" v-else></iframe>
           </figure>
+          <div class="battle-screen" v-show="battle.active">
+            <div class="battle" v-bind:class="weighBattle">
+              <div class="left side">
+                <div class="keyword">{{battle.option1keyword}}</div>
+                <div class="total">{{dollarAmount(battle.option1total)}}</div>
+                <div class="desc">{{battle.option1title}}</div>
+              </div>
+              <div class="vs"><span>vs</span></div>
+              <div class="right side">
+                <div class="keyword">{{battle.option2keyword}}</div>
+                <div class="total">{{dollarAmount(battle.option2total)}}</div>
+                <div class="desc">{{battle.option2title}}</div>
+              </div>
+            </div>
+          </div>
         </main>
         <aside>
           <div class="intro-box" v-if="introText">

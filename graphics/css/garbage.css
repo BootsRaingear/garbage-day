@@ -228,7 +228,8 @@ html, body {
       height: 21.5vw; }
 
 main {
-  font-family: "Bitter", serif; }
+  font-family: "Bitter", serif;
+  position: relative; }
   main img {
     max-width: 100%; }
   main iframe, main video {
@@ -414,3 +415,84 @@ footer {
   flex-shrink: 1;
   -ms-flex-item-align: auto;
   align-self: auto; }
+
+.battle-screen {
+  position: absolute;
+  right: 15px;
+  bottom: 15px;
+  width: 32em; }
+  .battle-screen .battle {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: wrap;
+    -moz-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-align: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+    -webkit-transition: -webkit-transform 2s linear;
+    transition: -webkit-transform 2s linear;
+    -o-transition: transform 2s linear;
+    transition: transform 2s linear;
+    transition: transform 2s linear, -webkit-transform 2s linear; }
+  .battle-screen .side {
+    color: #eee;
+    -ms-flex-preferred-size: calc(50% - 30px);
+    flex-basis: calc(50% - 30px);
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    -ms-flex-negative: 1;
+    flex-shrink: 1;
+    -ms-flex-item-align: auto;
+    align-self: auto;
+    padding: 15px;
+    border: 2px solid #131313; }
+    .battle-screen .side.left {
+      background: #0e3d8e;
+      text-align: right; }
+    .battle-screen .side.right {
+      background: #a50d0d; }
+  .battle-screen .vs {
+    -ms-flex-preferred-size: 40px;
+    flex-basis: 40px;
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    -ms-flex-negative: 1;
+    flex-shrink: 1;
+    -ms-flex-item-align: auto;
+    align-self: auto;
+    position: relative;
+    text-align: center;
+    padding-top: 3.6em; }
+    .battle-screen .vs span {
+      font-size: 160%;
+      line-height: 165%;
+      border-radius: 50%;
+      background: #eee;
+      width: 1.8em;
+      height: 1.8em;
+      display: block;
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+      -webkit-transform: scale(1.6);
+      -ms-transform: scale(1.6);
+      transform: scale(1.6);
+      border: 2px solid #131313; }
+  .battle-screen .keyword {
+    font-size: 200%; }
+  .battle-screen .total {
+    font-size: 300%;
+    font-weight: 600; }
+  .battle-screen .desc {
+    font-size: 80%; }

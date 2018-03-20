@@ -29,15 +29,26 @@ var app = new Vue({
     },
     
     secondaryStream: {
-      show: true,
+      show: false,
       name: "Frank West plays some dumb bullshit",
       //url:  "https://player.twitch.tv/?channel=omenbyhp"
-      url: "https://1-edge4-us-east.picarto.tv/mp4/GargoCorey.mp4"
+      url: "https://1-edge4-us-east.picarto.tv/mp4/JacFox.mp4"
     },
     
     totalDonations: 34646.25,
     
-    donations: []
+    donations: [],
+    
+    battle: {
+      active: true,
+      option1title: "we will mutually masturbate each other",
+      option1keyword: "jerk",
+      option1total: 645,
+      option2title: "we will commit suicide under horrific circumstances",
+      option2keyword: "die",
+      option2total: 1313
+    }
+    
     
   },
   methods: {
@@ -83,6 +94,22 @@ var app = new Vue({
       } else {
         return 'single-screen';
       }
+    },
+    
+    weighBattle: function() {
+      var self = this;
+      
+      var diff = 20;
+      
+      if (self.battle.option1total > self.battle.option2total) {
+        return 'transform: rotate3d(0.2, 1, 1, -'  + diff + ' deg);';
+      } else if (self.battle.option1total > self.battle.option2total) {
+        return 'transform: rotate3d(0.2, 1, 1, '  + diff + ' deg);';
+      } else {
+        return false;
+      }
+      
+      
     }
     
   }
