@@ -17,6 +17,15 @@ footer { @include flex-container(); color:$offwhite; font-family: $font; font-we
     .topic { margin-bottom: 10px; }
     .title { font-weight: $bold; font-size:160%; line-height: 90%; }
     .name { font-weight: $bold; font-size:130%; line-height: 90%; }
+    .readers { margin-top: 0.75em; }
+    .reader-list {
+      span { display: inline-block; margin-right: 0.5em; font-weight: $bold;
+        &:after { content: ', ' }
+        &:nth-last-child(2):after { content: ''; }
+        &:last-child:before { content: ' & '; }
+        &:last-child:after { content: ''; }
+      }
+    }
   }
   
   .total-box {
@@ -50,4 +59,14 @@ footer { @include flex-container(); color:$offwhite; font-family: $font; font-we
     .topic, .provider { @include flex-item(50%); padding-right: 20px; }
   }
   .total-box, .cta-box { @include flex-item(50%);  }
+}
+
+.layout.break {
+  footer { padding-top: 35px;
+      .hour-box { @include flex-item(140px,0,1);
+      .number { font-size:500%; }
+    }
+    .topic-box, .desc-box { @include flex-item(25%);  }
+    .cta-box, .total-box { @include flex-item(15%); }
+  }
 }

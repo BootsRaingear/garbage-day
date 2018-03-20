@@ -328,6 +328,20 @@ footer {
     font-weight: 600;
     font-size: 130%;
     line-height: 90%; }
+  footer .topic-box .readers {
+    margin-top: 0.75em; }
+  footer .topic-box .reader-list span {
+    display: inline-block;
+    margin-right: 0.5em;
+    font-weight: 600; }
+    footer .topic-box .reader-list span:after {
+      content: ', '; }
+    footer .topic-box .reader-list span:nth-last-child(2):after {
+      content: ''; }
+    footer .topic-box .reader-list span:last-child:before {
+      content: ' & '; }
+    footer .topic-box .reader-list span:last-child:after {
+      content: ''; }
   footer .total-box .number {
     font-size: 225%; }
   footer .total-box .sub {
@@ -430,6 +444,42 @@ footer {
   flex-shrink: 1;
   -ms-flex-item-align: auto;
   align-self: auto; }
+
+.layout.break footer {
+  padding-top: 35px; }
+  .layout.break footer .hour-box {
+    width: 140px;
+    -ms-flex-preferred-size: 140px;
+    flex-basis: 140px;
+    -webkit-box-flex: 0;
+    -ms-flex-positive: 0;
+    flex-grow: 0;
+    -ms-flex-negative: 1;
+    flex-shrink: 1;
+    -ms-flex-item-align: auto;
+    align-self: auto; }
+    .layout.break footer .hour-box .number {
+      font-size: 500%; }
+  .layout.break footer .topic-box, .layout.break footer .desc-box {
+    -ms-flex-preferred-size: 25%;
+    flex-basis: 25%;
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    -ms-flex-negative: 1;
+    flex-shrink: 1;
+    -ms-flex-item-align: auto;
+    align-self: auto; }
+  .layout.break footer .cta-box, .layout.break footer .total-box {
+    -ms-flex-preferred-size: 15%;
+    flex-basis: 15%;
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    -ms-flex-negative: 1;
+    flex-shrink: 1;
+    -ms-flex-item-align: auto;
+    align-self: auto; }
 
 .battle-screen {
   position: absolute;
@@ -770,3 +820,16 @@ footer {
   .freewrite-box.bottom-left .inside {
     -webkit-box-shadow: 6px -6px 0 rgba(0, 0, 0, 0.5);
     box-shadow: 6px -6px 0 rgba(0, 0, 0, 0.5); }
+
+.break-screen {
+  width: 100%;
+  height: 44vw;
+  position: relative; }
+  .break-screen figure {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-size: cover;
+    background-position: center; }

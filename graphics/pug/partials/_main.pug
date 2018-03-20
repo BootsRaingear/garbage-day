@@ -1,49 +1,14 @@
 main
   figure.primary-screen(v-if="primaryScreen")
-    iframe(:src="primaryStream.url" frameborder="0" allowfullscreen="false" scrolling="no")
+    video(controls="false" muted="true" autoplay="true" v-if="primaryScreenRawVideo")
+      source(:src="primaryStream.url" )
+    iframe(:src="primaryStream.url" frameborder="0" allowfullscreen="false" scrolling="no" v-else)
   figure.secondary-screen(v-if="secondaryScreen")
     video(controls="false" muted="true" autoplay="true" v-if="secondaryScreenRawVideo")
       source(:src="secondaryStream.url" )
     iframe(:src="secondaryStream.url" frameborder="0" allowfullscreen="false" scrolling="no" v-else)
     
-  .battle-screen(v-show="battle.active")
-    .battle(v-bind:style="weighBattle")
-      .left.side
-        .keyword {{battle.option1keyword}}
-        .total {{dollarAmount(battle.option1total)}}
-        .desc {{battle.option1title}}
-      .vs
-        span vs
-      .right.side
-        .keyword {{battle.option2keyword}}
-        .total {{dollarAmount(battle.option2total)}}
-        .desc {{battle.option2title}}
-        
-  .goal(v-if="goal.active")
-    .thermometer
-      .inside(v-bind:style="thermometerHeight")
-        //.label $4,311
-    .message-box
-      .number {{dollarAmount(goal.amount)}}
-      .thing {{goal.text}}
-  
-  .prize(v-if="prize.active")
-    .prize-box
-      .current Current Prize:
-      
-      .amount
-        span.donate donate 
-        span.number {{dollarAmount(prize.amount)}}
-        span.or-more  or more
-      
-      .text(v-if="prize.text") {{prize.text}}
-      
-      .provider(v-if="prize.provider") provided by 
-        b {{prize.provider}}
-        
-  .freewrite(v-if="freewrite.active")
-    .freewrite-box(v-bind:class="freewrite.location")
-      .inside
-        figure(v-if="freewrite.img")
-          img(:src="freewrite.img")
-        .content(v-if="freewrite.content" v-html="freewrite.content")
+  include _battle.pug
+  include _goal.pug
+  include _prize.pug
+  include _freewrite.pug

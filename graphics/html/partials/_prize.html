@@ -1,0 +1,9 @@
+
+<div class="prize" v-if="prize.active">
+  <div class="prize-box">
+    <div class="current">Current Prize:</div>
+    <div class="amount"><span class="donate">donate </span><span class="number">{{dollarAmount(prize.amount)}}</span><span class="or-more"> or more</span></div>
+    <div class="text" v-if="prize.text">{{prize.text}}</div>
+    <div class="provider" v-if="prize.provider">provided by <b>{{prize.provider}}</b></div>
+  </div>
+</div>

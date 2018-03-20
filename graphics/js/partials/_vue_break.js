@@ -3,8 +3,8 @@ var app = new Vue({
   el: '#app',
   data: {
     hour: 9,
-    onBreak: false,
-    breakPic: 'https://picsum.photos/1920/900',
+    onBreak: true,
+    breakPic: 'https://picsum.photos/1920/850',
     title: "Bitch Loser Sex Madness",
     readers: [
       "Lemon",
@@ -160,6 +160,14 @@ var app = new Vue({
         'height': pct+'%'
       };
       
+    },
+    
+    breakBackground: function() {
+      var self = this;
+      return {
+        'background-image': 'url('+self.breakPic+')'
+      }
     }
+    
   }
 });

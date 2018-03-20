@@ -1,0 +1,3 @@
+.break-screen { width:100%; height:44vw; position: relative; 
+  figure { @include position(absolute,0,0,0,0); background-size: cover; background-position: center; }
+}

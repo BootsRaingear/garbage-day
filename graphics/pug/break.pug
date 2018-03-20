@@ -1,16 +1,15 @@
 - var testing = true
-- var onBreak = false
+- var onBreak = true
 doctype html
 html(lang="en")
   head
-    title Gaaaaaaaaaarbage Day!
+    title We're On Break
     link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bitter:400,400i,700")
     link(rel="stylesheet" href="css/garbage.css")
   body
     #app
-      .layout(v-bind:class="countScreens")
-        include partials/_main.pug
-        include partials/_aside.pug
+      .layout.break
+        include partials/_break.pug
         include partials/_footer.pug
     
     include partials/_javascripts.pug

@@ -10,7 +10,10 @@
       <div class="layout" v-bind:class="countScreens">
         <main>
           <figure class="primary-screen" v-if="primaryScreen">
-            <iframe :src="primaryStream.url" frameborder="0" allowfullscreen="false" scrolling="no"></iframe>
+            <video controls="false" muted="true" autoplay="true" v-if="primaryScreenRawVideo">
+              <source :src="primaryStream.url">
+            </video>
+            <iframe :src="primaryStream.url" frameborder="0" allowfullscreen="false" scrolling="no" v-else></iframe>
           </figure>
           <figure class="secondary-screen" v-if="secondaryScreen">
             <video controls="false" muted="true" autoplay="true" v-if="secondaryScreenRawVideo">
@@ -35,9 +38,7 @@
           </div>
           <div class="goal" v-if="goal.active">
             <div class="thermometer">
-              <div class="inside" v-bind:style="thermometerHeight">
-                <!--.label $4,311-->
-              </div>
+              <div class="inside" v-bind:style="thermometerHeight"></div>
             </div>
             <div class="message-box">
               <div class="number">{{dollarAmount(goal.amount)}}</div>
@@ -79,18 +80,28 @@
         </aside>
         <footer>
           <div class="box hour-box" v-if="hour">
-            <div class="label">This is hour</div>
+            <div class="label" v-if="onBreak">Next Hour:</div>
+            <div class="label" v-else>This is hour</div>
             <div class="number-holder"><span class="number">{{hour}}</span><span class="total">/ 24</span></div>
           </div>
           <div class="topic-box box">
             <div class="topic" v-if="title">
-              <div class="label">Currently reading</div>
+              <div class="label" v-if="onBreak">Up Next</div>
+              <div class="label" v-else>Currently reading</div>
               <div class="title">{{title}}</div>
             </div>
-            <div class="provider" v-if="provider">
+            <div class="provider" v-if="provider &amp;&amp; !onBreak">
               <div class="label">Provided by</div>
               <div class="name">{{provider}}</div>
             </div>
+            <div class="readers with" v-if="onBreak">
+              <div class="label">with</div>
+              <div class="reader-list"><span v-for="reader in readers">{{reader}}</span></div>
+              <div class="artist" v-if="artist"><span>Your artist: <b>{{artist}}</b></span></div>
+            </div>
+          </div>
+          <div class="desc-box box" v-if="onBreak">
+            <div class="text" v-html="introText"></div>
           </div>
           <div class="total-box box" v-if="totalDonations">
             <div class="label">Money Raised</div>
