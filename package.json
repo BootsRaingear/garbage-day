@@ -83,6 +83,13 @@
 				"file": "donations-panel.html",
 				"workspace": "Stream"
 			}
+		],
+		"graphics": [
+			{
+				"file": "index.html",
+				"width": 1920,
+				"height": 1080
+			}
 		]
 	}
 }
