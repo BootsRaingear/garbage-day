@@ -40,4 +40,10 @@ main
       
       .provider(v-if="prize.provider") provided by 
         b {{prize.provider}}
-  
+        
+  .freewrite(v-if="freewrite.active")
+    .freewrite-box(v-bind:class="freewrite.location")
+      .inside
+        figure(v-if="freewrite.img")
+          img(:src="freewrite.img")
+        .content(v-if="freewrite.content" v-html="freewrite.content")

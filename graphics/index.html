@@ -52,6 +52,14 @@
               <div class="provider" v-if="prize.provider">provided by <b>{{prize.provider}}</b></div>
             </div>
           </div>
+          <div class="freewrite" v-if="freewrite.active">
+            <div class="freewrite-box" v-bind:class="freewrite.location">
+              <div class="inside">
+                <figure v-if="freewrite.img"><img :src="freewrite.img"></figure>
+                <div class="content" v-if="freewrite.content" v-html="freewrite.content"></div>
+              </div>
+            </div>
+          </div>
         </main>
         <aside>
           <div class="intro-box" v-if="introText">
