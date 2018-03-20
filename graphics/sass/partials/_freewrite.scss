@@ -1,5 +1,5 @@
 .freewrite {
-  .freewrite-box { position: absolute; }
+  .freewrite-box { position: absolute; z-index:$z-freewrite; }
   .inside { background-color:$white; color:$black; max-width: 40%; padding: 20px; }
   .content { line-height: 140%; }
 }

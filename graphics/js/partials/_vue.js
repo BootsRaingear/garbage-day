@@ -31,7 +31,7 @@ var app = new Vue({
     },
     
     secondaryStream: {
-      show: true,
+      show: false,
       name: "Frank West plays some dumb bullshit",
       url: "https://player.twitch.tv/?channel=thefplus"
     },
@@ -51,14 +51,14 @@ var app = new Vue({
     },
     
     goal: {
-      active: false,
+      active: true,
       text: "Fuckin', like, I dunno, we stop doing this?",
       amount: 40000,
       startAmount: 20000
     },
     
     prize: {
-      active: false,
+      active: true,
       amount: 50,
       text: "mp3s of motivational tautalogies (yelled)",
       provider: "Jack Chick"

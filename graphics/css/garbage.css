@@ -264,6 +264,8 @@ aside {
       width: 100%; }
   aside .reader-box {
     margin-bottom: 1.5em; }
+    aside .reader-box .label {
+      margin-bottom: 0.4em; }
     aside .reader-box ul {
       padding-left: 1.5em; }
     aside .reader-box li {
@@ -485,7 +487,8 @@ footer {
   position: absolute;
   right: 15px;
   bottom: 15px;
-  width: 32em; }
+  width: 32em;
+  z-index: 8; }
   .battle-screen .battle {
     display: -webkit-box;
     display: -webkit-flex;
@@ -507,8 +510,7 @@ footer {
     transition: -webkit-transform 5s linear;
     -o-transition: transform 5s linear;
     transition: transform 5s linear;
-    transition: transform 5s linear, -webkit-transform 5s linear;
-    /* transform: perspective( 600px ) rotateY( -20deg ); */ }
+    transition: transform 5s linear, -webkit-transform 5s linear; }
   .battle-screen .side {
     color: #eee;
     -ms-flex-preferred-size: calc(50% - 30px);
@@ -570,6 +572,7 @@ footer {
   top: 40px;
   bottom: 50px;
   left: 40px;
+  z-index: 6;
   width: 55px;
   background: rgba(0, 0, 0, 0.7);
   border-radius: 25px;
@@ -597,6 +600,7 @@ footer {
   position: absolute;
   top: 60px;
   left: 100px;
+  z-index: 7;
   background: rgba(0, 0, 0, 0.7);
   color: #eee;
   padding: 1em;
@@ -609,7 +613,8 @@ footer {
 .prize {
   position: absolute;
   top: 40px;
-  right: 40px; }
+  right: 40px;
+  z-index: 4; }
   .prize .prize-box {
     background: #eee;
     color: #131313;
@@ -634,7 +639,8 @@ footer {
     font-weight: 600; }
 
 .freewrite .freewrite-box {
-  position: absolute; }
+  position: absolute;
+  z-index: 3; }
 
 .freewrite .inside {
   background-color: #eee;

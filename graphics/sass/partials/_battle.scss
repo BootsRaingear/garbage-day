@@ -1,5 +1,5 @@
-.battle-screen { @include position(absolute,null,15px,15px); width:32em;
-  .battle { @include flex-container(); transition:transform 5s linear; /* transform: perspective( 600px ) rotateY( -20deg ); */ }
+.battle-screen { @include position(absolute,null,15px,15px); width:32em; z-index: $z-battle;
+  .battle { @include flex-container(); transition:transform 5s linear; }
   .side { color:$white; @include flex-item(calc(50% - 30px)); padding: 15px; border:2px solid $black; box-shadow: -6px -6px 6px rgba(0,0,0,0.5);
     &.left { background: darken($blue,30%); text-align: right; }
     &.right { background: darken($red,20%); }

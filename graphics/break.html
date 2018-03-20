@@ -13,7 +13,7 @@
             <figure v-if="breakPic" v-bind:style="breakBackground"></figure>
           </div>
         </main>
-        <footer>
+        <footer v-cloak>
           <div class="box hour-box" v-if="hour">
             <div class="label" v-if="onBreak">Next Hour:</div>
             <div class="label" v-else>This is hour</div>

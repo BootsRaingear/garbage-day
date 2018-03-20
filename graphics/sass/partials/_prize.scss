@@ -1,4 +1,4 @@
-.prize { @include position(absolute,40px,40px);
+.prize { @include position(absolute,40px,40px); z-index: $z-prize;
   .prize-box { background:$white; color:$black; padding:1em; box-shadow: -6px 6px 6px rgba(0,0,0,0.5); text-align: center; max-width: 24em; }
   .text { font-size:130%; font-weight: $bold; margin-bottom: 1em; margin-top: 0.7em; }
   

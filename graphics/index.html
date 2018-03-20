@@ -7,7 +7,7 @@
   </head>
   <body>
     <div id="app">
-      <div class="layout" v-bind:class="countScreens">
+      <div class="layout" v-cloak v-bind:class="countScreens">
         <main>
           <figure class="primary-screen" v-if="primaryScreen">
             <video controls="false" muted="true" autoplay="true" v-if="primaryScreenRawVideo">
@@ -78,7 +78,7 @@
           </div>
           <figure class="logo"><img :src="logoURL"></figure>
         </aside>
-        <footer>
+        <footer v-cloak>
           <div class="box hour-box" v-if="hour">
             <div class="label" v-if="onBreak">Next Hour:</div>
             <div class="label" v-else>This is hour</div>
