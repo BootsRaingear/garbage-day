@@ -469,8 +469,8 @@ footer {
     align-self: auto;
     padding: 15px;
     border: 2px solid #131313;
-    -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
-    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5); }
+    -webkit-box-shadow: -6px -6px 6px rgba(0, 0, 0, 0.5);
+    box-shadow: -6px -6px 6px rgba(0, 0, 0, 0.5); }
     .battle-screen .side.left {
       background: #0e3d8e;
       text-align: right; }
@@ -512,16 +512,18 @@ footer {
   .battle-screen .desc {
     font-size: 80%; }
 
-.thermometer .outside {
+.goal .thermometer {
   position: absolute;
   top: 40px;
   bottom: 50px;
   left: 40px;
   width: 55px;
-  background: rgba(0, 0, 0, 0.85);
-  border-radius: 25px; }
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 25px;
+  -webkit-box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.5);
+  box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.5); }
 
-.thermometer .inside {
+.goal .inside {
   position: absolute;
   right: 0;
   bottom: 0;
@@ -530,25 +532,50 @@ footer {
   background-image: -o-repeating-linear-gradient(left, #a2682a 0%, #be8c3c 8%, #be8c3c 18%, #d3b15f 27%, #faf0a0 35%, #ffffc2 40%, #faf0a0 50%, #d3b15f 58%, #be8c3c 67%, #b17b32 77%, #bb8332 83%, #d4a245 88%, #e1b453 93%, #a4692a 100%);
   background-image: repeating-linear-gradient(to right, #a2682a 0%, #be8c3c 8%, #be8c3c 18%, #d3b15f 27%, #faf0a0 35%, #ffffc2 40%, #faf0a0 50%, #d3b15f 58%, #be8c3c 67%, #b17b32 77%, #bb8332 83%, #d4a245 88%, #e1b453 93%, #a4692a 100%);
   border-bottom-left-radius: 25px;
-  border-bottom-right-radius: 25px;
-  -webkit-box-shadow: 8px 8px 16px #131313;
-  box-shadow: 8px 8px 16px #131313; }
+  border-bottom-right-radius: 25px; }
 
-.thermometer .label {
+.goal .label {
   color: #131313;
   text-shadow: 1px 1px 1px #eee;
   text-align: center;
   display: none; }
 
-.thermometer .message-box {
+.goal .message-box {
   position: absolute;
   top: 60px;
   left: 100px;
-  background: rgba(0, 0, 0, 0.85);
+  background: rgba(0, 0, 0, 0.7);
   color: #eee;
   padding: 1em;
   max-width: 18em; }
-  .thermometer .message-box .number {
+  .goal .message-box .number {
     font-size: 300%;
     font-weight: 600;
     color: gold; }
+
+.prize {
+  position: absolute;
+  top: 40px;
+  right: 40px; }
+  .prize .prize-box {
+    background: #eee;
+    color: #131313;
+    padding: 1em;
+    -webkit-box-shadow: -6px 6px 6px rgba(0, 0, 0, 0.5);
+    box-shadow: -6px 6px 6px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    max-width: 24em; }
+  .prize .text {
+    font-size: 130%;
+    font-weight: 600;
+    margin-bottom: 1em;
+    margin-top: 0.7em; }
+  .prize .amount .donate {
+    -webkit-transform: translateY(-1.2em);
+    -ms-transform: translateY(-1.2em);
+    transform: translateY(-1.2em);
+    display: inline-block;
+    margin-right: 1em; }
+  .prize .amount .number {
+    font-size: 330%;
+    font-weight: 600; }

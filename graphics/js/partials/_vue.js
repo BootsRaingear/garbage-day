@@ -32,7 +32,6 @@ var app = new Vue({
       show: true,
       name: "Frank West plays some dumb bullshit",
       url: "https://player.twitch.tv/?channel=thefplus"
-      //url: "https://1-edge4-us-east.picarto.tv/mp4/JacFox.mp4"
     },
     
     totalDonations: 34646.25,
@@ -43,18 +42,26 @@ var app = new Vue({
       active: true,
       option1title: "we will mutually masturbate each other",
       option1keyword: "jerk",
-      option1total: 47,
+      option1total: 50,
       option2title: "we will commit suicide under horrific circumstances",
       option2keyword: "die",
-      option2total: 368
+      option2total: 100
     },
     
-    donationGoal: {
+    goal: {
       active: true,
       text: "Fuckin', like, I dunno, we stop doing this?",
       amount: 40000,
       startAmount: 20000
+    },
+    
+    prize: {
+      active: true,
+      amount: 50,
+      text: "mp3s of motivational tautalogies (yelled)",
+      provider: "Jack Chick"
     }
+    
     
   },
   methods: {
@@ -104,21 +111,13 @@ var app = new Vue({
     
     weighBattle: function() {
       var self = this;
-      
       var diff = 0;
-      
-      /*
-      return {
-        'transform': 'perspective( 600px ) rotateY( -20deg )'
-      };
-      */
       
       if (self.battle.option1total > self.battle.option2total) {
         diff = self.battle.option1total/(self.battle.option2total + self.battle.option1total) * 80 - 40;
         return {
           'transform': 'perspective( 600px ) rotateY( '+diff+'deg )'
         };
-        //return 'transform: rotate3d(0.2, 1, 1, -'  + diff + ' deg);';
       } else if (self.battle.option1total < self.battle.option2total) {
         diff = self.battle.option2total/(self.battle.option1total + self.battle.option2total) * 80 - 40;
         return {
@@ -126,7 +125,7 @@ var app = new Vue({
         };
       } else {
         return {
-          'transform': 'perspective( 600px ) rotateY( 80deg )'
+          'transform': 'perspective( 600px ) rotateY( 0deg )'
         };
       }
       
@@ -134,8 +133,8 @@ var app = new Vue({
     
     thermometerHeight: function() {
       var self = this;
-      var n = parseInt(self.donationGoal.startAmount);
-      var x = parseInt(self.donationGoal.amount);
+      var n = parseInt(self.goal.startAmount);
+      var x = parseInt(self.goal.amount);
       var pct = ((self.totalDonations - n) / (x - n) * 100);
       
       return {

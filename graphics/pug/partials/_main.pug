@@ -19,10 +19,25 @@ main
         .total {{dollarAmount(battle.option2total)}}
         .desc {{battle.option2title}}
         
-  .thermometer(v-if="donationGoal.active")
-    .outside
+  .goal(v-if="goal.active")
+    .thermometer
       .inside(v-bind:style="thermometerHeight")
         //.label $4,311
     .message-box
-      .number {{dollarAmount(donationGoal.amount)}}
-      .thing {{donationGoal.text}}
+      .number {{dollarAmount(goal.amount)}}
+      .thing {{goal.text}}
+  
+  .prize(v-if="prize.active")
+    .prize-box
+      .current Current Prize:
+      
+      .amount
+        span.donate donate 
+        span.number {{dollarAmount(prize.amount)}}
+        span.or-more  or more
+      
+      .text(v-if="prize.text") {{prize.text}}
+      
+      .provider(v-if="prize.provider") provided by 
+        b {{prize.provider}}
+  
