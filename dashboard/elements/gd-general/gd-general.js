@@ -1,10 +1,14 @@
 (function () {
 	const onBreak = nodecg.Replicant('onBreak');
+	const currentHour = nodecg.Replicant('currentHour');
+	const donationTotal = nodecg.Replicant('donationTotal');
+	const battle = nodecg.Replicant('battle');
+
 	const sceneList = nodecg.Replicant('obs:sceneList');
 	
-	class GdObsControl extends Polymer.Element {
+	class GdGeneral extends Polymer.Element {
 		static get is() {
-			return 'gd-obs-control';
+			return 'gd-general';
 		}
 		
 		static get properties() {
@@ -41,5 +45,5 @@
 		}
 		*/	
 	}
-	customElements.define(GdObsControl.is, GdObsControl);			
+	customElements.define(GdGeneral.is, GdGeneral);			
 })();

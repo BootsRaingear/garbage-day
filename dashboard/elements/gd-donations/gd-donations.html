@@ -34,20 +34,14 @@
 		<div>
 			<h2>Recent Donations</h2>
 		</div>
-		<table>		
-		
-		
-			<iron-list items="[[donationList]]" as="item" mutable-data>
-				<template>
-					<tr>
-						<td>[[item.name]]</td>
-						<td>[$[[item.formatted_amount]]]</td>
-						<td>[[item.message]]</td>
-					</tr>
-				</template>
-			</iron-list>					
-			
-			
+		<table>				
+			<template is="dom-repeat" items="{{donationList}}">
+				<tr>
+					<td>{{item.name}}</td>
+					<td>${{item.formatted_amount}}</td>
+					<td>{{item.message}}</td>
+				</tr>
+			</template>			
 		</table>
 	</template>
 	<script src="gd-donations.js"></script>
