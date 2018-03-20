@@ -13,7 +13,10 @@
             <iframe :src="primaryStream.url" frameborder="0" allowfullscreen="false" scrolling="no"></iframe>
           </figure>
           <figure class="secondary-screen" v-if="secondaryScreen">
-            <iframe :src="secondaryStream.url" frameborder="0" allowfullscreen="false" scrolling="no"></iframe>
+            <video controls="false" muted="true" autoplay="true" v-if="secondaryScreenRawVideo">
+              <source :src="secondaryStream.url">
+            </video>
+            <iframe :src="secondaryStream.url" frameborder="0" allowfullscreen="false" scrolling="no" v-else></iframe>
           </figure>
         </main>
         <aside>

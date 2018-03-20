@@ -2,4 +2,6 @@ main
   figure.primary-screen(v-if="primaryScreen")
     iframe(:src="primaryStream.url" frameborder="0" allowfullscreen="false" scrolling="no")
   figure.secondary-screen(v-if="secondaryScreen")
-    iframe(:src="secondaryStream.url" frameborder="0" allowfullscreen="false" scrolling="no")
+    video(controls="false" muted="true" autoplay="true" v-if="secondaryScreenRawVideo")
+      source(:src="secondaryStream.url" )
+    iframe(:src="secondaryStream.url" frameborder="0" allowfullscreen="false" scrolling="no" v-else)
