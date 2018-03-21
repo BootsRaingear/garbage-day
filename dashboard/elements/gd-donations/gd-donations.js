@@ -21,6 +21,7 @@
 			super.ready();
 			
 			recentDonations.on('change', newVal => {
+				this.donationList = [];
 				this.donationList = newVal;
 			});
 			slAuthUrl.on('change', newVal => {
