@@ -28,7 +28,7 @@
 		}
 				
 		fetch() {
-			if (1 <= this.hour && this.hour <= 24) {
+			if (0 <= this.hour && this.hour <= 24) {
 				if (typeof segments.value[this.hour] !== 'undefined') {
 					this.title = segments.value[this.hour].title;
 					this.docProvider = segments.value[this.hour].docProvider;
@@ -66,7 +66,7 @@
 		}
 		
 		update() {
-			if (1 <= this.hour && this.hour <= 24)
+			if (0 <= this.hour && this.hour <= 24)
 			{
 				segment.value.hour = this.hour;
 				segment.value.title = this.title;

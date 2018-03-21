@@ -58,7 +58,7 @@
 			},
 			{
 				"name": "obs-control",
-				"title": "OBS Control",
+				"title": "Break Button",
 				"width": 2,
 				"file": "obs-control.html",
 				"workspace": "Setup"
@@ -71,17 +71,24 @@
 				"workspace": "Setup"
 			},
 			{
-				"name": "general",
-				"title": "General Info",
-				"width": 4,
-				"file": "general-panel.html",
-				"workspace": "Stream"
-			},			
-			{
 				"name": "soundboard",
 				"title": "Sound Board",
 				"width": 3,
 				"file": "soundboard.html",
+				"workspace": "Stream"
+			},
+			{
+				"name": "general",
+				"title": "General Info",
+				"width": 5,
+				"file": "general-panel.html",
+				"workspace": "Stream"
+			},
+			{
+				"name": "stream-control",
+				"title": "Stream Control", 
+				"width": 5,
+				"file": "stream-control-panel.html",
 				"workspace": "Stream"
 			},
 			{

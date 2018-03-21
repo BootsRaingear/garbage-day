@@ -70,31 +70,30 @@
 			}
 
 			.sched_hour {
-				@apply --layout-horizontal;
-			}
-			
-			.cast_labels {
 				@apply --layout-vertical;
 			}
 			
+			.cast_item {
+				@apply --layout-horizontal;
+			}
+			
 			.cast_heading {
-				@apply --layout-flex;
 				text-align: right;
 				font-size: 16px;
 				font-weight: 500;		
-				height: 1.5em;
 				padding-right: 5px;
 				padding-left: 8px;
+				width:30%
 			}
 			
-			.cast_item {
+			.cast_value {
 				@apply --layout-flex;
 				text-align: left;
 				font-size: 16px;
-				font-weight: 500;		
-				height: 1.5em;
+				font-weight: 500;						
 				padding-right: 8px;
 				padding-left: 5px;
+				width:70%
 			}
 			
 			.sched_label {
@@ -126,55 +125,91 @@
 			<div class="sched_cur">
 				<label class="sched_label">Cast</label>		
 				<div class="sched_hour">
-					<div class="cast_labels">
-						<div class="cast_heading">Host:</div>
-						<div class="cast_heading">Ridiculists:</div>
-						<div class="cast_heading"></div>
-						<div class="cast_heading"></div>
-						<div class="cast_heading"></div>
-						<div class="cast_heading"></div>
-						<div class="cast_heading">Artist:</div>
-						<div class="cast_heading">Doc by:</div>
-						<div class="cast_heading">2nd Stream:</div>
+					<div class="cast_item">
+						<div class="cast_heading">Doc:</div>
+						<div class="cast_value"><a href={{curDocURL}}>{{curTitle}}</a></div>
 					</div>
-					<div class="cast_info">
-						<div class="cast_item">{{curRidiculist1}}</div>
-						<div class="cast_item">{{curRidiculist2}}</div>
-						<div class="cast_item">{{curRidiculist3}}</div>
-						<div class="cast_item">{{curRidiculist4}}</div>
-						<div class="cast_item">{{curRidiculist5}}</div>
-						<div class="cast_item">{{curRidiculist6}}</div>
-						<div class="cast_item">{{curArtist}}</div>
-						<div class="cast_item">{{curDocProvider}}</div>
-						<div class="cast_item">{{curStreamTwo}}</div>
+					<div class="cast_item">
+						<div class="cast_heading">Host:</div>
+						<div class="cast_value">{{curRidiculist1}}</div>
+					</div>
+					<div class="cast_item">
+						<div class="cast_heading">Ridiculists:</div>
+						<div class="cast_value">{{curRidiculist2}}</div>
+					</div>
+					<div class="cast_item">					
+						<div class="cast_heading"></div>
+						<div class="cast_value">{{curRidiculist3}}</div>
+					</div>
+					<div class="cast_item">
+						<div class="cast_heading"></div>
+						<div class="cast_value">{{curRidiculist4}}</div>
+					</div>
+					<div class="cast_item">
+						<div class="cast_heading"></div>
+						<div class="cast_value">{{curRidiculist5}}</div>
+					</div>
+					<div class="cast_item">
+						<div class="cast_heading"></div>
+						<div class="cast_value">{{curRidiculist6}}</div>
+					</div>
+					<div class="cast_item">
+						<div class="cast_heading">Doc by:</div>
+						<div class="cast_value">{{curDocProvider}}</div>
+					</div>
+					<div class="cast_item">
+						<div class="cast_heading">Artist:</div>
+						<div class="cast_value">{{curArtist}}</div>
+					</div>
+					<div class="cast_item">
+						<div class="cast_heading">2nd Stream:</div>
+						<div class="cast_value">{{curStreamTwo}}</div>
 					</div>
 				</div>
 			</div>
 
 			<div class="sched_next">
-				<label class="sched_label">Up Next</label>		
+				<label class="sched_label">Next Hour</label>		
 				<div class="sched_hour">
-					<div class="cast_labels">
-						<div class="cast_heading">Host:</div>
-						<div class="cast_heading">Ridiculists:</div>
-						<div class="cast_heading"></div>
-						<div class="cast_heading"></div>
-						<div class="cast_heading"></div>
-						<div class="cast_heading"></div>
-						<div class="cast_heading">Artist:</div>
-						<div class="cast_heading">Doc by:</div>
-						<div class="cast_heading">2nd Stream:</div>
+					<div class="cast_item">
+						<div class="cast_heading">Doc:</div>
+						<div class="cast_value"><a href={{nextDocURL}}>{{nextTitle}}</a></div>
 					</div>
-					<div class="cast_info">
-						<div class="cast_item">{{nextRidiculist1}}</div>
-						<div class="cast_item">{{nextRidiculist2}}</div>
-						<div class="cast_item">{{nextRidiculist3}}</div>
-						<div class="cast_item">{{nextRidiculist4}}</div>
-						<div class="cast_item">{{nextRidiculist5}}</div>
-						<div class="cast_item">{{nextRidiculist6}}</div>
-						<div class="cast_item">{{nextArtist}}</div>
-						<div class="cast_item">{{nextDocProvider}}</div>
-						<div class="cast_item">{{nextStreamTwo}}</div>
+					<div class="cast_item">
+						<div class="cast_heading">Host:</div>
+						<div class="cast_value">{{nextRidiculist1}}</div>
+					</div>
+					<div class="cast_item">
+						<div class="cast_heading">Ridiculists:</div>
+						<div class="cast_value">{{nextRidiculist2}}</div>
+					</div>
+					<div class="cast_item">					
+						<div class="cast_heading"></div>
+						<div class="cast_value">{{nextRidiculist3}}</div>
+					</div>
+					<div class="cast_item">
+						<div class="cast_heading"></div>
+						<div class="cast_value">{{nextRidiculist4}}</div>
+					</div>
+					<div class="cast_item">
+						<div class="cast_heading"></div>
+						<div class="cast_value">{{nextRidiculist5}}</div>
+					</div>
+					<div class="cast_item">
+						<div class="cast_heading"></div>
+						<div class="cast_value">{{nextRidiculist6}}</div>
+					</div>
+					<div class="cast_item">
+						<div class="cast_heading">Doc by:</div>
+						<div class="cast_value">{{nextDocProvider}}</div>
+					</div>
+					<div class="cast_item">
+						<div class="cast_heading">Artist:</div>
+						<div class="cast_value">{{nextArtist}}</div>
+					</div>
+					<div class="cast_item">
+						<div class="cast_heading">2nd Stream:</div>
+						<div class="cast_value">{{nextStreamTwo}}</div>
 					</div>
 				</div>
 			</div>			

@@ -31,10 +31,10 @@
 			
 		</style>		
 		<div id="soundboard">
-			<template is="dom-repeat" items="{{soundclips}}">
+			<template is="dom-repeat" items="{{soundclips}}" sort="_sort">
 					<div class="soundclips">
 						<paper-button class="playSound" on-tap="_handlePlaySound" alt="Play Sound" raised>
-							[[item.name]]
+							{{item.name}}
 						</paper-button>
 					</div>
 		</template>

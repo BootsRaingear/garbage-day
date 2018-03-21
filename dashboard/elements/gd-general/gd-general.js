@@ -17,6 +17,7 @@
 				curHour: Number,
 				curTitle: String,
 				curDocProvider: String,
+				curDocURL: String,				
 				curRidiculist1: String,
 				curRidiculist2: String,
 				curRidiculist3: String,
@@ -29,6 +30,7 @@
 				nextHour: Number,
 				nextTitle: String,
 				nextDocProvider: String,
+				nextDocURL: String,
 				nextRidiculist1: String,
 				nextRidiculist2: String,
 				nextRidiculist3: String,
@@ -53,17 +55,16 @@
 			super.ready();
 			
 			battle.on('change', newVal => {
-				this.battleActive = newval.active;
-				this.option1Title = newval.option1Title;
-				this.option1Keyword = newval.option1Keyword;
-				this.option1Total = newval.option1Total;
-				this.option2Title = newval.option2Title;
-				this.option2Keyword = newval.option2Keyword;
-				this.option2Total = newval.option2Total;
+				this.battleActive = newVal.active;
+				this.option1Title = newVal.option1Title;
+				this.option1Keyword = newVal.option1Keyword;
+				this.option1Total = newVal.option1Total;
+				this.option2Title = newVal.option2Title;
+				this.option2Keyword = newVal.option2Keyword;
+				this.option2Total = newVal.option2Total;
 			});
 			
 			currentHour.on('change', newVal => {
-				//changeme: move values back 1 hour
 				this.curHour = newVal + 1;
 				this.nextHour = newVal + 2;
 			});
@@ -75,6 +76,7 @@
 			segments.on('change', newVal => {
 				this.curTitle = newVal[this.curHour].title;
 				this.curDocProvider = newVal[this.curHour].docProvider;
+				this.curDocURL = newVal[this.curHour].docURL;
 				this.curRidiculist1 = newVal[this.curHour].ridiculist1;
 				this.curRidiculist2 = newVal[this.curHour].ridiculist2;
 				this.curRidiculist3 = newVal[this.curHour].ridiculist3;
@@ -87,6 +89,7 @@
 				if (this.nextHour <= 24) {
 					this.nextTitle = newVal[this.nextHour].title;
 					this.nextDocProvider = newVal[this.nextHour].docProvider;
+					this.nextDocURL = newVal[this.curHour].docURL;
 					this.nextRidiculist1 = newVal[this.nextHour].ridiculist1;
 					this.nextRidiculist2 = newVal[this.nextHour].ridiculist2;
 					this.nextRidiculist3 = newVal[this.nextHour].ridiculist3;
@@ -98,6 +101,7 @@
 				} else {
 					this.nextTitle = newVal[this.nextHour].title;
 					this.nextDocProvider = "";
+					this.nextDocURL = "";
 					this.nextRidiculist1 = "";
 					this.nextRidiculist2 = "";
 					this.nextRidiculist3 = "";
