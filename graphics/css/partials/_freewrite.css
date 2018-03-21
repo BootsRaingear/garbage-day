@@ -1,0 +1,8 @@
+.freewrite .freewrite-box {
+  position: absolute; }
+
+.freewrite-box.center {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0; }

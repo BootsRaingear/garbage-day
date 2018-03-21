@@ -20,7 +20,7 @@ html, body { background: #131313; }
     iframe, video { height: 42vw; }
   }
   
-  .secondary-screen { @include position(absolute,null,0,0); width:38%;
+  .secondary-screen { @include position(fixed,null,0,0); width:38%;
     iframe, video { height: 21.5vw; }
   }
 }

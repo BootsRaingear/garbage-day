@@ -1,0 +1,13 @@
+.prize(v-if="prize.active")
+  .prize-box
+    .current Current Prize:
+
+    .amount
+      span.donate donate 
+      span.number {{dollarAmount(prize.amount)}}
+      span.or-more  or more
+
+    .text(v-if="prize.text") {{prize.text}}
+
+    .provider(v-if="prize.provider") provided by 
+      b {{prize.provider}}

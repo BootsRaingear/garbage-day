@@ -12,6 +12,7 @@ aside { padding: 15px; color: $offwhite; font-family: $font; font-size:20px;  @i
   }
   
   .reader-box { margin-bottom: 1.5em;
+    .label { margin-bottom: 0.4em; }
     ul { padding-left: 1.5em; }
     li { list-style: none; font-weight: $bold; line-height: 100%; margin-bottom: 0.75em; }
   }

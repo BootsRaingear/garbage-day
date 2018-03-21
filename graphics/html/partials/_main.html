@@ -1,0 +1,27 @@
+
+<main>
+  <figure class="primary-screen" v-if="primaryScreen">
+    <iframe :src="primaryStream.url" frameborder="0" allowfullscreen="false" scrolling="no"></iframe>
+  </figure>
+  <figure class="secondary-screen" v-if="secondaryScreen">
+    <video controls="false" muted="true" autoplay="true" v-if="secondaryScreenRawVideo">
+      <source :src="secondaryStream.url"/>
+    </video>
+    <iframe :src="secondaryStream.url" frameborder="0" allowfullscreen="false" scrolling="no" v-else="v-else"></iframe>
+  </figure>
+  <div class="battle-screen" v-show="battle.active">
+    <div class="battle">
+      <div class="left">
+        <div class="keyword">{{option1title}}</div>
+        <div class="total">{{dollarAmount(option1total)}}</div>
+        <div class="desc">{{option1title}}</div>
+      </div>
+      <div class="vs"><span>vs</span></div>
+      <div class="right">
+        <div class="keyword">{{option1title}}</div>
+        <div class="total">{{dollarAmount(option1total)}}</div>
+        <div class="desc">{{option1title}}</div>
+      </div>
+    </div>
+  </div>
+</main>

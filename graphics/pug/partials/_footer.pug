@@ -1,21 +1,38 @@
-footer
+footer(v-cloak)
   .box.hour-box(v-if="hour")
-    .label This is hour
+    .label(v-if="onBreak") Next Hour:
+    .label(v-else) This is hour
     .number-holder
       span.number {{hour}}
       span.total / 24
+      
   .topic-box.box
     .topic(v-if="title")
-      .label Currently reading
+      .label(v-if="onBreak") Up Next
+      .label(v-else) Currently reading
       .title {{title}}
-    .provider(v-if="provider")
+    .provider(v-if="provider && !onBreak")
       .label Provided by
       .name {{provider}}
+    .readers.with(v-if="onBreak")
+      .label with
+      .reader-list
+        span(v-for="reader in readers") {{reader}}
+      .artist(v-if="artist")
+        span Your artist: 
+          b {{artist}}
+        
+  .desc-box.box(v-if="onBreak")
+    .text(v-html="introText")
+      
   .total-box.box(v-if="totalDonations")
     .label Money Raised
     .number {{dollarAmount(totalDonations)}}
     .sub Money goes to the 
       b Southern Poverty Law Center
+  
   .cta-box.box
     .label Donate now at
     a.url {{donateURL}}
+    
+  

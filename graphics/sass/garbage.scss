@@ -7,8 +7,15 @@
 
 // SITE SPECIFIC
 @import "partials/_variables";
+@import "partials/_defaults";
 @import "partials/_layout";
 @import "partials/_main";
 @import "partials/_aside";
 @import "partials/_footer";
 
+@import "partials/_battle";
+@import "partials/_goal";
+@import "partials/_prize";
+@import "partials/_freewrite";
+
+@import "partials/_break";

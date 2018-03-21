@@ -3,8 +3,8 @@ var app = new Vue({
   el: '#app',
   data: {
     hour: 9,
-    onBreak: false,
-    breakPic: 'https://picsum.photos/1920/900',
+    onBreak: true,
+    breakPic: 'https://picsum.photos/1920/850',
     title: "Bitch Loser Sex Madness",
     readers: [
       "Lemon",
@@ -31,7 +31,7 @@ var app = new Vue({
     },
     
     secondaryStream: {
-      show: false,
+      show: true,
       name: "Frank West plays some dumb bullshit",
       url: "https://player.twitch.tv/?channel=thefplus"
     },
@@ -51,14 +51,14 @@ var app = new Vue({
     },
     
     goal: {
-      active: true,
+      active: false,
       text: "Fuckin', like, I dunno, we stop doing this?",
       amount: 40000,
       startAmount: 20000
     },
     
     prize: {
-      active: true,
+      active: false,
       amount: 50,
       text: "mp3s of motivational tautalogies (yelled)",
       provider: "Jack Chick"
@@ -160,6 +160,14 @@ var app = new Vue({
         'height': pct+'%'
       };
       
+    },
+    
+    breakBackground: function() {
+      var self = this;
+      return {
+        'background-image': 'url('+self.breakPic+')'
+      }
     }
+    
   }
 });

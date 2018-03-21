@@ -15,7 +15,8 @@
 				"socket.io-client": "^2.0.3",
 				"moment": "^2.21.0",
 				"streamlabs": "^1.3.4",
-				"axios": "^0.16.2"
+				"axios": "^0.16.2",
+				"node-schedule": "^1.3.0"
 		},
 		"assetCategories": [
 			{
@@ -67,6 +68,13 @@
 				"title": "Schedule Editor",
 				"width": 4,
 				"file": "schedule-panel.html",
+				"workspace": "Setup"
+			},
+			{
+				"name": "general"
+				"title": "General Info",
+				"width": 3,
+				"file": "general-panel.html",
 				"workspace": "Setup"
 			},
 			{

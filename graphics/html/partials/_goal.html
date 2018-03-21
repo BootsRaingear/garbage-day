@@ -1,0 +1,10 @@
+
+<div class="goal" v-if="goal.active">
+  <div class="thermometer">
+    <div class="inside" v-bind:style="thermometerHeight"></div>
+  </div>
+  <div class="message-box">
+    <div class="number">{{dollarAmount(goal.amount)}}</div>
+    <div class="thing">{{goal.text}}</div>
+  </div>
+</div>

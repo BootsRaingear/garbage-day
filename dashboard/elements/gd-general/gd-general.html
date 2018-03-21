@@ -1,9 +1,8 @@
 <link rel="import" href="../../../bower_components/polymer/polymer-element.html">
 <link rel="import" href="../../../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../../../bower_components/iron-flex-layout/iron-flex-layout.html">
-<link rel="import" href="../../../bower_components/iron-list/iron-list.html">
 
-<dom-module id="gd-obs-control">
+<dom-module id="gd-general">
 	<template>
 		<style>
 			:host {
@@ -26,21 +25,11 @@
 				};
 			}
 
-		</style>
-		
-		
-		<div id="breakButton">
-			<paper-button id="startBreak" raise hidden="[[onBreak]]" on-tap="startBreak">
-				Start Break
-			</paper-button>
-			
-			<paper-button id="endBreak" raise hidden="[[!onBreak]]" on-tap="endBreak">
-				End Break
-			</paper-button>		
-		</div>
+		</style>	
 		
 		<div id="divider"></div>
+
 	</template>
 	
-	<script src="gd-obs-control.js"></script>
+	<script src="gd-general.js"></script>
 </dom-module>

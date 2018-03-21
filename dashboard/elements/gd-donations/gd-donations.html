@@ -9,12 +9,9 @@
 			:host {
 				@apply --layout-vertical;				
 			}
-						
-			#grabDonations {
-				--paper-button: {
-					background-color: #5BA664;
-					color: white;
-				};
+			
+			table {
+				table-layout: auto;
 			}
 			
 			.donation {
@@ -24,6 +21,7 @@
 				padding-bottom: 6px;
 				box-sizing: border-box;
 			}
+						
 			
 		</style>
 		<div>
@@ -36,16 +34,15 @@
 		<div>
 			<h2>Recent Donations</h2>
 		</div>
-		
-		<iron-list items="[[donationList]]" as="item" mutable-data>
-			<template>
-				<div class="donation">
-					[[item.name]] 
-					[$[[item.formatted_amount]]]
-					[[item.message]]
-				<div>
-			</template>
-		</iron-list>		
+		<table>				
+			<template is="dom-repeat" items="{{donationList}}">
+				<tr>
+					<td>{{item.name}}</td>
+					<td>${{item.formatted_amount}}</td>
+					<td>{{item.message}}</td>
+				</tr>
+			</template>			
+		</table>
 	</template>
 	<script src="gd-donations.js"></script>
 </dom-module>		

@@ -1,0 +1,6 @@
+.goal(v-if="goal.active")
+  .thermometer
+    .inside(v-bind:style="thermometerHeight")
+  .message-box
+    .number {{dollarAmount(goal.amount)}}
+    .thing {{goal.text}}
