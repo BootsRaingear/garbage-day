@@ -6,29 +6,66 @@
 	<template>
 		<style>
 			:host {
-				margin-right: 24px;
 				@apply --layout-vertical;
-				@apply --layout-center;
-				@apply --layout-flex-none;
+				color: var(--gdq-schedule-runinfo-color, black);
 			}
 			
-			#startBreak {
-				--paper-button: {
-					background-color: #5BA664;
-					color: white;
-				};
+			.padded {
+				padding: 4px;
 			}
-			#endBreak {
-				--paper-button: {
-					background-color: #C9513E;
-					color: white;
-				};
+			
+			section {
+				@apply --layout-vertical;
 			}
 
+			#gen_info {
+				@apply --layout-horizontal;
+			}
+			#hour .value {
+					font-weight: 500;
+					font-size: 18px;
+					height: 2.4em;
+					word-wrap: break-word;
+					word-wrap: break-word;
+					white-space: normal;
+					/* limit max lines to 2 */
+					display: -webkit-box;
+					-webkit-line-clamp: 2;
+					-webkit-box-orient: vertical;
+				}
+				
+			.divider {
+				border-bottom: 1px dashed #5f5f5;
+				margin-top: 10px;
+				margin-bottom: 10px;
+			}
+			
+			#label {
+				font-weight: 500;
+				font-size: 18px;
+				width: 100%;
+				text-align: center;
+			}
+			.value {
+				font-size: 16px;
+				font-weight: 500;
+				white-space: nowrap;
+				text-overflow: ellipsis;
+				overflow: hidden;
+				display: inline-block;
+			}			
 		</style>	
 		
-		<div id="divider"></div>
-
+		<div id="gen_info">
+		<section id="hour">
+			<label>Hour</label>
+			<span class="value" title="{{curHour}}">{{curHour}}&#8203;</span>
+		</section>
+		<section id="total">
+			<label>Amount raised</label>
+			<span class="value" title="{{total}}">${{total}}&#8203;</span>
+		</section>
+		</div>
 	</template>
 	
 	<script src="gd-general.js"></script>

@@ -1,6 +1,5 @@
 (function () {
 	const onBreak = nodecg.Replicant('onBreak');
-	const sceneList = nodecg.Replicant('obs:sceneList');
 	
 	class GdObsControl extends Polymer.Element {
 		static get is() {
@@ -22,9 +21,7 @@
 			onBreak.on('change', newVal => {
 				this.onBreak = newVal;
 			});
-			sceneList.on('change', newVal => {
-				this.scenes = newVal;
-			});
+
 		}
 		
 		startBreak() {
@@ -34,12 +31,7 @@
 		endBreak() {
 			onBreak.value = false;
 		}
-		
-		/*
-		_handleSelectScene(e) {
-			//nodecg.sendMessage('obsChangeScene', e.model.obsScene.base);
-		}
-		*/	
+
 	}
 	customElements.define(GdObsControl.is, GdObsControl);			
 })();

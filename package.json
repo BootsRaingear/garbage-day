@@ -71,12 +71,12 @@
 				"workspace": "Setup"
 			},
 			{
-				"name": "general"
+				"name": "general",
 				"title": "General Info",
 				"width": 3,
 				"file": "general-panel.html",
-				"workspace": "Setup"
-			},
+				"workspace": "Stream"
+			},			
 			{
 				"name": "soundboard",
 				"title": "Sound Board",
