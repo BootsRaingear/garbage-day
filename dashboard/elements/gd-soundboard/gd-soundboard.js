@@ -1,7 +1,7 @@
 (function () {
 	const soundboard = nodecg.Replicant('assets:soundboard');
 	
-	class GdSoundBoard extends Polymer.Element {
+	class GdSoundBoard extends Polymer.MutableData(Polymer.Element) {
 		static get is() {
 			return 'gd-soundboard';
 		}
@@ -15,8 +15,10 @@
 		ready() {
 			super.ready();
 			
-			soundboard.on('change', newVal => {
+			soundboard.on('change', newVal => {				
+				this.soundclips = []; 	// forces browser to detect change in items.
 				this.soundclips = newVal;
+				
 			});
 		}
 		

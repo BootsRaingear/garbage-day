@@ -3,7 +3,7 @@
 	const donationTotal = nodecg.Replicant('donationTotal');
 	const slAuthUrl = nodecg.Replicant('slAuthUrl');
 	
-	class GdDonations extends Polymer.Element {
+	class GdDonations extends Polymer.MutableData(Polymer.Element) {
 		static get is() {
 			return 'gd-donations';
 		}
@@ -22,7 +22,6 @@
 			
 			recentDonations.on('change', newVal => {
 				this.donationList = newVal;
-				console.log(this.donationList);
 			});
 			slAuthUrl.on('change', newVal => {
 				this.authUrl = newVal;
