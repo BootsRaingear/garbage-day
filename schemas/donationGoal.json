@@ -6,19 +6,15 @@
 			"type": "boolean",
 			"default": "false"
 		},
-		"options1": {
+		"text": {
 			"type": "string",
 			"default": ""
 		},
-		"option1keyword": {
+		"amount": {
 			"type": "string",
 			"default": ""
 		},
-		"option2": {
-			"type": "string",
-			"default": ""
-		},
-		"option2keyword": {
+		"startAmount": {
 			"type": "string",
 			"default": ""
 		}
