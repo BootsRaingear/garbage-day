@@ -73,7 +73,7 @@
 			{
 				"name": "general",
 				"title": "General Info",
-				"width": 3,
+				"width": 4,
 				"file": "general-panel.html",
 				"workspace": "Stream"
 			},			

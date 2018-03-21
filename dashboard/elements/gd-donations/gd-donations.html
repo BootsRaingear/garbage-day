@@ -21,6 +21,18 @@
 				padding-bottom: 6px;
 				box-sizing: border-box;
 			}
+			
+			.donor_name {
+				text-align: right;
+			}
+			
+			.amount {
+				text-align: right;
+			}
+			.row:nth-child(even) {
+				background-color: #ebebeb;
+				
+			}
 						
 			
 		</style>
@@ -36,10 +48,10 @@
 		</div>
 		<table>				
 			<template is="dom-repeat" items="{{donationList}}">
-				<tr>
-					<td>{{item.name}}</td>
-					<td>${{item.formatted_amount}}</td>
-					<td>{{item.message}}</td>
+				<tr class="row">
+					<td class="donor_name">{{item.name}}</td>
+					<td class="amount">${{item.formatted_amount}}</td>
+					<td class="message">{{item.message}}</td>
 				</tr>
 			</template>			
 		</table>

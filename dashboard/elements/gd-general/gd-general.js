@@ -63,8 +63,9 @@
 			});
 			
 			currentHour.on('change', newVal => {
-				this.curHour = newVal;
-				this.nextHour = newVal + 1;
+				//changeme: move values back 1 hour
+				this.curHour = newVal + 1;
+				this.nextHour = newVal + 2;
 			});
 			
 			donationTotal.on('change', newVal => {

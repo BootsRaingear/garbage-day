@@ -3,17 +3,43 @@
 <link rel="import" href="../../../bower_components/iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../../../bower_components/iron-list/iron-list.html">
 
+
 <dom-module id="gd-soundboard">
 	<template>
 		<style>
+			#soundboard {
+				@apply --layout-horizontal;
+				@apply --layout-wrap;
+				margin-top: 8px;
+				margin-right: 8px;
+			}
+			
+			.soundclips {
+				@apply --layout-flex;				
+				padding-bottom: 5px;
+				padding-right: 5px;
+			}
+			
+			
+			.playSound {
+				@apply --layout-flex;				
+				--paper-button: {
+					background-color: #f8ffef;
+					width: 100%;
+				};
+			}
+			
 		</style>		
-		<iron-list id="soundclips" items="[[soundclips]]" as="soundclip" mutable-data>
-			<template>
-				<paper-button class="playSound" on-tap="_handlePlaySound" alt="Play Sound" raised>
-					[[soundclip.name]]
-				</paper-button>
-			</template>
-		</iron-list>
+		<div id="soundboard">
+			<template is="dom-repeat" items="{{soundclips}}">
+					<div class="soundclips">
+						<paper-button class="playSound" on-tap="_handlePlaySound" alt="Play Sound" raised>
+							[[item.name]]
+						</paper-button>
+					</div>
+		</template>
+		</div>
+		
 	</template>
 	<script src="gd-soundboard.js"></script>
 </dom-module>		
