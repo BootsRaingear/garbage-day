@@ -3,15 +3,56 @@
 const donationTotal = nodecg.Replicant('donationTotal');
 const currentHour = nodecg.Replicant('currentHour');
 const segments = nodecg.Replicant('segments');
+const battle = nodecg.Replicant('battle');
 	
+var hourFetched = false;
+var segFetchNeeded = false;
+
 donationTotal.on('change', newVal => {
 	app.totalDonations = newVal.toFixed(2);
 });
 
 currentHour.on('change', newVal => {
-	app.hour = newVal;
+	app.hour = newVal + 1; //FIXME : change back to | app.hour = newVal;
+	hourFetched = true;
+	
+	if (segFetchNeeded) {
+		updateCast(segments.value[app.hour]);
+	}
+		
 });
 
 segments.on('change', newVal => {
-	
+	if (hourFetched)
+		updateCast(newVal[app.hour]);
+	else
+		segFetchNeeded = true;
 });
+
+battle.on('change', newVal => {
+	console.log(newVal);
+	app.battle.active = newVal.active;
+	app.battle.option1 = newVal.option1;
+	app.battle.option1keyword = newVal.option1keyword;
+	app.battle.option1total = newVal.option1total;
+	app.battle.option2 = newVal.option2;
+	app.battle.option2keyword = newVal.option2keyword;
+	app.battle.option2total = newVal.option1total;
+});
+
+function updateCast(segment)
+{
+	console.log(segment);
+	app.artist = segment.artistName;
+
+	app.primaryStream.url = segment.artistURL;
+	app.title = segment.title;
+	app.provider = segment.docProvider;
+	app.readers[0] = segment.ridiculist1;
+	app.readers[1] = segment.ridiculist2;
+	app.readers[2] = segment.ridiculist3;
+	app.readers[3] = segment.ridiculist4;
+	app.readers[4] = segment.ridiculist5;
+	app.readers[5] = segment.ridiculist6;	
+}
+
