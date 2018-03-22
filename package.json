@@ -38,8 +38,8 @@
 				]
 			},
 			{
-				"name": "testimages",
-				"title": "Test Images",
+				"name": "breakimages",
+				"title": "Break Images",
 				"allowedTypes": [
 					"jpg",
 					"jpeg",

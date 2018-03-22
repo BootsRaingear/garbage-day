@@ -79,7 +79,7 @@
           <figure class="logo"><img :src="logoURL"></figure>
         </aside>
         <footer v-cloak>
-          <div class="box hour-box" v-if="hour">
+          <div class="box hour-box">
             <div class="label" v-if="onBreak">Next Hour:</div>
             <div class="label" v-else>This is hour</div>
             <div class="number-holder"><span class="number">{{hour}}</span><span class="total">/ 24</span></div>
