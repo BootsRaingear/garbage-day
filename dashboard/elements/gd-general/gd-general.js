@@ -67,56 +67,77 @@
 			currentHour.on('change', newVal => {
 				this.curHour = newVal + 1;
 				this.nextHour = newVal + 2;
+				
+				// if segments was parsed first, populate fields
+				if (typeof this.curTitle == 'undefined')
+					this.populateCast(segments.value);
 			});
 			
 			donationTotal.on('change', newVal => {
 				this.total = newVal;
 			});
-			
+						
 			segments.on('change', newVal => {
-				this.curTitle = newVal[this.curHour].title;
-				this.curDocProvider = newVal[this.curHour].docProvider;
-				this.curDocURL = newVal[this.curHour].docURL;
-				this.curRidiculist1 = newVal[this.curHour].ridiculist1;
-				this.curRidiculist2 = newVal[this.curHour].ridiculist2;
-				this.curRidiculist3 = newVal[this.curHour].ridiculist3;
-				this.curRidiculist4 = newVal[this.curHour].ridiculist4;
-				this.curRidiculist5 = newVal[this.curHour].ridiculist5;
-				this.curRidiculist6 = newVal[this.curHour].ridiculist6;
-				this.curArtist = newVal[this.curHour].artistName;
-				this.curStreamTwo = newVal[this.curHour].streamTwoName;	
-				
-				if (this.nextHour <= 24) {
-					this.nextTitle = newVal[this.nextHour].title;
-					this.nextDocProvider = newVal[this.nextHour].docProvider;
-					this.nextDocURL = newVal[this.curHour].docURL;
-					this.nextRidiculist1 = newVal[this.nextHour].ridiculist1;
-					this.nextRidiculist2 = newVal[this.nextHour].ridiculist2;
-					this.nextRidiculist3 = newVal[this.nextHour].ridiculist3;
-					this.nextRidiculist4 = newVal[this.nextHour].ridiculist4;
-					this.nextRidiculist5 = newVal[this.nextHour].ridiculist5;
-					this.nextRidiculist6 = newVal[this.nextHour].ridiculist6;
-					this.nextArtist = newVal[this.nextHour].artistName;
-					this.nextStreamTwo = newVal[this.nextHour].streamTwoName;					
-				} else {
-					this.nextTitle = newVal[this.nextHour].title;
-					this.nextDocProvider = "";
-					this.nextDocURL = "";
-					this.nextRidiculist1 = "";
-					this.nextRidiculist2 = "";
-					this.nextRidiculist3 = "";
-					this.nextRidiculist4 = "";
-					this.nextRidiculist5 = "";
-					this.nextRidiculist6 = "";
-					this.nextArtist = "";
-					this.nextStreamTwo = "";
-				}
+				// populate fields if currentHour is parsed first
+				if (typeof this.curHour !== 'undefined')
+					populateCast(newVal);
 			});	
+		}
+		
+		populateCast(segs) {
+			if (typeof segs[this.curHour] !== 'undefined') {
+				this.curTitle = segs[this.curHour].title;
+				this.curDocProvider = segs[this.curHour].docProvider;
+				this.curDocURL = segs[this.curHour].docURL;
+				this.curRidiculist1 = segs[this.curHour].ridiculist1;
+				this.curRidiculist2 = segs[this.curHour].ridiculist2;
+				this.curRidiculist3 = segs[this.curHour].ridiculist3;
+				this.curRidiculist4 = segs[this.curHour].ridiculist4;
+				this.curRidiculist5 = segs[this.curHour].ridiculist5;
+				this.curRidiculist6 = segs[this.curHour].ridiculist6;
+				this.curArtist = segs[this.curHour].artistName;
+				this.curStreamTwo = segs[this.curHour].streamTwoName;	
+			} else {
+				this.curTitle = "";
+				this.curDocProvider = "";
+				this.curDocURL = "";
+				this.curRidiculist1 = "";
+				this.curRidiculist2 = "";
+				this.curRidiculist3 = "";
+				this.curRidiculist4 = "";
+				this.curRidiculist5 = "";
+				this.curRidiculist6 = "";
+				this.curArtist = "";
+				this.curStreamTwo = "";					
+			}
+			
+			if ((typeof segs[this.nextHour] !== 'undefined') && (this.nextHour <= 24)) {
+				this.nextTitle = segs[this.nextHour].title;
+				this.nextDocProvider = segs[this.nextHour].docProvider;
+				this.nextDocURL = segs[this.curHour].docURL;
+				this.nextRidiculist1 = segs[this.nextHour].ridiculist1;
+				this.nextRidiculist2 = segs[this.nextHour].ridiculist2;
+				this.nextRidiculist3 = segs[this.nextHour].ridiculist3;
+				this.nextRidiculist4 = segs[this.nextHour].ridiculist4;
+				this.nextRidiculist5 = segs[this.nextHour].ridiculist5;
+				this.nextRidiculist6 = segs[this.nextHour].ridiculist6;
+				this.nextArtist = segs[this.nextHour].artistName;
+				this.nextStreamTwo = segs[this.nextHour].streamTwoName;					
+			} else {
+				this.nextTitle = "";
+				this.nextDocProvider = "";
+				this.nextDocURL = "";
+				this.nextRidiculist1 = "";
+				this.nextRidiculist2 = "";
+				this.nextRidiculist3 = "";
+				this.nextRidiculist4 = "";
+				this.nextRidiculist5 = "";
+				this.nextRidiculist6 = "";
+				this.nextArtist = "";
+				this.nextStreamTwo = "";
+			}		
 
 		}
-					
-
-	
 		
 	}
 	customElements.define(GdGeneral.is, GdGeneral);			

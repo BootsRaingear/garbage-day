@@ -23,7 +23,7 @@
 		}
 		
 		_handlePlaySound(e) {
-			nodecg.sendMessage('soundboardPlay', e.model.soundclip.base);
+			nodecg.sendMessage('soundboardPlay', e.model.item.base);
 		}
 		
 		_sort(a, b) {
