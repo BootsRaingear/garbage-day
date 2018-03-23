@@ -85,7 +85,7 @@
 		}
 		
 		populateCast(segs) {
-			if (typeof segs[this.curHour] !== 'undefined') {
+			if (typeof segs !== 'undefined') {
 				this.curTitle = segs[this.curHour].title;
 				this.curDocProvider = segs[this.curHour].docProvider;
 				this.curDocURL = segs[this.curHour].docURL;

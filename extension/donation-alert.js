@@ -21,9 +21,7 @@ socket.on("event", event => {
 		nodecg.log.error(`Event ${event.event_id} had no ites in its event.message property, skipping.`);
 	}
 		
-	console.log("streamlabs message received!");
 	if (event.type == "donation" && event.message.length >= 1) {
-		console.log("new donation received!");
 		let message = {
 			id: event.message[0].id || event.message[0]._id || null,
 			name: event.message[0].name,
@@ -48,10 +46,13 @@ function checkBattle(msg) {
 	if (battle.value.active)
 	{
 		let message = msg.message.toLowerCase();
-		if (message.includes(battle.value.option1keyword) && !message(includes(battle.value.option2keyword))) {
+		var match1 = message.indexOf(battle.value.option1keyword) !== -1;
+		var match2 = message.indexOf(battle.value.option2keyword) !== -1;
+		
+		if (match1 && !match2) {
 			battle.value.option1total += parseFloat(msg.amount.amount);		
 			nodecg.log.info("battle keyword: " + battle.value.option1keyword + " triggered, amount: " + msg.amount.amount);
-		} else if (message.includes(battle.value.option2keyword) && !message(includes(battle.value.option1keyword))) {
+		} else if (match2 && !match1) {
 			battle.value.option2total += parseFloat(msg.amount.amount);
 			nodecg.log.info("battle keyword: " + battle.value.option2keyword + " triggered, amount: " + msg.amount.amount);
 		}

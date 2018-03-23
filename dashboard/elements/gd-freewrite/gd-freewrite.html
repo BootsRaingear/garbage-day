@@ -1,0 +1,59 @@
+<link rel="import" href="../../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../../../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../../../bower_components/iron-flex-layout/iron-flex-layout.html">
+
+<dom-module id="gd-freewrite">
+	<template>
+		<style>
+			:host {
+				@apply --layout-vertical;
+			}	
+
+			#enable_button {
+				--paper-button: {
+					background-color: #5BA664;
+					color: white;
+				};
+			}
+			#disable_button {
+				--paper-button: {
+					background-color: #C9513E;
+					color: white;
+				};
+			}			
+			#clear_button {
+				--paper-button: {
+					background-color: #C9513E;
+					color: white;
+				};			
+			}
+			
+
+		</style>	
+		<div id="freewrite_body">
+			<div id="inputs">			
+				<paper-textarea
+					label="Content"
+					name="freewriteContent"
+					value="{{content}}">
+				</paper-textarea>
+					
+			</div>
+			<div id="controls">
+					<paper-button id="enable_button" raise hidden="[[active]]" on-tap="enable">
+						Enable
+					</paper-button>					
+					<paper-button id="disable_button" raise hidden="[[!active]]" on-tap="disable">
+						Disable
+					</paper-button>										
+					<paper-button id="clear_button" raise hidden="[[active]]" on-tap="clear">
+						Clear
+					</paper-button>		
+			</div>
+		</div>
+
+	</template>
+	
+	<script src="gd-freewrite.js"></script>
+</dom-module>

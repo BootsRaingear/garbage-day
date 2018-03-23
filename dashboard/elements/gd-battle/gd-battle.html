@@ -13,84 +13,112 @@
 			.title {
 				@apply --layout-center;
 			}
-			.row {
+			.controls {
 				@apply --layout-horizontal;
-			}
-			#goal_title {
+			}			
+			.title {
 				text-align: center;
 				font-weight: 500;
 				font-size: 18px;
 				width: 100%;
 			}
-			#goal_active {
-				@apply --layout horizontal;
+			.option_title {
+				text-align: center;
+				font-weight: 500;
+				font-size: 18px;				
 			}
-			
-			#updateGoalButton {
+			.option_total {
+				padding-top: 4px;
+				padding-bottom: 8px;
+			}
+			#start_battle {
 				--paper-button: {
 					background-color: #5BA664;
 					color: white;
 				};
 			}
-			#clearGoalButton {
+			#end_battle {
 				--paper-button: {
 					background-color: #C9513E;
 					color: white;
 				};
 			}			
+			#clear_button {
+				--paper-button: {
+					background-color: #C9513E;
+					color: white;
+				};			
+			}
 			
 		</style>	
-<!--		
-		<div id="donation_goal">
-			<div class="title">
-				<label id="goal_title">Donation Goal</label>
+		<div id="battle">
+			<div class="battle_option">
+				<div>
+					<label class="option_title">Option 1</label>
+				</div>
+				<div>
+					<paper-input
+						label="Description"
+						name="option1text"
+						always-float-label
+						value="{{option1title}}">
+					</paper-input>
+				</div>
+				<div>
+					<paper-input
+						label="Keyword"
+						name="option2keyword"
+						always-float-label
+						value="{{option1keyword}}">
+					</paper-input>
+				</div>
+				<div class="option_total">
+					<label class="label_total">Total: ${{option1total}}</label>
+				</div>
 			</div>
-			<div id="goal_text">
-				<paper-input
-					label="Description"
-					name="goalText"
-					always-float-label
-					value="{{goalText}}">
-				</paper-input>
-				</div>
-			<div class="row">
+			<div class="divider"></div>			
+			<div class="battle_option">
 				<div>
-					<paper-input
-						label="Target Amount"
-						name="goalAmount"
-						always-float-label
-						value="{{goalAmount}}"
-						width="20%">
-					</paper-input>			
+					<label class="option_title">Option 2</label>
 				</div>
 				<div>
 					<paper-input
-						label="Start amount (0 for current)"
-						name="goalStartAmount"
+						label="Description"
+						name="option2text"
 						always-float-label
-						value="{{goalStartAmount}}"
-						width="20%">
-					</paper-input>			
+						value="{{option2title}}">
+					</paper-input>
 				</div>
-			</div>			
-			<div id="goal_active">
-				<paper-checkbox
-					class="active_checkbox"
-					checked="{{goalActive}}"
-					on-checked-changed="_handleGoalActiveCheckboxChanged">
-						Active
-				</paper-checkbox>
-				
-				<paper-button id="updateGoalButton" on-tap="updateGoal">
-					Update Goal
-				</paper-button>
-				<paper-button id="clearGoalButton" on-tap="clearGoal">
-					Clear Goal
-				</paper-button>
-			</div>		
-			
+				<div>
+					<paper-input
+						label="Keyword"
+						name="option2keyword"
+						always-float-label
+						value="{{option2keyword}}">
+					</paper-input>
+				</div>
+				<div class="option_total">
+					<label class="label_total">Total: ${{option2total}}</label>
+				</div>
+			</div>
+			<div id="controls">
+				<div class="buttons">
+					<paper-button id="start_battle" raise hidden="[[active]]" on-tap="startBattle">
+						Start Battle
+					</paper-button>
+					
+					<paper-button id="end_battle" raise hidden="[[!active]]" on-tap="endBattle">
+						End Battle
+					</paper-button>					
+					
+					<paper-button id="clear_button" raise hidden="[[active]]" on-tap="clear">
+						Clear
+					</paper-button>					
+					
+				</div>				
+			</div>
 		</div>
-	-->	
+
 	</template>
 	
 	<script src="gd-battle.js"></script>

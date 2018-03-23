@@ -32,12 +32,12 @@ segments.on('change', newVal => {
 
 battle.on('change', newVal => {
 	app.battle.active = newVal.active;
-	app.battle.option1 = newVal.option1;
+	app.battle.option1title = newVal.option1title;
 	app.battle.option1keyword = newVal.option1keyword;
 	app.battle.option1total = newVal.option1total;
-	app.battle.option2 = newVal.option2;
+	app.battle.option2title = newVal.option2title;
 	app.battle.option2keyword = newVal.option2keyword;
-	app.battle.option2total = newVal.option1total;
+	app.battle.option2total = newVal.option2total;
 });
 
 donationGoal.on('change', newVal => {
@@ -45,6 +45,13 @@ donationGoal.on('change', newVal => {
 	app.goal.amount = newVal.amount;
 	app.goal.startAmount = newVal.startAmount;
 	app.goal.text = newVal.text;
+});
+
+freewrite.on('change', newVal => {
+	app.freewrite.active = newVal.active;
+	app.freewrite.content = newVal.content;
+	app.freewrite.img = newVal.img;
+	app.freewrite.location = newVal.location;
 });
 
 function updateCast(segment)

@@ -10,9 +10,7 @@
 			:host {
 				@apply --layout-vertical;
 			}			
-			.title {
-				@apply --layout-center;
-			}
+
 			.row {
 				@apply --layout-horizontal;
 			}
@@ -32,26 +30,30 @@
 				@apply --layout-vertical
 			}
 			
-			#updateGoalButton {
+			#start_battle {
 				--paper-button: {
 					background-color: #5BA664;
 					color: white;
 					
 				};
 			}
-			#clearGoalButton {
+			#end_battle {
 				--paper-button: {
 					background-color: #C9513E;
 					color: white;
 				};
-			}		
+			}	
+
+			#clear_button {
+				--paper-button: {
+					background-color: #C9513E;
+					color: white;
+				};
+			}	
 			
 		</style>	
 		
 		<div id="donation_goal">
-			<div class="title">
-				<label id="goal_title">Donation Goal</label>
-			</div>
 			<div id="goal_text">
 			<paper-input
 				label="Description"
@@ -71,14 +73,32 @@
 			</div>
 			<div>
 				<paper-input
-					label="Start (0 for current donation total)"
+					label="Start (-1 for current donation total)"
 					name="goalStartAmount"
 					always-float-label
 					value="{{goalStartAmount}}"
 					width="20%">
 				</paper-input>			
 			</div>
+			<div id="controls">
+				<div class="buttons">
+					<paper-button id="start_battle" raise hidden="[[goalActive]]" on-tap="startGoal">
+						Start Goal
+					</paper-button>
+					
+					<paper-button id="end_battle" raise hidden="[[!goalActive]]" on-tap="endGoal">
+						End Goal
+					</paper-button>					
+					
+					<paper-button id="clear_button" raise hidden="[[goalActive]]" on-tap="clear">
+						Clear
+					</paper-button>					
+					
+				</div>				
+			</div>			
+			
 			<div id="goal_active">
+				<!--
 				<div>
 				<paper-checkbox
 					class="active_checkbox"
@@ -87,6 +107,7 @@
 						Active
 				</paper-checkbox>
 				</div>
+						
 				<div class="row">
 					<div class="goalButton">
 						<paper-button id="updateGoalButton" on-tap="updateGoal">
@@ -99,6 +120,7 @@
 						</paper-button>
 					</div>
 				</div>
+				-->
 			</div>		
 			
 		</div>

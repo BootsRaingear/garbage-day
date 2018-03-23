@@ -1,0 +1,22 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",	
+	"type": "object",
+	"properties": {	
+		"active": {
+			"type": "boolean",
+			"default": false
+		},
+		"content": {
+			"type": "string",
+			"default": ""
+		},
+		"img": {
+			"type": "string",
+			"default": ""
+		},
+		"location": {
+			"type": "string",
+			"default": "center"
+		}
+	}
+}

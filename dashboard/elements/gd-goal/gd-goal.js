@@ -1,5 +1,4 @@
 (function () {
-	const battle = nodecg.Replicant('battle');
 	const donationGoal = nodecg.Replicant('donationGoal');
 	const donationTotal = nodecg.Replicant('donationTotal');
 	
@@ -20,7 +19,7 @@
 				},
 				goalStartAmount: {
 					type: Number,
-					value: 0					
+					value: -1					
 				},
 				goalActive: {
 					type: Boolean,
@@ -41,40 +40,26 @@
 			});			
 		}
 		
-		updateGoal() {
+		
+		startGoal() {
+			if (parseFloat(this.goalStartAmount) == -1) {					
+				donationGoal.value.startAmount = donationTotal.value;
+			} else {
+				donationGoal.value.startAmount = parseFloat(this.goalStartAmount)
+			}				
 			donationGoal.value.amount = parseFloat(this.goalAmount);
-			donationGoal.value.startAmount = parseFloat(this.goalStartAmount);
 			donationGoal.value.text = this.goalText;			
+			donationGoal.value.active = true;
 		}
 		
-		clearGoal() {
-			donationGoal.value.amount = 0;
-			donationGoal.value.startAmount = 0;
-			donationGoal.value.text = "";
+		endGoal () {
 			donationGoal.value.active = false;
 		}
-
-		_handleGoalActiveCheckboxChanged() {
-			
-			if (typeof donationGoal.value != 'undefined') {
-
-
-				if (parseFloat(this.goalStartAmount) == 0) {					
-					if (typeof donationTotal.value != 'undefined') {
-						donationGoal.value.startAmount = donationTotal.value;
-					} else {
-						// this shouldn't have to happen?
-						donationGoal.value.startAmount = 0;
-					}						
-				} else {
-					donationGoal.value.startAmount = parseFloat(this.goalStartAmount)
-				}
-				
-				donationGoal.value.amount = parseFloat(this.goalAmount);
-				donationGoal.value.text = this.goalText;			
-				donationGoal.value.active = !this.goalActive;
-				console.log(donationGoal.value);
-			}
+		
+		clear () {
+			donationGoal.value.text = "";
+			donationGoal.value.amount = 0;
+			donationGoal.value.startAmount = -1;
 		}
 		
 	}

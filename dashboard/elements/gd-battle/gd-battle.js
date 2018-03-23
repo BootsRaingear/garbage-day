@@ -1,7 +1,5 @@
 (function () {
 	const battle = nodecg.Replicant('battle');
-	const donationGoal = nodecg.Replicant('donationGoal');
-	const donationTotal = nodecg.Replicant('donationTotal');
 	
 	class GdBattle extends Polymer.Element {
 		static get is() {
@@ -10,22 +8,35 @@
 		
 		static get properties() {
 			return {
-				goalText: {
+				active: {
+					type: Boolean,
+					value: false
+				},				
+				option1title: {
 					type: String,
 					value: ""
 				},
-				goalAmount: {
+				option1keyword: {
+					type: String,
+					value: ""
+				},
+				option1total: {
 					type: Number,
 					value: 0
 				},
-				goalStartAmount: {
-					type: Number,
-					value: 0					
+				option2title: {
+					type: String,
+					value: ""
 				},
-				goalActive: {
-					type: Boolean,
-					value: false
-				}
+				option2keyword: {
+					type: String,
+					value: ""
+				},
+				option2total: {
+					type: Number,
+					value: 0
+				},
+				
 			}
 		};
 
@@ -33,50 +44,38 @@
 		ready() {
 			super.ready();
 
-			donationGoal.on('change', newVal => {
-				this.goalActive = newVal.active;
-				this.goalAmount = newVal.amount;
-				this.goalStartAmount = newVal.startAmount;
-				this.goalText = newVal.text;				
+			battle.on('change', newVal => {
+				this.active = newVal.active;
+				this.option1title = newVal.option1title;
+				this.option1keyword = newVal.option1keyword;
+				this.option1total = newVal.option1total;
+				this.option2title = newVal.option2title;
+				this.option2keyword = newVal.option2keyword;
+				this.option2total = newVal.option2total;				
 			});			
 		}
 		
-		updateGoal() {
-			donationGoal.value.amount = parseFloat(this.goalAmount);
-			donationGoal.value.startAmount = parseFloat(this.goalStartAmount);
-			donationGoal.value.text = this.goalText;			
+		startBattle() {
+			battle.value.active = true;
+			battle.value.option1title = this.option1title;
+			battle.value.option1keyword = this.option1keyword;
+			battle.value.option2title = this.option2title;
+			battle.value.option2keyword = this.option2keyword;
 		}
 		
-		clearGoal() {
-			donationGoal.value.amount = 0;
-			donationGoal.value.startAmount = 0;
-			donationGoal.value.text = "";
-			donationGoal.value.active = false;
-		}
-
-		_handleGoalActiveCheckboxChanged() {
-			
-			if (typeof donationGoal.value != 'undefined') {
-
-
-				if (parseFloat(this.goalStartAmount) == 0) {					
-					if (typeof donationTotal.value != 'undefined') {
-						donationGoal.value.startAmount = this.goalStartAmount;
-					} else {
-						// this shouldn't have to happen?
-						donationGoal.value.startAmount = 0;
-					}						
-				} else {
-					donationGoal.value.startAmount = parseFloat(this.goalStartAmount)
-				}
-				
-				donationGoal.value.amount = parseFloat(this.goalAmount);
-				donationGoal.value.text = this.goalText;			
-				donationGoal.value.active = !this.goalActive;
-				console.log(donationGoal.value);
-			}
+		endBattle() {
+			battle.value.active = false;
 		}
 		
+		clear() {
+			battle.value.option1title = "";
+			battle.value.option1keyword = "";
+			battle.value.option1total = 0;
+			battle.value.option2title = "";
+			battle.value.option2keyword = "";
+			battle.value.option2total = 0;
+		}
+
 	}
 	customElements.define(GdBattle.is, GdBattle);			
 })();

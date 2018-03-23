@@ -97,7 +97,14 @@
 				"width": 2,
 				"file": "battle-panel.html",
 				"workspace": "Stream"
-			},			
+			},
+			{
+				"name": "freewrite",
+				"title": "Free Write", 
+				"width": 4,
+				"file": "freewrite-panel.html",
+				"workspace": "Stream"
+			},
 			{
 				"name": "donations",
 				"title": "Donations",
