@@ -4,6 +4,7 @@ const donationTotal = nodecg.Replicant('donationTotal');
 const currentHour = nodecg.Replicant('currentHour');
 const segments = nodecg.Replicant('segments');
 const battle = nodecg.Replicant('battle');
+const donationGoal = nodecg.Replicant('donationGoal');
 	
 var hourFetched = false;
 var segFetchNeeded = false;
@@ -30,7 +31,6 @@ segments.on('change', newVal => {
 });
 
 battle.on('change', newVal => {
-	console.log(newVal);
 	app.battle.active = newVal.active;
 	app.battle.option1 = newVal.option1;
 	app.battle.option1keyword = newVal.option1keyword;
@@ -40,9 +40,15 @@ battle.on('change', newVal => {
 	app.battle.option2total = newVal.option1total;
 });
 
+donationGoal.on('change', newVal => {
+	app.goal.active = newVal.active;
+	app.goal.amount = newVal.amount;
+	app.goal.startAmount = newVal.startAmount;
+	app.goal.text = newVal.text;
+});
+
 function updateCast(segment)
 {
-	console.log(segment);
 	app.artist = segment.artistName;
 
 	app.primaryStream.url = segment.artistURL;

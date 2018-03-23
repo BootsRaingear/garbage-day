@@ -1,0 +1,97 @@
+<link rel="import" href="../../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../../../bower_components/paper-checkbox/paper-checkbox.html">
+<link rel="import" href="../../../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../../../bower_components/iron-flex-layout/iron-flex-layout.html">
+
+<dom-module id="gd-battle">
+	<template>
+		<style>
+			:host {
+				@apply --layout-vertical;
+			}			
+			.title {
+				@apply --layout-center;
+			}
+			.row {
+				@apply --layout-horizontal;
+			}
+			#goal_title {
+				text-align: center;
+				font-weight: 500;
+				font-size: 18px;
+				width: 100%;
+			}
+			#goal_active {
+				@apply --layout horizontal;
+			}
+			
+			#updateGoalButton {
+				--paper-button: {
+					background-color: #5BA664;
+					color: white;
+				};
+			}
+			#clearGoalButton {
+				--paper-button: {
+					background-color: #C9513E;
+					color: white;
+				};
+			}			
+			
+		</style>	
+<!--		
+		<div id="donation_goal">
+			<div class="title">
+				<label id="goal_title">Donation Goal</label>
+			</div>
+			<div id="goal_text">
+				<paper-input
+					label="Description"
+					name="goalText"
+					always-float-label
+					value="{{goalText}}">
+				</paper-input>
+				</div>
+			<div class="row">
+				<div>
+					<paper-input
+						label="Target Amount"
+						name="goalAmount"
+						always-float-label
+						value="{{goalAmount}}"
+						width="20%">
+					</paper-input>			
+				</div>
+				<div>
+					<paper-input
+						label="Start amount (0 for current)"
+						name="goalStartAmount"
+						always-float-label
+						value="{{goalStartAmount}}"
+						width="20%">
+					</paper-input>			
+				</div>
+			</div>			
+			<div id="goal_active">
+				<paper-checkbox
+					class="active_checkbox"
+					checked="{{goalActive}}"
+					on-checked-changed="_handleGoalActiveCheckboxChanged">
+						Active
+				</paper-checkbox>
+				
+				<paper-button id="updateGoalButton" on-tap="updateGoal">
+					Update Goal
+				</paper-button>
+				<paper-button id="clearGoalButton" on-tap="clearGoal">
+					Clear Goal
+				</paper-button>
+			</div>		
+			
+		</div>
+	-->	
+	</template>
+	
+	<script src="gd-battle.js"></script>
+</dom-module>

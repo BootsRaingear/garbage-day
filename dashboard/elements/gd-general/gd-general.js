@@ -74,7 +74,7 @@
 			});
 			
 			donationTotal.on('change', newVal => {
-				this.total = newVal;
+				this.total = newVal.toFixed(2);
 			});
 						
 			segments.on('change', newVal => {

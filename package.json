@@ -80,17 +80,24 @@
 			{
 				"name": "general",
 				"title": "General Info",
-				"width": 5,
+				"width": 4,
 				"file": "general-panel.html",
 				"workspace": "Stream"
 			},
 			{
-				"name": "stream-control",
-				"title": "Stream Control", 
-				"width": 5,
-				"file": "stream-control-panel.html",
+				"name": "goal",
+				"title": "Donation Goal", 
+				"width": 2,
+				"file": "goal-panel.html",
 				"workspace": "Stream"
 			},
+			{
+				"name": "battle",
+				"title": "Battle", 
+				"width": 2,
+				"file": "battle-panel.html",
+				"workspace": "Stream"
+			},			
 			{
 				"name": "donations",
 				"title": "Donations",

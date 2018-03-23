@@ -4,19 +4,19 @@
 	"properties": {	
 		"active": {
 			"type": "boolean",
-			"default": "false"
+			"default": false
 		},
 		"text": {
 			"type": "string",
 			"default": ""
 		},
 		"amount": {
-			"type": "string",
-			"default": ""
+			"type": "number",
+			"default": 0
 		},
 		"startAmount": {
-			"type": "string",
-			"default": ""
+			"type": "number",
+			"default": 0
 		}
 	}
 }

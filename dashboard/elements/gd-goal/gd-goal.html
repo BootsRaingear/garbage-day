@@ -1,0 +1,109 @@
+<link rel="import" href="../../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../../../bower_components/paper-checkbox/paper-checkbox.html">
+<link rel="import" href="../../../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../../../bower_components/iron-flex-layout/iron-flex-layout.html">
+
+<dom-module id="gd-goal">
+	<template>
+		<style>
+			:host {
+				@apply --layout-vertical;
+			}			
+			.title {
+				@apply --layout-center;
+			}
+			.row {
+				@apply --layout-horizontal;
+			}
+			
+			.goalButton {
+				padding-bottom: 3px;
+				padding-top: 3px;
+			}
+			
+			#goal_title {
+				text-align: center;
+				font-weight: 500;
+				font-size: 18px;
+				width: 100%;
+			}
+			#goal_active {
+				@apply --layout-vertical
+			}
+			
+			#updateGoalButton {
+				--paper-button: {
+					background-color: #5BA664;
+					color: white;
+					
+				};
+			}
+			#clearGoalButton {
+				--paper-button: {
+					background-color: #C9513E;
+					color: white;
+				};
+			}		
+			
+		</style>	
+		
+		<div id="donation_goal">
+			<div class="title">
+				<label id="goal_title">Donation Goal</label>
+			</div>
+			<div id="goal_text">
+			<paper-input
+				label="Description"
+				name="goalText"
+				always-float-label
+				value="{{goalText}}">
+			</paper-input>
+			</div>
+			<div>
+				<paper-input
+					label="Target Amount"
+					name="goalAmount"
+					always-float-label
+					value="{{goalAmount}}"
+					width="20%">
+				</paper-input>			
+			</div>
+			<div>
+				<paper-input
+					label="Start (0 for current donation total)"
+					name="goalStartAmount"
+					always-float-label
+					value="{{goalStartAmount}}"
+					width="20%">
+				</paper-input>			
+			</div>
+			<div id="goal_active">
+				<div>
+				<paper-checkbox
+					class="active_checkbox"
+					checked="{{goalActive}}"
+					on-checked-changed="_handleGoalActiveCheckboxChanged">
+						Active
+				</paper-checkbox>
+				</div>
+				<div class="row">
+					<div class="goalButton">
+						<paper-button id="updateGoalButton" on-tap="updateGoal">
+							Update
+						</paper-button>
+					</div>
+					<div class="goalButton">
+						<paper-button id="clearGoalButton" on-tap="clearGoal">
+							Clear
+						</paper-button>
+					</div>
+				</div>
+			</div>		
+			
+		</div>
+		
+	</template>
+	
+	<script src="gd-goal.js"></script>
+</dom-module>
