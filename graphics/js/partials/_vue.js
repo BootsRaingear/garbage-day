@@ -65,7 +65,9 @@ var app = new Vue({
       active: true,
       amount: 50,
       text: "mp3s of motivational tautalogies (yelled)",
-      provider: "Jack Chick"
+      provider: "Jack Chick",
+      claimed: true,
+      claimedBy: "fuckface25"
     },
     
     freewrite: {

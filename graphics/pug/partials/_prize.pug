@@ -1,5 +1,5 @@
 .prize(v-if="prize.active")
-  .prize-box
+  .prize-box(v-if="!prize.claimed")
     .current Current Prize:
 
     .amount
@@ -7,7 +7,16 @@
       span.number {{dollarAmount(prize.amount)}}
       span.or-more  or more
 
-    .text(v-if="prize.text") {{prize.text}}
+    .text.available(v-if="prize.text" v-html="prize.text")
 
     .provider(v-if="prize.provider") provided by 
       b {{prize.provider}}
+      
+  .prize-box(v-else)
+    h2.prize-claimed Prize Claimed!
+    .text.claimed(v-if="prize.text" v-html="prize.text")
+    .claimed-by(v-if="prize.claimedBy")
+      span Clamed by 
+      span.claim-name {{prize.claimedBy}}
+      span  for 
+      span.claim-amount {{dollarAmount(prize.amount)}}

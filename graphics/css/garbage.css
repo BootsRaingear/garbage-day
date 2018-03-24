@@ -624,6 +624,38 @@ footer {
     font-weight: 600;
     color: gold; }
 
+@-webkit-keyframes bounce {
+  30%, 70% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0); }
+  50% {
+    -webkit-transform: translateY(-5px);
+    transform: translateY(-5px); } }
+
+@keyframes bounce {
+  30%, 70% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0); }
+  50% {
+    -webkit-transform: translateY(-5px);
+    transform: translateY(-5px); } }
+
+@-webkit-keyframes zoomBounce {
+  40%, 60% {
+    -webkit-transform: scale(1);
+    transform: scale(1); }
+  50% {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1); } }
+
+@keyframes zoomBounce {
+  40%, 60% {
+    -webkit-transform: scale(1);
+    transform: scale(1); }
+  50% {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1); } }
+
 .prize {
   position: absolute;
   top: 40px;
@@ -638,19 +670,35 @@ footer {
     text-align: center;
     max-width: 24em; }
   .prize .text {
-    font-size: 130%;
     font-weight: 600;
     margin-bottom: 1em;
     margin-top: 0.7em; }
+    .prize .text.available {
+      font-size: 130%; }
   .prize .amount .donate {
     -webkit-transform: translateY(-1.2em);
     -ms-transform: translateY(-1.2em);
     transform: translateY(-1.2em);
     display: inline-block;
-    margin-right: 1em; }
+    margin-right: 0.3em; }
   .prize .amount .number {
     font-size: 330%;
-    font-weight: 600; }
+    font-weight: 600;
+    color: #17680f;
+    -webkit-animation: zoomBounce 3s infinite alternate;
+    animation: zoomBounce 3s infinite alternate;
+    display: inline-block; }
+  .prize .prize-claimed {
+    font-size: 225%;
+    color: #ee2a2a;
+    font-weight: 600;
+    text-shadow: 2px 2px 0 rgba(19, 19, 19, 0.8);
+    text-transform: uppercase;
+    -webkit-animation: bounce 1s infinite alternate;
+    animation: bounce 1s infinite alternate; }
+  .prize .claimed-by .claim-name {
+    font-weight: 600;
+    font-size: 120%; }
 
 .freewrite .freewrite-box {
   position: absolute;
