@@ -28,20 +28,24 @@ var app = new Vue({
       show: true,
       name: "Sanguinary Novel draws things",
       url: "https://player.twitch.tv/?channel=thefplus"
+      //url: "https://1-edge4-us-east.picarto.tv/mp4/Amarynceus.mp4"
     },
     
     secondaryStream: {
-      show: false,
+      show: true,
       name: "Frank West plays some dumb bullshit",
       url: "https://player.twitch.tv/?channel=thefplus"
+      //url: "https://1-edge4-us-east.picarto.tv/mp4/Armorwing.mp4"
     },
+    
+    swapStreams: false,
     
     totalDonations: 34646.25,
     
     donations: [],
     
     battle: {
-      active: true,
+      active: false,
       option1title: "we will mutually masturbate each other",
       option1keyword: "jerk",
       option1total: 50,
@@ -51,21 +55,21 @@ var app = new Vue({
     },
     
     goal: {
-      active: true,
+      active: false,
       text: "Fuckin', like, I dunno, we stop doing this?",
       amount: 40000,
       startAmount: 20000
     },
     
     prize: {
-      active: true,
+      active: false,
       amount: 50,
       text: "mp3s of motivational tautalogies (yelled)",
       provider: "Jack Chick"
     },
     
     freewrite: {
-      active: true,
+      active: false,
       location: 'center',
       // VALID LOCATIONS: center, top, right, bottom, left, top-left, top-right, bottom-left, bottom-right
       content: 'Lorem ipsum dolor sit amet, <b>consectetur adipiscing elit.</b> Sed eleifend aliquet velit eu congue. Quisque finibus nisl nec consequat vulputate. Vivamus quis elit neque. Vestibulum pretium luctus dignissim. Fusce quis purus turpis. Praesent dictum, <i>purus eu ultricies</i> imperdiet, tellus sapien sagittis mauris, a porta felis erat laoreet enim.',

@@ -223,8 +223,18 @@ html, body {
 
 .double-screen {
   padding-right: 450px; }
+  .double-screen iframe, .double-screen video {
+    -webkit-transition: -webkit-transform 5s ease;
+    transition: -webkit-transform 5s ease;
+    -o-transition: transform 5s ease;
+    transition: transform 5s ease;
+    transition: transform 5s ease, -webkit-transform 5s ease; }
   .double-screen .primary-screen iframe, .double-screen .primary-screen video {
     height: 42vw; }
+  .double-screen .primary-screen.swapped iframe, .double-screen .primary-screen.swapped video {
+    -webkit-transform: translate(800px, 400px) scale(0.5);
+    -ms-transform: translate(800px, 400px) scale(0.5);
+    transform: translate(800px, 400px) scale(0.5); }
   .double-screen .secondary-screen {
     position: fixed;
     right: 0;
@@ -232,6 +242,10 @@ html, body {
     width: 38%; }
     .double-screen .secondary-screen iframe, .double-screen .secondary-screen video {
       height: 21.5vw; }
+    .double-screen .secondary-screen.swapped iframe, .double-screen .secondary-screen.swapped video {
+      -webkit-transform: translate(-800px, -400px) scale(2);
+      -ms-transform: translate(-800px, -400px) scale(2);
+      transform: translate(-800px, -400px) scale(2); }
 
 main {
   font-family: "Bitter", serif;
@@ -839,3 +853,5 @@ footer {
     left: 0;
     background-size: cover;
     background-position: center; }
+
+/*# sourceMappingURL=garbage.css.map */

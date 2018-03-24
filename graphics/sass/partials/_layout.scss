@@ -16,11 +16,27 @@ html, body { background: #131313; }
 
 .double-screen { padding-right: 450px;
   
+  iframe, video { transition:transform 5s ease; }
+  
   .primary-screen {
     iframe, video { height: 42vw; }
+    
+    
+    &.swapped { 
+      iframe, video { transform: translate(800px, 400px) scale(0.5); }
+    }
+    
+    
   }
   
   .secondary-screen { @include position(fixed,null,0,0); width:38%;
     iframe, video { height: 21.5vw; }
+    
+    &.swapped {
+      iframe, video { transform: translate(-800px, -400px) scale(2); }
+    }
+    
+    
+    
   }
 }

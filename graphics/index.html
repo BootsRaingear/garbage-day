@@ -9,13 +9,13 @@
     <div id="app">
       <div class="layout" v-bind:class="countScreens">
         <main>
-          <figure class="primary-screen" v-if="primaryScreen">
+          <figure class="primary-screen" v-if="primaryScreen" v-bind:class="{ swapped: swapStreams }">
             <video controls="false" muted="true" autoplay="true" v-if="primaryScreenRawVideo">
               <source :src="primaryStream.url">
             </video>
             <iframe :src="primaryStream.url" frameborder="0" allowfullscreen="false" scrolling="no" v-else></iframe>
           </figure>
-          <figure class="secondary-screen" v-if="secondaryScreen">
+          <figure class="secondary-screen" v-if="secondaryScreen" v-bind:class="{ swapped: swapStreams }">
             <video controls="false" muted="true" autoplay="true" v-if="secondaryScreenRawVideo">
               <source :src="secondaryStream.url">
             </video>
@@ -79,7 +79,7 @@
           <figure class="logo"><img :src="logoURL"></figure>
         </aside>
         <footer v-cloak>
-          <div class="box hour-box">
+          <div class="box hour-box" v-if="hour">
             <div class="label" v-if="onBreak">Next Hour:</div>
             <div class="label" v-else>This is hour</div>
             <div class="number-holder"><span class="number">{{hour}}</span><span class="total">/ 24</span></div>
