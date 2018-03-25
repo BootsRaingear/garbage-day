@@ -46,11 +46,16 @@
             </div>
           </div>
           <div class="prize" v-if="prize.active">
-            <div class="prize-box">
+            <div class="prize-box" v-if="!prize.claimed">
               <div class="current">Current Prize:</div>
               <div class="amount"><span class="donate">donate </span><span class="number">{{dollarAmount(prize.amount)}}</span><span class="or-more"> or more</span></div>
-              <div class="text" v-if="prize.text">{{prize.text}}</div>
+              <div class="text available" v-if="prize.text" v-html="prize.text"></div>
               <div class="provider" v-if="prize.provider">provided by <b>{{prize.provider}}</b></div>
+            </div>
+            <div class="prize-box" v-else>
+              <h2 class="prize-claimed">Prize Claimed!</h2>
+              <div class="text claimed" v-if="prize.text" v-html="prize.text"></div>
+              <div class="claimed-by" v-if="prize.claimedBy"><span>Clamed by </span><span class="claim-name">{{prize.claimedBy}}</span><span> for </span><span class="claim-amount">{{dollarAmount(prize.amount)}}</span></div>
             </div>
           </div>
           <div class="freewrite" v-if="freewrite.active">

@@ -45,7 +45,7 @@ var app = new Vue({
     donations: [],
     
     battle: {
-      active: false,
+      active: true,
       option1title: "we will mutually masturbate each other",
       option1keyword: "jerk",
       option1total: 50,
@@ -55,25 +55,27 @@ var app = new Vue({
     },
     
     goal: {
-      active: false,
+      active: true,
       text: "Fuckin', like, I dunno, we stop doing this?",
       amount: 40000,
       startAmount: 20000
     },
     
     prize: {
-      active: false,
+      active: true,
       amount: 50,
       text: "mp3s of motivational tautalogies (yelled)",
-      provider: "Jack Chick"
+      provider: "Jack Chick",
+      claimed: true,
+      claimedBy: "fuckface25"
     },
     
     freewrite: {
-      active: false,
-      location: 'center',
+      active: true,
+      location: 'bottom',
       // VALID LOCATIONS: center, top, right, bottom, left, top-left, top-right, bottom-left, bottom-right
-      content: 'Lorem ipsum dolor sit amet, <b>consectetur adipiscing elit.</b> Sed eleifend aliquet velit eu congue. Quisque finibus nisl nec consequat vulputate. Vivamus quis elit neque. Vestibulum pretium luctus dignissim. Fusce quis purus turpis. Praesent dictum, <i>purus eu ultricies</i> imperdiet, tellus sapien sagittis mauris, a porta felis erat laoreet enim.',
-      img: 'https://unsplash.it/900/510'
+      content: 'Hello, I am some text!',
+      img: ''
     }
     
   },
