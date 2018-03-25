@@ -1,7 +1,9 @@
 <link rel="import" href="../../../bower_components/polymer/polymer-element.html">
 <link rel="import" href="../../../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../../../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../../../bower_components/paper-input/paper-textarea.html">
 <link rel="import" href="../../../bower_components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../../../bower_components/vaadin-combo-box/vaadin-combo-box.html">
 
 <dom-module id="gd-freewrite">
 	<template>
@@ -16,6 +18,12 @@
 					color: white;
 				};
 			}
+			#update_button {
+				--paper-button: {
+					background-color: #5BA664;
+					color: white;
+				};
+			}			
 			#disable_button {
 				--paper-button: {
 					background-color: #C9513E;
@@ -33,20 +41,37 @@
 		</style>	
 		<div id="freewrite_body">
 			<div id="inputs">			
-				<paper-textarea
-					label="Content"
-					name="freewriteContent"
+				<paper-textarea 
+					label="Text (optional)"					
 					value="{{content}}">
 				</paper-textarea>
-					
+				<paper-input
+					label="Image URL (optional)"
+					value="{{img}}">
+				</paper-input>
+				<vaadin-combo-box
+					id="location"
+					placeholder="center"
+					items="[[locations]]"
+					selected-item="{{location}}"
+				</vaadin-combo-box>
+				<!--
+				<paper-input
+					label="location"
+					value="{{location}}">
+				</paper-input>				
+				-->
 			</div>
 			<div id="controls">
-					<paper-button id="enable_button" raise hidden="[[active]]" on-tap="enable">
+					<paper-button id="enable_button" raise hidden="[[active]]" on-tap="enableFreewrite">
 						Enable
-					</paper-button>					
-					<paper-button id="disable_button" raise hidden="[[!active]]" on-tap="disable">
+					</paper-button>			
+					<paper-button id="disable_button" raise hidden="[[!active]]" on-tap="disableFreewrite">
 						Disable
-					</paper-button>										
+					</paper-button>
+					<paper-button id="update_button" raise hidden="[[!active]]" on-tap="updateFreewrite">
+						Update
+					</paper-button>					
 					<paper-button id="clear_button" raise hidden="[[active]]" on-tap="clear">
 						Clear
 					</paper-button>		

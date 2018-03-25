@@ -19,7 +19,8 @@
 		"iron-image": "PolymerElements/iron-image#^2.1.1",
 		"iron-list": "PolymerElements/iron-list#^2.0.2",
 		"iron-pages": "PolymerElements/iron-pages#^2.0.0",
-		"iron-validator-behavior": "PolymerElements/iron-validator-behavior#^2.0.0"
+		"iron-validator-behavior": "PolymerElements/iron-validator-behavior#^2.0.0",
+		"vaadin-combo-box": "vaadin/vaadin-combo-box#v2.0.0"
 	},
 	"resolutions": {
 		"vaadin-combo-box": "v2.0.0",

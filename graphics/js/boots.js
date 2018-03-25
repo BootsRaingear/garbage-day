@@ -5,6 +5,7 @@ const currentHour = nodecg.Replicant('currentHour');
 const segments = nodecg.Replicant('segments');
 const battle = nodecg.Replicant('battle');
 const donationGoal = nodecg.Replicant('donationGoal');
+const freewrite = nodecg.Replicant('freewrite');
 	
 var hourFetched = false;
 var segFetchNeeded = false;

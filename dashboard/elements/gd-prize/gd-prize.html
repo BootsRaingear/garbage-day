@@ -1,0 +1,74 @@
+<link rel="import" href="../../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../../../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../../../bower_components/iron-flex-layout/iron-flex-layout.html">
+
+<dom-module id="gd-prize">
+	<template>
+		<style>
+			:host {
+				@apply --layout-vertical;
+			}	
+
+			#enable_button {
+				--paper-button: {
+					background-color: #5BA664;
+					color: white;
+				};
+			}
+			#disable_button {
+				--paper-button: {
+					background-color: #C9513E;
+					color: white;
+				};
+			}			
+			#clear_button {
+				--paper-button: {
+					background-color: #C9513E;
+					color: white;
+				};			
+			}
+			
+
+		</style>	
+		<div id="prize">
+			<div id="inputs">			
+				<paper-input 
+					label="Description"					
+					value="{{description}}">
+				</paper-input>
+			<!-- put row here! -->
+				<paper-input
+					label="Amount"
+					value="{{amount}}">
+				</paper-input>
+				<paper-input
+					label="Award Provider"
+					value="{{awardProvider}}">
+				</paper-input>
+									
+			</div>
+			<div id="controls">
+					<paper-button id="enable_button" raise hidden="[[active]]" on-tap="enablePrize">
+						Enable
+					</paper-button>					
+					<paper-button id="disable_button" raise hidden="[[!active]]" on-tap="disablePrize">
+						Disable
+					</paper-button>										
+					<paper-button id="clear_button" raise hidden="[[active]]" on-tap="clear">
+						Clear
+					</paper-button>		
+			</div>
+			<div id="prize info">			
+			<br>
+				<label class="prize_info">Claimed by: [[claimedBy]]</label>
+			</div>
+			<div id="prize info">			
+				<label class="prize_info">Claim amount: $[[claimAmount]]</label>
+			</div>
+		</div>
+
+	</template>
+	
+	<script src="gd-prize.js"></script>
+</dom-module>

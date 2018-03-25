@@ -1,5 +1,7 @@
 (function () {
 	const freewrite = nodecg.Replicant('freewrite');
+
+	// VALID LOCATIONS: center, top, right, bottom, left, top-left, top-right, bottom-left, bottom-right	
 	
 	class GdFreewrite extends Polymer.Element {
 		static get is() {
@@ -23,7 +25,12 @@
 				location: {
 					type: Number,
 					value: "center"
-				}				
+				},
+				locations: {
+					type: Array,
+					value: ["center", "top", "right", "bottom", "left", "top-left", "top-right", "bottom-left", "bottom-right"]
+
+				}
 			}
 		};
 
@@ -39,18 +46,26 @@
 			});			
 		}
 		
-		enable() {
-			freewrite.active = true;
-			freewrite.content = this.content;
-			freewrite.img = this.img;
-			freewrite.location = this.location;
+		enableFreewrite() {
+			console.log(freewrite);
+			freewrite.value.active = true;
+			freewrite.value.content = this.content;
+			freewrite.value.img = this.img;
+			freewrite.value.location = this.location;
 		}
 		
-		disable() {			
-			freewrite.active = false;
+		disableFreewrite() {			
+			freewrite.value.active = false;
+		}
+		
+		updateFreewrite() {
+			freewrite.value.content = this.content;
+			freewrite.value.img = this.img;
+			freewrite.value.location = this.location;
 		}
 		
 		clear() {
+			console.log("clear freewrite");
 			freewrite.value.content = "";
 			freewrite.value.img = "";
 			freewrite.value.location = "center";

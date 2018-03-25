@@ -89,21 +89,28 @@
 				"title": "Donation Goal", 
 				"width": 2,
 				"file": "goal-panel.html",
-				"workspace": "Stream"
+				"workspace": "Setup"
 			},
 			{
 				"name": "battle",
 				"title": "Battle", 
 				"width": 2,
 				"file": "battle-panel.html",
-				"workspace": "Stream"
+				"workspace": "Setup"
 			},
 			{
 				"name": "freewrite",
 				"title": "Free Write", 
 				"width": 4,
 				"file": "freewrite-panel.html",
-				"workspace": "Stream"
+				"workspace": "Setup"
+			},
+			{
+				"name": "prize",
+				"title": "Prize", 
+				"width": 4,
+				"file": "prize-panel.html",
+				"workspace": "Setup"
 			},
 			{
 				"name": "donations",

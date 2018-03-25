@@ -25,10 +25,17 @@
 					color: white;
 				};
 			}
+			#buttons {
+				padding-bottom: 8px;
+			}
 
 		</style>		
 		
 		<div id="breakButton">
+			<div>			
+			Do not press this button for comedy purposes. It will fuck up the recordings.
+			</div>
+			</div id="buttons">
 			<paper-button id="startBreak" raise hidden="[[onBreak]]" on-tap="startBreak">
 				Start Break
 			</paper-button>
@@ -36,6 +43,7 @@
 			<paper-button id="endBreak" raise hidden="[[!onBreak]]" on-tap="endBreak">
 				End Break
 			</paper-button>		
+			<div>
 		</div>
 		
 		<div id="divider"></div>
