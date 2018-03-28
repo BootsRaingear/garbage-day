@@ -44,25 +44,24 @@
 			super.ready();
 
 			prize.on('change', newVal => {
-				console.log(newVal);
 				this.active = newVal.active;
 				this.description = newVal.description;
-				this.amount = newVal.amount;
+				this.amount = parseFloat(newVal.amount);
 				this.awardProvider = newVal.awardProvider;
 				this.claimed = newVal.claimed;
 				this.claimedBy = newVal.claimedBy;
-				this.claimAmount = newVal.claimAmount;
+				this.claimAmount = parseFloat(newVal.claimAmount);
 			});			
 		}
 		
 		enablePrize() {
 			prize.value.active = true;
 			prize.value.description = this.description;
-			prize.value.amount = this.amount;
+			prize.value.amount = parseFloat(this.amount);
 			prize.value.awardProvider = this.awardProvider;			
 		}
 		
-		disablePrice() {
+		disablePrize() {
 			prize.value.active = false;
 		}
 		

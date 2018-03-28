@@ -6,6 +6,7 @@ const segments = nodecg.Replicant('segments');
 const battle = nodecg.Replicant('battle');
 const donationGoal = nodecg.Replicant('donationGoal');
 const freewrite = nodecg.Replicant('freewrite');
+const prize = nodecg.Replicant('prize');
 	
 var hourFetched = false;
 var segFetchNeeded = false;
@@ -55,6 +56,16 @@ freewrite.on('change', newVal => {
 	app.freewrite.location = newVal.location;
 });
 
+prize.on('change', newVal => {
+	app.prize.active = newVal.active;
+	app.prize.amount = newVal.amount;
+	app.prize.claimed = newVal.claimed;
+	app.prize.claimedBy = newVal.claimedBy;
+	app.prize.provider = newVal.awardProvider;
+	app.prize.text = newVal.description;
+//	app.prize.claimAmount = newVal.claimAmount;
+});
+
 function updateCast(segment)
 {
 	app.artist = segment.artistName;
@@ -67,6 +78,9 @@ function updateCast(segment)
 	app.readers[2] = segment.ridiculist3;
 	app.readers[3] = segment.ridiculist4;
 	app.readers[4] = segment.ridiculist5;
-	app.readers[5] = segment.ridiculist6;	
+	app.readers[5] = segment.ridiculist6;
+	app.secondaryStream.name = segment.streamtwoName;
+	app.secondaryStream.url = segment.streamtwoURL;
+	if (app.secondaryStream.url === "")
+		app.secondaryStream.enabled = false;	
 }
-

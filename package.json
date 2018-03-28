@@ -46,6 +46,14 @@
 					"gif",
 					"png"
 				]
+			},
+			{
+				"name": "mmmbop",
+				"title": "Just Mmmbop",
+				"allowedTypes": [
+					"mp3",
+					"ogg"
+				]
 			}
 	],
 		"dashboardPanels": [
@@ -59,7 +67,7 @@
 			{
 				"name": "obs-control",
 				"title": "Break Button",
-				"width": 2,
+				"width": 3,
 				"file": "obs-control.html",
 				"workspace": "Setup"
 			},
@@ -87,28 +95,28 @@
 			{
 				"name": "goal",
 				"title": "Donation Goal", 
-				"width": 2,
+				"width": 3,
 				"file": "goal-panel.html",
 				"workspace": "Setup"
 			},
 			{
 				"name": "battle",
 				"title": "Battle", 
-				"width": 2,
+				"width": 3,
 				"file": "battle-panel.html",
 				"workspace": "Setup"
 			},
 			{
 				"name": "freewrite",
 				"title": "Free Write", 
-				"width": 4,
+				"width": 3,
 				"file": "freewrite-panel.html",
 				"workspace": "Setup"
 			},
 			{
 				"name": "prize",
 				"title": "Prize", 
-				"width": 4,
+				"width": 3,
 				"file": "prize-panel.html",
 				"workspace": "Setup"
 			},
@@ -118,11 +126,23 @@
 				"width": 4,
 				"file": "donations-panel.html",
 				"workspace": "Stream"
+			},
+			{
+				"name": "mmmbop",
+				"title": "Mmmbop",
+				"width": 2,
+				"file": "mmmbop.html",
+				"workspace": "Stream"			
 			}
 		],
 		"graphics": [
 			{
 				"file": "index.html",
+				"width": 1920,
+				"height": 1080
+			},
+			{
+				"file": "break.html",
 				"width": 1920,
 				"height": 1080
 			}

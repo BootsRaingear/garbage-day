@@ -1,0 +1,41 @@
+<link rel="import" href="../../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../../../bower_components/iron-flex-layout/iron-flex-layout.html">
+
+<dom-module id="gd-mmmbop">
+	<template>
+		<style>
+			#soundboard {
+				@apply --layout-horizontal;
+				@apply --layout-wrap;
+				margin-top: 8px;
+				margin-right: 8px;
+			}
+			
+			.soundclips {
+				@apply --layout-flex;				
+				padding-bottom: 5px;
+				padding-right: 5px;
+			}
+			
+			
+			.playSound {
+				@apply --layout-flex;				
+				--paper-button: {
+					background-color: #f8ffef;
+					width: 100%;
+				};
+			}
+			
+		</style>		
+		<div id="soundboard">
+			<div class="soundclips">
+				<paper-button class="playSound" on-tap="_handlePlaySound" disabled=[[buttonDisabled]] alt="Play Sound" raised>
+					Mmmbop
+				</paper-button>
+			</div>
+		</div>
+		
+	</template>
+	<script src="gd-mmmbop.js"></script>
+</dom-module>		

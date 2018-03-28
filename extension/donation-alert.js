@@ -5,6 +5,8 @@ const io = require("socket.io-client");
 const nodecg = require('./util/nodecg-api-context').get();
 const donationTotal = nodecg.Replicant('donationTotal');
 const battle = nodecg.Replicant('battle');
+const prize = nodecg.Replicant('prize');
+const mmmbop = nodecg.Replicant('mmmbop');
 
 let opts = {
 	reconnect: true
@@ -34,11 +36,14 @@ socket.on("event", event => {
 		};
 		nodecg.sendMessage("donation", message);
 		emitter.emit("donation", message);
-
-		// CHANGEME - do this in a more reliable way with streamlabs.getDonations
-		donationTotal.value += parseFloat(message.amount.amount);
+		
+		var newTotal = donationTotal.value + parseFloat(message.amount.amount);
+		
+		donationTotal.value = newTotal;
 		
 		checkBattle(message);
+		checkPrize(message);
+		checkMmmbop(newTotal);
 	}
 });
 
@@ -57,4 +62,28 @@ function checkBattle(msg) {
 			nodecg.log.info("battle keyword: " + battle.value.option2keyword + " triggered, amount: " + msg.amount.amount);
 		}
 	}
+}
+
+function checkPrize(msg) {
+	if (prize.value.active)
+	{
+		if (parseFloat(msg.amount.amount) > prize.value.amount)
+		{
+			prize.value.claimed = true;
+			prize.value.claimedBy = msg.name;
+			prize.value.claimAmount = parseFloat(msg.amount.amount);
+		}
+	}
+}
+
+function checkMmmbop(dTotal) {
+	var nextMilestone = mmmbop.value.nextMilestone;
+	var mmmbopsAvailable = mmmbop.value.mmmbopsAvailable;
+	while (dTotal > nextMilestone)
+	{
+		mmmbopsAvailable++;
+		nextMilestone += 100;
+	}
+	mmmbop.value.mmmbopsAvailable = mmmbopsAvailable;
+	mmmbop.value.nextMilestone = nextMilestone;
 }
