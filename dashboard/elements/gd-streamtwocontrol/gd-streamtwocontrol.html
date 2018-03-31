@@ -1,0 +1,69 @@
+<link rel="import" href="../../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../../../bower_components/iron-flex-layout/iron-flex-layout.html">
+
+<dom-module id="gd-streamtwocontrol">
+	<template>
+		<style>
+			#soundboard {
+				@apply --layout-horizontal;
+				@apply --layout-wrap;
+				margin-top: 8px;
+				margin-right: 8px;
+			}
+			
+			.streamtwo_button {
+				@apply --layout-flex;				
+				padding-bottom: 5px;
+				padding-right: 8px;
+				
+			}
+			
+			
+			.hide {
+				@apply --layout-flex;				
+				--paper-button: {
+					background-color: #5BA664;
+					color: white;;
+					width: 100%;
+				};				
+			}
+
+			.show {
+				@apply --layout-flex;				
+				--paper-button: {
+					background-color: #5BA664;
+					color: white;
+					width: 100%;
+				};
+			}			
+
+			.swap {
+				@apply --layout-flex;				
+				--paper-button: {
+					background-color: #5BA664;
+					color: white;
+					width: 100%;
+				};
+			}				
+			
+		</style>		
+		<div id="streamtwo_buttons">
+			<div class="streamtwo_button">
+				<paper-button class="hide" on-tap="hideStreams" disabled=[[buttonsDisabled]] raise hidden="[[disabled]]">
+					Hide
+				</paper-button>
+				<paper-button class="show" on-tap="showStreams" disabled=[[buttonsDisabled]] raise hidden="[[!disabled]]">
+					Show
+				</paper-button>
+			</div>
+			<div class="streamtwo_button">
+				<paper-button class="swap" on-tap="swapStreams" disabled=[[buttonsDisabled]]  raised>
+					Swap Streams
+				</paper-button>
+			</div>
+		</div>
+		
+	</template>
+	<script src="gd-streamtwocontrol.js"></script>
+</dom-module>		

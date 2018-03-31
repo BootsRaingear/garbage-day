@@ -7,7 +7,10 @@ const battle = nodecg.Replicant('battle');
 const donationGoal = nodecg.Replicant('donationGoal');
 const freewrite = nodecg.Replicant('freewrite');
 const prize = nodecg.Replicant('prize');
-	
+const streamtwoControl = nodecg.Replicant('streamtwoControl');
+
+
+var stream2active = false;
 var hourFetched = false;
 var segFetchNeeded = false;
 
@@ -16,7 +19,7 @@ donationTotal.on('change', newVal => {
 });
 
 currentHour.on('change', newVal => {
-	app.hour = newVal + 1; //FIXME : change back to | app.hour = newVal;
+	app.hour = newVal;
 	hourFetched = true;
 	
 	if (segFetchNeeded) {
@@ -66,6 +69,18 @@ prize.on('change', newVal => {
 //	app.prize.claimAmount = newVal.claimAmount;
 });
 
+streamtwoControl.on('change', newVal => {
+	console.log(newVal.disabled);
+	if (!newVal.disabled) {
+		console.log("Showing!");
+		app.secondaryStream.show = true;
+	} else {
+		console.log("Hiding!");
+		app.secondaryStream.show = false;
+	}
+	app.swapStreams = newVal.swap;
+});
+
 function updateCast(segment)
 {
 	app.artist = segment.artistName;
@@ -82,5 +97,17 @@ function updateCast(segment)
 	app.secondaryStream.name = segment.streamtwoName;
 	app.secondaryStream.url = segment.streamtwoURL;
 	if (app.secondaryStream.url === "")
-		app.secondaryStream.enabled = false;	
+	{
+		console.log("no second stream to show");
+		stream2active = false;
+		app.secondaryStream.enabled = false;
+		app.secondaryStream.show = false;
+	} else {
+		stream2active = true;
+		app.secondaryStream.enabled = true;
+		app.secondaryStream.show = true;
+	}
+		
 }
+
+

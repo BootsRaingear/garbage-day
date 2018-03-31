@@ -1,0 +1,14 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",	
+	"type": "object",
+	"properties": {	
+		"disabled": {
+			"type": "boolean",
+			"default": false
+		},
+		"swap": {
+			"type": "boolean",
+			"default": false
+		}
+	}
+}

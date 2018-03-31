@@ -18,14 +18,13 @@ const onBreak = nodecg.Replicant('onBreak');
 const currentScene = nodecg.Replicant('currentScene');
 
 
-function cycleRecording(obs) {
+function stopObsRecording(obs) {
 	return new Promise((resolve,reject) => {
 		let rejected = false;
 		const timeout = setTimeout(() => {
 			rejected = true;
 			reject(new Error(`Times out waiting for ${obs.namespace} to stop recording.`));
 		}, 30000);
-		
 		const recordingStoppedListener = () => {
 			if (rejected) {
 				return;
@@ -49,44 +48,37 @@ function cycleRecording(obs) {
 				reject(error);
 			}
 		});
-	}).then(() => {
-	return obs.startRecording();
 	});
 }
 
 
+
 module.exports = {
 	setCurrentScene(sceneName) {
+		console.log(sceneName);
 		return OBS.setCurrentScene({
 			'scene-name': sceneName
 		});
 	},
 	
-	getCurrentScene() {
-		//return OBS.getCurrentScene().values;
-		//console.log(OBS.getCurrentScene().value);		
-	},	
-	
-	async cycleRecordings() {
-		nodecg.log.info('Cycling recordings...');
 
-		const cycleRecordingPromises = [];
+	
+	async stopRecording() {
+		nodecg.log.info('Stopping recording');
+
+		const stoprecordingPromise = [];
 		if (OBS._connected) {
-			cycleRecordingPromises.push(cycleRecording(OBS));
+			await stopObsRecording(OBS);
+			nodecg.log.info('Recording successfully stopped.');
 		} else {
-			nodecg.log.error('Recording OBS is disconnected! Not cycling its recording.');
+			nodecg.log.error('OBS is disconnected! Not cycling its recording.');
 		}
+	},	
 
-		if (cycleRecordingPromises.length <= 0) {
-			nodecg.log.warn('OBS is not connected, aborting cycleRecordings.');
-			return;
-		}
+	startRecording() {
+		OBS.startRecording();
+	}
 
-		await Promise.all(cycleRecordingPromises);
-
-		nodecg.log.info('Recordings successfully cycled.');
-	},
-	
 
 	
 }

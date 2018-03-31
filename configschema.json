@@ -13,6 +13,10 @@
 				"breakScene": {
 					"type": "string",
 					"value": ""
+				},
+				"liveScene": {
+					"type": "string",
+					"value": ""
 				}
 			}
 		},

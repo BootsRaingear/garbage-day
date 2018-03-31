@@ -65,8 +65,8 @@
 			});
 			
 			currentHour.on('change', newVal => {
-				this.curHour = newVal + 1;
-				this.nextHour = newVal + 2;
+				this.curHour = newVal;
+				this.nextHour = newVal + 1;
 				
 				// if segments was parsed first, populate fields
 				if (typeof this.curTitle == 'undefined')
@@ -80,7 +80,7 @@
 			segments.on('change', newVal => {
 				// populate fields if currentHour is parsed first
 				if (typeof this.curHour !== 'undefined')
-					populateCast(newVal);
+					this.populateCast(newVal);
 			});	
 		}
 		

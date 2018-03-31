@@ -20,11 +20,11 @@ onBreak.on('change', newVal => {
 	if (onBreak.value === true) {
 		nodecg.log.info('starting break');		
 		obs.setCurrentScene(nodecg.bundleConfig.obs.breakScene);
-		obs.cycleRecordings();		
+		obs.stopRecording();
 	} else {
 		nodecg.log.info('ending break');
-		obs.cycleRecordings();
-		obs.setCurrentScene(currentScene.value);
+		obs.startRecording();
+		obs.setCurrentScene(nodecg.bundleConfig.obs.liveScene);
 	}
 });
 
