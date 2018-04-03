@@ -42,6 +42,14 @@
 			"type": "string",
 			"default": ""
 		},
+		"ridiculist7": {
+			"type": "string",
+			"default": ""
+		},
+		"ridiculist8": {
+			"type": "string",
+			"default": ""
+		},
 		"artistName": {
 			"type": "string",
 			"default": ""

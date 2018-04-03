@@ -5,6 +5,9 @@
 	const battle = nodecg.Replicant('battle');
 	const segments = nodecg.Replicant('segments');
 	
+	var segFetched = false;
+	var hourfetched = false;
+	
 	class GdGeneral extends Polymer.Element {
 		static get is() {
 			return 'gd-general';
@@ -24,6 +27,8 @@
 				curRidiculist4: String,
 				curRidiculist5: String,
 				curRidiculist6: String,
+				curRidiculist7: String,
+				curRidiculist8: String,
 				curArtist: String,
 				curStreamTwo: String,
 				
@@ -37,6 +42,9 @@
 				nextRidiculist4: String,
 				nextRidiculist5: String,
 				nextRidiculist6: String,
+				nextRidiculist7: String,
+				nextRidiculist8: String,
+				
 				nextArtist: String,
 				nextStreamTwo: String,
 				
@@ -65,12 +73,14 @@
 			});
 			
 			currentHour.on('change', newVal => {
+				hourfetched = true;
+				
 				this.curHour = newVal;
 				this.nextHour = newVal + 1;
 				
 				// if segments was parsed first, populate fields
-				if (typeof this.curTitle == 'undefined')
-					this.populateCast(segments.value);
+				if (segFetched)
+					this.populateCast(segments.value, newVal);
 			});
 			
 			donationTotal.on('change', newVal => {
@@ -78,25 +88,29 @@
 			});
 						
 			segments.on('change', newVal => {
+				segFetched = true;
+				
 				// populate fields if currentHour is parsed first
-				if (typeof this.curHour !== 'undefined')
+				if (hourFetched)
 					this.populateCast(newVal);
 			});	
 		}
 		
-		populateCast(segs) {
+		populateCast(segs, hour) {
 			if (typeof segs !== 'undefined') {
-				this.curTitle = segs[this.curHour].title;
-				this.curDocProvider = segs[this.curHour].docProvider;
-				this.curDocURL = segs[this.curHour].docURL;
-				this.curRidiculist1 = segs[this.curHour].ridiculist1;
-				this.curRidiculist2 = segs[this.curHour].ridiculist2;
-				this.curRidiculist3 = segs[this.curHour].ridiculist3;
-				this.curRidiculist4 = segs[this.curHour].ridiculist4;
-				this.curRidiculist5 = segs[this.curHour].ridiculist5;
-				this.curRidiculist6 = segs[this.curHour].ridiculist6;
-				this.curArtist = segs[this.curHour].artistName;
-				this.curStreamTwo = segs[this.curHour].streamTwoName;	
+				this.curTitle = segs[hour].title;
+				this.curDocProvider = segs[hour].docProvider;
+				this.curDocURL = segs[hour].docURL;
+				this.curRidiculist1 = segs[hour].ridiculist1;
+				this.curRidiculist2 = segs[hour].ridiculist2;
+				this.curRidiculist3 = segs[hour].ridiculist3;
+				this.curRidiculist4 = segs[hour].ridiculist4;
+				this.curRidiculist5 = segs[hour].ridiculist5;
+				this.curRidiculist6 = segs[hour].ridiculist6;
+				this.curRidiculist7 = segs[hour].ridiculist7;
+				this.curRidiculist8 = segs[hour].ridiculist8;
+				this.curArtist = segs[hour].artistName;
+				this.curStreamTwo = segs[hour].streamTwoName;	
 			} else {
 				this.curTitle = "";
 				this.curDocProvider = "";
@@ -107,22 +121,26 @@
 				this.curRidiculist4 = "";
 				this.curRidiculist5 = "";
 				this.curRidiculist6 = "";
+				this.curRidiculist7 = "";
+				this.curRidiculist8 = "";
 				this.curArtist = "";
 				this.curStreamTwo = "";					
 			}
 			
-			if ((typeof segs[this.nextHour] !== 'undefined') && (this.nextHour <= 24)) {
-				this.nextTitle = segs[this.nextHour].title;
-				this.nextDocProvider = segs[this.nextHour].docProvider;
+			if ((typeof segs[hour + 1] !== 'undefined') && (hour + 1 <= 24)) {
+				this.nextTitle = segs[hour + 1].title;
+				this.nextDocProvider = segs[hour + 1].docProvider;
 				this.nextDocURL = segs[this.curHour].docURL;
-				this.nextRidiculist1 = segs[this.nextHour].ridiculist1;
-				this.nextRidiculist2 = segs[this.nextHour].ridiculist2;
-				this.nextRidiculist3 = segs[this.nextHour].ridiculist3;
-				this.nextRidiculist4 = segs[this.nextHour].ridiculist4;
-				this.nextRidiculist5 = segs[this.nextHour].ridiculist5;
-				this.nextRidiculist6 = segs[this.nextHour].ridiculist6;
-				this.nextArtist = segs[this.nextHour].artistName;
-				this.nextStreamTwo = segs[this.nextHour].streamTwoName;					
+				this.nextRidiculist1 = segs[hour + 1].ridiculist1;
+				this.nextRidiculist2 = segs[hour + 1].ridiculist2;
+				this.nextRidiculist3 = segs[hour + 1].ridiculist3;
+				this.nextRidiculist4 = segs[hour + 1].ridiculist4;
+				this.nextRidiculist5 = segs[hour + 1].ridiculist5;
+				this.nextRidiculist6 = segs[hour + 1].ridiculist6;
+				this.nextRidiculist7 = segs[hour + 1].ridiculist7;
+				this.nextRidiculist8 = segs[hour + 1].ridiculist8;
+				this.nextArtist = segs[hour + 1].artistName;
+				this.nextStreamTwo = segs[hour + 1].streamTwoName;					
 			} else {
 				this.nextTitle = "";
 				this.nextDocProvider = "";
@@ -133,6 +151,8 @@
 				this.nextRidiculist4 = "";
 				this.nextRidiculist5 = "";
 				this.nextRidiculist6 = "";
+				this.nextRidiculist7 = "";
+				this.nextRidiculist8 = "";
 				this.nextArtist = "";
 				this.nextStreamTwo = "";
 			}		

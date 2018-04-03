@@ -12,7 +12,7 @@ const streamtwoControl = nodecg.Replicant('streamtwoControl');
 
 var stream2active = false;
 var hourFetched = false;
-var segFetchNeeded = false;
+var segFetched = false;
 
 donationTotal.on('change', newVal => {
 	app.totalDonations = newVal.toFixed(2);
@@ -22,17 +22,16 @@ currentHour.on('change', newVal => {
 	app.hour = newVal;
 	hourFetched = true;
 	
-	if (segFetchNeeded) {
-		updateCast(segments.value[app.hour]);
-	}
+	if (segFetched) 
+		updateCast(segments.value[newVal]);	
 		
 });
 
 segments.on('change', newVal => {
+	segFetched = true;
+	console.log('schedule updated');
 	if (hourFetched)
 		updateCast(newVal[app.hour]);
-	else
-		segFetchNeeded = true;
 });
 
 battle.on('change', newVal => {

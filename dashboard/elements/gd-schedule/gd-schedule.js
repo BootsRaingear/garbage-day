@@ -20,6 +20,8 @@
 				ridiculist4: String,
 				ridiculist5: String,
 				ridiculist6: String,
+				ridiculist7: String,
+				ridiculist8: String,
 				artistName: String,
 				artistURL: String,
 				streamtwoName: String,
@@ -39,6 +41,8 @@
 					this.ridiculist4 = segments.value[this.hour].ridiculist4;
 					this.ridiculist5 = segments.value[this.hour].ridiculist5;
 					this.ridiculist6 = segments.value[this.hour].ridiculist6;
+					this.ridiculist7 = segments.value[this.hour].ridiculist7;
+					this.ridiculist8 = segments.value[this.hour].ridiculist8;
 					this.artistName = segments.value[this.hour].artistName;
 					this.artistURL = segments.value[this.hour].artistURL;
 					this.streamtwoName = segments.value[this.hour].streamtwoName;
@@ -54,6 +58,8 @@
 					this.ridiculist4 = "";
 					this.ridiculist5 = "";
 					this.ridiculist6 = "";
+					this.ridiculist7 = "";
+					this.ridiculist8 = "";
 					this.artistName = "";
 					this.artistURL = "";
 					this.streamtwoName = "";
@@ -78,6 +84,8 @@
 				segment.value.ridiculist4 = this.ridiculist4;
 				segment.value.ridiculist5 = this.ridiculist5;
 				segment.value.ridiculist6 = this.ridiculist6;
+				segment.value.ridiculist7 = this.ridiculist7;
+				segment.value.ridiculist8 = this.ridiculist8;
 				segment.value.artistName = this.artistName;
 				segment.value.artistURL = this.artistURL;
 				segment.value.streamtwoName = this.streamtwoName;

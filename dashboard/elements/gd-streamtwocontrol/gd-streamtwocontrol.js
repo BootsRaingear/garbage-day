@@ -1,6 +1,6 @@
 (function () {
 	const streamtwoControl = nodecg.Replicant('streamtwoControl');
-	const onBreak = nodecg.Replicant('onBreak');	
+	const onBreak = nodecg.Replicant('onBreak');
 	
 	class GdStreamTwoControl extends Polymer.Element {
 		static get is() {
