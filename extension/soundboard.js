@@ -5,6 +5,11 @@ nodecg.listenFor('soundboardPlay', filename => {
 	sendDiscordWebhookMsg(message);
 });
 
+nodecg.listenFor('victorPlay', filename => {	
+	var message = "!playvictor " + filename;
+	sendDiscordWebhookMsg(message);
+});
+
 nodecg.listenFor('playMmmbop', value => {
 	sendDiscordWebhookMsg("!playmmmbop phGfHvPSjajs");
 });

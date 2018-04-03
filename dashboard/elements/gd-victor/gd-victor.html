@@ -1,0 +1,44 @@
+<link rel="import" href="../../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../../../bower_components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../../../bower_components/iron-list/iron-list.html">
+
+
+<dom-module id="gd-victor">
+	<template>
+		<style>
+			#soundboard {
+				@apply --layout-horizontal;
+				@apply --layout-wrap;
+				margin-top: 8px;
+				margin-right: 8px;
+			}
+			
+			.soundclips {
+				@apply --layout-flex;
+				padding-bottom: 5px;
+				padding-right: 5px;
+			}
+			
+			.playSound {
+				--paper-button: {
+					background-color: #f8ffef;
+					width: 100%;
+				};
+			}
+			
+		</style>		
+		<div id="soundboard">
+			<template is="dom-repeat" items="{{soundclips}}">
+					<div class="soundclips">
+							<paper-button class="playSound" on-tap="_handlePlaySound" alt="Play Sound" raised>
+								{{item.name}}
+							</paper-button>
+						</div>
+					</div>
+		</template>
+		</div>
+		
+	</template>
+	<script src="gd-victor.js"></script>
+</dom-module>		

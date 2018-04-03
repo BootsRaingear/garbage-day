@@ -48,6 +48,13 @@
 				]
 			},
 			{
+				"name": "victor",
+				"title": "Victor Soundboard",
+				"allowedTypes": [
+					"mp3",
+					"ogg"
+				]
+			},			{
 				"name": "mmmbop",
 				"title": "Just Mmmbop",
 				"allowedTypes": [
@@ -62,7 +69,7 @@
 				"title": "OBS",
 				"width": 3,
 				"file": "obs-panel.html",
-				"workspace": "Setup"
+				"workspace": "OBS"
 			},
 			{
 				"name": "obs-control",
@@ -140,6 +147,13 @@
 				"width": 2,
 				"file": "streamtwoControl.html",
 				"workspace": "Stream"			
+			},
+			{
+				"name": "victor",
+				"title": "Victor Laszlo",
+				"file": "victor.html",
+				"width": 5,
+				"workspace": "Stream"
 			}			
 		],
 		"graphics": [
