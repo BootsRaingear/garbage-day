@@ -81,6 +81,7 @@ streamtext.on('change', newVal => {
 	app.introText = newVal.introText;
 	app.breakText = newVal.breakText;
 	app.logoURL = newVal.logoURL;
+	app.underTotalText = newVal.underTotalText;
 });
 
 function updateCast(segment)

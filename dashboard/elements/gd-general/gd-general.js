@@ -6,7 +6,7 @@
 	const segments = nodecg.Replicant('segments');
 	
 	var segFetched = false;
-	var hourfetched = false;
+	var hourFetched = false;
 	
 	class GdGeneral extends Polymer.Element {
 		static get is() {
@@ -73,7 +73,7 @@
 			});
 			
 			currentHour.on('change', newVal => {
-				hourfetched = true;
+				hourFetched = true;
 				
 				this.curHour = newVal;
 				this.nextHour = newVal + 1;
@@ -92,12 +92,12 @@
 				
 				// populate fields if currentHour is parsed first
 				if (hourFetched)
-					this.populateCast(newVal);
+					this.populateCast(newVal, this.curHour);
 			});	
 		}
 		
 		populateCast(segs, hour) {
-			if (typeof segs !== 'undefined') {
+			if (typeof segs[hour] !== 'undefined') {
 				this.curTitle = segs[hour].title;
 				this.curDocProvider = segs[hour].docProvider;
 				this.curDocURL = segs[hour].docURL;
