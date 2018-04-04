@@ -154,7 +154,14 @@
 				"file": "victor.html",
 				"width": 5,
 				"workspace": "Stream"
-			}			
+			},
+			{
+				"name": "streamtext",
+				"title": "Stream Text/Logo",
+				"file": "streamtext-panel.html",
+				"width": 4,
+				"workspace": "Setup"			
+			}
 		],
 		"graphics": [
 			{
