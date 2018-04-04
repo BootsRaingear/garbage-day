@@ -6,7 +6,7 @@ aside
   .reader-box
     .label Your friends for the hour:
     ul(v-for="reader in readers")
-      li.reader {{reader}}
+      li.reader(v-if="reader" v-text="reader")
   
   .artist-box(v-if="artist")
     .label Your artist:

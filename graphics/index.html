@@ -74,7 +74,7 @@
           <div class="reader-box">
             <div class="label">Your friends for the hour:</div>
             <ul v-for="reader in readers">
-              <li class="reader">{{reader}}</li>
+              <li class="reader" v-if="reader" v-text="reader"></li>
             </ul>
           </div>
           <div class="artist-box" v-if="artist">
