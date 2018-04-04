@@ -462,11 +462,17 @@ footer {
   align-self: auto; }
 
 .layout.break footer {
-  padding-top: 35px; }
+  padding-top: 35px;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: #131313;
+  padding-bottom: 35px; }
   .layout.break footer .hour-box {
-    width: 140px;
-    -ms-flex-preferred-size: 140px;
-    flex-basis: 140px;
+    width: 170px;
+    -ms-flex-preferred-size: 170px;
+    flex-basis: 170px;
     -webkit-box-flex: 0;
     -ms-flex-positive: 0;
     flex-grow: 0;
@@ -894,7 +900,7 @@ footer {
 
 .break-screen {
   width: 100%;
-  height: 44vw;
+  height: 45vw;
   position: relative; }
   .break-screen figure {
     position: absolute;
@@ -904,5 +910,11 @@ footer {
     left: 0;
     background-size: cover;
     background-position: center; }
-
-/*# sourceMappingURL=garbage.css.map */
+  .break-screen .break-text {
+    position: absolute;
+    top: 9vh;
+    right: 3vw;
+    z-index: 4;
+    color: #ee2a2a;
+    font-size: 4vw;
+    mix-blend-mode: difference; }

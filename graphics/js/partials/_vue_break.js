@@ -2,10 +2,10 @@
 var app = new Vue({
   el: '#app',
   data: {
-    hour: 9,
+    hour: 17,
     onBreak: true,
-    breakPic: 'https://picsum.photos/1920/850',
-    title: "Bitch Loser Sex Madness",
+    breakPic: 'https://unsplash.it/1600/900?random',
+    title: "This is a webcomic about sentient fairy penises and the big-boobed women who care for them",
     readers: [
       "Lemon",
       "Boots Raingear",
@@ -16,6 +16,7 @@ var app = new Vue({
     ],
     
     introText: '<p>This is <b>Garbage Day</b>!</p><p>A 24 hour marathon of terrible writing in support of the <b>Southern Poverty Law Center</b>.</p>',
+    breakText: "We'll be right back",
     
     provider: "T. Azimuth Schwitters",
     

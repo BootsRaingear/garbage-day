@@ -1,4 +1,4 @@
-footer(v-cloak)
+footer(v-cloak v-bind:class="{ break: onBreak }")
   .box.hour-box(v-if="hour")
     .label(v-if="onBreak") Next Hour:
     .label(v-else) This is hour
