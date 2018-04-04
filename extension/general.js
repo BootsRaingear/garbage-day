@@ -4,7 +4,22 @@ const cron =  require('node-schedule');
 const currentHour = nodecg.Replicant('currentHour');
 const streamtwoControl = nodecg.Replicant('streamtwoControl');
 const onBreak = nodecg.Replicant('onBreak');
+const currentBreakImage = nodecg.Replicant('currentBreakImage');
+const breakImages = nodecg.Replicant('assets:breakimages');
+
 var onstart = true;
+
+var breakImageRule = new cron.RecurrenceRule();
+breakImageRule.second = [0, 15, 30, 45];
+
+var rotateBreakImage = schedule.scheduleJob(breakImageRule, function() {
+	 = currentBreakImage.value;
+	if (curImg >= breakImages.value.length)
+	{
+		curImg = 0;
+	}
+	currentBreakImage.value = curImg;
+});
 
 currentHour.on('change', newVal => {
 	if (onstart)

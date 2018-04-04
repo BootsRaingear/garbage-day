@@ -8,7 +8,9 @@ const donationGoal = nodecg.Replicant('donationGoal');
 const freewrite = nodecg.Replicant('freewrite');
 const prize = nodecg.Replicant('prize');
 const streamtwoControl = nodecg.Replicant('streamtwoControl');
-
+const breakImages = nodecg.Replicant('assets:breakimages');
+const currentBreakImage = nodecg.Replicant('currentBreakImage');
+const streamtext = nodecg.Replicant('streamtext');
 
 var stream2active = false;
 var hourFetched = false;
@@ -82,6 +84,11 @@ streamtext.on('change', newVal => {
 	app.breakText = newVal.breakText;
 	app.logoURL = newVal.logoURL;
 	app.underTotalText = newVal.underTotalText;
+});
+
+currentBreakImage.on('change', newVal => {
+	console.log(breakImages.value[newVal]);
+	app.breakPic = breakImages.value[newVal].url;
 });
 
 function updateCast(segment)
