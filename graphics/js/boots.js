@@ -87,14 +87,24 @@ function updateCast(segment)
 	app.primaryStream.url = segment.artistURL;
 	app.title = segment.title;
 	app.provider = segment.docProvider;
-	app.readers[0] = segment.ridiculist1;
-	app.readers[1] = segment.ridiculist2;
-	app.readers[2] = segment.ridiculist3;
-	app.readers[3] = segment.ridiculist4;
-	app.readers[4] = segment.ridiculist5;
-	app.readers[5] = segment.ridiculist6;
-    app.readers[6] = segment.ridiculist7;
-    app.readers[7] = segment.ridiculist8;
+	var iReaders = [];
+	iReaders[0] = segment.ridiculist1;
+	iReaders[1] = segment.ridiculist2;
+	if (segment.ridiculist3 !== "")	
+		iReaders[2] = segment.ridiculist3;
+	if (segment.ridiculist4 !== "")	
+		iReaders[3] = segment.ridiculist4;
+	if (segment.ridiculist5 !== "")	
+		iReaders[4] = segment.ridiculist5;
+	if (segment.ridiculist6 !== "")	
+		iReaders[5] = segment.ridiculist6;
+	if (segment.ridiculist7 !== "")	
+		iReaders[6] = segment.ridiculist7;
+	if (segment.ridiculist8 !== "")	
+		iReaders[7] = segment.ridiculist8;
+	
+	app.readers = iReaders;
+	
 	app.secondaryStream.name = segment.streamtwoName;
 	app.secondaryStream.url = segment.streamtwoURL;
 	if (app.secondaryStream.url === "")
@@ -109,11 +119,6 @@ function updateCast(segment)
 		app.secondaryStream.show = true;
 	}
 	
-    for (var i = 0; i < app.readers.length; i++) {
-      if (app.readers[i] == "") {         
-        app.readers.splice(i, 1);
-      }
-    }
   
 }
 
