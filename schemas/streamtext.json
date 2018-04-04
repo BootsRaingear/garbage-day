@@ -1,0 +1,22 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",	
+	"type": "object",
+	"properties": {	
+		"introText": {
+			"type": "string",
+			"default": "<p>This is <b>Garbage Day</b>!</p><p>A 24 hour marathon of terrible writing in support of the <b>Southern Poverty Law Center</b>.</p>"
+		},
+		"breakText": {
+			"type": "string",
+			"default": ""
+		},
+		"logoURL": {
+			"type": "string",
+			"default": "https://thefpl.us/content/7-wrote/13-garbage-day/gd_square.jpg"
+		},
+		"underTotalText": {
+			"type": "string",
+			"default": "Money goes to the <b>Southern Poverty Law Center</b>"
+		}
+	}
+}

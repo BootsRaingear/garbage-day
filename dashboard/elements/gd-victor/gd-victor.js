@@ -18,7 +18,12 @@
 			soundboard.on('change', newVal => {				
 				this.soundclips = []; 	// forces browser to detect change in items.
 				this.soundclips = newVal;
-				
+				this.formattedName = [];
+				for (var i = 0; i < newVal.length; i++) {
+					var newname = newVal[i].name.replace(/_/g, ' ');
+					newname = newname.replace(/\(Q\)/g, '?');
+					this.soundclips[i].formattedName = newname;
+				}
 			});
 		}
 		

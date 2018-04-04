@@ -69,15 +69,18 @@ prize.on('change', newVal => {
 });
 
 streamtwoControl.on('change', newVal => {
-	console.log(newVal.disabled);
 	if (!newVal.disabled) {
-		console.log("Showing!");
 		app.secondaryStream.show = true;
 	} else {
-		console.log("Hiding!");
 		app.secondaryStream.show = false;
 	}
 	app.swapStreams = newVal.swap;
+});
+
+streamtext.on('change', newVal => {
+	app.introText = newVal.introText;
+	app.breakText = newVal.breakText;
+	app.logoURL = newVal.logoURL;
 });
 
 function updateCast(segment)

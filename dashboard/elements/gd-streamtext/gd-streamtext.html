@@ -1,0 +1,52 @@
+<link rel="import" href="../../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../../../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../../../bower_components/paper-input/paper-textarea.html">
+<link rel="import" href="../../../bower_components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../../../bower_components/vaadin-combo-box/vaadin-combo-box.html">
+
+<dom-module id="gd-streamtext">
+	<template>
+		<style>
+			:host {
+				@apply --layout-vertical;
+			}
+			
+			#update_button {
+				--paper-button: {
+					background-color: #5BA664;
+					color: white;
+				};
+			}	
+			
+		</style>	
+		<div id="streamtext">
+			<div id="inputs">			
+				<paper-textarea 
+					label="Intro Text"					
+					value="{{introText}}">
+				</paper-textarea>
+				<paper-textarea 
+					label="Logo URL"					
+					value="{{logoURL}}">
+				</paper-textarea>
+				<paper-textarea 
+					label="Break Text"					
+					value="{{breakText}}">
+				</paper-textarea>
+				<paper-textarea 
+					label="Text Under Total"					
+					value="{{underTotalText}}">
+				</paper-textarea>
+			</div>
+			<div id="controls">
+				<paper-button id="update_button" on-tap="updateStreamText">
+					Update
+				</paper-button>					
+			</div>
+		</div>
+
+	</template>
+	
+	<script src="gd-streamtext.js"></script>
+</dom-module>

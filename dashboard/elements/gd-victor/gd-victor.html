@@ -18,6 +18,7 @@
 				@apply --layout-flex;
 				padding-bottom: 5px;
 				padding-right: 5px;
+				white-space: nowrap;
 			}
 			
 			.playSound {
@@ -30,12 +31,12 @@
 		</style>		
 		<div id="soundboard">
 			<template is="dom-repeat" items="{{soundclips}}">
-					<div class="soundclips">
-							<paper-button class="playSound" on-tap="_handlePlaySound" alt="Play Sound" raised>
-								{{item.name}}
-							</paper-button>
-						</div>
+				<div class="soundclips">						
+						<paper-button class="playSound" on-tap="_handlePlaySound" alt="Play Sound" raised>
+							{{item.formattedName}}
+						</paper-button>
 					</div>
+				</div>
 		</template>
 		</div>
 		
