@@ -93,6 +93,8 @@ function updateCast(segment)
 	app.readers[3] = segment.ridiculist4;
 	app.readers[4] = segment.ridiculist5;
 	app.readers[5] = segment.ridiculist6;
+    app.readers[6] = segment.ridiculist7;
+    app.readers[7] = segment.ridiculist8;
 	app.secondaryStream.name = segment.streamtwoName;
 	app.secondaryStream.url = segment.streamtwoURL;
 	if (app.secondaryStream.url === "")
@@ -106,7 +108,13 @@ function updateCast(segment)
 		app.secondaryStream.enabled = true;
 		app.secondaryStream.show = true;
 	}
-		
+	
+    for (var i = 0; i < app.readers.length; i++) {
+      if (app.readers[i] == "") {         
+        app.readers.splice(i, 1);
+      }
+    }
+  
 }
 
 
