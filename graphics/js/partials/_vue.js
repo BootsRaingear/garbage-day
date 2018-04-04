@@ -4,7 +4,7 @@ var app = new Vue({
   data: {
     hour: 9,
     onBreak: false,
-    breakPic: 'https://picsum.photos/1920/900',
+    breakPic: 'https://unsplash.it/1600/900?random',
     title: "Bitch Loser Sex Madness",
     readers: [
       "Lemon",

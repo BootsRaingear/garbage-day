@@ -1,3 +1,6 @@
-.break-screen { width:100%; height:44vw; position: relative; 
+.break-screen { width:100%; height:45vw; position: relative; 
   figure { @include position(absolute,0,0,0,0); background-size: cover; background-position: center; }
+  
+  .break-text { @include position(absolute,9vh,3vw); z-index: 4; color:$red; font-size:4vw; mix-blend-mode: difference; }
+  
 }

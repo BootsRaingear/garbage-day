@@ -83,7 +83,7 @@
           </div>
           <figure class="logo"><img :src="logoURL"></figure>
         </aside>
-        <footer v-cloak>
+        <footer v-cloak v-bind:class="{ break: onBreak }">
           <div class="box hour-box" v-if="hour">
             <div class="label" v-if="onBreak">Next Hour:</div>
             <div class="label" v-else>This is hour</div>

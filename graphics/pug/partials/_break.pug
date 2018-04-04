@@ -1,4 +1,6 @@
 main
   .break-screen
     figure(v-if="breakPic" v-bind:style="breakBackground")
+    .break-text(v-if="breakText" v-html="breakText")
+    
   

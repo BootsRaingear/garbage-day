@@ -62,8 +62,8 @@ footer { @include flex-container(); color:$offwhite; font-family: $font; font-we
 }
 
 .layout.break {
-  footer { padding-top: 35px;
-      .hour-box { @include flex-item(140px,0,1);
+  footer { padding-top: 35px; @include position(fixed,null,0,0,0); background:$black; padding-bottom: 35px;
+      .hour-box { @include flex-item(170px,0,1);
       .number { font-size:500%; }
     }
     .topic-box, .desc-box { @include flex-item(25%);  }

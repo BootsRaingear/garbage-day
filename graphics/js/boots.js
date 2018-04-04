@@ -94,17 +94,17 @@ function updateCast(segment)
 	var iReaders = [];
 	iReaders[0] = segment.ridiculist1;
 	iReaders[1] = segment.ridiculist2;
-	if (segment.ridiculist3 !== "")	
+	if (segment.ridiculist3 && segment.ridiculist3 !== "")	
 		iReaders[2] = segment.ridiculist3;
-	if (segment.ridiculist4 !== "")	
+	if (segment.ridiculist4 && segment.ridiculist4 !== "")	
 		iReaders[3] = segment.ridiculist4;
-	if (segment.ridiculist5 !== "")	
+	if (segment.ridiculist5 && segment.ridiculist5 !== "")	
 		iReaders[4] = segment.ridiculist5;
-	if (segment.ridiculist6 !== "")	
+	if (segment.ridiculist7 && segment.ridiculist6 !== "")	
 		iReaders[5] = segment.ridiculist6;
-	if (segment.ridiculist7 !== "")	
+	if (segment.ridiculist7 && segment.ridiculist7 !== "")	
 		iReaders[6] = segment.ridiculist7;
-	if (segment.ridiculist8 !== "")	
+	if (segment.ridiculist8 && segment.ridiculist8 !== "")	
 		iReaders[7] = segment.ridiculist8;
 	
 	app.readers = iReaders;
