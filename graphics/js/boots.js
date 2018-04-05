@@ -87,7 +87,6 @@ streamtext.on('change', newVal => {
 });
 
 currentBreakImage.on('change', newVal => {
-	console.log(breakImages.value[newVal]);
 	app.breakPic = breakImages.value[newVal].url;
 });
 
@@ -120,7 +119,6 @@ function updateCast(segment)
 	app.secondaryStream.url = segment.streamtwoURL;
 	if (app.secondaryStream.url === "")
 	{
-		console.log("no second stream to show");
 		stream2active = false;
 		app.secondaryStream.enabled = false;
 		app.secondaryStream.show = false;

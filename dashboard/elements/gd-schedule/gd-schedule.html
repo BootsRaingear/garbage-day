@@ -36,6 +36,13 @@
 				margin-bottom: 10px;
 			}
 			
+			#update_button {
+				--paper-button: {
+					background-color: #5BA664;
+					color: white;
+				};
+			}			
+			
 		</style>
 	
 		<div id="hour">
@@ -179,7 +186,7 @@
 		
 		
 		<div id="update">
-			<paper-button id="update" raised on-tap="update">
+			<paper-button id="update_button" raised on-tap="update">
 				Update
 			</paper-button>
 		</div>

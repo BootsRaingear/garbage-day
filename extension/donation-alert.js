@@ -7,6 +7,8 @@ const donationTotal = nodecg.Replicant('donationTotal');
 const battle = nodecg.Replicant('battle');
 const prize = nodecg.Replicant('prize');
 const mmmbop = nodecg.Replicant('mmmbop');
+const currentFetishPrize = nodecg.Replicant('currentFetishPrize');
+const fetishPrizes = nodecg.Replicant('fetishPrizes');
 
 let opts = {
 	reconnect: true
@@ -43,6 +45,7 @@ socket.on("event", event => {
 		
 		checkBattle(message);
 		checkPrize(message);
+		checkFetishPrize(message);
 		checkMmmbop(newTotal);
 	}
 });
@@ -67,7 +70,7 @@ function checkBattle(msg) {
 function checkPrize(msg) {
 	if (prize.value.active)
 	{
-		if (parseFloat(msg.amount.amount) > prize.value.amount)
+		if (parseFloat(msg.amount.amount) >= prize.value.amount)
 		{
 			prize.value.claimed = true;
 			prize.value.claimedBy = msg.name;
@@ -86,4 +89,13 @@ function checkMmmbop(dTotal) {
 	}
 	mmmbop.value.mmmbopsAvailable = mmmbopsAvailable;
 	mmmbop.value.nextMilestone = nextMilestone;
+}
+
+function checkFetishPrize(msg) {
+	var donationAmt = parseFloat(msg.amount.amount);
+	if (donationAmt > currentFetishPrize.value.topDonorAmount)
+	{
+		currentFetishPrize.value.topDonor = msg.name;
+		currentFetishPrize.value.topDonorAmount = donationAmt;
+	}
 }
