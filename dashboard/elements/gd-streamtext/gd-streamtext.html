@@ -19,22 +19,32 @@
 				};
 			}	
 			
+			.textinput {
+				--paper-input-input-color: white;
+				--paper-input-container-color: white;
+				--paper-input-focus-color: aqua;
+			}
+			
 		</style>	
 		<div id="streamtext">
 			<div id="inputs">			
-				<paper-textarea 
+				<paper-textarea
+					class="textinput"
 					label="Intro Text"					
 					value="{{introText}}">
 				</paper-textarea>
 				<paper-textarea 
+					class="textinput"
 					label="Logo URL"					
 					value="{{logoURL}}">
 				</paper-textarea>
 				<paper-textarea 
+					class="textinput"
 					label="Break Text"					
 					value="{{breakText}}">
 				</paper-textarea>
 				<paper-textarea 
+					class="textinput"
 					label="Text Under Total"					
 					value="{{underTotalText}}">
 				</paper-textarea>
