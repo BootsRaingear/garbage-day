@@ -22,7 +22,7 @@ var app = new Vue({
     artist: "Sanguinary Novel",
     
     donateURL: "garbage.live",
-    logoURL: "https://thefpl.us/content/7-wrote/13-garbage-day/gd_square.jpg",
+    logoURL: "https://thefpl.us/assets/24th/img/24th.gif",
     
     primaryStream: {
       show: true,
