@@ -1,3 +1,5 @@
+
+
 <link rel="import" href="../../../bower_components/polymer/polymer-element.html">
 <link rel="import" href="../../../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../../../bower_components/paper-input/paper-input.html">
@@ -36,9 +38,17 @@
 					color: white;
 				};			
 			}
-			
+
+			.location_items {
+				background-color: #C9513E;
+				font-size: 72px;
+			}
+
 
 		</style>	
+
+
+
 		<div id="freewrite_body">
 			<div id="inputs">			
 				<paper-textarea 
@@ -48,13 +58,19 @@
 				<paper-input
 					label="Image URL (optional)"
 					value="{{img}}">
-				</paper-input>
-				<vaadin-combo-box
-					id="location"
+				</paper-input>			
+				<vaadin-combo-box					
+					id="location_box"
 					placeholder="center"
 					items="[[locations]]"
-					selected-item="{{location}}"
+					selected-item="{{location}}">
 				</vaadin-combo-box>
+				<script>
+					window.addEventListener('vaadin-dropdown-opened', function() { 
+						var overlay = Polymer.dom(this.root).querySelector('#overlay'); 
+						overlay.style.backgroundColor = primaryBackground; 
+					}); 
+				</script>	
 				<!--
 				<paper-input
 					label="location"

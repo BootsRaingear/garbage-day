@@ -30,12 +30,19 @@
 			}
 
 			.divider {
-				border-bottom: 1px dashed
+				border-bottom: 1px dashed;
 				border-bottom: 1px;
 				margin-top: 10px;
 				margin-bottom: 10px;
 			}
 			
+			#fetch_button {
+				--paper-button: {
+					background-color: #5BA664;
+					color: white;
+				};
+			}
+
 			#update_button {
 				--paper-button: {
 					background-color: #5BA664;
@@ -52,7 +59,7 @@
 					value="{{hour}}"
 					always-float-label>
 				</paper-input>
-				<paper-button id="fetch" raised on-tap="fetch">
+				<paper-button id="fetch_button" raised on-tap="fetch">
 					Fetch
 				</paper-button>
 			</div>
@@ -87,7 +94,7 @@
 							label="Host"
 							name="Ridiculist1"
 							always-float-label
-							value="{{ridiculist1}}"
+							value="{{ridiculist1}}">
 						</paper-input>
 					</div>
 					<div id="ridiculists">
@@ -95,7 +102,7 @@
 							label="Ridiculist 2"
 							name="Ridiculist2"
 							always-float-label
-							value="{{ridiculist2}}"
+							value="{{ridiculist2}}">
 						</paper-input>
 					</div>
 				</div>
@@ -105,7 +112,7 @@
 							label="Ridiculist 3"
 							name="Ridiculist3"
 							always-float-label
-							value="{{ridiculist3}}"
+							value="{{ridiculist3}}">
 					</paper-input>
 					</div>
 					<div id="ridiculists">
@@ -113,7 +120,7 @@
 							label="Ridiculist 4"
 							name="Ridiculist4"
 							always-float-label
-							value="{{ridiculist4}}"
+							value="{{ridiculist4}}">
 					</paper-input>
 					</div>
 				</div>
@@ -123,7 +130,7 @@
 							label="Ridiculist 5"
 							name="Ridiculist5"
 							always-float-label
-							value="{{ridiculist5}}"
+							value="{{ridiculist5}}">
 						</paper-input>
 					</div>
 					<div id="ridiculists">
@@ -131,7 +138,7 @@
 							label="Ridiculist 6"
 							name="Ridiculist6"
 							always-float-label
-							value="{{ridiculist6}}"
+							value="{{ridiculist6}}">
 						</paper-input>
 					</div>
 				</div>
@@ -141,7 +148,7 @@
 							label="Ridiculist 7"
 							name="Ridiculist5"
 							always-float-label
-							value="{{ridiculist7}}"
+							value="{{ridiculist7}}">
 						</paper-input>
 					</div>
 					<div id="ridiculists">
@@ -149,7 +156,7 @@
 							label="Ridiculist 8"
 							name="Ridiculist6"
 							always-float-label
-							value="{{ridiculist8}}"
+							value="{{ridiculist8}}">
 						</paper-input>
 					</div>
 				</div>

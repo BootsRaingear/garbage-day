@@ -13,6 +13,11 @@
 				@apply --layout-flex-none;
 			}
 			
+			#warning {
+				color:black;
+				padding-bottom: 8px;
+			}
+
 			#startBreak {
 				--paper-button: {
 					background-color: #5BA664;
@@ -32,8 +37,8 @@
 		</style>		
 		
 		<div id="breakButton">
-			<div>			
-			Do not press this button for comedy purposes. It will fuck up the recordings.
+			<div id="warning">			
+				Do not press this button for comedy purposes. It will fuck up the recordings.<br>
 			</div>
 			</div id="buttons">
 			<paper-button id="startBreak" raise hidden="[[onBreak]]" on-tap="startBreak">

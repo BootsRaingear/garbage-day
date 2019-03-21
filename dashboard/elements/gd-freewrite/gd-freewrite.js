@@ -37,7 +37,7 @@
 		
 		ready() {
 			super.ready();
-
+						
 			freewrite.on('change', newVal => {
 				this.active = newVal.active;
 				this.content = newVal.content;
@@ -69,7 +69,7 @@
 			freewrite.value.content = "";
 			freewrite.value.img = "";
 			freewrite.value.location = "center";
-		}
+		}		
 
 	}
 	customElements.define(GdFreewrite.is, GdFreewrite);			
