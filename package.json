@@ -140,6 +140,13 @@
 				"workspace": "Stream"			
 			},
 			{
+				"name": "themesong",
+				"title": "Theme Song",
+				"width": 2,
+				"file": "themesong.html",
+				"workspace": "Stream"
+			},
+			{
 				"name": "secondaryStream",
 				"title": "Secondary Stream",
 				"width": 2,

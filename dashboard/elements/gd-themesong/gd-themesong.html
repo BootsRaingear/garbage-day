@@ -1,0 +1,42 @@
+<link rel="import" href="../../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../../../bower_components/iron-flex-layout/iron-flex-layout.html">
+
+<dom-module id="gd-themesong">
+	<template>
+		<style>
+			#soundboard {
+				@apply --layout-horizontal;
+				@apply --layout-wrap;
+				margin-top: 8px;
+				margin-right: 8px;
+			}
+			
+			.soundclips {
+				@apply --layout-flex;				
+				padding-bottom: 5px;
+				padding-right: 5px;
+			}
+			
+			
+			.playSound {
+				@apply --layout-flex;				
+				--paper-button: {
+					background-color: #CC16A1;
+					color: white;
+					width: 100%;
+				};
+			}
+			
+		</style>		
+		<div id="soundboard">
+			<div class="soundclips">
+				<paper-button class="playSound" on-tap="_handlePlaySound" disabled=[[buttonDisabled]] alt="Play This Hour's Theme Song" raised>
+					Play Theme Song
+				</paper-button>
+			</div>
+		</div>
+		
+	</template>
+	<script src="gd-themesong.js"></script>
+</dom-module>		
