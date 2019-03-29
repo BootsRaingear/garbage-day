@@ -1,5 +1,6 @@
 (function () {
 	const onBreak = nodecg.Replicant('onBreak');
+	const currentHour = nodecg.Replicant('currentHour');
 	
 	class GdThemesong extends Polymer.Element {
 		static get is() {
@@ -15,7 +16,8 @@
 				onBreak: {
 					type: Boolean,
 					value: false
-				}
+				},
+				curHour: Number
 			}
 		};
 				
@@ -26,10 +28,14 @@
 				this.onBreak = onBreak.value;
 				buttonDisabled = this.onBreak;
 			});
+
+			currentHour.on('change', newVal => {
+				this.curHour = currentHour.value;
+			});
 		}
 		
 		_handlePlaySound() {
-			nodecg.sendMessage('playthemesong', "true");
+			nodecg.sendMessage('playthemesong', curHour);
 		}		
 		
 	}

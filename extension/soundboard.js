@@ -17,7 +17,7 @@ nodecg.listenFor('playMmmbop', value => {
 });
 
 nodecg.listenFor('playthemesong', value => {
-	var message = "!playthemesong " + currentHour.value;
+	var message = "!playthemesong " + value;
 	sendDiscordWebhookMsg("!playthemesong")
 })
 
