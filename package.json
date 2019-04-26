@@ -46,6 +46,55 @@
 				]
 			},
 			{
+				"name": "kumquathours",
+				"title": "Kumquat Intros",
+				"allowedTypes": [
+					"ogg"
+				]
+			},
+			{
+				"name": "kumquatcast",
+				"title": "Kumquat Cast Names",
+				"allowedTypes": [
+					"ogg"
+				]
+			},
+			{
+				"name": "kumquatyes",
+				"title": "Kumquat Yes",
+				"allowedTypes": [
+					"ogg"
+				]
+			},
+			{
+				"name": "kumquathello",
+				"title": "Kumquat Hello",
+				"allowedTypes": [
+					"ogg"
+				]
+			},
+			{
+				"name": "kumquathi",
+				"title": "Kumquat Hi",
+				"allowedTypes": [
+					"ogg"
+				]
+			},
+			{
+				"name": "kumquatreaderintro",
+				"title": "Kumquat Reader Intro",
+				"allowedTypes": [
+					"ogg"
+				]
+			},
+			{
+				"name": "kumquatartist",
+				"title": "Kumquat Artist Intro",
+				"allowedTypes": [
+					"ogg"
+				]
+			},
+			{
 				"name": "victor",
 				"title": "Victor Soundboard",
 				"allowedTypes": [
