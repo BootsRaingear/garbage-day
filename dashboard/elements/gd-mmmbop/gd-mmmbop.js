@@ -13,9 +13,17 @@
 					type: Number,
 					value: 0
 				},
-				buttonDisabled: {
+				mmmbopButtonDisabled: {
 					type: Boolean,
 					value: true,					
+				},
+				themeSongButtonDisabled: {
+					type: Boolean,
+					value: false,
+				},
+				readerIntrosButtonDisabled: {
+					type: Boolean,
+					value: false,
 				},
 				onBreak: {
 					type: Boolean,
@@ -31,22 +39,41 @@
 				this.mmmbopsAvailable = mmmbop.value.mmmbopsAvailable;
 				if (this.mmmbopsAvailable > 0 && !this.onBreak)
 				{
-					this.buttonDisabled = false;
+					this.mmmbopButtonDisabled = false;
 				} else {
-					this.buttonDisabled = true;
+					this.mmmbopButtonDisabled = true;
 				}
 				
 			});
 			
 			onBreak.on('change', newVal => {
 				this.onBreak = onBreak.value;
+
+				//readerIntrosButtonDisabled = onBreak.value;
+				//themeSongButtonDisabled = onBreak.value;
 			});
+
+					
+		}	
+
+		computeStyle(cl) {
+			var s = "background-color:"+cl;
+				return s;
 		}
-		
-		_handlePlaySound() {
+
+		_handlePlayMmmbop() {
 			mmmbop.value.mmmbopsAvailable--;
 			nodecg.sendMessage('playMmmbop', "true");
 		}		
+
+		_handlePlayThemeSong() {
+			nodecg.sendMessage('playThemeSong', "true");
+		}
+
+		_handlePlayReaderIntros() {
+			nodecg.sendMessage('playReaderIntros', "true");
+			makeGrey();
+		}
 		
 	}
 	customElements.define(GdMmmbop.is, GdMmmbop);			

@@ -133,18 +133,11 @@
 				"workspace": "Stream"
 			},
 			{
-				"name": "mmmbop",
-				"title": "Mmmbop",
+				"name": "host",
+				"title": "Host Controls",
 				"width": 2,
 				"file": "mmmbop.html",
 				"workspace": "Stream"			
-			},
-			{
-				"name": "themesong",
-				"title": "Theme Song",
-				"width": 2,
-				"file": "themesong.html",
-				"workspace": "Stream"
 			},
 			{
 				"name": "secondaryStream",

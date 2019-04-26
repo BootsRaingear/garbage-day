@@ -16,9 +16,13 @@ nodecg.listenFor('playMmmbop', value => {
 	sendDiscordWebhookMsg("!playmmmbop phGfHvPSjajs");
 });
 
-nodecg.listenFor('playthemesong', value => {
-	var message = "!playthemesong " + value;
+nodecg.listenFor('playThemeSong', value => {
+	var message = "!playthemesong " + currentHour.value;
 	sendDiscordWebhookMsg("!playthemesong")
+})
+
+nodecg.listenFor('playReaderIntros', value => {
+	
 })
 
 function sendDiscordWebhookMsg(message) {
