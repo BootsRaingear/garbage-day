@@ -72,7 +72,6 @@
 
 		_handlePlayReaderIntros() {
 			nodecg.sendMessage('playReaderIntros', "true");
-			makeGrey();
 		}
 		
 	}

@@ -99,7 +99,8 @@ function updateCast(segment)
 	app.provider = segment.docProvider;
 	var iReaders = [];
 	iReaders[0] = segment.ridiculist1;
-	iReaders[1] = segment.ridiculist2;
+	if (segment.ridiculist2 && segment.ridiculist2 !== "")	
+		iReaders[1] = segment.ridiculist2;
 	if (segment.ridiculist3 && segment.ridiculist3 !== "")	
 		iReaders[2] = segment.ridiculist3;
 	if (segment.ridiculist4 && segment.ridiculist4 !== "")	
