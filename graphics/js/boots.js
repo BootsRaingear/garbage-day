@@ -40,10 +40,10 @@ battle.on('change', newVal => {
 	app.battle.active = newVal.active;
 	app.battle.option1title = newVal.option1title;
 	app.battle.option1keyword = newVal.option1keyword;
-	app.battle.option1total = newVal.option1total;
+	app.battle.option1total = Number.parseFloat(newVal.option1total).toFixed(2);
 	app.battle.option2title = newVal.option2title;
 	app.battle.option2keyword = newVal.option2keyword;
-	app.battle.option2total = newVal.option2total;
+	app.battle.option2total = Number.parseFloat(newVal.option2total).toFixed(2);
 });
 
 donationGoal.on('change', newVal => {

@@ -2,6 +2,7 @@
 const nodecg = require('./util/nodecg-api-context').get();
 const currentHour = nodecg.Replicant('currentHour');
 const segments = nodecg.Replicant('segments');
+const kumquatSounds = nodecg.Replicant('assets:kumquatsoundboard');
 
 nodecg.listenFor('soundboardPlay', filename => {	
 	var message = "!playsound " + filename;
@@ -19,13 +20,18 @@ nodecg.listenFor('playMmmbop', value => {
 
 nodecg.listenFor('playThemeSong', value => {
 	var message = "!playthemesong " + currentHour.value;
-	sendDiscordWebhookMsg("!playthemesong")
+	sendDiscordWebhookMsg(message);
+})
+
+nodecg.listenFor('playKumquat', value => {
+	console.log(kumquatSounds.value);
+	var message = "!playkumquat " + kumquatSounds.value[Math.floor(Math.random()*kumquatSounds.value.length)].base;
+	console.log(message);
+	sendDiscordWebhookMsg(message);
 })
 
 nodecg.listenFor('playReaderIntros', value => {
-	console.log("Received play reader intro command");
 	var currentSegment = segments.value[currentHour.value];
-	console.log(currentSegment);
 	var castlist = currentSegment.ridiculist1 + " " + currentSegment.artistName;
 	if (currentSegment.ridiculist2 && currentSegment.ridiculist2 !== "")
 		castlist += " " + currentSegment.ridiculist2;
@@ -43,7 +49,6 @@ nodecg.listenFor('playReaderIntros', value => {
 		castlist += " " + currentSegment.ridiculist8;
 
 	var message = "!playintro " + currentHour.value + " " + castlist
-	console.log(message);
 	sendDiscordWebhookMsg(message);
 })
 

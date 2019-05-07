@@ -60,22 +60,8 @@
 				]
 			},
 			{
-				"name": "kumquatyes",
-				"title": "Kumquat Yes",
-				"allowedTypes": [
-					"ogg"
-				]
-			},
-			{
-				"name": "kumquathello",
-				"title": "Kumquat Hello",
-				"allowedTypes": [
-					"ogg"
-				]
-			},
-			{
-				"name": "kumquathi",
-				"title": "Kumquat Hi",
+				"name": "kumquatsoundboard",
+				"title": "Kumquat Soundboard",
 				"allowedTypes": [
 					"ogg"
 				]
@@ -187,6 +173,13 @@
 				"width": 2,
 				"file": "mmmbop.html",
 				"workspace": "Stream"			
+			},
+			{
+				"name": "kumquatsoundboard",
+				"title": "Kumquat Soundboard",
+				"width": 2,
+				"file": "kumquatsoundboard.html",
+				"workspace": "Stream"
 			},
 			{
 				"name": "secondaryStream",

@@ -1,0 +1,40 @@
+<link rel="import" href="../../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../../../bower_components/iron-flex-layout/iron-flex-layout.html">
+
+<dom-module id="gd-kumquatsoundboard">		
+	<template>
+		<style>
+			#soundboard {
+				@apply --layout-vertical;				
+				margin-top: 8px;
+				margin-right: 8px;
+			}
+			
+			.soundclips {
+				@apply --layout-flex;				
+				padding-bottom: 5px;
+				padding-right: 5px;
+			}
+					
+
+			#kumquatButton {
+				@apply --layout-flex;				
+				--paper-button: {
+					background-color: #656f91;
+					width: 100%;
+				};
+			}
+			
+		</style>		
+		<div id="soundboard">
+			<div class="soundclips">
+				<paper-button class="playKumquat" id="kumquatButton" on-tap="_handlePlayKumquat" raised>
+					Kumquat
+				</paper-button>
+			</div>				
+		</div>
+		
+	</template>
+	<script src="gd-kumquatsoundboard.js"></script>
+</dom-module>		
