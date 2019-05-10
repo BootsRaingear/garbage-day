@@ -65,18 +65,6 @@
 					items="[[locations]]"
 					selected-item="{{location}}">
 				</vaadin-combo-box>
-				<script>
-					window.addEventListener('vaadin-dropdown-opened', function() { 
-						var overlay = Polymer.dom(this.root).querySelector('#overlay'); 
-						overlay.style.backgroundColor = primaryBackground; 
-					}); 
-				</script>	
-				<!--
-				<paper-input
-					label="location"
-					value="{{location}}">
-				</paper-input>				
-				-->
 			</div>
 			<div id="controls">
 					<paper-button id="enable_button" raise hidden="[[active]]" on-tap="enableFreewrite">

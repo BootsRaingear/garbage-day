@@ -1,67 +1,56 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema",
 
-    "definitions": {
-        "castGroup": {
-            "type": "array",
-            "items": {
-                "type": "object",
-                "additionalProperties": false,
-                "properties": {
-                    "shortName": {
-                        "type": "string"
-                    },
-                    "displayName": {
-                        "type": "string"
-                    },
-                    "streamUrl": {
-                        "type": "string"
-                    }
-                }
+    "type": "array",
+    "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+            "name": {
+                "type": "string"
+            },
+            "displayName": {
+                "type": "string"
+            },
+            "streamUrl": {
+                "type": "string"
             }
         }
     },
 
-    "type": "object",
-    "properties": {
-        "castList": {
-            "#ref": "#/definitions/castGroup"
-        }
-    },
-
     "default": [
-            {"name": "boots","display name": "Boots Raingear","stream url": ""},
-            {"name": "lemon","display name": "Lemon","stream url": ""},
-            {"name": "heelies","display name": "Achilles' Heelies","stream url": ""},
-            {"name": "adambozarth","display name": "Adam Bozarth","stream url": ""},
-            {"name": "intern","display name": "The Intern","stream url": ""},
-            {"name": "bumpgrrl","display name": "bumpgrrl","stream url": ""},
-            {"name": "bunnybread","display name": "Bunnybread","stream url": ""},
-            {"name": "frank","display name": "Frank West","stream url": ""},
-            {"name": "isfahan","display name": "Isfahan","stream url": ""},
-            {"name": "jack","display name": "Jack Chick","stream url": ""},
-            {"name": "toast","display name": "John Toast","stream url": ""},
-            {"name": "kumquat","display name": "Kumquatxop","stream url": ""},
-            {"name": "nutshell","display name": "Nushellgulag","stream url": ""},
-            {"name": "portaxx","display name": "Portaxx","stream url": ""},
-            {"name": "stog","display name": "STOG","stream url": ""},
-            {"name": "victor","display name": "Victor Laszlo","stream url": ""},
-            {"name": "montrith","display name": "Montrith","stream url": ""},
-            {"name": "lou","display name": "Lou Fernandez","stream url": ""},
-            {"name": "cheapskate","display name": "Cheapskate","stream url": ""},
-            {"name": "jwfriedman","display name": "J W Friedman","stream url": ""},
-            {"name": "zarla","display name": "Zarla","stream url": ""},
-            {"name": "ironicus","display name": "Ironicus","stream url": ""},
-            {"name": "jt","display name": "JT","stream url": ""},
-            {"name": "shellgane","display name": "Shell Game","stream url": ""},
-            {"name": "sanguinarynovel","display name": "Sanguinary Novel","stream url": ""},
-            {"name": "positronic","display name": "Positronic","stream url": ""},
-            {"name": "trav","display name": "Trav","stream url": ""},
-            {"name": "ameliablank","display name": "Amelia Blank","stream url": ""},
-            {"name": "dijondujour","display name": "Dijon Du Jour","stream url": ""},
-            {"name": "spooks","display name": "Spooks","stream url": ""},
-            {"name": "kingkalamari","display name": "KingKalamari","stream url": ""},
-            {"name": "hux","display name": "Hux","stream url": ""}
-    ]
-    
+        {"name": "boots","displayName": "Boots Raingear","streamUrl": ""},
+        {"name": "lemon","displayName": "Lemon","streamUrl": ""},
+        {"name": "heelies","displayName": "Achilles' Heelies","streamUrl": ""},
+        {"name": "adambozarth","displayName": "Adam Bozarth","streamUrl": ""},
+        {"name": "intern","displayName": "The Intern","streamUrl": ""},
+        {"name": "bumpgrrl","displayName": "bumpgrrl","streamUrl": ""},
+        {"name": "bunnybread","displayName": "Bunnybread","streamUrl": ""},
+        {"name": "frank","displayName": "Frank West","streamUrl": ""},
+        {"name": "isfahan","displayName": "Isfahan","streamUrl": ""},
+        {"name": "jack","displayName": "Jack Chick","streamUrl": ""},
+        {"name": "toast","displayName": "John Toast","streamUrl": ""},
+        {"name": "kumquat","displayName": "Kumquatxop","streamUrl": ""},
+        {"name": "nutshell","displayName": "Nushellgulag","streamUrl": ""},
+        {"name": "portaxx","displayName": "Portaxx","streamUrl": ""},
+        {"name": "stog","displayName": "STOG","streamUrl": ""},
+        {"name": "victor","displayName": "Victor Laszlo","streamUrl": ""},
+        {"name": "montrith","displayName": "Montrith","streamUrl": ""},
+        {"name": "lou","displayName": "Lou Fernandez","streamUrl": ""},
+        {"name": "cheapskate","displayName": "Cheapskate","streamUrl": ""},
+        {"name": "jwfriedman","displayName": "J W Friedman","streamUrl": ""},
+        {"name": "zarla","displayName": "Zarla","streamUrl": ""},
+        {"name": "ironicus","displayName": "Ironicus","streamUrl": ""},
+        {"name": "jt","displayName": "JT","streamUrl": ""},
+        {"name": "shellgane","displayName": "Shell Game","streamUrl": ""},
+        {"name": "sanguinarynovel","displayName": "Sanguinary Novel","streamUrl": ""},
+        {"name": "positronic","displayName": "Positronic","streamUrl": ""},
+        {"name": "trav","displayName": "Trav","streamUrl": ""},
+        {"name": "ameliablank","displayName": "Amelia Blank","streamUrl": ""},
+        {"name": "dijondujour","displayName": "Dijon Du Jour","streamUrl": ""},
+        {"name": "spooks","displayName": "Spooks","streamUrl": ""},
+        {"name": "kingkalamari","displayName": "KingKalamari","streamUrl": ""},
+        {"name": "hux","displayName": "Hux","streamUrl": ""},
+        {"name": "ameat","displayName": "A Meat","streamUrl": ""}
+    ]        
 }

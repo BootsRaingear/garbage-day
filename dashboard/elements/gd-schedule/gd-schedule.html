@@ -1,6 +1,8 @@
 <link rel="import" href="../../../bower_components/iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../../../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../../../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../../../bower_components/vaadin-combo-box/vaadin-combo-box.html">
+
 
 <dom-module id="gd-schedule">
 	<template>
@@ -90,74 +92,83 @@
 			<div id="ridiculistlist">
 				<div class="row">
 					<div id="ridiculists">
-						<paper-input
-							label="Host"
-							name="Ridiculist1"
-							always-float-label
-							value="{{ridiculist1}}">
-						</paper-input>
+						<vaadin-combo-box	
+							label="Host"				
+							id="Ridiculist1"
+							placeholder=""
+							items="[[castNames]]"
+							selected-item="{{ridiculist1}}">
+						</vaadin-combo-box>								
 					</div>
 					<div id="ridiculists">
-						<paper-input
-							label="Ridiculist 2"
-							name="Ridiculist2"
-							always-float-label
-							value="{{ridiculist2}}">
-						</paper-input>
+						<vaadin-combo-box	
+							label="Ridiculist 2"				
+							id="Ridiculist2"
+							placeholder=""
+							items="[[castNames]]"
+							selected-item="{{ridiculist2}}">
+						</vaadin-combo-box>						
+
 					</div>
 				</div>
 				<div class="row">
 					<div id="ridiculists">
-						<paper-input
+						<vaadin-combo-box	
 							label="Ridiculist 3"
-							name="Ridiculist3"
-							always-float-label
-							value="{{ridiculist3}}">
-					</paper-input>
+							id="Ridiculist3"
+							placeholder=""
+							items="[[castNames]]"
+							selected-item="{{ridiculist3}}">
+						</vaadin-combo-box>
 					</div>
 					<div id="ridiculists">
-						<paper-input
+						<vaadin-combo-box	
 							label="Ridiculist 4"
-							name="Ridiculist4"
-							always-float-label
-							value="{{ridiculist4}}">
-					</paper-input>
+							id="Ridiculist4"
+							placeholder=""
+							items="[[castNames]]"
+							selected-item="{{ridiculist4}}">
+						</vaadin-combo-box>
 					</div>
 				</div>
 				<div class="row">
 					<div id="ridiculists">
-						<paper-input
+						<vaadin-combo-box	
 							label="Ridiculist 5"
-							name="Ridiculist5"
-							always-float-label
-							value="{{ridiculist5}}">
-						</paper-input>
+							id="Ridiculist5"
+							placeholder=""
+							items="[[castNames]]"
+							selected-item="{{ridiculist5}}">
+						</vaadin-combo-box>	
 					</div>
 					<div id="ridiculists">
-						<paper-input
+							<vaadin-combo-box	
 							label="Ridiculist 6"
-							name="Ridiculist6"
-							always-float-label
-							value="{{ridiculist6}}">
-						</paper-input>
+							id="Ridiculist6"
+							placeholder=""
+							items="[[castNames]]"
+							selected-item="{{ridiculist6}}">
+						</vaadin-combo-box>
 					</div>
 				</div>
 				<div class="row">
 					<div id="ridiculists">
-						<paper-input
+							<vaadin-combo-box	
 							label="Ridiculist 7"
-							name="Ridiculist5"
-							always-float-label
-							value="{{ridiculist7}}">
-						</paper-input>
+							id="Ridiculist7"
+							placeholder=""
+							items="[[castNames]]"
+							selected-item="{{ridiculist7}}">
+						</vaadin-combo-box>
 					</div>
 					<div id="ridiculists">
-						<paper-input
+							<vaadin-combo-box	
 							label="Ridiculist 8"
-							name="Ridiculist6"
-							always-float-label
-							value="{{ridiculist8}}">
-						</paper-input>
+							id="Ridiculist8"
+							placeholder=""
+							items="[[castNames]]"
+							selected-item="{{ridiculist8}}">
+						</vaadin-combo-box>
 					</div>
 				</div>
 			</div>

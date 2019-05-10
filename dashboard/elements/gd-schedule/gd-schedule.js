@@ -2,6 +2,7 @@
 	
 	const segment = nodecg.Replicant('segment');
 	const segments = nodecg.Replicant('segments');
+	const cast = nodecg.Replicant('cast');	
 
 	class GdSchedule extends Polymer.MutableData(Polymer.Element) {
 		static get is() {
@@ -25,10 +26,24 @@
 				artistName: String,
 				artistURL: String,
 				streamtwoName: String,
-				streamtwoURL: String			
+				streamtwoURL: String,
+				castNames: Array
 			};
 		}
-				
+
+		ready() {
+			super.ready();
+
+			// create array of cast names
+			NodeCG.waitForReplicants(cast).then(() => {
+				this.castNames = new Array();
+				for (var i = 0; i < cast.value.length; i++)
+				{
+					this.castNames.push(cast.value[i].name);
+				}
+			});
+		}
+
 		fetch() {
 			if (0 <= this.hour && this.hour <= 24) {
 				if (typeof segments.value[this.hour] !== 'undefined') {
@@ -48,7 +63,6 @@
 					this.streamtwoName = segments.value[this.hour].streamtwoName;
 					this.streamtwoURL = segments.value[this.hour].streamtwoURL;
 				} else {
-					console.log("not found!");
 					this.title = "";
 					this.docProvider = "";
 					this.docURL = "";
