@@ -11,29 +11,26 @@ const streamtwoControl = nodecg.Replicant('streamtwoControl');
 const breakImages = nodecg.Replicant('assets:breakimages');
 const currentBreakImage = nodecg.Replicant('currentBreakImage');
 const streamtext = nodecg.Replicant('streamtext');
+const cast = nodecg.Replicant('cast');
 
 var stream2active = false;
-var hourFetched = false;
-var segFetched = false;
 
 donationTotal.on('change', newVal => {
 	app.totalDonations = newVal.toFixed(2);
 });
 
 currentHour.on('change', newVal => {
-	app.hour = newVal;
-	hourFetched = true;
-	
-	if (segFetched) 
+	app.hour = newVal;	
+	NodeCG.waitForReplicants(cast,segments).then(() => {	
 		updateCast(segments.value[newVal]);	
-		
+	});
 });
 
 segments.on('change', newVal => {
-	segFetched = true;
 	console.log('schedule updated');
-	if (hourFetched)
+	NodeCG.waitForReplicants(cast,currentHour).then(() => {
 		updateCast(newVal[app.hour]);
+	});
 });
 
 battle.on('change', newVal => {
@@ -90,29 +87,49 @@ currentBreakImage.on('change', newVal => {
 	app.breakPic = breakImages.value[newVal].url;
 });
 
+function findCastInList(name)
+{
+	for (var i = 0; i < cast.value.length; i++) 
+	{
+		if (cast.value[i].name === name) {
+			console.log("Found name: " + cast.value[i].displayName + " at index " + i)
+			return i;			
+		}
+	}
+	return -1	
+}
+function getCastFullName(name)
+{
+	var idx = findCastInList(name);
+	if (idx >= 0)
+		return cast.value[idx].displayName
+	return name;
+}
+
 function updateCast(segment)
 {
+
 	app.artist = segment.artistName;
 
 	app.primaryStream.url = segment.artistURL;
 	app.title = segment.title;
 	app.provider = segment.docProvider;
 	var iReaders = [];
-	iReaders[0] = segment.ridiculist1;
+	iReaders[0] = getCastFullName(segment.ridiculist1);
 	if (segment.ridiculist2 && segment.ridiculist2 !== "")	
-		iReaders[1] = segment.ridiculist2;
+		iReaders[1] = getCastFullName(segment.ridiculist2);
 	if (segment.ridiculist3 && segment.ridiculist3 !== "")	
-		iReaders[2] = segment.ridiculist3;
+		iReaders[2] = getCastFullName(segment.ridiculist3);
 	if (segment.ridiculist4 && segment.ridiculist4 !== "")	
-		iReaders[3] = segment.ridiculist4;
+		iReaders[3] = getCastFullName(segment.ridiculist4);
 	if (segment.ridiculist5 && segment.ridiculist5 !== "")	
-		iReaders[4] = segment.ridiculist5;
+		iReaders[4] = getCastFullName(segment.ridiculist5);
 	if (segment.ridiculist7 && segment.ridiculist6 !== "")	
-		iReaders[5] = segment.ridiculist6;
+		iReaders[5] = getCastFullName(segment.ridiculist6);
 	if (segment.ridiculist7 && segment.ridiculist7 !== "")	
-		iReaders[6] = segment.ridiculist7;
+		iReaders[6] = getCastFullName(segment.ridiculist7);
 	if (segment.ridiculist8 && segment.ridiculist8 !== "")	
-		iReaders[7] = segment.ridiculist8;
+		iReaders[7] = getCastFullName(segment.ridiculist8);
 	
 	app.readers = iReaders;
 	
@@ -131,5 +148,3 @@ function updateCast(segment)
 	
   
 }
-
-
