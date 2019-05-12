@@ -206,6 +206,7 @@ html, body {
     -ms-flex-negative: 1;
     flex-shrink: 1;
     -ms-flex-item-align: auto;
+    -ms-grid-row-align: auto;
     align-self: auto; }
   .layout footer {
     -ms-flex-preferred-size: 100%;
@@ -216,6 +217,7 @@ html, body {
     -ms-flex-negative: 1;
     flex-shrink: 1;
     -ms-flex-item-align: auto;
+    -ms-grid-row-align: auto;
     align-self: auto; }
 
 .single-screen {
@@ -302,6 +304,124 @@ aside {
 .double-screen figure.logo {
   width: 120px; }
 
+figure.logo {
+  height: 99vh;
+  width: 32vw;
+  position: fixed;
+  top: 10px;
+  right: 20px;
+  max-width: none !important; }
+  figure.logo .st1 {
+    fill: #5e93ce; }
+  figure.logo .st2 {
+    fill: #00847e; }
+  figure.logo .st3 {
+    fill: #96d2b2; }
+  figure.logo .st4 {
+    fill: #388b98; }
+  figure.logo .st5 {
+    fill: #006a73; }
+  figure.logo .st6 {
+    fill: #4d2f70; }
+  figure.logo .st8 {
+    fill: #b56aab; }
+  figure.logo .st9 {
+    fill: #d2c1db; }
+  figure.logo .st10 {
+    fill: #dee5e5; }
+  figure.logo .st11 {
+    fill: #364f67; }
+  figure.logo .st12 {
+    fill: #816380; }
+  figure.logo .st13 {
+    fill: #6050a2; }
+  figure.logo .st15 {
+    fill: #c8e8e4; }
+  figure.logo .st16 {
+    fill: #324864; }
+  figure.logo .st17 {
+    fill: #304162; }
+  figure.logo .st18 {
+    fill: #5d537a; }
+  figure.logo .st19 {
+    fill: #725297; }
+  figure.logo .st20 {
+    fill: #48479b; }
+  figure.logo .st21 {
+    fill: #373a60; }
+  figure.logo .st22 {
+    fill: #463693; }
+  figure.logo .st24 {
+    fill: #693994; }
+  figure.logo .st25 {
+    fill: #704b9b; }
+  figure.logo .st26 {
+    fill: #2e9582; }
+  figure.logo .st27 {
+    fill: #0b7275; }
+  figure.logo .st28 {
+    fill: #145f6d; }
+  figure.logo .st29 {
+    fill: #b498c3; }
+  figure.logo .st30 {
+    fill: #f7f4c5; }
+  figure.logo .st32 {
+    fill: #7a54a0; }
+  figure.logo .st33 {
+    fill: #d1dde2; }
+  figure.logo .st34 {
+    fill: #7d8ea4; }
+  figure.logo .st37 {
+    fill: #edc17a; }
+  figure.logo .st40 {
+    fill: #3e6994; }
+  figure.logo .st41 {
+    fill: #206eb6; }
+  figure.logo .st42 {
+    fill: #6591a5; }
+  figure.logo .st43 {
+    fill: #145a6c; }
+  figure.logo .st45 {
+    fill: #6e7b72; }
+  figure.logo .st46 {
+    fill: #588cbe; }
+  figure.logo .st47 {
+    fill: #3f606b; }
+  figure.logo .st48 {
+    fill: #fff; }
+  figure.logo .st49 {
+    fill: #b3adc7; }
+  figure.logo .st50 {
+    fill: #737797; }
+  figure.logo .st51 {
+    fill: #544580; }
+  figure.logo .st52 {
+    fill: #5389bc; }
+  figure.logo .st53 {
+    fill: #3d5d8c; }
+  figure.logo .st54 {
+    fill: #a15ba2; }
+  figure.logo .st55 {
+    fill: #9d8bb3; }
+  figure.logo .st56 {
+    fill: #6a678e; }
+  figure.logo .st57 {
+    fill: #cfbcae; }
+  figure.logo .st58 {
+    fill: #b4959d; }
+  figure.logo .st59 {
+    fill: #8c75a6; }
+  figure.logo .st60 {
+    fill: #5175ad; }
+  figure.logo .st64 {
+    fill: #5e7a98; }
+  figure.logo .st65 {
+    fill: #4e65a2; }
+  figure.logo .st33 {
+    fill: lime; }
+  figure.logo .st49, figure.logo .st55, figure.logo .st20 {
+    fill: red; }
+
 footer {
   display: -webkit-box;
   display: -webkit-flex;
@@ -376,6 +496,7 @@ footer {
   -ms-flex-negative: 1;
   flex-shrink: 1;
   -ms-flex-item-align: auto;
+  -ms-grid-row-align: auto;
   align-self: auto; }
   .single-screen .hour-box .number {
     font-size: 500%; }
@@ -389,6 +510,7 @@ footer {
   -ms-flex-negative: 1;
   flex-shrink: 1;
   -ms-flex-item-align: auto;
+  -ms-grid-row-align: auto;
   align-self: auto; }
 
 .double-screen footer {
@@ -408,6 +530,7 @@ footer {
   -ms-flex-negative: 1;
   flex-shrink: 1;
   -ms-flex-item-align: auto;
+  -ms-grid-row-align: auto;
   align-self: auto; }
   .double-screen .hour-box .number {
     font-size: 320%; }
@@ -447,6 +570,7 @@ footer {
     -ms-flex-negative: 1;
     flex-shrink: 1;
     -ms-flex-item-align: auto;
+    -ms-grid-row-align: auto;
     align-self: auto;
     padding-right: 20px; }
 
@@ -459,6 +583,7 @@ footer {
   -ms-flex-negative: 1;
   flex-shrink: 1;
   -ms-flex-item-align: auto;
+  -ms-grid-row-align: auto;
   align-self: auto; }
 
 .layout.break footer {
@@ -479,6 +604,7 @@ footer {
     -ms-flex-negative: 1;
     flex-shrink: 1;
     -ms-flex-item-align: auto;
+    -ms-grid-row-align: auto;
     align-self: auto; }
     .layout.break footer .hour-box .number {
       font-size: 500%; }
@@ -491,6 +617,7 @@ footer {
     -ms-flex-negative: 1;
     flex-shrink: 1;
     -ms-flex-item-align: auto;
+    -ms-grid-row-align: auto;
     align-self: auto; }
   .layout.break footer .cta-box, .layout.break footer .total-box {
     -ms-flex-preferred-size: 15%;
@@ -501,6 +628,7 @@ footer {
     -ms-flex-negative: 1;
     flex-shrink: 1;
     -ms-flex-item-align: auto;
+    -ms-grid-row-align: auto;
     align-self: auto; }
 
 .battle-screen {
@@ -541,6 +669,7 @@ footer {
     -ms-flex-negative: 1;
     flex-shrink: 1;
     -ms-flex-item-align: auto;
+    -ms-grid-row-align: auto;
     align-self: auto;
     padding: 15px;
     border: 2px solid #131313;
@@ -560,6 +689,7 @@ footer {
     -ms-flex-negative: 1;
     flex-shrink: 1;
     -ms-flex-item-align: auto;
+    -ms-grid-row-align: auto;
     align-self: auto;
     position: relative;
     text-align: center;
@@ -918,3 +1048,5 @@ footer {
     color: #ee2a2a;
     font-size: 4vw;
     mix-blend-mode: difference; }
+
+/*# sourceMappingURL=garbage.css.map */

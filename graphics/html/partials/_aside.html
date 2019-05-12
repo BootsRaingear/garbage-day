@@ -1,93 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Gaaaaaaaaaarbage Day!</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bitter:400,400i,700">
-    <link rel="stylesheet" href="css/garbage.css">
-  </head>
-  <body>
-    <div id="app">
-      <div class="layout" v-bind:class="countScreens">
-        <main>
-          <figure class="primary-screen" v-if="primaryScreen" v-bind:class="{ swapped: swapStreams }">
-            <video controls="false" muted="true" autoplay="true" v-if="primaryScreenRawVideo">
-              <source :src="primaryStream.url">
-            </video>
-            <iframe :src="primaryStream.url" frameborder="0" allowfullscreen="false" scrolling="no" v-else></iframe>
-          </figure>
-          <figure class="secondary-screen" v-if="secondaryScreen" v-bind:class="{ swapped: swapStreams }">
-            <video controls="false" muted="true" autoplay="true" v-if="secondaryScreenRawVideo">
-              <source :src="secondaryStream.url">
-            </video>
-            <iframe :src="secondaryStream.url" frameborder="0" allowfullscreen="false" scrolling="no" v-else></iframe>
-          </figure>
-          <div class="battle-screen" v-show="battle.active">
-            <div class="battle" v-bind:style="weighBattle">
-              <div class="left side">
-                <div class="keyword">{{battle.option1keyword}}</div>
-                <div class="total">{{dollarAmount(battle.option1total)}}</div>
-                <div class="desc">{{battle.option1title}}</div>
-              </div>
-              <div class="vs"><span>vs</span></div>
-              <div class="right side">
-                <div class="keyword">{{battle.option2keyword}}</div>
-                <div class="total">{{dollarAmount(battle.option2total)}}</div>
-                <div class="desc">{{battle.option2title}}</div>
-              </div>
-            </div>
-          </div>
-          <div class="goal" v-if="goal.active">
-            <div class="thermometer">
-              <div class="inside" v-bind:style="thermometerHeight"></div>
-            </div>
-            <div class="message-box">
-              <div class="number">{{dollarAmount(goal.amount)}}</div>
-              <div class="thing">{{goal.text}}</div>
-            </div>
-          </div>
-          <div class="prize" v-if="prize.active">
-            <div class="prize-box" v-if="!prize.claimed">
-              <div class="current">Current Prize:</div>
-              <div class="amount"><span class="donate">donate </span><span class="number">{{dollarAmount(prize.amount)}}</span><span class="or-more"> or more</span></div>
-              <div class="text available" v-if="prize.text" v-html="prize.text"></div>
-              <div class="provider" v-if="prize.provider">provided by <b>{{prize.provider}}</b></div>
-            </div>
-            <div class="prize-box" v-else>
-              <h2 class="prize-claimed">Prize Claimed!</h2>
-              <div class="text claimed" v-if="prize.text" v-html="prize.text"></div>
-              <div class="claimed-by" v-if="prize.claimedBy"><span>Clamed by </span><span class="claim-name">{{prize.claimedBy}}</span><span> for </span><span class="claim-amount">{{dollarAmount(prize.amount)}}</span></div>
-            </div>
-          </div>
-          <div class="freewrite" v-if="freewrite.active">
-            <div class="freewrite-box" v-bind:class="freewrite.location">
-              <div class="inside">
-                <figure v-if="freewrite.img"><img :src="freewrite.img"></figure>
-                <div class="content" v-if="freewrite.content" v-html="freewrite.content"></div>
-              </div>
-            </div>
-          </div>
-        </main>
-        <aside>
-          <div class="intro-box" v-if="introText">
-            <div class="text" v-html="introText"></div>
-          </div>
-          <div class="reader-box">
-            <div class="label">Your friends for the hour:</div>
-            <ul v-for="reader in readers">
-              <li class="reader" v-if="reader" v-text="reader"></li>
-            </ul>
-          </div>
-          <div class="artist-box" v-if="artist">
-            <div class="label">Your artist:</div>
-            <div class="name">{{artist}}</div>
-          </div>
-          <figure class="logo">
-            <style>.st1{fill:#5e93ce}.st2{fill:#00847e}.st3{fill:#96d2b2}.st4{fill:#388b98}.st5{fill:#006a73}.st6{fill:#4d2f70}.st8{fill:#b56aab}.st9{fill:#d2c1db}.st10{fill:#dee5e5}.st11{fill:#364f67}.st12{fill:#816380}.st13{fill:#6050a2}.st15{fill:#c8e8e4}.st16{fill:#324864}.st17{fill:#304162}.st18{fill:#5d537a}.st19{fill:#725297}.st20{fill:#48479b}.st21{fill:#373a60}.st22{fill:#463693}.st24{fill:#693994}.st25{fill:#704b9b}.st26{fill:#2e9582}.st27{fill:#0b7275}.st28{fill:#145f6d}.st29{fill:#b498c3}.st30{fill:#f7f4c5}.st32{fill:#7a54a0}.st33{fill:#d1dde2}.st34{fill:#7d8ea4}.st37{fill:#edc17a}.st40{fill:#3e6994}.st41{fill:#206eb6}.st42{fill:#6591a5}.st43{fill:#145a6c}.st45{fill:#6e7b72}.st46{fill:#588cbe}.st47{fill:#3f606b}.st48{fill:#fff}.st49{fill:#b3adc7}.st50{fill:#737797}.st51{fill:#544580}.st52{fill:#5389bc}.st53{fill:#3d5d8c}.st54{fill:#a15ba2}.st55{fill:#9d8bb3}.st56{fill:#6a678e}.st57{fill:#cfbcae}.st58{fill:#b4959d}.st59{fill:#8c75a6}.st60{fill:#5175ad}.st64{fill:#5e7a98}.st65{fill:#4e65a2}</style><svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 326 512">
-  <!--
+
+<aside>
+  <div class="intro-box" v-if="introText">
+    <div class="text" v-html="introText"></div>
+  </div>
+  <div class="reader-box">
+    <div class="label">Your friends for the hour:</div>
+    <ul v-for="reader in readers">
+      <li class="reader" v-if="reader" v-text="reader"></li>
+    </ul>
+  </div>
+  <div class="artist-box" v-if="artist">
+    <div class="label">Your artist:</div>
+    <div class="name">{{artist}}</div>
+  </div>
+  <figure class="logo"><svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 326 512">
   <style>
     .st1{fill:#5e93ce}.st2{fill:#00847e}.st3{fill:#96d2b2}.st4{fill:#388b98}.st5{fill:#006a73}.st6{fill:#4d2f70}.st8{fill:#b56aab}.st9{fill:#d2c1db}.st10{fill:#dee5e5}.st11{fill:#364f67}.st12{fill:#816380}.st13{fill:#6050a2}.st15{fill:#c8e8e4}.st16{fill:#324864}.st17{fill:#304162}.st18{fill:#5d537a}.st19{fill:#725297}.st20{fill:#48479b}.st21{fill:#373a60}.st22{fill:#463693}.st24{fill:#693994}.st25{fill:#704b9b}.st26{fill:#2e9582}.st27{fill:#0b7275}.st28{fill:#145f6d}.st29{fill:#b498c3}.st30{fill:#f7f4c5}.st32{fill:#7a54a0}.st33{fill:#d1dde2}.st34{fill:#7d8ea4}.st37{fill:#edc17a}.st40{fill:#3e6994}.st41{fill:#206eb6}.st42{fill:#6591a5}.st43{fill:#145a6c}.st45{fill:#6e7b72}.st46{fill:#588cbe}.st47{fill:#3f606b}.st48{fill:#fff}.st49{fill:#b3adc7}.st50{fill:#737797}.st51{fill:#544580}.st52{fill:#5389bc}.st53{fill:#3d5d8c}.st54{fill:#a15ba2}.st55{fill:#9d8bb3}.st56{fill:#6a678e}.st57{fill:#cfbcae}.st58{fill:#b4959d}.st59{fill:#8c75a6}.st60{fill:#5175ad}.st64{fill:#5e7a98}.st65{fill:#4e65a2}
   </style>
--->
   <path d="M285.51 208.99l17.59-11.74 13.46-16.94 3.97-13.1-12.91-46.35-10.4-28.87-34.2-30.05-66.08-3.28-15.76-9.19-19.8-5.28s-11.42-27.62-20.64-31.75c-9 11.45-2.21 29.02-2.21 29.02l-5.9-1.45S105.96 5.53 84.25 7.2c3.1 3.9 6.57 12.91 6.57 12.91s-3.86 14.87 4.31 23.44c-19.6 1.62-40.05 28.92-40.05 28.92s-18.73 29.92-26.33 36.92c-7.67 7.06-13.88 34.58 1.74 55.78 15.62 21.21 18.86 28.74 18.86 28.74s37.16 32.95 49.19 33.79l46.06 8.88s88.49-6.39 94.04-11.72c5.55-5.33 43.27-9.67 43.27-9.67l3.6-6.2" fill="#12b490"/>
   <path class="st1" d="M135.45 236.34l4.04 1.87 3.5-.41-7.54-1.46"/>
   <path class="st2" d="M282.27 186.72l-.32 3.7-5.03 3.72 1.99 8.53 21.67-13.78-10.75.22c-.01.02-3.66-1.07-7.56-2.39M82.25 175.87l.72.51-.02-.07-.7-.44m8.39-7.05c-.09.02-1.66.33-2.97.45-.29.12-.56.26-.83.42-.17.25-.38.51-.61.77 1.24-.76 2.85-1.36 4.93-1.54-.16-.04-.34-.07-.52-.1m-13.27-1.46c.65.62 1.1.98 1.1.98l-1.1-.98m11.76-7.57l-4.26.11c-.01.16-.06.34-.17.52-.62 1-3.37 3.98-4.35 4.86l.29-.14.22 5.11c.02-.1.05-.21.07-.31l-.05-1.97c-.04-.06-.07-.1-.07-.1l.06-.35-.06-2.38s.21-.22.54-.56l.02-.15s.11-.08.3-.19c1.19-1.27 3.19-3.52 3.28-4.33l4.23-.02-.05-.1m-5.15-1.3h-.26s.18.08.4.24l-.14-.24m-19.88-1.78l8.91 12.56 9.24 6.6s.06-.34.26-.87l-.04-.13c-.02.03-.03.06-.04.09v.04c-.01.35-.1.48-.23.48-.16 0-.38-.21-.59-.45-.31-.19-.74-.53-1.33-1.12.01-.06.01-.13.02-.19l-.96-.66-.17-7.19.56-.28c-.73.09-2.41.1-3.32.1h-.63c.16.18.31.36.47.52l2.92-.35s.16 6.85-.03 6.99h-.02c-.35 0-4.33-3.21-4.33-3.21l3.68-1.32-4.32 1.39-10.05-13m26.01-2.16l.04.18 4.82 9.69s-.13.24-.34.64l.04.08.44-.77-5-9.82m-15.39-1.59c-.4.5-.82 1.04-1.21 1.59-.4-.45-.85-.84-1.33-1.19 2.43 2.09 4.23 5.79 3.61 12.33 0 0 1.41-4.24 0-5.39l.4-2.6s.07-.27.2-.73c-.37.89-.6 1.45-.6 1.45l-1.98-4.26.91-1.2m-11.92-.47l-.76.48c-.01.52-.07.73-.07.73l.49.69.34-1.9m39.06-4.32c.3 1.56.82 2.78.82 2.78s.66-.77 1.5-1.8l-2.32-.98M43.5 136.55l1.17 5.33.44-1.01 1.2-.83c-.91-1.26-2.2-2.97-2.79-3.46 0-.02-.01-.02-.02-.03m-15.93-2.74s3.97 6.9 4.48 7.69c.5.79 6.28 5.3 6.28 5.3l13.34 6.17-6.78 3.54-3.71 10.85 17.12 30.53 35.41 19.16 30.4 14.05 20.59 3.97c.34-.02 1.11-.08 2.25-.17.79-.06 1.76-.13 2.88-.22l.36-4.73s-2.53-4.34-4.77-8.37c-.78-.25-1.5-.49-2.14-.69-1.89-.61-3.08-.98-3.08-.99l.3-.95s1.68.53 4.21 1.35c-1.42-2.59-2.58-4.83-2.68-5.39-.28-1.52 0-3.59 0-3.59l8.76-3.76.04-.79-1.17-1.17-.38-5.03-2.31-.95-2.49.19-4.46-.35-3.28-3.26-1.59-1.28-1.59-5.18.76-3.93 4.57 2.97 3.02 3.17.34-5.52 4.55-2.14 2.07 7.66.13-.63.22-4.83.85-.24.17-.79 3.82-.32.18-.02.34 8.4 2.45-2.4 3 1.86-2.4 2.77-1.12 1.3-.27 3.25c.6 2.07 1.03 4.61.05 5.99l28.15-6.45h8.28l-.46-.76-1.06-.54-.06-.1-.1-.04-.38-.79-3.27-5.68s-.15-.79-.23-1.5c-.32-.57-.59-1.07-.79-1.45-1.38-2.69 1.07-3.31 1.07-3.31s4.66.41 7.86.83c.46.06 1.15.08 2.01.08 5.13 0 15.99-.91 15.99-.91l21.1 7.86s.1 1.34.1 1.76c0 .1.4.28 1 .5.49-.32 1.05-.61 1.68-.87 7.52 1.09 15.1 7.29 15.1 7.29s-.13 1.24-.34 2.65l10.48 2.18.31 2.44 10.48-3.9-2.72-12.06s-4.07-1.03-7.19-2.34c-3.12-1.31-1.36-3.79-1.36-3.79l7.45-.14 4.9 1.17 7.48-1.87c-4.06-1.39-8.22-2.99-8.68-3.85-.15-.28-.56-.39-1.16-.39-3.14 0-11.31 3.24-11.31 3.24l-9.65 3.21-43.76-16.17-29.84 1.76s-7.07-.78-9.51-1.77c-2.44-.99-27.36-5.87-27.36-5.87l-8.52-3.14c-1.02.64-1.38.85-1.38.85l-.14.17s-1.39-2.31-1.89-2.49c-.5-.18-2.59-.42-2.59-.42s.01-.81.4-1.37l-5.56-4.2-1.74-.73c-.17.06-.27.09-.27.09l-.81.4-5.53 2.72s-5.28 11.58-5.95 16.03c-.27 1.79-.38 3.13-.4 4.1 1.13 1.27.08 2.04.08 2.04l5.98 2.31 2.45 3.96 1.97 2.57-.44-.12-4.97.4-3.56.64c-5.07 1.33-11.44 3.09-12.68 3.81-.27.16-.67.23-1.15.23-3.24 0-10.37-3.16-10.37-3.16l-2.27-5.48-2.05-2.17-8.59-.28 3.85-5.36-7.66-9.27-6.06-6.15.05-4.45-4.83-4.55 1.65-.41-9.58-4.93-4.43-2.39.95-1.14-.98-.33.42-.95-16.33-9.73m30.69-4.73c-.13.01-.27.02-.41.02h.07c.08 0 .16 0 .24-.01.03 0 .07-.01.1-.01m.36-.07c-.01 0-.02 0-.03.01.02 0 .03 0 .03-.01M41.6 127.3l.01.64.61 2.77 2.31-2.99-2.93-.42m3.14-5.78a7.61 7.61 0 0 1-1.11 1.58 6.22 6.22 0 0 1-2.07 1.68l.01.34c1.2-.25 2.17-.56 2.71-.89 1.41-.86.97-1.99.46-2.71m-2.02-1.01s-.45.4-1.22.9l.02 1.2c.75-.46 1.51-1.07 2.14-1.87l-.94-.23m19.14-2.44l-.2.1.27 2.1.03-.03.01-.01-.11-2.16m4.66-.21l-.9 1.56.17-.03.73-1.53m9.44-2.09l-.18.24v.01l-7.76 10.99-4.92 7.27-.94 1.03-2.78 3.95-.28-.56-.34.37s.24-.48-.24-.95c.23.99.56 2.18 1.07 3.68.15.44.29.86.42 1.27l.86 2.09 2.06 6.58.17-.97-3.95-10.95 1.57-1.76c-.02-.08-.04-.17-.05-.26l15.29-22.03m-22.53-.9c.59 2 1.52 4.13 2.89 6.36.08.34.16.67.24.99h.07c1.01 0 1.98.82 2.28 1.11l-.32-.92-.55-.37c-.01.06 0 .12.03.19h-.53c0-.01-2.53-3.06-4.11-7.36m28.47-5.45c.72 2.76 4.73 18.02 5.33 18.86.66.93 1.31 3.04 1.35 3.18.04.14.06.6.06.6l-1.04 1.01s4.13 4.2 5.57 4.9c.08 1.31-.45 8.85-.45 8.85s.74 6.54 1.17 8.1c.43 1.56 2.08 7.94 2.08 7.94l-.2.4 4.48-7.91c-.06-.11-2.61-4.89-2.8-9.01l-1.25-.52-11.77-31.46-2.53-4.94m-.91-1.77l.1.92.54.32-.64-1.24m-8.35-2.46l2.76 7.6-.5.09 1.05 2.9.22.63 8.68 23.43-.79 1.04 2.23 2.71s-.06.03-.17.1l.7 1.26c.07.07.14.15.21.22l-11.82-33.72-.83-3.13-1.74-3.13m6.71-.76c-.07.56-.11.97-.1 1.14.05.79.82 1.08 1.29 1.19l-1.19-2.33M54.71 91.64l1.1 6.61s-.59.75-1.27 2.13c1.52-2.52 3.44-4.16 5-5.16l.25-.22c-1.7.85-3.47 1.99-3.98 3.25l-1.1-6.61m17.79-.63l-.33.68.87.37-.54-1.05m-11.78-5.94l1.4 1.84 2.47 5.87-1.17.72s-.31.1-.8.28h.34l1.31-.37 1.23.37h.49l.09.17 1.78.54-2.98-1.54-2.75-6.05-1.41-1.83m.86-6.34l-7.34 2.2-13.1 20.12.12 6.68 9.42-.8s.68-6.15 2.32-8.04c-.69-1.18-2.32-6.24-2.32-6.24l4.04-1-.49-2.93 3.2-.09.22-1.23 1.74-6.85 2.15-1.46-.81 5.99.85-6.35"/>
@@ -457,48 +386,5 @@
   <path class="st6" d="M182.01 275.53l1.71 9.53.49-.09-.3-.4s-.38.28-1.05.77c-2.34 1.71-8.2 5.97-13.56 9.84-2.68 1.93-5.24 3.76-7.18 5.12-.97.68-1.78 1.24-2.36 1.63-.29.2-.53.35-.7.46l-.2.12-.04.02.02.05-.02-.05.02.05-.02-.05.12.31-.08-.32-.04.01.12.31-.08-.32c-.18.05-.23.11-.31.17-.13.11-.27.25-.45.45-.65.73-1.75 2.16-3.06 3.97-1.96 2.71-4.37 6.26-6.3 9.43-.96 1.59-1.81 3.08-2.42 4.34-.3.63-.55 1.2-.72 1.7-.17.5-.28.93-.28 1.32 0 .16.02.31.07.47.11.33.35.6.65.74.29.15.61.19.96.19.71 0 1.55-.2 2.54-.48 2.95-.85 7.2-2.49 11.22-2.49 1.04 0 2.07.11 3.05.37 1.33.35 3.59 1.24 6.43 2.38 8.53 3.42 22.41 9.06 34.51 9.06 5.89 0 11.38-1.35 15.59-5.01 15.29-13.33 29.97-30.13 29.98-30.14l.07-.09 6.88-24.57 2.51-17.91-.99-.14-2.5 17.84-6.83 24.39.48.13-.38-.33s-.23.26-.66.74c-3.01 3.39-15.91 17.69-29.22 29.3-3.96 3.45-9.19 4.76-14.93 4.76-7.86 0-16.63-2.47-24.12-5.14-3.75-1.33-7.17-2.71-10.01-3.85-2.85-1.14-5.09-2.04-6.54-2.42-1.08-.28-2.19-.4-3.3-.4-2.85 0-5.72.76-8.18 1.51-1.23.37-2.35.74-3.31 1.02-.95.28-1.75.45-2.26.44-.25 0-.42-.04-.51-.09a.287.287 0 0 1-.16-.18l-.02-.14c-.01-.29.16-.91.49-1.68 1.15-2.73 4.12-7.44 6.88-11.45 1.38-2.01 2.71-3.85 3.73-5.19.51-.67.95-1.22 1.27-1.6.16-.19.3-.33.39-.42l.1-.09-.01-.01.01.01-.01-.01.01.01-.18-.3.08.34.09-.04-.18-.3.08.34c.14-.04.18-.07.27-.12.31-.18.91-.57 1.75-1.15 5.87-4.04 23.38-16.83 23.38-16.83l.25-.18-1.76-9.84-.97.18z"/>
   <path class="st6" d="M187.18 279.39l11.4 4.12h.03s.92.13 2.3.34c2.07.32 5.17.82 7.77 1.35 1.3.26 2.47.54 3.31.79.42.13.76.25.98.36.11.05.19.11.23.14l.03.03.06-.04-.06.01.01.03.06-.04-.06.01c.05.38.3.79.64 1.25 1 1.36 2.85 3.06 2.86 3.06l.34-.37s-.2-.19-.51-.49c-.46-.45-1.16-1.15-1.74-1.84-.29-.34-.56-.68-.75-.98-.2-.3-.31-.56-.32-.7-.03-.21-.16-.31-.3-.4-.26-.17-.66-.33-1.19-.49-3.67-1.14-13.55-2.53-13.55-2.54l-.04.25.08-.24-11.37-4.11-.21.5zM187.06 282.02l1.33 1.87-.65 3.55-8.66 4.87.25.44 8.86-4.99.73-3.99-1.45-2.04-.41.29zM252.06 271.3l-4.54 10.94-8.24 12.54.42.28 8.26-12.59 4.57-10.97-.47-.2zM251.07 281.96l3.39-9.7-.47-.17-3.39 9.7"/>
 </svg>
-          </figure>
-        </aside>
-        <footer v-cloak v-bind:class="{ break: onBreak }">
-          <div class="box hour-box" v-if="hour">
-            <div class="label" v-if="onBreak">Next Hour:</div>
-            <div class="label" v-else>This is hour</div>
-            <div class="number-holder"><span class="number">{{hour}}</span><span class="total">/ 24</span></div>
-          </div>
-          <div class="topic-box box">
-            <div class="topic" v-if="title">
-              <div class="label" v-if="onBreak">Up Next</div>
-              <div class="label" v-else>Currently reading</div>
-              <div class="title">{{title}}</div>
-            </div>
-            <div class="provider" v-if="provider &amp;&amp; !onBreak">
-              <div class="label">Provided by</div>
-              <div class="name">{{provider}}</div>
-            </div>
-            <div class="readers with" v-if="onBreak">
-              <div class="label">with</div>
-              <div class="reader-list"><span v-for="reader in readers">{{reader}}</span></div>
-              <div class="artist" v-if="artist"><span>Your artist: <b>{{artist}}</b></span></div>
-            </div>
-          </div>
-          <div class="desc-box box" v-if="onBreak">
-            <div class="text" v-html="introText"></div>
-          </div>
-          <div class="total-box box" v-if="totalDonations">
-            <div class="label">Money Raised</div>
-            <div class="number">{{dollarAmount(totalDonations)}}</div>
-            <div class="sub">Money goes to the <b>Southern Poverty Law Center</b></div>
-          </div>
-          <div class="cta-box box">
-            <div class="label">Donate now at</div><a class="url">{{donateURL}}</a>
-          </div>
-        </footer>
-      </div>
-    </div>
-    <div class="javascripts">
-      <script src="js/libraries/vue.full.js"></script>
-      <script src="js/min/garbage.min.js"></script>
-      <script src="js/boots.js"></script>
-    </div>
-  </body>
-</html>
+  </figure>
+</aside>
