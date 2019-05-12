@@ -29,7 +29,7 @@ var checkToken = new Promise (
 					resolve(result.data);
 				})
 				.catch((err) => {
-					//nodecg.log.error('unable to refresh token');					
+					nodecg.log.error('unable to refresh token');					
 					reject(new Error('unable to refresh token'));
 				});
 			
@@ -62,6 +62,7 @@ setInterval(() => {
 	.then((result) => {
 		rDonations = result.data.data;
 		
+		// remove any donations from before marathon start
 		var j = rDonations.length
 		while (j--) {
 			if (parseInt(rDonations[j].created_at) * 1000 < nodecg.bundleConfig.marathonStart) 
