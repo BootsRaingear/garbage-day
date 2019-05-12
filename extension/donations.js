@@ -29,7 +29,7 @@ var checkToken = new Promise (
 					resolve(result.data);
 				})
 				.catch((err) => {
-					nodecg.log.error('unable to refresh token');					
+					//nodecg.log.error('unable to refresh token');					
 					reject(new Error('unable to refresh token'));
 				});
 			
@@ -62,9 +62,15 @@ setInterval(() => {
 	.then((result) => {
 		rDonations = result.data.data;
 		
+		var j = rDonations.length
+		while (j--) {
+			if (parseInt(rDonations[j].created_at) * 1000 < nodecg.bundleConfig.marathonStart) 
+				rDonations.splice(j,1);
+		}
+
 		for (var i = 0; i < rDonations.length; i++) {
 			var amount = parseFloat(rDonations[i].amount);
-			rDonations[i].formatted_amount = amount.toFixed(2);
+			rDonations[i].formatted_amount = amount.toFixed(2);			
 		}
 		recentDonations.value = rDonations;
 	})
