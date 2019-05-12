@@ -27,12 +27,12 @@ var app = new Vue({
     primaryStream: {
       show: true,
       name: "Sanguinary Novel draws things",
-      url: "https://player.twitch.tv/?channel=thefplus"
+      url: "https://player.twitch.tv/?channel=overwatchleague"
       //url: "https://1-edge4-us-east.picarto.tv/mp4/Amarynceus.mp4"
     },
     
     secondaryStream: {
-      show: false,
+      show: true,
       name: "Frank West plays some dumb bullshit",
       url: "https://player.twitch.tv/?channel=thefplus"
       //url: "https://1-edge4-us-east.picarto.tv/mp4/Armorwing.mp4"

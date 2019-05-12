@@ -7,7 +7,7 @@ aside { padding: 15px; color: $offwhite; font-family: $font; font-size:20px;  @i
   }
   
   
-  figure.logo { @include position(absolute,null,0,0); max-width:320px;
+  figure.logo { width:100%;
     img { width:100%; }
     //-svg * { fill: unset; }
   }
@@ -24,21 +24,27 @@ aside { padding: 15px; color: $offwhite; font-family: $font; font-size:20px;  @i
 }
 
 .single-screen {
-  aside { bottom: 0; width:320px; }
+  aside { bottom: 0; width:320px;
+    figure.logo { @include position(fixed,null,60px,-70px); width:320px;
+      //svg { transform: translate(0,50px)}
+    }
+  }
 }
 
 .double-screen {
   aside { width:450px; bottom: 21.6vw; }
-  figure.logo { width: 120px; }
+  figure.logo { height:260px; position: absolute; bottom:0; right:0;
+    svg { display:block; width:200px; margin-left:auto; }
+  }
 }
 
 
-figure.logo { height: 99vh; width:32vw;
+figure.logo { width:32vw;
 
-  position:fixed; top:10px; right:20px; 
-  max-width: none !important;
+  //position:fixed; right:20px; 
+  //max-width: none !important;
   .st1{fill:#5e93ce}.st2{fill:#00847e}.st3{fill:#96d2b2}.st4{fill:#388b98}.st5{fill:#006a73}.st6{fill:#4d2f70}.st8{fill:#b56aab}.st9{fill:#d2c1db}.st10{fill:#dee5e5}.st11{fill:#364f67}.st12{fill:#816380}.st13{fill:#6050a2}.st15{fill:#c8e8e4}.st16{fill:#324864}.st17{fill:#304162}.st18{fill:#5d537a}.st19{fill:#725297}.st20{fill:#48479b}.st21{fill:#373a60}.st22{fill:#463693}.st24{fill:#693994}.st25{fill:#704b9b}.st26{fill:#2e9582}.st27{fill:#0b7275}.st28{fill:#145f6d}.st29{fill:#b498c3}.st30{fill:#f7f4c5}.st32{fill:#7a54a0}.st33{fill:#d1dde2}.st34{fill:#7d8ea4}.st37{fill:#edc17a}.st40{fill:#3e6994}.st41{fill:#206eb6}.st42{fill:#6591a5}.st43{fill:#145a6c}.st45{fill:#6e7b72}.st46{fill:#588cbe}.st47{fill:#3f606b}.st48{fill:#fff}.st49{fill:#b3adc7}.st50{fill:#737797}.st51{fill:#544580}.st52{fill:#5389bc}.st53{fill:#3d5d8c}.st54{fill:#a15ba2}.st55{fill:#9d8bb3}.st56{fill:#6a678e}.st57{fill:#cfbcae}.st58{fill:#b4959d}.st59{fill:#8c75a6}.st60{fill:#5175ad}.st64{fill:#5e7a98}.st65{fill:#4e65a2}
 
-  .st33 { fill:lime; }
-  .st49, .st55, .st20 { fill:red; }
+  //.st33 { fill:lime; }
+  //.st49, .st55, .st20 { fill:red; }
 }

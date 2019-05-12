@@ -272,10 +272,7 @@ aside {
     font-size: 300%;
     font-weight: 600; }
   aside figure.logo {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    max-width: 320px; }
+    width: 100%; }
     aside figure.logo img {
       width: 100%; }
   aside .reader-box {
@@ -296,21 +293,28 @@ aside {
 .single-screen aside {
   bottom: 0;
   width: 320px; }
+  .single-screen aside figure.logo {
+    position: fixed;
+    right: 60px;
+    bottom: -70px;
+    width: 320px; }
 
 .double-screen aside {
   width: 450px;
   bottom: 21.6vw; }
 
 .double-screen figure.logo {
-  width: 120px; }
+  height: 260px;
+  position: absolute;
+  bottom: 0;
+  right: 0; }
+  .double-screen figure.logo svg {
+    display: block;
+    width: 200px;
+    margin-left: auto; }
 
 figure.logo {
-  height: 99vh;
-  width: 32vw;
-  position: fixed;
-  top: 10px;
-  right: 20px;
-  max-width: none !important; }
+  width: 32vw; }
   figure.logo .st1 {
     fill: #5e93ce; }
   figure.logo .st2 {
@@ -417,10 +421,6 @@ figure.logo {
     fill: #5e7a98; }
   figure.logo .st65 {
     fill: #4e65a2; }
-  figure.logo .st33 {
-    fill: lime; }
-  figure.logo .st49, figure.logo .st55, figure.logo .st20 {
-    fill: red; }
 
 footer {
   display: -webkit-box;
