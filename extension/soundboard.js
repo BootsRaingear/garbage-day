@@ -31,6 +31,9 @@ nodecg.listenFor('playKumquat', value => {
 })
 
 nodecg.listenFor('playReaderIntros', value => {
+	if (typeof(segments.value[currentHour.Value] === 'undefined'))
+		return
+		
 	var currentSegment = segments.value[currentHour.value];
 	var castlist = currentSegment.ridiculist1 + " " + currentSegment.artistName;
 	if (currentSegment.ridiculist2 && currentSegment.ridiculist2 !== "")
