@@ -35,7 +35,31 @@
 				},
 				albertClasses: {
 					type: Array,
-					value: ["jogging", "lsd", "throb", "spin", "storm", "cataracts", "greyscale", "sepia", "oversaturate", "huerotate", "invert", "contrast", "dropshadow", "dropshadowhuge"]
+					value: [
+						"jogging", 
+						"lsd", 
+						"throb", 
+						"spin", 
+						"storm", 
+						"cataracts", 
+						"greyscale", 
+						"sepia",
+						"oversaturate",
+						"huerotate",
+						"invert",
+						"contrast",
+						"dropshadow",
+						"dropshadowhuge",
+						"green",
+						"yellow",
+						"teal",
+						"pink",
+						"red",
+						"orange",
+						"blue",
+						"no-outlines",
+						"no-trash"
+					]
 				}				
 			}
 		};
