@@ -112,6 +112,13 @@
 				"workspace": "Setup"
 			},
 			{
+				"name": "logo",
+				"title": "Logo Adjust",
+				"width": 3,
+				"file": "logo-panel.html",
+				"workspace": "Setup"
+			},
+			{
 				"name": "schedule",
 				"title": "Schedule Editor",
 				"width": 4,
