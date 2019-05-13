@@ -44,6 +44,19 @@
 				font-size: 72px;
 			}
 
+			#reset_albert {
+				--paper-button: {
+					background-color: #C9513E;
+					color: white;
+				};
+			}
+			#set_albert {
+				--paper-button: {
+					background-color: #5BA664;
+					color: white;
+				};			
+			}
+
 
 		</style>	
 
@@ -59,7 +72,8 @@
 					label="Image URL (optional)"
 					value="{{img}}">
 				</paper-input>			
-				<vaadin-combo-box					
+				<vaadin-combo-box	
+					label="Freewrite Position"				
 					id="location_box"
 					placeholder="center"
 					items="[[locations]]"
@@ -68,20 +82,39 @@
 			</div>
 			<div id="controls">
 					<paper-button id="enable_button" raise hidden="[[active]]" on-tap="enableFreewrite">
-						Enable
+						Enable Freewrite
 					</paper-button>			
 					<paper-button id="disable_button" raise hidden="[[!active]]" on-tap="disableFreewrite">
-						Disable
+						Disable Freewrite
 					</paper-button>
 					<paper-button id="update_button" raise hidden="[[!active]]" on-tap="updateFreewrite">
-						Update
+						Update Freewrite
 					</paper-button>					
 					<paper-button id="clear_button" raise hidden="[[active]]" on-tap="clear">
-						Clear
+						Clear Freewrite
 					</paper-button>		
 			</div>
 		</div>
 
+		<div id="logo_body">
+				<div id="inputs">
+					<vaadin-combo-box	
+						label="Albert Modify Class"				
+						id="albert_class"
+						placeholder=""
+						items="[[albertClasses]]"
+						selected-item="{{albertClass}}">
+					</vaadin-combo-box>
+				</div>
+				<div id="controls">
+					<paper-button id="set_albert" on-tap="setAlbert">
+						Update Albert
+					</paper-button>
+					<paper-button id="reset_albert" on-tap="resetAlbert">
+							Reset Albert
+					</paper-button>			
+				</div>
+			</div>
 	</template>
 	
 	<script src="gd-freewrite.js"></script>

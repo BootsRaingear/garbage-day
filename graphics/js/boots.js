@@ -12,6 +12,7 @@ const breakImages = nodecg.Replicant('assets:breakimages');
 const currentBreakImage = nodecg.Replicant('currentBreakImage');
 const streamtext = nodecg.Replicant('streamtext');
 const cast = nodecg.Replicant('cast');
+const albertClass = nodecg.Replicant('albertClass');
 
 var stream2active = false;
 
@@ -85,6 +86,10 @@ streamtext.on('change', newVal => {
 
 currentBreakImage.on('change', newVal => {
 	app.breakPic = breakImages.value[newVal].url;
+});
+
+albertClass.on('change', newVal => {
+	app.albertClass = newVal;
 });
 
 function findCastInList(name)

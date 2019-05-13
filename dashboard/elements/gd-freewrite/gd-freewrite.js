@@ -1,7 +1,6 @@
 (function () {
 	const freewrite = nodecg.Replicant('freewrite');
-
-	// VALID LOCATIONS: center, top, right, bottom, left, top-left, top-right, bottom-left, bottom-right	
+	const albertClass = nodecg.Replicant('albertClass');
 	
 	class GdFreewrite extends Polymer.Element {
 		static get is() {
@@ -29,8 +28,15 @@
 				locations: {
 					type: Array,
 					value: ["center", "top", "right", "bottom", "left", "top-left", "top-right", "bottom-left", "bottom-right"]
-
-				}
+				},
+				albertClass: {
+					type: Number,
+					value: ""
+				},
+				albertClasses: {
+					type: Array,
+					value: ["jogging", "lsd", "throb", "spin", "storm", "cataracts", "greyscale", "sepia", "oversaturate", "huerotate", "invert", "contrast", "dropshadow", "dropshadowhuge"]
+				}				
 			}
 		};
 
@@ -43,7 +49,11 @@
 				this.content = newVal.content;
 				this.img = newVal.img;
 				this.location = newVal.location;
-			});			
+			});
+
+			albertClass.on('change', newVal => {
+				this.albertClass = newVal;
+			});
 		}
 		
 		enableFreewrite() {
@@ -69,6 +79,14 @@
 			freewrite.value.content = "";
 			freewrite.value.img = "";
 			freewrite.value.location = "center";
+		}
+		
+		setAlbert() {
+			albertClass.value = this.albertClass;
+		}
+
+		resetAlbert() {
+			albertClass.value = "";
 		}		
 
 	}
