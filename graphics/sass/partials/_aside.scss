@@ -39,12 +39,149 @@ aside { padding: 15px; color: $offwhite; font-family: $font; font-size:20px;  @i
 }
 
 
+
+@keyframes hueRotate {
+  0% { filter: hue-rotate(0); }
+  25% { filter: hue-rotate(90deg); }
+  50% { filter: hue-rotate(180deg); }
+  75% { filter: hue-rotate(270deg); }
+  100% { filter: hue-rotate(360deg); }
+}
+
+@keyframes jogging {
+	0%   { transform: translateY(0%);   }
+  70%  { transform: translateY(2%);   }
+  90% { transform: translateY(-1%); }
+}
+
+@keyframes throb {
+	0%   { transform: scale(0.95);   }
+  50%  { transform: scale(1.05);   }
+  100% { transform: scale(0.95); }
+}
+
+@keyframes spin {
+	0%   { transform: rotate(0);   }
+  50%  { transform: rotate(180deg);   }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes storm {
+  0%   { filter:brightness(0.3); }
+  45%   { filter:brightness(0.3); }
+  47%   { filter:brightness(1.3); }
+  50%   { filter:brightness(1); }
+  53%   { filter:brightness(1.3); }
+  56%   { filter:brightness(0.3); }
+  100%   { filter:brightness(0.3); }
+}
+
+@keyframes cataracts {
+  0%   { filter:blur(3px); }
+  40%  { filter:blur(6px); }
+  60% { filter:blur(1px); }
+  80% { filter:blur(0); }
+  100% { filter:blur(3px);  }
+}
+
+
+@mixin useColor($c) {
+  // RACOON BODY
+  .st11, .st19, .st21 { fill:$c; }
+  // RACOON ACCENTS
+  .st10, .st32, .st37 { fill:compliment($c); }
+  // RACOON SHADOWS
+  .st31, .st33, .st34 { fill:rgba(0,0,0,0.35); }
+  @include tongue(invert($c))
+}
+
+@mixin bagColor($c) {
+  // BAG
+  .trashbag { fill: $c; }
+  // BAG DARK
+  .trash-shade * { fill:rgba(0,0,0,0.35); }
+  // BAG LIGHT
+  .trash-highlights *, .st2 { fill:rgba(255,255,255,0.5); }
+}
+
+
+@mixin tongue($c) {
+  .st6 { fill:$c; }
+}
+
 figure.logo { width:32vw;
 
-  //position:fixed; right:20px; 
-  //max-width: none !important;
-  .st1{fill:#5e93ce}.st2{fill:#00847e}.st3{fill:#96d2b2}.st4{fill:#388b98}.st5{fill:#006a73}.st6{fill:#4d2f70}.st8{fill:#b56aab}.st9{fill:#d2c1db}.st10{fill:#dee5e5}.st11{fill:#364f67}.st12{fill:#816380}.st13{fill:#6050a2}.st15{fill:#c8e8e4}.st16{fill:#324864}.st17{fill:#304162}.st18{fill:#5d537a}.st19{fill:#725297}.st20{fill:#48479b}.st21{fill:#373a60}.st22{fill:#463693}.st24{fill:#693994}.st25{fill:#704b9b}.st26{fill:#2e9582}.st27{fill:#0b7275}.st28{fill:#145f6d}.st29{fill:#b498c3}.st30{fill:#f7f4c5}.st32{fill:#7a54a0}.st33{fill:#d1dde2}.st34{fill:#7d8ea4}.st37{fill:#edc17a}.st40{fill:#3e6994}.st41{fill:#206eb6}.st42{fill:#6591a5}.st43{fill:#145a6c}.st45{fill:#6e7b72}.st46{fill:#588cbe}.st47{fill:#3f606b}.st48{fill:#fff}.st49{fill:#b3adc7}.st50{fill:#737797}.st51{fill:#544580}.st52{fill:#5389bc}.st53{fill:#3d5d8c}.st54{fill:#a15ba2}.st55{fill:#9d8bb3}.st56{fill:#6a678e}.st57{fill:#cfbcae}.st58{fill:#b4959d}.st59{fill:#8c75a6}.st60{fill:#5175ad}.st64{fill:#5e7a98}.st65{fill:#4e65a2}
+  //-.st1{fill:#5e93ce}.st2{fill:#00847e}.st3{fill:#96d2b2}.st4{fill:#388b98}.st5{fill:#006a73}.st6{fill:#4d2f70}.st8{fill:#b56aab}.st9{fill:#d2c1db}.st10{fill:#dee5e5}.st11{fill:#364f67}.st12{fill:#816380}.st13{fill:#6050a2}.st15{fill:#c8e8e4}.st16{fill:#324864}.st17{fill:#304162}.st18{fill:#5d537a}.st19{fill:#725297}.st20{fill:#48479b}.st21{fill:#373a60}.st22{fill:#463693}.st24{fill:#693994}.st25{fill:#704b9b}.st26{fill:#2e9582}.st27{fill:#0b7275}.st28{fill:#145f6d}.st29{fill:#b498c3}.st30{fill:#f7f4c5}.st32{fill:#7a54a0}.st33{fill:#d1dde2}.st34{fill:#7d8ea4}.st37{fill:#edc17a}.st40{fill:#3e6994}.st41{fill:#206eb6}.st42{fill:#6591a5}.st43{fill:#145a6c}.st45{fill:#6e7b72}.st46{fill:#588cbe}.st47{fill:#3f606b}.st48{fill:#fff}.st49{fill:#b3adc7}.st50{fill:#737797}.st51{fill:#544580}.st52{fill:#5389bc}.st53{fill:#3d5d8c}.st54{fill:#a15ba2}.st55{fill:#9d8bb3}.st56{fill:#6a678e}.st57{fill:#cfbcae}.st58{fill:#b4959d}.st59{fill:#8c75a6}.st60{fill:#5175ad}.st64{fill:#5e7a98}.st65{fill:#4e65a2}
+  .st1{fill:#12847e}.st2{fill:#96d2b2}.st4{stroke-width:2}.st4,.st5{fill:none;stroke:#4d2f70;stroke-miterlimit:10}.st6{fill:#b56aab}.st7{fill:#5e93ce}.st8{fill:#d2c1db}.st9{fill:#f7f4c5}.st10{fill:#7d8ea4}.st11{fill:#7a54a0}.st12{fill:#edc17a}.st13{fill:#dee5e5}.st14{fill:#48479c}.st15{fill:#7c54a0}.st16{fill:#b197c3}.st18{fill:#6d7b72}.st19{fill:#557bbc}.st21{fill:#d1dde2}.st22{fill:#c8e8e4}.st24,.st25,.st26,.st27{fill:none;stroke:#4d2f70;stroke-miterlimit:10}.st24{stroke-width:.5}.st25,.st26,.st27{stroke-linejoin:round}.st26,.st27{stroke-linecap:round}.st27{stroke-width:.5}.st28{fill:#4d2f70}.st29{fill:none;stroke:#4d2f70;stroke-width:.5;stroke-linejoin:round;stroke-miterlimit:10}.st30{fill:#fff}.st31{fill:#9c8bb3}.st32{fill:#737898}.st33{fill:#b4adc8}.st34{fill:#245fa2}.st35{fill:#cebbad}.st37{fill:#6b698f}.st39,.st40{fill:none;stroke:#4d2f70;stroke-width:.5644;stroke-miterlimit:10}.st40{stroke-width:1.5}
 
-  //.st33 { fill:lime; }
-  //.st49, .st55, .st20 { fill:red; }
+  // ANIMATIONS
+  &.jogging { animation:jogging 0.55s infinite ease; }
+  &.lsd { animation:hueRotate 3s infinite linear; }
+  &.throb { animation:throb 2s infinite linear; }
+  &.spin { animation:spin 20s infinite linear; }
+  &.storm { animation: storm 3s infinite ease; }
+  &.cataracts { animation: cataracts 7s infinite ease; }
+
+  // FILTERS 
+  &.greyscale, .grayscale { filter: grayscale(1); }
+  &.sepia { filter: sepia(1); }
+  &.oversaturate { filter: saturate(4);  }
+  &.huerotate { filter:saturate(3) hue-rotate(180deg); }
+  &.invert { filter:invert(1); }
+  &.contrast { filter:contrast(3); }
+  &.dropshadow { filter:drop-shadow(-16px -16px 10px rgba(0,0,0,0.9)); }
+  &.dropshadowhuge { filter:drop-shadow(-32px -32px 24px rgba(0,0,0,0.9)); }
+  
+  // COLOR SWAPS
+  &.green {
+    @include useColor(#01FF70);
+    @include bagColor(#992299);
+  }
+  &.yellow {
+    @include useColor(#FFDC00);
+    @include bagColor(#5555ff);
+  }
+  &.teal {
+    @include useColor(#00ffff);
+    @include bagColor(#bb4444);
+  }
+  &.pink {
+    @include useColor(#ff69b4);
+    @include bagColor(#991199);
+  }
+
+  &.red {
+    @include useColor(#FF4136);
+    @include bagColor(#F012BE);
+  }
+
+  &.orange {
+    @include useColor(#FF851B);
+    @include bagColor(#aaaaaa);
+  }
+
+  &.blue {
+    @include useColor(#0074D9);
+    @include bagColor(#85144b);
+  }
+
+  // REMOVE THINGS
+  &.no-outlines {
+    .albert-linework { display: none; }
+    .trash-lines { display: none; }
+    .trashpopout-lines { display: none; }
+  }
+
+  &.no-trash {
+    .trash-lines { display: none; }
+    .trashpopout-lines { display: none; }
+    .trashbag { display: none; }
+    .trash-shade { display: none; }
+    .trash-highlights { display: none; }
+    .trashpopout-flats, .trashpopout-shade, .trashpopout-highlights { display:none; }
+  }
+
+  // OTHER
+  &.ghost { opacity: 0.5; }
+  
 }

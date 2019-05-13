@@ -30,9 +30,11 @@ var app = new Vue({
       url: "https://player.twitch.tv/?channel=overwatchleague"
       //url: "https://1-edge4-us-east.picarto.tv/mp4/Amarynceus.mp4"
     },
+
+    albertClass: "no-trash",
     
     secondaryStream: {
-      show: true,
+      show: false,
       name: "Frank West plays some dumb bullshit",
       url: "https://player.twitch.tv/?channel=thefplus"
       //url: "https://1-edge4-us-east.picarto.tv/mp4/Armorwing.mp4"
