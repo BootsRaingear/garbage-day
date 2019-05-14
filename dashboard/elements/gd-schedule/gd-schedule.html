@@ -36,7 +36,6 @@
 				border-bottom: 1px;
 				margin-top: 10px;
 				margin-bottom: 10px;
-				color: #737373
 			}
 			
 			#fetch_button {
@@ -175,11 +174,12 @@
 			</div>
 			<div class="row">
 				<div id="streamer">
-					<paper-input
-						label="Artist Name"
-						always-float-label
-						value="{{artistName}}">
-					</paper-input>					
+					<vaadin-combo-box	
+							label="Artist Name"
+							placeholder=""
+							items="[[castNames]]"
+							selected-item="{{artistName}}">
+					</vaadin-combo-box>
 					<paper-input
 						label="Artist Stream URL"
 						always-float-label
