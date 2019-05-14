@@ -41,7 +41,7 @@ var app = new Vue({
     },
 
     hanson: {
-      active: false,
+      active: true,
       video: 'video/hanson0.mp4'
     },
     

@@ -1,4 +1,4 @@
 
-<figure class="hanson-wrapper">
-  <video src="video/hanson0.mp4" loop="loop"></video>
+<figure class="hanson-wrapper" v-if="hanson.active">
+  <video v-bind:src="hanson.video" controls="controls" autoplay="autoplay" muted="muted"></video>
 </figure>
