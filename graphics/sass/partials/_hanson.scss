@@ -1,0 +1,11 @@
+.hanson-wrapper { z-index: $z-hanson;
+  video { width:640px; height:480px; }
+}
+
+.single-screen { 
+  .hanson-wrapper { @include position(absolute,null,390px,0); }
+}
+
+.double-screen { 
+  .hanson-wrapper { @include position(absolute,null,null,0,0); }
+}

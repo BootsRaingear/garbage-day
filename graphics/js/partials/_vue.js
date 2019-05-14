@@ -39,6 +39,11 @@ var app = new Vue({
       url: "https://player.twitch.tv/?channel=thefplus"
       //url: "https://1-edge4-us-east.picarto.tv/mp4/Armorwing.mp4"
     },
+
+    hanson: {
+      active: false,
+      video: 'video/hanson0.mp4'
+    },
     
     swapStreams: false,
     

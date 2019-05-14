@@ -1,3 +1,13 @@
+@keyframes dollarbounce {
+	0%   { transform: translateY(0%);   }
+  70%  { transform: translateY(-15px);   }
+  90% { transform: translateY(10px); }
+}
+
+
+
+
+
 footer { @include flex-container(); color:$offwhite; font-family: $font; font-weight: $light; font-size:18px; padding-top: 12px; padding-left: 40px;
   
   
@@ -9,7 +19,8 @@ footer { @include flex-container(); color:$offwhite; font-family: $font; font-we
   
   .hour-box { 
     .label { padding-right: 20px;}
-    .number { font-weight: $bold; line-height: 80%; }
+    .number { font-weight: $bold; line-height: 80%; 
+    }
   }
   
   .topic-box { 
@@ -29,7 +40,9 @@ footer { @include flex-container(); color:$offwhite; font-family: $font; font-we
   }
   
   .total-box {
-    .number { font-size:225%; }
+    .number { font-size:225%;
+      &.hanson-active { color:lime; font-weight: bold; animation:dollarbounce 0.55s infinite ease; }
+    }
     .sub { font-size:80%; }
   }
   

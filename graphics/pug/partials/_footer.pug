@@ -27,7 +27,7 @@ footer(v-cloak v-bind:class="{ break: onBreak }")
       
   .total-box.box(v-if="totalDonations")
     .label Money Raised
-    .number {{dollarAmount(totalDonations)}}
+    .number(v-bind:class="{ 'hanson-active': hanson.active }") {{dollarAmount(totalDonations)}}
     .sub Money goes to the 
       b Southern Poverty Law Center
   

@@ -66,6 +66,9 @@
               </div>
             </div>
           </div>
+          <figure class="hanson-wrapper" v-if="hanson.active">
+            <video v-bind:src="hanson.video" autoplay loop></video>
+          </figure>
         </main>
         <aside>
           <div class="intro-box" v-if="introText">
@@ -331,7 +334,7 @@
           </div>
           <div class="total-box box" v-if="totalDonations">
             <div class="label">Money Raised</div>
-            <div class="number">{{dollarAmount(totalDonations)}}</div>
+            <div class="number" v-bind:class="{ 'hanson-active': hanson.active }">{{dollarAmount(totalDonations)}}</div>
             <div class="sub">Money goes to the <b>Southern Poverty Law Center</b></div>
           </div>
           <div class="cta-box box">
