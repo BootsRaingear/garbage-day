@@ -9,6 +9,7 @@ const freewrite = nodecg.Replicant('freewrite');
 const prize = nodecg.Replicant('prize');
 const streamtwoControl = nodecg.Replicant('streamtwoControl');
 const breakImages = nodecg.Replicant('assets:breakimages');
+const mmmbopVideos = nodecg.Replicant('assets:hansonvideos');
 const currentBreakImage = nodecg.Replicant('currentBreakImage');
 const streamtext = nodecg.Replicant('streamtext');
 const cast = nodecg.Replicant('cast');
@@ -90,6 +91,18 @@ currentBreakImage.on('change', newVal => {
 
 albertClass.on('change', newVal => {
 	app.albertClass = newVal;
+});
+
+nodecg.listenFor('playMmmbop', value => {
+	var milles;
+	if (app.totalDonations >= 10000)
+		milles = 10;
+	else
+		milles = Math.floor(app.totalDonations / 1000);
+	var filename = '/assets/garbage-day/mmmbopvideos/canson' + milles + '.mp4';
+	console.log(filename);
+	app.hanson.video = filename;
+	app.hanson.active = true;
 });
 
 function findCastInList(name)

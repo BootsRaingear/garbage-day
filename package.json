@@ -46,6 +46,13 @@
 				]
 			},
 			{
+				"name": "mmmbopvideos",
+				"title": "Mmmbop Videos",
+				"allowedTypes": [
+					"mp4"
+				]
+			},
+			{				
 				"name": "kumquathours",
 				"title": "Kumquat Intros",
 				"allowedTypes": [
