@@ -103,6 +103,7 @@ nodecg.listenFor('playMmmbop', value => {
 	console.log(filename);
 	app.hanson.video = filename;
 	app.hanson.active = true;
+	setTimeout(function() { app.hanson.active = false; }, 5500);
 });
 
 function findCastInList(name)
