@@ -28,8 +28,8 @@ footer(v-cloak v-bind:class="{ break: onBreak }")
   .total-box.box(v-if="totalDonations")
     .label Money Raised
     .number(v-bind:class="{ 'hanson-active': hanson.active }") {{dollarAmount(totalDonations)}}
-    .sub Money goes to the 
-      b Southern Poverty Law Center
+    .sub(v-html="underTotalText") Money goes to the 
+      b National Network of Abortion Funds
   
   .cta-box.box
     .label Donate now at

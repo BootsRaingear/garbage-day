@@ -5,7 +5,7 @@ var app = new Vue({
     hour: 17,
     onBreak: true,
     breakPic: 'https://unsplash.it/1600/900?random',
-    title: "This is a webcomic about sentient fairy penises and the big-boobed women who care for them",
+    title: "Short title",
     readers: [
       "Lemon",
       "Boots Raingear",
@@ -15,7 +15,7 @@ var app = new Vue({
       "STOG"
     ],
     
-    introText: '<p>This is <b>Garbage Day</b>!</p><p>A 24 hour marathon of terrible writing in support of the <b>Southern Poverty Law Center</b>.</p>',
+    introText: '<p>This is <b>Garbage Day</b>!</p><p>A 24 hour marathon of terrible writing in support of the <b>National Network of Abortion Funds</b>.</p>',
     breakText: "We'll be right back",
     
     provider: "T. Azimuth Schwitters",

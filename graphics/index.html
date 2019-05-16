@@ -335,7 +335,7 @@
           <div class="total-box box" v-if="totalDonations">
             <div class="label">Money Raised</div>
             <div class="number" v-bind:class="{ 'hanson-active': hanson.active }">{{dollarAmount(totalDonations)}}</div>
-            <div class="sub">Money goes to the <b>Southern Poverty Law Center</b></div>
+            <div class="sub" v-html="underTotalText">Money goes to the <b>National Network of Abortion Funds</b></div>
           </div>
           <div class="cta-box box">
             <div class="label">Donate now at</div><a class="url">{{donateURL}}</a>

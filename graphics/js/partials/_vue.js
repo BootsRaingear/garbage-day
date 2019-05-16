@@ -15,7 +15,8 @@ var app = new Vue({
       "STOG"
     ],
     
-    introText: '<p>This is <b>Garbage Day</b>!</p><p>A 24 hour marathon of terrible writing in support of the <b>Southern Poverty Law Center</b>.</p>',
+    introText: '<p>This is <b>Garbage Day</b>!</p><p>A 24 hour marathon of terrible writing in support of the <b>National Network of Abortion Funds</b>.</p>',
+    underTotalText: 'Money goes to the <strong>National Network of Abortion Funds</strong>',
     
     provider: "T. Azimuth Schwitters",
     
