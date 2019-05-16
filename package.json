@@ -21,29 +21,21 @@
 				"name": "soundboard",
 				"title": "SoundBoard",
 				"allowedTypes": [
-					"mp3",
-					"ogg"
+					"mp3", "ogg", "wav"
 				]
 			},
 			{
 				"name": "images",
 				"title": "Images",
 				"allowedTypes": [
-					"jpg",
-					"jpeg",
-					"gif",
-					"png"
+					"jpg", "jpeg", "gif", "png"
 				]
 			},
 			{
 				"name": "breakimages",
 				"title": "Break Images",
 				"allowedTypes": [
-					"jpg",
-					"jpeg",
-					"gif",
-					"png",
-					"webp"
+					"jpg", "jpeg", "gif", "png", "webp"
 				]
 			},
 			{
@@ -51,6 +43,13 @@
 				"title": "Mmmbop Videos",
 				"allowedTypes": [
 					"mp4"
+				]
+			},
+			{
+				"name": "themesongs",
+				"title": "Theme Songs",
+				"allowedTypes": [
+					"mp3", "wav", "ogg"
 				]
 			},
 			{				
@@ -92,16 +91,14 @@
 				"name": "victor",
 				"title": "Victor Soundboard",
 				"allowedTypes": [
-					"mp3",
-					"ogg"
+					"mp3", "ogg"
 				]
 			},			
 			{
 				"name": "mmmbop",
 				"title": "Just Mmmbop",
 				"allowedTypes": [
-					"mp3",
-					"ogg"
+					"mp3", "ogg"
 				]
 			}
 	],
