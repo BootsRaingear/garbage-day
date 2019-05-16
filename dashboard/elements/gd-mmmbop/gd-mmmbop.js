@@ -13,17 +13,9 @@
 					type: Number,
 					value: 0
 				},
-				mmmbopButtonDisabled: {
+				buttonDisabled: {
 					type: Boolean,
 					value: true,					
-				},
-				themeSongButtonDisabled: {
-					type: Boolean,
-					value: false,
-				},
-				readerIntrosButtonDisabled: {
-					type: Boolean,
-					value: false,
 				},
 				onBreak: {
 					type: Boolean,
@@ -39,9 +31,9 @@
 				this.mmmbopsAvailable = mmmbop.value.mmmbopsAvailable;
 				if (this.mmmbopsAvailable > 0 && !this.onBreak)
 				{
-					this.mmmbopButtonDisabled = false;
+					this.buttonDisabled = false;
 				} else {
-					this.mmmbopButtonDisabled = true;
+					this.buttonDisabled = true;
 				}
 				
 			});
@@ -49,8 +41,11 @@
 			onBreak.on('change', newVal => {
 				this.onBreak = onBreak.value;
 
-				//readerIntrosButtonDisabled = onBreak.value;
-				//themeSongButtonDisabled = onBreak.value;
+				if (newVal | this.mmmbopsAvailable == 0)
+					this.buttonDisabled = true;
+				else 
+					this.buttonDisabled = false;
+
 			});
 
 					
