@@ -8,7 +8,35 @@ const battle = nodecg.Replicant('battle');
 const prize = nodecg.Replicant('prize');
 const mmmbop = nodecg.Replicant('mmmbop');
 const currentFetishPrize = nodecg.Replicant('currentFetishPrize');
-const fetishPrizes = nodecg.Replicant('fetishPrizes');
+const albertClass = nodecg.Replicant('albertClass');
+
+const albertCategories = ["jogging", "lsd", "throb", "spin", "storm", "catacacts", "sepia", "oversaturate", "huerotate", "contrast", "invert", "black", "blue", "brown", "green", "grey", "white", "tan", "yellow", "orange", "red", "pink", "purple", "teal"];
+const albertKeywords = {
+	"jogging": ["jog", "run", "trot", "sprint"],
+	"lsd": ["lsd", "drug", "trip", "acid"],
+	"throb": ["throb"],
+	"spin": ["spin", "rotate", "turn"],
+	"storm": ["storm"],
+	"catacacts": ["cataracts", "blur", "fuzz"],
+	"sepia": ["sepia"],
+	"oversaturate": ["saturate", "bright"],
+	"huerotate": ["huerotate"],
+	"invert": ["invert"],
+	"contrast": ["contrast"],
+	"black": ["black", "ebony", "crow", "midnight", "ink", "raven", "oil", "grease", "onyx", "pitch", "soot", "sable", "jet", "coal", "metal", "obsidian", "jade", "spider", "leather"],
+	"blue": ["blue", "slate", "sky", "navy", "indigo", "cobalt", "ocean", "peacock", "azure", "lapis", "spruce", "stone", "aegean", "berry", "denim", "admiral", "arctic"],
+	"brown": ["brown", "coffee", "mocha", "peanut", "carob", "hickory", "wood", "pecan", "walnut", "caramel", "gingerbread", "syrup", "chocolate", "tortilla", "umber", "tawny", "brunette", "cinnamon", "penny", "cedar"],
+	"green": ["green", "chartreuse", "juniper", "sage", "lime", "fern", "olive", "emerald", "pear", "moss", "shamrock", "pine", "parakeet", "mint", "seaweed", "pickle", "pistachio", "basil", "crocodile"],
+	"teal": ["teal", "aqua", "sapphire", "cerulean", "seafoam", "cyan"],
+	"greyscale": ["grey", "shadow", "graphite", "iron", "pewter", "cloud", "silver", "smoke", "slate", "anchor", "ash", "porpoise", "dove", "fog", "flint", "charcoal", "pebble", "lead", "coin", "fossil"],
+	"white": ["white", "pearl", "alabaster", "snow", "ivory", "cream", "eggshell", "cotton", "chiffon", "salt", "lace", "coconut", "linen", "bone", "daisy", "powder", "frost", "porcelain", "parchment", "rice"],
+	"tan": ["tan", "beige", "macaroon", "hazelwood", "granola", "oat", "egg nog", "fawn", "sand", "sepia", "latte", "oyster", "biscotti", "parmesan", "hazelnut", "sandcastle", "buttermilk", "shortbread"],
+	"yellow": ["yellow", "canary", "gold", "daffodil", "flaxen", "butter", "lemon", "mustard", "corn", "medallion", "dendelion", "fire", "bumblebee", "banana", "butterscotch", "dijon", "honey", "blonde", "pineapple"],
+	"orange": ["orange", "tangerine", "merigold", "cider", "rust", "ginger", "tiger", "fire", "bronze", "cantaloupe", "apricot", "clay", "honey", "carrot", "squash", "spice", "marmalade", "amber", "sandstone", "yam"],
+	"red": ["red", "cherry", "rose", "jam", "merlot", "garnet", "crimson", "ruby", "scarlet", "wine", "brick", "apple", "mahogany", "blood", "sangria", "berry", "currant", "blush", "candy", "lipstick"],
+	"pink": ["pink", "rose", "fuscia", "punch", "blush", "watermelon", "flamingo", "rouge", "salmon", "coral", "peach", "strawberry", "rosewood", "lemonade", "taffy", "bubblegum", "crepe", "magenta"],
+	"purple": ["purple", "mauve", "violet", "boysenberry", "lavender", "plum", "magenta", "lilac", "grape", "periwinkle", "sangria", "eggplant", "jam", "iris", "heather", "amethyst", "raisin", "orchid", "mulberry"]
+};
 
 let opts = {
 	reconnect: true
@@ -45,8 +73,9 @@ socket.on("event", event => {
 		
 		checkBattle(message);
 		checkPrize(message);
-		checkFetishPrize(message);
-		checkMmmbop(newTotal);
+		checkMmmbop(newTotal);		
+		//checkFetishPrize(message);
+		checkAlbert(message);
 	}
 });
 
@@ -91,6 +120,7 @@ function checkMmmbop(dTotal) {
 	mmmbop.value.nextMilestone = nextMilestone;
 }
 
+/*
 function checkFetishPrize(msg) {
 	var donationAmt = parseFloat(msg.amount.amount);
 	if (donationAmt > currentFetishPrize.value.topDonorAmount)
@@ -99,3 +129,26 @@ function checkFetishPrize(msg) {
 		currentFetishPrize.value.topDonorAmount = donationAmt;
 	}
 }
+*/
+
+function checkAlbert(msg) {
+	var donationAmt = parseFloat(msg.amount.amount);
+	let message = msg.message.toLowerCase();	
+	if (donationAmt >= 0.5)
+	{
+		for (var i = 0; i < albertCategories.length; i++)
+		{			
+			var curKeyword = albertCategories[i];
+			for (var j = 0; j < (albertKeywords[curKeyword]).length; j++)
+			{
+				if (message.indexOf(albertKeywords[curKeyword][j]) !== -1)
+				{
+					albertClass.value = curKeyword;
+					return;
+				}
+			}
+		}
+	}
+}
+
+

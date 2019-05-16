@@ -3,6 +3,7 @@ const nodecg = require('./util/nodecg-api-context').get();
 const currentHour = nodecg.Replicant('currentHour');
 const segments = nodecg.Replicant('segments');
 const kumquatSounds = nodecg.Replicant('assets:kumquatsoundboard');
+const albertClass = nodecg.Replicant('albertClass');
 
 nodecg.listenFor('soundboardPlay', filename => {	
 	var message = "!playsound " + filename;
@@ -31,9 +32,13 @@ nodecg.listenFor('playKumquat', value => {
 })
 
 nodecg.listenFor('playReaderIntros', value => {
-	if (typeof(segments.value[currentHour.Value] === 'undefined'))
+	/*if (typeof(segments.value[currentHour.Value] === 'undefined'))
+	{
+		console.log("Out of marathon timeframe, skipping reader intros");
 		return
-		
+	}
+	*/
+
 	var currentSegment = segments.value[currentHour.value];
 	var castlist = currentSegment.ridiculist1 + " " + currentSegment.artistName;
 	if (currentSegment.ridiculist2 && currentSegment.ridiculist2 !== "")
