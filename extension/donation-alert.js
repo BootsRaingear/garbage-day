@@ -10,14 +10,14 @@ const mmmbop = nodecg.Replicant('mmmbop');
 const currentFetishPrize = nodecg.Replicant('currentFetishPrize');
 const albertClass = nodecg.Replicant('albertClass');
 
-const albertCategories = ["jogging", "lsd", "throb", "spin", "storm", "catacacts", "sepia", "oversaturate", "huerotate", "contrast", "invert", "black", "blue", "brown", "green", "grey", "white", "tan", "yellow", "orange", "red", "pink", "purple", "teal"];
+const albertCategories = ["jogging", "lsd", "throb", "spin", "storm", "cataracts", "sepia", "oversaturate", "huerotate", "contrast", "invert", "black", "blue", "brown", "green", "greyscale", "white", "tan", "yellow", "orange", "red", "pink", "purple", "teal"];
 const albertKeywords = {
 	"jogging": ["jog", "run", "trot", "sprint"],
 	"lsd": ["lsd", "drug", "trip", "acid"],
 	"throb": ["throb"],
 	"spin": ["spin", "rotate", "turn"],
 	"storm": ["storm"],
-	"catacacts": ["cataracts", "blur", "fuzz"],
+	"cataracts": ["cataracts", "blur", "fuzz"],
 	"sepia": ["sepia"],
 	"oversaturate": ["saturate", "bright"],
 	"huerotate": ["huerotate"],
