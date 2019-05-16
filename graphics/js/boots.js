@@ -128,7 +128,7 @@ function getCastFullName(name)
 function updateCast(segment)
 {
 
-	app.artist = segment.artistName;
+	app.artist = getCastFullName(segment.artistName);
 
 	app.primaryStream.url = segment.artistURL;
 	app.title = segment.title;
