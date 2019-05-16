@@ -16,6 +16,8 @@ var app = new Vue({
     ],
     
     introText: '<p>This is <b>Garbage Day</b>!</p><p>A 24 hour marathon of terrible writing in support of the <b>National Network of Abortion Funds</b>.</p>',
+    underTotalText: 'Money goes to the <strong>National Network of Abortion Funds</strong>',
+
     breakText: "We'll be right back",
     
     provider: "T. Azimuth Schwitters",
@@ -38,6 +40,11 @@ var app = new Vue({
     },
     
     totalDonations: 34646.25,
+    
+    hanson: {
+      active: false,
+      video: 'video/hanson0.mp4'
+    },
     
     donations: [],
     
