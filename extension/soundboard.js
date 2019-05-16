@@ -3,7 +3,6 @@ const nodecg = require('./util/nodecg-api-context').get();
 const currentHour = nodecg.Replicant('currentHour');
 const segments = nodecg.Replicant('segments');
 const kumquatSounds = nodecg.Replicant('assets:kumquatsoundboard');
-const albertClass = nodecg.Replicant('albertClass');
 
 nodecg.listenFor('soundboardPlay', filename => {	
 	var message = "!playsound " + filename;

@@ -11,7 +11,6 @@ const streamlabs = new StreamLabs(
 		"donations.read donations.create alerts.create socket.token"
 );
 
-const albertClass = nodecg.Replicant('albertClass');
 const recentDonations = nodecg.Replicant('recentDonations');
 const slTokens = nodecg.Replicant('slTokens');
 
