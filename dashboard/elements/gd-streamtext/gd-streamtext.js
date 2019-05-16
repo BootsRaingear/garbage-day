@@ -14,10 +14,6 @@
 					type: String,
 					value: ""
 				},
-				logoURL: {
-					type: String,
-					value: ""
-				},
 				breakText: {
 					type: String,
 					value: ""
@@ -34,7 +30,6 @@
 
 			streamtext.on('change', newVal => {
 				this.introText = newVal.introText;
-				this.logoURL = newVal.logoURL;
 				this.breakText = newVal.breakText;
 				this.underTotalText = newVal.underTotalText;
 			});			
@@ -42,7 +37,6 @@
 		
 		updateStreamText() {
 			streamtext.value.introText = this.introText;
-			streamtext.value.logoURL = this.logoURL;
 			streamtext.value.breakText = this.breakText;
 			streamtext.value.underTotalText = this.underTotalText;			
 		}
