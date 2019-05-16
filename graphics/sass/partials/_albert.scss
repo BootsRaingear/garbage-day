@@ -1,6 +1,8 @@
 
 
 
+// KEYFRAMES
+
 @keyframes hueRotate {
   0% { filter: hue-rotate(0); }
   25% { filter: hue-rotate(90deg); }
@@ -45,6 +47,40 @@
   100% { filter:blur(3px);  }
 }
 
+@keyframes vibrate {
+  0% {transform: translate(0); }
+  20% { transform: translate(1%, -1%); }
+  40% { transform: translate(1%, 1%); }
+  60% { transform: translate(-1%, 1%); }
+  80% { transform: translate(-1%, -1%); }
+  100% { transform: translate(0); }
+}
+
+@keyframes heartbeat {
+  from {
+    transform: scale(1);
+    transform-origin: center center;
+    animation-timing-function: ease-out;
+  }
+  10% {
+    transform: scale(0.91);
+    animation-timing-function: ease-in;
+  }
+  17% {
+    transform: scale(0.98);
+    animation-timing-function: ease-out;
+  }
+  33% {
+    transform: scale(0.87);
+    animation-timing-function: ease-in;
+  }
+  45% {
+    transform: scale(1);
+    animation-timing-function: ease-out;
+  }
+}
+
+
 
 @mixin useColor($c) {
   // RACOON BODY
@@ -86,6 +122,8 @@ figure.logo { width:32vw;
   &.spin { animation:spin 20s infinite linear; }
   &.storm { animation: storm 3s infinite ease; }
   &.cataracts { animation: cataracts 7s infinite ease; }
+  &.vibrate, &.stoked { animation: vibrate 0.3s linear infinite both; }
+  &.dance { animation:danceBottom 2s infinite linear; }
 
   // FILTERS 
   &.greyscale, .grayscale { filter: grayscale(1); }
