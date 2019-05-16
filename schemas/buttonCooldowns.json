@@ -2,17 +2,29 @@
 	"$schema": "http://json-schema.org/draft-04/schema#",	
 	"type": "object",
 	"properties": {	
-		"themeSong": {
+		"themeSongCooldown": {
+			"type": "integer",
+			"default": 0
+		},
+		"themeSongDisabled": {
 			"type": "boolean",
 			"default": false
 		},
-		"readerIntros": {
+		"readerIntrosCooldown": {
+			"type": "integer",
+			"default": 0
+		},
+		"readerIntrosDisabled": {
+			"type": "boolean",
+			"default": false		
+		},	
+        "mmmbopCooldown": {
+            "type": "integer", 
+            "default": 0
+		},
+		"mmmbopDisabled": {
 			"type": "boolean",
 			"default": false
-        },
-        "mmmbop" : {
-            "type": "boolean", 
-            "default": false
-        }
+		}	
 	}
 }

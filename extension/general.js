@@ -8,12 +8,16 @@ const currentBreakImage = nodecg.Replicant('currentBreakImage');
 const breakImages = nodecg.Replicant('assets:breakimages');
 const fetishPrizes = nodecg.Replicant('fetishPrizes');
 const currentFetishPrize = nodecg.Replicant('currentFetishPrize');
+const buttonCooldowns = nodecg.Replicant('buttonCooldowns');
 const clone = require('clone');
 
+
+var coolDownInterval = setInterval(checkCoolDowns,1000);
 var onstart = true;
 
 var breakImageRule = new cron.RecurrenceRule();
-breakImageRule.second = [0, 20, 40];
+breakImageRule.second = [0, 15, 30, 45];
+
 
 var rotateBreakImage = cron.scheduleJob(breakImageRule, function() {
 	nodecg.log.info("rotating break image");
@@ -75,4 +79,15 @@ function checkHour(onbreak = false) {
 		nodecg.log.info("Hour check: marathon has not yet started");
 	}
 	
+}
+
+function checkCoolDowns() {
+	if (buttonCooldowns.value.mmmbopCooldown < Date.now() && buttonCooldowns.value.mmmbopDisabled == true)
+		buttonCooldowns.value.mmmbopDisabled = false;	
+
+	if (buttonCooldowns.value.themeSongCooldown < Date.now() && buttonCooldowns.value.themeSongDisabled == true)
+		buttonCooldowns.value.themeSongDisabled = false;
+
+	if (buttonCooldowns.value.readerIntrosCooldown < Date.now() && buttonCooldowns.value.readerIntrosDisabled == true)
+		buttonCooldowns.value.readerIntrosDisabled = false;
 }

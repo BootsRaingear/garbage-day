@@ -2,7 +2,7 @@
 	const mmmbop = nodecg.Replicant('mmmbop');
 	const onBreak = nodecg.Replicant('onBreak');
 	const buttonCooldowns = nodecg.Replicant('buttonCooldowns');
-	
+
 	class GdMmmbop extends Polymer.Element {
 		static get is() {
 			return 'gd-mmmbop';
@@ -10,10 +10,6 @@
 		
 		static get properties() {
 			return {
-				mmmbopsAvailable: {
-					type: Number,
-					value: 0
-				},
 				mmmbopDisabled: {
 					type: Boolean,
 					value: false,					
@@ -26,86 +22,82 @@
 					type: Boolean,
 					value: false,					
 				},
-				onBreak: {
-					type: Boolean,
-					value: false
-				}
 			}
 		};
 				
 		ready() {
 			super.ready();
-			
+		
 			mmmbop.on('change', newVal => {
-				NodeCG.waitForReplicants(buttonCooldowns, mmmbop).then(() => {
-					this.mmmbopsAvailable = mmmbop.value.mmmbopsAvailable;
-					if (this.mmmbopsAvailable > 0 && !this.onBreak && !buttonCooldowns.mmmbop)
-					{
-						this.mmmbopDisabled = false;
-					} else {
-						this.mmmbopDisabled = true;
-					}
-				});	
+				this._checkMmmbopButton();			
 			});
 
 			
 			onBreak.on('change', newVal => {
-				this.onBreak = onBreak.value;
-
-				if (newVal | this.mmmbopsAvailable == 0)
-					this.buttonDisabled = true;
-				else 
-					this.buttonDisabled = false;
-
+				this._checkMmmbopButton();
+				this._checkThemeSongButton();
+				this._checkReaderIntrosButton();
 			});
 
 			buttonCooldowns.on('change', newVal => {
-				NodeCG.waitForReplicants(buttonCooldowns, mmmbop).then(() => {
-					this.mmmbopsAvailable = mmmbop.value.mmmbopsAvailable;
-					if (this.mmmbopsAvailable > 0 && !this.onBreak && !buttonCooldowns.value.mmmbop)
-					{
-						this.mmmbopDisabled = false;
-					} else {
-						this.mmmbopDisabled = true;
-					}
-
-					if (!this.onBreak && !buttonCooldowns.value.themeSong)
-						this.themeSongDisabled = false;
-					else
-						this.themeSongDisabled = true;
-
-					if (!this.onBreak && !buttonCooldowns.value.readerIntros)
-						this.readerIntrosDisabled = false;
-					else
-						this.readerIntrosDisabled = true;
-				});	
-			})					
+				this._checkMmmbopButton();
+				this._checkThemeSongButton();
+				this._checkReaderIntrosButton();
+			});
 		}	
 
-		computeStyle(cl) {
-			var s = "background-color:"+cl;
-				return s;
+		_checkMmmbopButton() {
+			NodeCG.waitForReplicants(buttonCooldowns, onBreak).then(() => {
+				if (mmmbop.value.mmmbopsAvailable > 0 && !onBreak.value && !buttonCooldowns.value.mmmbopDisabled)
+				{
+					this.mmmbopDisabled = false;
+				} else {
+					this.mmmbopDisabled = true;
+				}
+			});
 		}
 
+		_checkThemeSongButton() {
+			NodeCG.waitForReplicants(buttonCooldowns, onBreak).then(() => {
+				if (!onBreak.value && !buttonCooldowns.value.themeSongDisabled)
+				{
+					this.themeSongDisabled = false;
+				} else {
+					this.themeSongDisabled = true;
+				}
+			});
+		}
+
+		_checkReaderIntrosButton() {
+			NodeCG.waitForReplicants(buttonCooldowns, onBreak).then(() => {
+				if (!onBreak.value && !buttonCooldowns.value.readerIntrosDisabled)
+				{
+					this.readerIntrosDisabled = false;
+				} else {
+					this.readerIntrosDisabled = true;
+				}
+			});
+
+		}
 
 		_handlePlayMmmbop() {
-			buttonCooldowns.value.mmmbop = true;
-			setTimeout(function() { buttonCooldowns.value.mmmbop = false; }, 5500);
+			buttonCooldowns.value.mmmbopCooldown = Date.now() + 4000;
+			buttonCooldowns.value.mmmbopDisabled = true;
 
 			mmmbop.value.mmmbopsAvailable--;
 			nodecg.sendMessage('playMmmbop', "true");
 		}		
 
 		_handlePlayThemeSong() {
-			buttonCooldowns.value.themeSong = true;
-			setTimeout(function() { buttonCooldowns.value.themeSong = false; }, 15000);
+			buttonCooldowns.value.themeSongCooldown = Date.now() + 30000;
+			buttonCooldowns.value.themeSongDisabled = true;
 
 			nodecg.sendMessage('playThemeSong', "true");
 		}
 
 		_handlePlayReaderIntros() {
-			buttonCooldowns.value.readerIntros = true;
-			setTimeout(function() { buttonCooldowns.value.readerIntros = false; }, 15000);
+			buttonCooldowns.value.readerIntrosCooldown = Date.now() + 30000;
+			buttonCooldowns.value.readerIntrosDisabled = true;
 
 			nodecg.sendMessage('playReaderIntros', "true");
 		}

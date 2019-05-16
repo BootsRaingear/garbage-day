@@ -42,6 +42,7 @@
 						"spin", 
 						"storm", 
 						"cataracts", 
+						"vibrate",
 						"greyscale", 
 						"sepia",
 						"oversaturate",
@@ -57,6 +58,11 @@
 						"red",
 						"orange",
 						"blue",
+						"white",
+						"tan",
+						"purple",
+						"brown",
+						"black",				
 						"no-outlines",
 						"no-trash"
 					]
