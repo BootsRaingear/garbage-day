@@ -94,7 +94,8 @@
 					"mp3",
 					"ogg"
 				]
-			},			{
+			},			
+			{
 				"name": "mmmbop",
 				"title": "Just Mmmbop",
 				"allowedTypes": [
