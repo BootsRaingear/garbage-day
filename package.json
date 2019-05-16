@@ -205,7 +205,7 @@
 			},
 			{
 				"name": "streamtext",
-				"title": "Stream Text/Logo",
+				"title": "Stream Text",
 				"file": "streamtext-panel.html",
 				"width": 4,
 				"workspace": "Setup"			
