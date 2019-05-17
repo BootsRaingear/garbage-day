@@ -10,7 +10,7 @@ const mmmbop = nodecg.Replicant('mmmbop');
 const currentFetishPrize = nodecg.Replicant('currentFetishPrize');
 const albertClass = nodecg.Replicant('albertClass');
 
-const albertCategories = ["jogging", "lsd", "throb", "storm", "cataracts", "vibrate", "sepia", "oversaturate", "huerotate", "no-outlines", "no-trash", "contrast", "invert", "black", "blue", "brown", "green", "greyscale", "white", "tan", "yellow", "orange", "red", "pink", "purple", "teal", "spin"];
+const albertCategories = ["jogging", "lsd", "throb", "storm", "cataracts", "vibrate", "rave", "drunk", "sepia", "oversaturate", "huerotate", "no-outlines", "no-trash", "contrast", "invert", "black", "blue", "brown", "green", "greyscale", "white", "tan", "yellow", "orange", "red", "pink", "purple", "teal", "spin"];
 const albertKeywords = {
 	"jogging": ["jog", "run", "trot", "sprint", "ran", "sped", "speed", "fast", "sonic"],
 	"lsd": ["lsd", "drug", "trip", "acid", "psychedelic","woooo","whoa"],
@@ -20,6 +20,8 @@ const albertKeywords = {
 	"cataracts": ["cataracts", "blur", "fuzz", "vision", "blind"],
 	"vibrate": ["vibrate", "shake", "rattle", "quiver", "tremble", "trembling", "shaking", "vibrating", "vibration", "quake"],
 	"dance": ["dance", "bop", "pony", "twist", "apart", "chubby", "beat", "shimmy", "ballet", "jive", "disco"],
+	"rave": ["rave"],
+	"drunk": ["drunk"],
 	"no-outlines": ["no-outlines", "waver", "pale", "flat", "line", "pasty", "pasta", "pastel", "bleach", "line"],
 	"no-trash": ["no-trash", "empty", "clean", "tidy", "free", "parkour", "diggity"],
 	"dropshadow": ["dropshadow", "shadow", "creepy", "hole", "abyss", "space", "darkness", "vortex"],

@@ -43,6 +43,8 @@
 						"storm", 
 						"cataracts", 
 						"vibrate",
+						"rave",
+						"drunk",
 						"greyscale", 
 						"sepia",
 						"oversaturate",
