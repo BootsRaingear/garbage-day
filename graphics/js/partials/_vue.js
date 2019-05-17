@@ -32,8 +32,7 @@ var app = new Vue({
       //url: "https://1-edge4-us-east.picarto.tv/mp4/Amarynceus.mp4"
     },
 
-    albertClass: "",
-    
+    albertClass: "drunk",
     secondaryStream: {
       show: false,
       name: "Frank West plays some dumb bullshit",
