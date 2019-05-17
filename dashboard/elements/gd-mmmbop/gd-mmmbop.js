@@ -81,7 +81,7 @@
 		}
 
 		_handlePlayMmmbop() {
-			buttonCooldowns.value.mmmbopCooldown = Date.now() + 4000;
+			buttonCooldowns.value.mmmbopCooldown = Date.now() + 3500;
 			buttonCooldowns.value.mmmbopDisabled = true;
 
 			mmmbop.value.mmmbopsAvailable--;
@@ -89,14 +89,14 @@
 		}		
 
 		_handlePlayThemeSong() {
-			buttonCooldowns.value.themeSongCooldown = Date.now() + 30000;
+			buttonCooldowns.value.themeSongCooldown = Date.now() + 60000;
 			buttonCooldowns.value.themeSongDisabled = true;
 
 			nodecg.sendMessage('playThemeSong', "true");
 		}
 
 		_handlePlayReaderIntros() {
-			buttonCooldowns.value.readerIntrosCooldown = Date.now() + 30000;
+			buttonCooldowns.value.readerIntrosCooldown = Date.now() + 60000;
 			buttonCooldowns.value.readerIntrosDisabled = true;
 
 			nodecg.sendMessage('playReaderIntros', "true");

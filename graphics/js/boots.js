@@ -99,8 +99,8 @@ nodecg.listenFor('playMmmbop', value => {
 		milles = 10;
 	else
 		milles = Math.floor(app.totalDonations / 1000);
-	var filename = '/assets/garbage-day/mmmbopvideos/canson' + milles + '.mp4';
-	console.log(filename);
+	//var filename = '/assets/garbage-day/mmmbopvideos/canson' + milles + '.mp4';
+	var filename = "http://localhost:8000/canson" + milles + '.mp4';
 	app.hanson.video = filename;
 	app.hanson.active = true;
 	setTimeout(function() { app.hanson.active = false; }, 5500);
