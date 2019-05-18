@@ -9,10 +9,11 @@ const breakImages = nodecg.Replicant('assets:breakimages');
 const fetishPrizes = nodecg.Replicant('fetishPrizes');
 const currentFetishPrize = nodecg.Replicant('currentFetishPrize');
 const buttonCooldowns = nodecg.Replicant('buttonCooldowns');
+const mmmbop = nodecg.Replicant('mmmbop');
 const clone = require('clone');
 
 
-var coolDownInterval = setInterval(checkCoolDowns,1000);
+var coolDownInterval = setInterval(checkCoolDowns,500);
 var onstart = true;
 
 var breakImageRule = new cron.RecurrenceRule();
@@ -41,6 +42,11 @@ currentHour.on('change', newVal => {
 onBreak.on('change', newVal => {
 	if (newVal === true)
 		checkHour();
+});
+
+nodecg.listenFor('playMmmbop', value => {
+	mmmbop.value.videoShow = true;
+	setTimeout(function() { mmmbop.value.videoShow = false; }, 5500);
 });
 
 // on the hour, change currentHour
@@ -81,6 +87,7 @@ function checkHour(onbreak = false) {
 	
 }
 
+
 function checkCoolDowns() {
 	if (buttonCooldowns.value.mmmbopCooldown < Date.now() && buttonCooldowns.value.mmmbopDisabled == true)
 		buttonCooldowns.value.mmmbopDisabled = false;	
@@ -89,5 +96,5 @@ function checkCoolDowns() {
 		buttonCooldowns.value.themeSongDisabled = false;
 
 	if (buttonCooldowns.value.readerIntrosCooldown < Date.now() && buttonCooldowns.value.readerIntrosDisabled == true)
-		buttonCooldowns.value.readerIntrosDisabled = false;
+		buttonCooldowns.value.readerIntrosDisabled = false;	
 }

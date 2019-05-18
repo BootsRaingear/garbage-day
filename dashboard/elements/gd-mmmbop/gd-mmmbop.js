@@ -85,7 +85,9 @@
 			buttonCooldowns.value.mmmbopDisabled = true;
 
 			mmmbop.value.mmmbopsAvailable--;
+			mmmbop.value.showVideo = true;
 			nodecg.sendMessage('playMmmbop', "true");
+			
 		}		
 
 		_handlePlayThemeSong() {

@@ -9,6 +9,10 @@
 		"mmmbopsAvailable": {
 			"type": "number",
 			"default": 0
+		},
+		"videoShow": {
+			"type": "boolean",
+			"default": false
 		}
 	}
 }
