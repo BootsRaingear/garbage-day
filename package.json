@@ -2,17 +2,17 @@
 	"name": "Garbage-Day",
 	"version": "0.6.0",
 	"dependencies": {
-			"bower-npm-resolver": "^0.10.0",
-			"clone": "^2.1.2",
-			"nodecg-utility-obs": "^6.1.5",
-			"request": "^2.88.2",
-			"request-promise": "^4.2.5",
-			"webhook-discord": "^3.7.4",
-			"socket.io-client": "^2.3.0",
-			"moment": "^2.27.0",
+			"bower-npm-resolver": "^0.9.0",
+			"clone": "^2.1.1",
+			"nodecg-utility-obs": "^4.1.2",
+			"request": "^2.67.0",
+			"request-promise": "^4.2.1",
+			"webhook-discord": "^2.0.6",
+			"socket.io-client": "^2.0.3",
+			"moment": "^2.21.0",
 			"streamlabs": "^1.3.4",
-			"axios": "^0.19.2",
-			"node-schedule": "^1.3.2"
+			"axios": "^0.16.2",
+			"node-schedule": "^1.3.0"
 	},
 	"nodecg": {
 		"compatibleRange": "^1.3.2",
@@ -50,6 +50,13 @@
 				"title": "Theme Songs",
 				"allowedTypes": [
 					"mp3", "wav", "ogg"
+				]
+			},
+			{
+				"name": "kumquatsoundboard",
+				"title": "Kumquat Soundboard",
+				"allowedTypes": [
+					"ogg"
 				]
 			},
 			{
@@ -151,6 +158,13 @@
 				"width": 2,
 				"file": "streamtwoControl.html",
 				"workspace": "Stream"			
+			},
+			{
+				"name": "victor",
+				"title": "Victor Laszlo",
+				"file": "victor.html",
+				"width": 5,
+				"workspace": "Stream"
 			},
 			{
 				"name": "streamtext",
