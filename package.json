@@ -146,25 +146,11 @@
 				"workspace": "Stream"			
 			},
 			{
-				"name": "kumquatsoundboard",
-				"title": "Kumquat Soundboard",
-				"width": 2,
-				"file": "kumquatsoundboard.html",
-				"workspace": "Stream"
-			},
-			{
 				"name": "secondaryStream",
 				"title": "Secondary Stream",
 				"width": 2,
 				"file": "streamtwoControl.html",
 				"workspace": "Stream"			
-			},
-			{
-				"name": "victor",
-				"title": "Victor Laszlo",
-				"file": "victor.html",
-				"width": 5,
-				"workspace": "Stream"
 			},
 			{
 				"name": "streamtext",
