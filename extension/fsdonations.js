@@ -10,7 +10,7 @@ const wfSecret = nodecg.Replicant('wfSecret');
 //app.use(bodyParser.urlencoded({ extended: false }));
 
 nodecg.log.info("loading fsdonations.js");
-
+/*
 app.get('/hook', function(req, res, next) {
     nodecg.log.info("received webhooks request");
     res.status(200).end();
