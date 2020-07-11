@@ -7,6 +7,11 @@
 			"value": 1523116800000,
 			"description": "Unix timestamp (in milliseconds)"
 		},
+		"wfSecret": {
+			"type": "string",
+			"value": "",
+			"description": "NNAF Formstack webhook secret"			
+		},
 		"obs": {
 			"type": "object",
 			"value": {

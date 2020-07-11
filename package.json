@@ -1,8 +1,7 @@
 {
 	"name": "garbage-day",
-	"version": "0.5.0",
+	"version": "0.6.0",
 	"dependencies": {
-			"bower-npm-resolver": "^0.9.0",
 			"clone": "^2.1.1",
 			"nodecg-utility-obs": "^4.1.2",
 			"request": "^2.67.0",
@@ -52,20 +51,6 @@
 					"mp3", "wav", "ogg"
 				]
 			},
-			{				
-				"name": "kumquathours",
-				"title": "Kumquat Intros",
-				"allowedTypes": [
-					"ogg"
-				]
-			},
-			{
-				"name": "kumquatcast",
-				"title": "Kumquat Cast Names",
-				"allowedTypes": [
-					"ogg"
-				]
-			},
 			{
 				"name": "kumquatsoundboard",
 				"title": "Kumquat Soundboard",
@@ -73,27 +58,6 @@
 					"ogg"
 				]
 			},
-			{
-				"name": "kumquatreaderintro",
-				"title": "Kumquat Reader Intro",
-				"allowedTypes": [
-					"ogg"
-				]
-			},
-			{
-				"name": "kumquatartist",
-				"title": "Kumquat Artist Intro",
-				"allowedTypes": [
-					"ogg"
-				]
-			},
-			{
-				"name": "victor",
-				"title": "Victor Soundboard",
-				"allowedTypes": [
-					"mp3", "ogg"
-				]
-			},			
 			{
 				"name": "mmmbop",
 				"title": "Just Mmmbop",
