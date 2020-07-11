@@ -132,13 +132,6 @@
 				"workspace": "Setup"
 			},
 			{
-				"name": "donations",
-				"title": "Donations",
-				"width": 4,
-				"file": "donations-panel.html",
-				"workspace": "Stream"
-			},
-			{
 				"name": "host",
 				"title": "Host Controls",
 				"width": 2,

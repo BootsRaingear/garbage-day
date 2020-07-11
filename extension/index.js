@@ -14,8 +14,8 @@ module.exports = function (nodecg) {
 	require('./obs-control');	
 	require('./schedule');
 	require('./soundboard');
-	require('./donations');
+	//require('./donations');
 	//require('./fsdonations');
-	require('./donation-alert');
+	//require('./donation-alert');
 	require('./general');
 };
