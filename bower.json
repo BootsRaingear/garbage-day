@@ -20,7 +20,7 @@
 		"iron-list": "PolymerElements/iron-list#^3.1.0",
 		"iron-pages": "PolymerElements/iron-pages#^3.0.1",
 		"iron-validator-behavior": "PolymerElements/iron-validator-behavior#^3.0.1",
-		"vaadin-combo-box": "vaadin/vaadin-combo-box#^5.1.0"
+		"vaadin-combo-box": "vaadin/vaadin-combo-box#v5.1.0"
 	},
 	"resolutions": {
 		"vaadin-combo-box": "v2.0.0",
