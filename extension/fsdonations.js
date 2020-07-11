@@ -6,17 +6,25 @@ const wfSecret = nodecg.Replicant('wfSecret');
 
 
 
-//app.use(bodyParser.json());
+app.use(bodyParser.json());
 //app.use(bodyParser.urlencoded({ extended: false }));
 
-nodecg.log.info("loading fsdonations.js");
-
+nodecg.log.info("loading fsdonations.js!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+/*
 app.get('/hook', function(req, res, next) {
     nodecg.log.info("received webhooks request");
     res.status(200).end();
 	//res.json({ challenge: req.query.challenge});
 });
 
+*/
+app.post("/hook", function(req,res) {
+	var body = req.body;	
+	nodecg.log.info("loading fsdonations.js");
+	nodecg.log.info(body.msg);
+	res.status(200).end();
+});
+app.listen(9090);
 /*
 function validateSignature(body, secret, signature) {
 	nodecg.log.info("validating signature");
