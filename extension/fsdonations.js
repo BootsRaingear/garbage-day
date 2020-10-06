@@ -1,49 +1,46 @@
 const app = require('express')();
 const nodecg = require('./util/nodecg-api-context').get();
-const bodyParser = require('body-parser')();
+const sqlite3 = require('sqlite3').verbose();
+const recentDonations = nodecg.Replicant('recentDonations');
+const lastDonationTime = nodecg.Replicant('lastDonationTime');
+const donationTotal = nodecg.Replicant('donationTotal');
 
-const wfSecret = nodecg.Replicant('wfSecret');
+nodecg.log.info("loading fsdonations.js");
 
+let db = new sqlite3.Database('/srv/gd2020nnaf/gd_nnaf.db', (err) => {
+	if (err) {
+		nodecg.log.info(err.message);
+	}
+	nodecg.log.info('Connected to the database.');
+  });
 
+if (lastDonationTime.value < nodecg.bundleConfig.marathonStart) {
+  lastDonationTime.value = nodecg.bundleConfig.marathonStart;
+}
 
-app.use(bodyParser.json());
-//app.use(bodyParser.urlencoded({ extended: false }));
+GrabRecentDonations();
 
-nodecg.log.info("loading fsdonations.js!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-/*
-app.get('/hook', function(req, res, next) {
-    nodecg.log.info("received webhooks request");
-    res.status(200).end();
-	//res.json({ challenge: req.query.challenge});
-});
-
-*/
-app.post("/hook", function(req,res) {
-	var body = req.body;	
-	nodecg.log.info("loading fsdonations.js");
-	nodecg.log.info(body.msg);
-	res.status(200).end();
-});
-app.listen(9090);
-/*
-function validateSignature(body, secret, signature) {
-	nodecg.log.info("validating signature");
-	var hash = crypto.createHmac('SHA256', secret)
-	  .update(JSON.stringify(body))
-	  .digest('base64');
-	return (hash === signature);
-  }
-
-
-app.post('/hook', function(req, res, next) {
-	console.log('Received webhook request:', req.body);
-	console.log(req.get('X-Exl-Signature'));
-	
-	if (!validateSignature(req.body,
-		wfSecret,
-		req.get('X-Exl-Signature'))) {
-			return res.status(401).send({errorMessage: 'Invalid Signature'});
+function GrabRecentDonations() {
+	let query = "SELECT id, displayname, message, amount, STRFTIME('%s', timestamp) AS dtime FROM Donations WHERE dtime > " + lastDonationTime.value + " ORDER BY id DESC LIMIT 25";
+	db.all(query, [], (err, rows) => {
+		if (err) {
+			throw err;
 		}
-	res.status(204).send();
-});
-*/
+
+		recentDonations.value = rows;
+		lastDonationTime.value = parseInt(rows[rows.length -1].dtime);
+	});
+}
+
+function GetDonationTotal() {
+	let query = "SELECT SUM(amount) as total FROM Donations WHERE dtime > " + nodecg.bundleConfig.marathonStart;
+	var total = -1;
+	db.all(query, [], (err, rows) => {
+		if(err) {
+			console.log(err);
+		}else{
+			total = rows[0].total;
+		}
+	});
+	donationTotal.value = total;
+}

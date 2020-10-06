@@ -21,7 +21,7 @@ breakImageRule.second = [0, 15, 30, 45];
 
 
 var rotateBreakImage = cron.scheduleJob(breakImageRule, function() {
-	nodecg.log.info("rotating break image");
+	//nodecg.log.info("rotating break image");
 
 	var curImg = currentBreakImage.value;
 	curImg++

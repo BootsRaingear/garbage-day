@@ -40,12 +40,6 @@
 						
 			
 		</style>
-		<div>
-		<a href={{authUrl}} target="_blank">Auth URL</a>		
-		</div>
-		
-		<div id="divider"></div>
-		
 			
 		<div id="title">
 			<h2>Recent Donations</h2>
@@ -53,8 +47,8 @@
 		<table>				
 			<template is="dom-repeat" items="{{donationList}}">
 				<tr class="row">
-					<td class="donor_name">{{item.name}}</td>
-					<td class="amount">${{item.formatted_amount}}</td>
+					<td class="donor_name">{{item.displayname}}</td>
+					<td class="amount">${{item.amount}}</td>
 					<td class="message">{{item.message}}</td>
 				</tr>
 			</template>			
