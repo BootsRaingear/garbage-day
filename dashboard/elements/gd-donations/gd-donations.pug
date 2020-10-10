@@ -20,7 +20,7 @@ dom-module#gd-donations
       tbody
         template(is="dom-repeat" items="{{donationList}}")
           tr.row
-            td.timestamp {{ftime}}
+            td.timestamp {{item.ftime}}
             td.displayname {{item.displayname}}
             td.amount ${{item.amount}}
             td.message {{item.message}}
