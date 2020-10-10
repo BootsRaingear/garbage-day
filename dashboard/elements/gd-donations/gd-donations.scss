@@ -1,12 +1,12 @@
 #container { padding:20px; }
 
 table { border-collapse: collapse;
-  th { color:#111; }
+  th { color:#111; font-size:85%; }
   .row {
     td { padding:0.8em; border:1px solid rgba(0,0,0,0.15); vertical-align:top; color:#111; }
     .donor_name { font-weight:bold; }
     .amount { font-size:120%; }
-    .mesage { font-size:85%; }
+    .message { font-size:85%; }
     &:nth-child(even) { background:rgba(0,0,0,0.02); }
   }
 }

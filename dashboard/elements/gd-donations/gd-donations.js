@@ -24,7 +24,6 @@
 				this.donationList = [];
 				this.donationList = newVal;
 				console.log(this.donationList);
-				this.donationList[0].dtime = moment(parseInt(this.donationList[0].dtime)).format('LTS');
 			});
 			slAuthUrl.on('change', newVal => {
 				this.authUrl = newVal;

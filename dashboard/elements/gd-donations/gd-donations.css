@@ -7,6 +7,7 @@ table {
 }
 table th {
   color: #111;
+  font-size: 85%;
 }
 table .row td {
   padding: 0.8em;
@@ -20,7 +21,7 @@ table .row .donor_name {
 table .row .amount {
   font-size: 120%;
 }
-table .row .mesage {
+table .row .message {
   font-size: 85%;
 }
 table .row:nth-child(even) {
