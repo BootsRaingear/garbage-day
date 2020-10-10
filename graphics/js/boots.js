@@ -161,7 +161,7 @@ function updateCast(segment)
 	app.secondaryStream.name = segment.streamtwoName;
 	app.secondaryStream.url = segment.streamtwoURL + "&parent=urbanwizards.com";
 
-	if (app.secondaryStream.url === "")
+	if (segment.streamtwoURL === "")
 	{
 		stream2active = false;
 		app.secondaryStream.enabled = false;
