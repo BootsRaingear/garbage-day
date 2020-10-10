@@ -1,13 +1,11 @@
-#container {
-  padding: 20px;
-}
-
 table {
   border-collapse: collapse;
+  margin: 20px;
 }
 table th {
   color: #111;
   font-size: 85%;
+  text-align: left;
 }
 table .row td {
   padding: 0.8em;

@@ -5,16 +5,14 @@
 <link rel="import" href="../../../bower_components/paper-button/paper-button.html"/>
 <dom-module id="gd-donations">
   <template>
-    <style>#container {
-  padding: 20px;
-}
-
-table {
+    <style>table {
   border-collapse: collapse;
+  margin: 20px;
 }
 table th {
   color: #111;
   font-size: 85%;
+  text-align: left;
 }
 table .row td {
   padding: 0.8em;
@@ -47,7 +45,7 @@ table .row:nth-child(even) {
       <tbody>
         <template is="dom-repeat" items="{{donationList}}">
           <tr class="row">
-            <td class="timestamp">{{moment(parseInt(this.donationList[0].dtime)).format('LTS')}}</td>
+            <td class="timestamp">{{ftime}}</td>
             <td class="displayname">{{item.displayname}}</td>
             <td class="amount">${{item.amount}}</td>
             <td class="message">{{item.message}}</td>

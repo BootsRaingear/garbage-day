@@ -20,7 +20,7 @@ dom-module#gd-donations
       tbody
         template(is="dom-repeat" items="{{donationList}}")
           tr.row
-            td.timestamp {{moment(parseInt(this.donationList[0].dtime)).format('LTS')}}
+            td.timestamp {{ftime}}
             td.displayname {{item.displayname}}
             td.amount ${{item.amount}}
             td.message {{item.message}}
