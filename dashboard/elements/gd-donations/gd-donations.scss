@@ -1,8 +1,8 @@
 table { border-collapse: collapse; margin:20px;
-  th { color:#111; font-size:85%; text-align: left; }
+  th { color: #111; font-size: 85%; text-align: left; padding: 0 10px; text-transform: uppercase; }
   .row {
-    td { padding:0.8em; border:1px solid rgba(0,0,0,0.15); vertical-align:top; color:#111; }
-    .donor_name { font-weight:bold; }
+    td { padding:10px; border:1px solid rgba(0,0,0,0.15); vertical-align:top; color:#111; }
+    .displayname { font-weight:bold; }
     .amount { font-size:120%; }
     .message { font-size:85%; }
     &:nth-child(even) { background:rgba(0,0,0,0.02); }

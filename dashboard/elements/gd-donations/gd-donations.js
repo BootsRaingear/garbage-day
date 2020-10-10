@@ -23,7 +23,6 @@
 			recentDonations.on('change', newVal => {
 				this.donationList = [];
 				this.donationList = newVal;
-				console.log(this.donationList);
 			});
 			slAuthUrl.on('change', newVal => {
 				this.authUrl = newVal;
