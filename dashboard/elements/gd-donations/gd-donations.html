@@ -1,58 +1,55 @@
-<link rel="import" href="../../../bower_components/polymer/polymer-element.html">
-<link rel="import" href="../../../bower_components/iron-flex-layout/iron-flex-layout.html">
-<link rel="import" href="../../../bower_components/iron-list/iron-list.html">
-<link rel="import" href="../../../bower_components/paper-button/paper-button.html">
 
+<link rel="import" href="../../../bower_components/polymer/polymer-element.html"/>
+<link rel="import" href="../../../bower_components/iron-flex-layout/iron-flex-layout.html"/>
+<link rel="import" href="../../../bower_components/iron-list/iron-list.html"/>
+<link rel="import" href="../../../bower_components/paper-button/paper-button.html"/>
 <dom-module id="gd-donations">
-	<template>
-		<style>
-			:host {
-				@apply --layout-vertical;				
-				color: black;
-			}
-			
-			table {
-				table-layout: auto;
-			}
-			
-			#title {
-				text-align: center;
-			}
-			
-			.donation {
-				@apply --layout-vertical;
-				padding-left: 8px;
-				padding-right: 8px;
-				padding-bottom: 6px;
-				box-sizing: border-box;
-			}
-			
-			.donor_name {
-				text-align: right;
-			}
-			
-			.amount {
-				text-align: right;
-			}
-			.row:nth-child(even) {
-				background-color: #d9dcdf;				
-			}
-						
-			
-		</style>
-			
-		<div id="title">
-			<h2>Recent Donations</h2>
-		</div>
-		<table>				
-			<template is="dom-repeat" items="{{donationList}}">
-				<tr class="row">
-					<td class="donor_name">{{item.displayname}}</td>
-					<td class="amount">${{item.amount}}</td>
-					<td class="message">{{item.message}}</td>
-				</tr>
-			</template>			
-		</table>
-	</template>
-	<script src="gd-donations.js"></script>
-</dom-module>		
+  <template>
+    <style>
+      body {
+        padding: 20px;
+      }
+      
+      table .row td {
+        padding: 0.8em;
+        border: 1px solid rgba(0, 0, 0, 0.15);
+        vertical-align: top;
+      }
+      table .row .donor_name {
+        font-weight: bold;
+      }
+      table .row .amount {
+        font-size: 120%;
+      }
+      table .row:nth-child(even) {
+        background: rgba(0, 0, 0, 0.02);
+      }
+      
+    </style>
+    <div id="title">
+      <h2>Recent Donations</h2>
+    </div>
+    <table class="donation-table">
+      <thead>
+        <tr>
+          <th>Time</th>
+          <th>Name</th>
+          <th>Amount</th>
+          <th>Message</th>
+        </tr>
+      </thead>
+      <tbody>
+        <template is="dom-repeat" items="{{donationList}}">
+          <tr class="row">
+            <td class="timestamp">{{item.dtime}}</td>
+            <td class="displayname">{{item.displayname}}</td>
+            <td class="amount">{{item.amount}}</td>
+            <td class="message">{{item.message}}</td>
+          </tr>
+        </template>
+      </tbody>
+    </table>
+  </template>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+  <script src="gd-donations.js"></script>
+</dom-module>

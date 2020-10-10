@@ -1,0 +1,48 @@
+link(rel="import" href="../../../bower_components/polymer/polymer-element.html")
+link(rel="import" href="../../../bower_components/iron-flex-layout/iron-flex-layout.html")
+link(rel="import" href="../../../bower_components/iron-list/iron-list.html")
+link(rel="import" href="../../../bower_components/paper-button/paper-button.html")
+
+dom-module#gd-donations
+  template
+    style.
+      body {
+        padding: 20px;
+      }
+
+      table .row td {
+        padding: 0.8em;
+        border: 1px solid rgba(0, 0, 0, 0.15);
+        vertical-align: top;
+      }
+      table .row .donor_name {
+        font-weight: bold;
+      }
+      table .row .amount {
+        font-size: 120%;
+      }
+      table .row:nth-child(even) {
+        background: rgba(0, 0, 0, 0.02);
+      }
+      
+    #title
+      h2 Recent Donations
+
+    table.donation-table
+
+      thead
+        tr
+          th Time
+          th Name
+          th Amount
+          th Message
+
+      tbody
+        template(is="dom-repeat" items="{{donationList}}")
+          tr.row
+            td.timestamp {{item.dtime}}
+            td.displayname {{item.displayname}}
+            td.amount {{item.amount}}
+            td.message {{item.message}}
+  script(src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js")
+  script(src="gd-donations.js")

@@ -1,0 +1,10 @@
+body { padding:20px; }
+
+table { 
+  .row {
+    td { padding:0.8em; border:1px solid rgba(0,0,0,0.15); vertical-align:top; }
+    .donor_name { font-weight:bold; }
+    .amount { font-size:120%; }
+    &:nth-child(even) { background:rgba(0,0,0,0.02); }
+  }
+}
