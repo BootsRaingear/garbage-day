@@ -142,7 +142,7 @@
 			{
 				"name": "donations",
 				"title": "Recent Donations",
-				"width": 4,
+				"width": 5,
 				"file": "donations-panel.html",
 				"workspace": "Stream"			
 			},			{
