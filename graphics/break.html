@@ -54,6 +54,42 @@
       <script src="js/libraries/vue.full.js"></script>
       <script src="js/min/garbage.break.min.js"></script>
       <script src="js/boots.js"></script>
+      <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+      <script src="js/libraries/pnotify.custom.min.js"></script>
+      <link rel="stylesheet" href="css/libraries/pnotify.custom.min.css">
+      <link rel="stylesheet" href="css/libraries/animate.css">
+      <style>
+        .ui-pnotify { font-family: "Bitter", serif; }
+        .ui-pnotify .ui-pnotify-title { font-size:115%; }
+        .ui-pnotify .ui-pnotify-text { font-size:85%; }
+      </style>
+      <script>
+        //------ Pnotify settings & defaults ----------------
+        PNotify.prototype.options.icon = false;
+        var stack_bottomright = {"dir1": "up", "dir2": "left", "firstpos1": 25, "firstpos2": 25};
+        PNotify.prototype.options.stack = stack_bottomright;
+        PNotify.prototype.options.addclass = "stack-bottomright";
+        PNotify.prototype.options.animate.animate = true;
+        PNotify.prototype.options.animate.in_class = 'bounceInDown',
+        PNotify.prototype.options.animate.out_class = 'zoomOutRight';
+        PNotify.prototype.options.delay = 8000
+        
+        PNotify.defaultStack = {
+          dir1: 'down',
+          dir2: 'left',
+          firstpos1: 25,
+          firstpos2: 25,
+          spacing1: 36,
+          spacing2: 36,
+          push: 'bottom',
+          context: document.body
+        }
+        
+        new PNotify({
+          title: 'PNotify is working!',
+          text: 'This message will be dismissed in 8 seconds.',
+        });
+      </script>
     </div>
   </body>
 </html>
