@@ -136,7 +136,7 @@ function updateCast(segment)
 
 	app.artist = getCastFullName(segment.artistName);
 
-	app.primaryStream.url = segment.artistURL;
+	app.primaryStream.url = segment.artistURL + "&parent=urbanwizards.com";
 	app.title = segment.title;
 	app.provider = segment.docProvider;
 	var iReaders = [];
@@ -159,7 +159,8 @@ function updateCast(segment)
 	app.readers = iReaders;
 	
 	app.secondaryStream.name = segment.streamtwoName;
-	app.secondaryStream.url = segment.streamtwoURL;
+	app.secondaryStream.url = segment.streamtwoURL + "&parent=urbanwizards.com";
+
 	if (app.secondaryStream.url === "")
 	{
 		stream2active = false;
@@ -170,6 +171,5 @@ function updateCast(segment)
 		app.secondaryStream.enabled = true;
 		app.secondaryStream.show = true;
 	}
-	
   
 }
