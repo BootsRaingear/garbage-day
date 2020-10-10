@@ -5,26 +5,9 @@ link(rel="import" href="../../../bower_components/paper-button/paper-button.html
 
 dom-module#gd-donations
   template
-    style.
-      body {
-        padding: 20px;
-      }
+    style
+      include gd-donations.css
 
-      table .row td {
-        padding: 0.8em;
-        border: 1px solid rgba(0, 0, 0, 0.15);
-        vertical-align: top;
-      }
-      table .row .donor_name {
-        font-weight: bold;
-      }
-      table .row .amount {
-        font-size: 120%;
-      }
-      table .row:nth-child(even) {
-        background: rgba(0, 0, 0, 0.02);
-      }
-      
     #title
       h2 Recent Donations
 
@@ -42,7 +25,7 @@ dom-module#gd-donations
           tr.row
             td.timestamp {{item.dtime}}
             td.displayname {{item.displayname}}
-            td.amount {{item.amount}}
+            td.amount ${{item.amount}}
             td.message {{item.message}}
   script(src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js")
   script(src="gd-donations.js")
