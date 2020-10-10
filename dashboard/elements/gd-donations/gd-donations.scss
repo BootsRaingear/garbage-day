@@ -1,6 +1,7 @@
 #container { padding:20px; }
 
 table { border-collapse: collapse;
+  th { color:#111; }
   .row {
     td { padding:0.8em; border:1px solid rgba(0,0,0,0.15); vertical-align:top; color:#111; }
     .donor_name { font-weight:bold; }

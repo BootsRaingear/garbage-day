@@ -5,6 +5,9 @@
 table {
   border-collapse: collapse;
 }
+table th {
+  color: #111;
+}
 table .row td {
   padding: 0.8em;
   border: 1px solid rgba(0, 0, 0, 0.15);
