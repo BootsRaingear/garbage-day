@@ -52,8 +52,6 @@
     </div>
     <div class="javascripts">
       <script src="js/libraries/vue.full.js"></script>
-      <script src="js/min/garbage.break.min.js"></script>
-      <script src="js/boots.js"></script>
       <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
       <script src="js/libraries/pnotify.custom.min.js"></script>
       <link rel="stylesheet" href="css/libraries/pnotify.custom.min.css">
@@ -73,6 +71,7 @@
         PNotify.prototype.options.animate.in_class = 'bounceInDown',
         PNotify.prototype.options.animate.out_class = 'zoomOutRight';
         PNotify.prototype.options.delay = 8000
+        PNotify.prototype.options.width = "340px"
         
         PNotify.defaultStack = {
           dir1: 'down',
@@ -85,11 +84,101 @@
           context: document.body
         }
         
-        new PNotify({
-          title: 'PNotify is working!',
-          text: 'This message will be dismissed in 8 seconds.',
-        });
+        
+        let value = {
+          displayName: "Hello it's me Lemon, and I'm curious if there's any sort of maximum length to the display name field, because if there is then I'd like to know what that limit is, but if there's not then I'd truncate it, and actually I probably want to truncate it anyway because it's a problem to have a name this long.",
+          message: "Praesent at varius turpis. Aliquam laoreet libero vitae vulputate iaculis. Integer ex felis, efficitur sit amet suscipit nec, pharetra quis ante. Morbi varius odio vel libero ornare consequat. Donec consectetur auctor est, a volutpat leo faucibus sed. Sed pulvinar volutpat nunc non fringilla. Pellentesque sed tincidunt mauris. Integer et rhoncus magna. Pellentesque non justo vitae nibh facilisis commodo. Vivamus ultrices dictum sapien id egestas. Etiam molestie aliquet urna.",
+          //amount: Math.floor(Math.random() * (20 - 5) + 5) + (Math.floor(Math.random() * (99 - 1) + 1) / 100)
+          amount: "123.45",
+        }
+        
+        
+        // Let's look at that donation amount...
+        let formattedNumber;
+        
+        if (Number(value.amount) === value.amount && value.amount % 1 !== 0) {
+          // This is a float!
+          let f = value.amount.toFixed(2).toString().split('.');
+          formattedNumber = "$" + f[0] + '<sup style="font-size:60%; text-decoration:underline;">' + f[1] + "</sup>";
+        } else {
+          // this is an integer
+          formattedNumber = "$" + parseInt(value.amount) + "<sup></sup>";
+        }
+        
+        let amount = parseInt(value.amount);
+        let donationType
+        if (!amount || isNaN(value.amount) || isNaN(amount)) {
+          donationType = "error";
+        } else if (amount < 2)  {
+          donationType = "tiny";
+        } else if (amount < 10)  {
+          donationType = "small";
+        } else if (amount < 99)  {
+          donationType = "regular";
+        } else {
+          donationType = "big";
+        } 
+        
+        // Let's look at the name of the donator...
+        let notifyTitle;
+        if (!value.displayName || value.displayName == "" || value.message.length < 2 || value.message.toLowerCase().includes("anony")) {
+          notifyTitle = "Anonymous $"+ value.amount + " Donation";
+        } else {
+        
+          let notifyName;
+          if (value.displayName.length > 25) {
+            notifyName = value.displayName.substring(0,25) + '...';
+          } else {
+            notifyName = value.displayName
+          }
+        
+          notifyTitle = formattedNumber + " | " + notifyName;
+        }
+        
+        // Let's look at the donation message...
+        if (!value.message || value.message == "" || value.message.length < 2) {
+          notifyMessage = "";
+        } else if (value.message.length > 64) {
+          notifyMessage = value.message.substring(0,64) + '...';
+        } else {
+          notifyMessage = value.message;
+        }
+        
+        if (donationType == "error") {
+          new PNotify({
+            title: "SOMETHING FUCKED UP!",
+            type: "error",
+            delay: 30000
+          });
+        } else if (donationType == "tiny") {
+          new PNotify({
+            text: "someone donated $" + value.amount,
+            delay: 10000
+          });
+        } else if (donationType == "small") {
+          new PNotify({
+            text: '<b>' + notifyTitle + '</b>',
+            delay: 10000
+          });
+        } else if (donationType == "regular") {
+          new PNotify({
+            title: notifyTitle,
+            text: notifyMessage,
+            delay: 30000
+          });
+        } else if (donationType == "big") {
+          new PNotify({
+            title: formattedNumber + " | " + value.displayName,
+            text: value.message,
+            delay: 90000
+          });
+        }
+        
+        
+        
       </script>
+      <script src="js/min/garbage.break.min.js"></script>
+      <script src="js/boots.js"></script>
     </div>
   </body>
 </html>

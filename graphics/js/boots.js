@@ -113,9 +113,89 @@ nodecg.listenFor('playMmmbop', value => {
 });
 
 nodecg.listenFor('donationAlert', value => {	
-	//value.displayName
-	//value.amount
-	//value.message
+	console.table([value.displayName, value.amount, value.message]);
+
+	// Let's look at that donation amount...
+	let formattedNumber;
+
+	if (Number(value.amount) === value.amount && value.amount % 1 !== 0) {
+		// This is a float!
+		let f = value.amount.toFixed(2).toString().split('.');
+		formattedNumber = "$" + f[0] + '<sup style="font-size:60%; text-decoration:underline;">' + f[1] + "</sup>";
+	} else {
+		// this is an integer
+		formattedNumber = "$" + parseInt(value.amount) + "<sup></sup>";
+	}
+
+	let amount = parseInt(value.amount);
+	let donationType;
+	if (!amount || isNaN(value.amount) || isNaN(amount)) {
+		donationType = "error";
+	} else if (amount < 2)  {
+		donationType = "tiny";
+	} else if (amount < 10)  {
+		donationType = "small";
+	} else if (amount < 99)  {
+		donationType = "regular";
+	} else {
+		donationType = "big";
+	} 
+
+	// Let's look at the name of the donator...
+	let notifyTitle;
+	if (!value.displayName || value.displayName == "" || value.message.length < 2 || value.message.toLowerCase().includes("anony")) {
+		notifyTitle = "Anonymous $"+ value.amount + " Donation";
+	} else {
+
+		let notifyName;
+		if (value.displayName.length > 25) {
+			notifyName = value.displayName.substring(0,25) + '...';
+		} else {
+			notifyName = value.displayName;
+		}
+
+		notifyTitle = formattedNumber + " | " + notifyName;
+	}
+
+	// Let's look at the donation message...
+	if (!value.message || value.message == "" || value.message.length < 2) {
+		notifyMessage = "";
+	} else if (value.message.length > 64) {
+		notifyMessage = value.message.substring(0,64) + '...';
+	} else {
+		notifyMessage = value.message;
+	}
+
+	if (donationType == "error") {
+		new PNotify({
+			title: "SOMETHING FUCKED UP!",
+			type: "error",
+			delay: 30000
+		});
+	} else if (donationType == "tiny") {
+		new PNotify({
+			text: "someone donated $" + value.amount,
+			delay: 10000
+		});
+	} else if (donationType == "small") {
+		new PNotify({
+			text: '<b>' + notifyTitle + '</b>',
+			delay: 10000
+		});
+	} else if (donationType == "regular") {
+		new PNotify({
+			title: notifyTitle,
+			text: notifyMessage,
+			delay: 30000
+		});
+	} else if (donationType == "big") {
+		new PNotify({
+			title: formattedNumber + " | " + value.displayName,
+			text: value.message,
+			delay: 90000
+		});
+	}
+
 });
 
 function findCastInList(name)
