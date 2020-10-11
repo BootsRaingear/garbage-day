@@ -112,6 +112,14 @@ nodecg.listenFor('playMmmbop', value => {
 	app.hanson.video = filename;
 });
 
+nodecg.listenFor('sixNine', value => {
+	//value is always null
+});
+
+nodecg.listenFor('fourTwenty', value => {
+	//value is always null
+});
+
 nodecg.listenFor('donationAlert', value => {	
 	console.table([value.displayName, value.amount, value.message]);
 

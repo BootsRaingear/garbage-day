@@ -104,8 +104,11 @@ function GetDonationTotal() {
 			nodecg.log.info(err);
 		}else{
 			total = rows[0].total;
-			donationTotal.value = total;
-			checkMmmbop(total);
+			if (donationTotal.value != total) {
+				donationTotal.value = total;
+				checkMmmbop(total);
+				checkFunNumbers(total);
+			}
 		}
 	});
 }
@@ -185,4 +188,38 @@ function checkAlbert(msg) {
 			}
 		}
 	}
+}
+
+function checkFunNumbers(total) {
+	var n = total.toFixed(2).replace('.','');
+	var digits = (""+n).split("");
+	var isFourTwenty = false;
+	var isSixNine = false;
+
+	// check for 420s
+	for (i = 0; i <= digits.length -3; i++)
+	{
+		if (digits[i] == 4 && digits[i+1] == 2 && digits[i+2] == 0)
+			isFourTwenty = true;
+	}
+
+	// check for 69s
+	for (i = 0; i <= digits.length -2; i++)
+	{
+		if (digits[i] == 6 && digits[i+1] == 9)
+			isSixNine = true;
+	}
+
+	if (isFourTwenty)
+	{
+		nodecg.sendMessage('fourTwenty', null);
+		nodecg.log.info("Found a Four Twenty!");
+	}
+
+	if (isSixNine)
+	{
+		nodecg.sendMessage('sixNine', null);
+		nodecg.log.info("Found a Six Nine!");
+	}
+	nodecg.log.info(digits);
 }
