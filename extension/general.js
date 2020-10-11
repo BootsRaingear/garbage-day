@@ -65,7 +65,7 @@ var changeHour = cron.scheduleJob('0 * * * *', function() {
 function checkHour(onbreak = false) {
 	if (Date.now() >= nodecg.bundleConfig.marathonStart) {
 		var newHour = 1 + Math.round((Date.now() - nodecg.bundleConfig.marathonStart) / (1000 * 60 * 60));
-		
+		nodecg.log.info("current hour: " + newHour);
 		if (newHour > currentHour.value)
 		{
 			if (newHour > 24)
