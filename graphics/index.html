@@ -13,7 +13,7 @@
             <video controls="false" muted="true" autoplay="true" v-if="primaryScreenRawVideo">
               <source :src="primaryStream.url">
             </video>
-            <iframe src="https://www.youtube.com/embed/UCZ61hXDz7E" frameborder="0" allowfullscreen="false" scrolling="no" v-else></iframe>
+            <iframe src="primaryStream.url" frameborder="0" allowfullscreen="false" scrolling="no" v-else></iframe>
           </figure>
           <figure class="secondary-screen" v-if="secondaryScreen" v-bind:class="{ swapped: swapStreams }">
             <video controls="false" muted="true" autoplay="true" v-if="secondaryScreenRawVideo">

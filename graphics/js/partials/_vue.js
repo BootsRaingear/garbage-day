@@ -28,7 +28,7 @@ var app = new Vue({
     primaryStream: {
       show: true,
       name: "Sanguinary Novel draws things",
-      url: "https://player.twitch.tv/?channel=overwatchleague"
+      url: "https://www.youtube.com/embed/UCZ61hXDz7E"
       //url: "https://1-edge4-us-east.picarto.tv/mp4/Amarynceus.mp4"
     },
 
