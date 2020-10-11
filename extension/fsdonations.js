@@ -221,5 +221,4 @@ function checkFunNumbers(total) {
 		nodecg.sendMessage('sixNine', null);
 		nodecg.log.info("Found a Six Nine!");
 	}
-	nodecg.log.info(digits);
 }

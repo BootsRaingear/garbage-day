@@ -121,7 +121,7 @@ nodecg.listenFor('fourTwenty', value => {
 });
 
 nodecg.listenFor('donationAlert', value => {	
-	console.table([value.displayName, value.amount, value.message]);
+	console.table([value.displayname, value.amount, value.message]);
 
 	// Let's look at that donation amount...
 	let formattedNumber;
@@ -151,15 +151,15 @@ nodecg.listenFor('donationAlert', value => {
 
 	// Let's look at the name of the donator...
 	let notifyTitle;
-	if (!value.displayName || value.displayName == "" || value.message.length < 2 || value.message.toLowerCase().includes("anony")) {
+	if (!value.displayname || value.displayname == "" || value.message.length < 2 || value.message.toLowerCase().includes("anony")) {
 		notifyTitle = "Anonymous $"+ value.amount + " Donation";
 	} else {
 
 		let notifyName;
-		if (value.displayName.length > 25) {
-			notifyName = value.displayName.substring(0,25) + '...';
+		if (value.displayname.length > 25) {
+			notifyName = value.displayname.substring(0,25) + '...';
 		} else {
-			notifyName = value.displayName;
+			notifyName = value.displayname;
 		}
 
 		notifyTitle = formattedNumber + " | " + notifyName;
@@ -198,7 +198,7 @@ nodecg.listenFor('donationAlert', value => {
 		});
 	} else if (donationType == "big") {
 		new PNotify({
-			title: formattedNumber + " | " + value.displayName,
+			title: formattedNumber + " | " + value.displayname,
 			text: value.message,
 			delay: 90000
 		});
