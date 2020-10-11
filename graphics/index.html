@@ -13,7 +13,17 @@
             <video controls="false" muted="true" autoplay="true" v-if="primaryScreenRawVideo">
               <source :src="primaryStream.url">
             </video>
-            <iframe src="primaryStream.url" frameborder="0" allowfullscreen="false" scrolling="no" v-else></iframe>
+            <script src= "https://player.twitch.tv/js/embed/v1.js"></script>
+            <div id="twitch-embed"></div>
+            <script type="text/javascript">
+              new Twitch.Embed("twitch-embed", {              
+                width: '100%',
+                height: '100%',
+                channel: "saltybet",
+                layout: "video",
+                parent: ["urbanwizards.com:8080"]
+              });
+            </script>
           </figure>
           <figure class="secondary-screen" v-if="secondaryScreen" v-bind:class="{ swapped: swapStreams }">
             <video controls="false" muted="true" autoplay="true" v-if="secondaryScreenRawVideo">
