@@ -60,8 +60,7 @@ GrabRecentDonations();
 GetDonationTotal();
 
 function GrabNewDonations() {
-	let query = "SELECT id, displayname, message, amount, STRFTIME('%s', timestamp) AS dtime, STRFTIME('%H:%M:%S', timestamp) AS ftime FROM Donations WHERE CAST(dtime as SINGLE) > " + lastDonationTime.value + " ORDER BY CAST(dtime AS SINGLE) ASC LIMIT 25";
-	nodecg.log.info(query);
+	let query = "SELECT id, displayname, message, amount, STRFTIME('%s', timestamp) AS dtime, STRFTIME('%H:%M:%S', timestamp) AS ftime FROM Donations WHERE CAST(dtime as SINGLE) > " + lastDonationTime.value + " ORDER BY CAST(dtime AS SINGLE) ASC";
 	db.all(query, [], (err, rows) => {
 		if (err) {
 			throw err;
@@ -113,7 +112,6 @@ function GetDonationTotal() {
 
 // grab recent donations from streamlabs api every 2 seconds
 setInterval(() => {
-	nodecg.log.info('[donations] Grabbings recent donations from db');
 	GrabNewDonations();
 	GrabRecentDonations();
 	GetDonationTotal();
