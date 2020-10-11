@@ -18,10 +18,6 @@
 					type: Boolean,
 					value: false,					
 				},
-				readerIntrosDisabled: {
-					type: Boolean,
-					value: false,					
-				},
 			}
 		};
 				
@@ -36,13 +32,11 @@
 			onBreak.on('change', newVal => {
 				this._checkMmmbopButton();
 				this._checkThemeSongButton();
-				this._checkReaderIntrosButton();
 			});
 
 			buttonCooldowns.on('change', newVal => {
 				this._checkMmmbopButton();
 				this._checkThemeSongButton();
-				this._checkReaderIntrosButton();
 			});
 		}	
 
@@ -68,18 +62,6 @@
 			});
 		}
 
-		_checkReaderIntrosButton() {
-			NodeCG.waitForReplicants(buttonCooldowns, onBreak).then(() => {
-				if (!onBreak.value && !buttonCooldowns.value.readerIntrosDisabled)
-				{
-					this.readerIntrosDisabled = false;
-				} else {
-					this.readerIntrosDisabled = true;
-				}
-			});
-
-		}
-
 		_handlePlayMmmbop() {
 			buttonCooldowns.value.mmmbopCooldown = Date.now() + 3500;
 			buttonCooldowns.value.mmmbopDisabled = true;
@@ -95,13 +77,6 @@
 			buttonCooldowns.value.themeSongDisabled = true;
 
 			nodecg.sendMessage('playThemeSong', "true");
-		}
-
-		_handlePlayReaderIntros() {
-			buttonCooldowns.value.readerIntrosCooldown = Date.now() + 60000;
-			buttonCooldowns.value.readerIntrosDisabled = true;
-
-			nodecg.sendMessage('playReaderIntros', "true");
 		}
 		
 	}

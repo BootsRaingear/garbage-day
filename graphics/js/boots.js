@@ -112,6 +112,12 @@ nodecg.listenFor('playMmmbop', value => {
 	app.hanson.video = filename;
 });
 
+nodecg.listenFor('donationAlert', value => {	
+	//value.displayName
+	//value.amount
+	//value.message
+});
+
 function findCastInList(name)
 {
 	for (var i = 0; i < cast.value.length; i++) 

@@ -73,6 +73,7 @@ function GrabNewDonations() {
 				checkBattle(row);
 				checkPrize(row);
 				checkAlbert(row);			
+				nodecg.sendMessage('donationAlert', row);
 			});
 			lastDonationTime.value = parseInt(rows[rows.length -1].dtime);
 		}

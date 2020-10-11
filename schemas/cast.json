@@ -46,12 +46,14 @@
         {"name": "shellgame","displayName": "Shell Game","streamUrl": ""},
         {"name": "sanguinarynovel","displayName": "Sanguinary Novel","streamUrl": ""},
         {"name": "positronic","displayName": "Positronic","streamUrl": ""},
-        {"name": "trav","displayName": "Trav","streamUrl": ""},
+        {"name": "mox","displayName": "Mox","streamUrl": ""},
         {"name": "ameliablank","displayName": "Amelia Blank","streamUrl": ""},
         {"name": "dijondujour","displayName": "Dijon Du Jour","streamUrl": ""},
         {"name": "spooks","displayName": "Spooks","streamUrl": ""},
         {"name": "kingkalamari","displayName": "KingKalamari","streamUrl": ""},
         {"name": "hux","displayName": "Hux","streamUrl": ""},
-        {"name": "ameat","displayName": "A Meat","streamUrl": ""}
+        {"name": "ameat","displayName": "A Meat","streamUrl": ""},
+        {"name": "kthor", "displayName": "K Thor Jensen", "streamUrl": ""},
+        {"name": "sauce", "displayName": "Sauce", "streamUrl": ""}        
     ]        
 }
