@@ -234,7 +234,34 @@ function updateCast(segment)
 		app.artist = "";
 	}
 
-	app.primaryStream.url = segment.artistURL;
+
+	// LET'S PARSE A YOUTUBE LINK...
+
+	// I STOLE THIS REGEX FROM STACK OVERFLOW.
+	// BUT IT TOTALLY FUCKING WORKS.
+
+	function youtube_parser(url){
+		var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
+		var match = url.match(regExp);
+		return (match&&match[7].length==11)? match[7] : false;
+	}
+
+	let youTube = false;
+	let slug = "";
+
+	if (segment.artistURL.includes("youtu")) {
+		youTube = true;
+		slug = youtube_parser(segment.artistURL);
+		app.primaryStream.url = "https://www.youtube.com/embed/"+slug+"?autoplay=1&controls=0&origin=https://urbanwizards.com";
+	} else {
+		app.primaryStream.url = segment.artistURL;
+	}
+
+
+
+
+
+
 	app.title = segment.title;
 	app.provider = segment.docProvider;
 	var iReaders = [];
@@ -258,6 +285,14 @@ function updateCast(segment)
 	
 	app.secondaryStream.name = segment.streamtwoName;
 	app.secondaryStream.url = segment.streamtwoURL;
+
+	if (segment.streamtwoURL && segment.streamtwoURL.includes("youtu")) {
+		youTube = true;
+		slug = youtube_parser(segment.streamtwoURL);
+		app.secondaryStream.url = "https://www.youtube.com/embed/"+slug+"?autoplay=1&controls=0&origin=https://urbanwizards.com";
+	} else {
+		app.secondaryStream.url = segment.streamtwoURL;
+	}
 
 	if (segment.streamtwoURL === "")
 	{
