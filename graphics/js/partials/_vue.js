@@ -28,7 +28,7 @@ var app = new Vue({
     primaryStream: {
       show: true,
       name: "Sanguinary Novel draws things",
-      url: "https://www.youtube.com/embed/UCZ61hXDz7E"
+      url: "https://player.twitch.tv/?channel=saltybet&parent=localhost"
       //url: "https://1-edge4-us-east.picarto.tv/mp4/Amarynceus.mp4"
     },
 
@@ -36,7 +36,7 @@ var app = new Vue({
     secondaryStream: {
       show: false,
       name: "Frank West plays some dumb bullshit",
-      url: "https://player.twitch.tv/?channel=thefplus"
+      url: "https://player.twitch.tv/?channel=saltybet&parent=localhost"
       //url: "https://1-edge4-us-east.picarto.tv/mp4/Armorwing.mp4"
     },
 
@@ -44,10 +44,30 @@ var app = new Vue({
       active: false,
       video: 'video/hanson0.mp4'
     },
+    weed: {
+      active: false
+    },
+    sixtyNine: {
+      active: false,
+      penis:  "🍆",
+      mouth:  "👄",
+      vagina: "🌮",
+      tongue: "👅",
+      orgasm: "💦"
+    },
+
+    random: {
+      genders: [ "M", "F" ],
+      vaginas: [ '🍑', '🌮', '🍩' ],
+      penises: [ '🍆', '🍌', '🦴' ],
+      mouths:  [ '👄', '💋', '😗' ],
+      tongues: [ '👅', '😛', '😋' ],
+      orgasms: [ '💦', '🍾', '🎉' ],
+    },
     
     swapStreams: false,
     
-    totalDonations: 34646.25,
+    totalDonations: 420.69,
     
     donations: [],
     
@@ -79,7 +99,7 @@ var app = new Vue({
     
     freewrite: {
       active: false,
-      location: 'bottom',
+      location: 'center',
       // VALID LOCATIONS: center, top, right, bottom, left, top-left, top-right, bottom-left, bottom-right
       content: 'Hello, I am some text!',
       img: ''
@@ -89,12 +109,47 @@ var app = new Vue({
   methods: {
     dollarAmount: function(n) {
       return '$' + n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    }
+    },
     
+    smokeWeed() {
+      let self = this;
+      self.weed.active = true;
+      setTimeout(function () {
+        self.weed.active = false;
+      }, 6000);
+    },
+
+    haveASixtyNine() {
+      let self = this;
+      let p1 = randomFrom(self.random.genders);
+      let p2 = randomFrom(self.random.genders);
+      if (p1 == "M") {
+        self.sixtyNine.penis = randomFrom(self.random.penises);
+        self.sixtyNine.mouth = randomFrom(self.random.mouths);
+      } else {
+        self.sixtyNine.penis = randomFrom(self.random.vaginas);
+        self.sixtyNine.mouth = randomFrom(self.random.tongues);
+      }
+
+      if (p2 == "M") {
+        self.sixtyNine.vagina = randomFrom(self.random.penises);
+        self.sixtyNine.tongue = randomFrom(self.random.mouths);
+      } else {
+        self.sixtyNine.vagina = randomFrom(self.random.vaginas);
+        self.sixtyNine.tongue = randomFrom(self.random.tongues);
+      }
+
+      self.sixtyNine.active = true;
+      setTimeout(function () {
+        self.sixtyNine.active = false;  
+      }, 6000);
+      
+    }
+
     
   },
   computed: {
-    
+        
     primaryScreen: function() {
       var self = this;
       if (self.primaryStream.show && self.primaryStream.url) {
@@ -174,5 +229,13 @@ var app = new Vue({
       };
       
     }
+  },
+  mounted() {
+    
+    let self = this;
+    window.setInterval(function(){
+      //self.smokeWeed();
+      //self.haveASixtyNine();
+    }, 10000);
   }
 });

@@ -113,11 +113,11 @@ nodecg.listenFor('playMmmbop', value => {
 });
 
 nodecg.listenFor('sixNine', value => {
-	//value is always null
+	app.haveASixtyNine();
 });
 
 nodecg.listenFor('fourTwenty', value => {
-	//value is always null
+	app.smokeWeed();
 });
 
 nodecg.listenFor('donationAlert', value => {	
@@ -200,7 +200,7 @@ nodecg.listenFor('donationAlert', value => {
 		new PNotify({
 			title: formattedNumber + " | " + value.displayname,
 			text: value.message,
-			delay: 90000
+			delay: 60000
 		});
 	}
 

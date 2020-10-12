@@ -334,7 +334,14 @@
           </div>
           <div class="total-box box" v-if="totalDonations">
             <div class="label">Money Raised</div>
-            <div class="number" v-bind:class="{ 'hanson-active': hanson.active }">{{dollarAmount(totalDonations)}}</div>
+            <div class="number" v-bind:class="{ 'hanson-active': hanson.active }"><span class="amount-holder" v-bind:class="{ 'weed': weed.active, 'sixty-nine': sixtyNine.active }">{{dollarAmount(totalDonations)}}</span>
+              <div class="pot-leaf" v-if="weed.active">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+                  <path d="M85.7 71.7l9.3-4.9h-.6l-11.8.7.4-1.4-4.5 1.6.2-1.9-4 3.5-.2-2.5-4.3 3.1-.3-2-4 3.4-.1-1.6-5.8 3.4-.1-1.4 4.4-1.7-1.9-.9 6.1-1.2-1.8-.9 5.3-1.1-1.8-1.3 6-1.4-3.7-1 7.1-2.7h-3.2l5.9-3.1-2.5-1.1 5.4-2.8-2.2-.6 4.4-2.4-2.6.1 5.3-5.8-9.3 3.7v-2.2L76 49.8v-2.4l-4.5 4.3v-2.4L68.1 54l-.9-1.8-2.7 4.5-.5-1.8-2.5 4.8-.8-1.8-2.2 5.4-.8-2.2-5.6 10.7.3-2.1 4.5-10.4 2.1-3.7-1.8.8 2.5-5.8-2 .7 2.8-5.5-3 1.2 3.1-6.8-2.5 1.1 2.5-6.4H58l1.4-5.2-2.9 1.4 1.2-7.9-1.6 1.4V19l-2.2 2.2v-6.6l-1.4.7V9.5l-.9 1.4-1.1-4.8-1.1 4.8-.9-1.4v5.9l-1.4-.7v6.6L44.5 19v5.5l-1.6-1.4 1.2 7.9-2.9-1.4 1.4 5.2H40l2.5 6.4-2.5-1.1 3.1 6.8-3.1-1.1 2.8 5.5-2-.7 2.5 5.8-1.8-.8 2.1 3.7L48 69.7l.2 2-5.5-10.6-.7 2.2-2.2-5.4-.8 1.8-2.5-4.8-.5 1.8-2.7-4.5-1 1.8-3.4-4.6v2.4l-4.5-4.3v2.4l-4.7-4.5v2.2l-9.3-3.7 5.3 5.8-2.7-.2 4.4 2.4-2.1.8 5.4 2.8-2.5 1.1 5.9 3.1h-3.2l7.1 2.7-3.7 1 6 1.4-1.8 1.2 5.3 1.1-1.9.9 6.1 1.2-.4.2-1.4.6 4 1.6L40 73l-5.8-3.3-.1 1.6-4-3.4-.3 2-4.3-3.1-.2 2.5-4-3.5.2 1.9-4.5-1.5.4 1.4-11.8-.7H5l9.3 4.9-1.3.6 4.7 1.1-1.2.5 4 1.4-2 .6 6.4.7-1.9 1.1 6.6.2-1.4 1.3 6.9-1-1.1 1.3 11.3-2.1-5.9 3.3 1.2.5-4.1 5.3 4.3-2.4v1.2l4-3.1v1.4l3.8-4.9s3.9 5.7 0 15c0 0 .3 1.4 1.6 1.3s2.9-10.2-.5-17l1.7.8 3.8 4.8v-1.4l4 3.1v-1.2l4.3 2.4-4.1-5.3 1.2-.5-5.9-3.3L66 79.6l-1.3-1.3 6.9 1-1.4-1.3 6.6-.2-1.8-1.1 6.4-.7-2-.6 4-1.4-1.3-.5 4.7-1.1-1.1-.7zm-45.9-9.9c.2 0 .4.6.5 1.3.1.8.1 1.4-.1 1.4s-.4-.6-.5-1.3c-.1-.7 0-1.3.1-1.4zm-4.7-4.2c.2 0 .4.6.6 1.5s.2 1.6.1 1.6c-.2 0-.4-.6-.6-1.5-.2-.9-.3-1.6-.1-1.6zm-4.7-3c.2 0 .4.6.6 1.4.2.8.2 1.5.1 1.6s-.4-.6-.6-1.4c-.2-.9-.3-1.6-.1-1.6zm-4.9-4.1c.2 0 .5.9.9 2s.5 2.1.3 2.2c-.2 0-.5-.9-.9-2-.4-1.2-.5-2.1-.3-2.2zM22.4 55c-1.2-.1-2.1-.3-2.1-.5s1-.2 2.2-.1 2.1.3 2.1.5c-.1.2-1 .2-2.2.1zm4.2 4c-.9 0-1.5-.2-1.5-.4s.7-.3 1.6-.2c.9 0 1.5.2 1.5.4s-.7.3-1.6.2zm3.8 4.1c-.9 0-1.6-.2-1.5-.4 0-.2.7-.3 1.6-.2.9 0 1.6.2 1.5.4 0 .2-.7.3-1.6.2zm4.9 3.8c-.8 0-1.4-.1-1.4-.3 0-.2.6-.3 1.4-.3.8 0 1.4.1 1.4.3s-.7.3-1.4.3zm-3.8-6.3c-3.5-2.9-6.5-5.7-8.7-7.7-2.2-2-3.5-3.3-3.4-3.4.1-.1 1.5 1.1 3.8 3s5.4 4.6 8.9 7.5c3.5 2.9 6.6 5.6 8.9 7.4 1.2.9 2.1 1.7 2.8 2.2.7.5 1.1.7 1 .8 0 0-.5-.1-1.2-.5s-1.7-1.1-2.9-2c-2.5-1.8-5.7-4.4-9.2-7.3zm4.6 11.1c.1-.1.6.3 1 .9s.7 1.1.6 1.2c-.1.1-.6-.3-1-.9s-.7-1.1-.6-1.2zm-5.9-1.5c.1-.1.6.3 1.2 1 .5.6.9 1.2.8 1.3-.1.1-.6-.3-1.2-1-.5-.7-.9-1.2-.8-1.3zm-5.3-.5c.1-.1.6.3 1.2.9s.9 1.2.7 1.3c-.1.1-.6-.3-1.2-.9-.5-.7-.8-1.2-.7-1.3zm.9 5c-.8.4-1.4.6-1.5.4-.1-.1.5-.6 1.3-.9.8-.4 1.4-.6 1.5-.4 0 .1-.5.5-1.3.9zm5.3 1.8c-.8.4-1.5.6-1.5.4s.5-.6 1.3-1 1.5-.6 1.5-.4-.5.6-1.3 1zm6.1.9c-.7.4-1.3.6-1.4.4s.4-.6 1.1-.9c.7-.4 1.3-.6 1.4-.4.1.1-.4.6-1.1.9zm.9-2.3c-2.7-.3-6.3-.9-10.4-1.6-2.1-.4-4-.8-5.8-1.2-.2.2-.9.6-1.8 1-1.1.5-2 .7-2.1.6-.1-.1.8-.7 1.9-1.1.7-.3 1.3-.5 1.7-.6-1.5-.4-2.9-.8-4-1.1-1.3-.4-2.3-.8-3-1.2-.2-.1-.3-.2-.4-.2-.1-.1-.2-.1-.3-.2-.2-.1-.2-.2-.2-.2s.1 0 .3.1c.1 0 .2.1.3.1.1 0 .3.1.5.2.7.2 1.7.6 3 .9 1.1.3 2.4.6 3.9.9-.3-.1-.8-.6-1.5-1.3-.8-.8-1.3-1.6-1.2-1.7.1-.1.8.5 1.6 1.3s1.3 1.6 1.2 1.7c1.9.4 3.9.8 6.1 1.3 4 .8 7.6 1.4 10.3 1.9 2.6.5 4.3.8 4.2.9 0-.1-1.7-.2-4.3-.5zm2.3-3.5l5.4 2.1-.3.9-5.1-3zm3.8 8.8c-.1.1-.2.2-.3.2l-1.2 1-.1.1c-.4.4-.7.6-.7.6-.1 0 .1-.4.4-.9.4-.5.9-1 1.6-1.6 1.4-1.1 2.7-1.7 2.8-1.5 0 .2-1.1 1-2.5 2.1zm7.7-20.2c-.1 2.2-.3 4-.6 5.3-.1.6-.2 1.1-.3 1.4-.1.3-.2.5-.2.5v-.2L50.1 22c0-.7-.1-1.3-.1-1.8v-1.9s.2.7.3 1.9c.1 1.2.3 3 .5 5.2.4 4.4.8 10.6 1 17.4.3 6.8.3 13 .1 17.4zm20.7 10.9c.5-.6 1.1-1 1.2-.9s-.2.7-.7 1.3c-.5.6-1.1 1-1.2.9-.1-.1.2-.7.7-1.3zm-5.3.5c.5-.6 1.1-1.1 1.2-1 .1.1-.2.7-.8 1.3-.5.6-1.1 1.1-1.2 1-.1-.1.3-.7.8-1.3zm-5.7 1.5c.4-.6.9-1 1-.9s-.1.6-.6 1.2c-.4.6-.9 1-1 .9-.1-.1.2-.6.6-1.2zm4.1-6.2c-.8 0-1.4-.1-1.4-.3 0-.2.6-.3 1.4-.3s1.4.1 1.4.3-.6.3-1.4.3zm4.9-3.8c-.9 0-1.6 0-1.6-.2s.7-.3 1.6-.4c.9 0 1.6 0 1.6.2-.1.2-.8.4-1.6.4zm3.8-4.1c-.8 0-1.5 0-1.6-.2 0-.2.7-.3 1.5-.4.8 0 1.5 0 1.6.2 0 .2-.7.4-1.5.4zm4.2-4c-1.2.1-2.2.1-2.2-.1s.9-.4 2.1-.5c1.2-.1 2.2-.1 2.2.1s-.9.4-2.1.5zm-3.9-2.5c.3-1.2.7-2.1.9-2 .2 0 0 1-.3 2.2-.3 1.2-.7 2.1-.9 2-.2-.1-.1-1 .3-2.2zM69.9 56c.2-.8.5-1.5.6-1.4s.1.7-.1 1.6-.5 1.5-.6 1.4c-.1-.1 0-.8.1-1.6zm-4.7 3c.2-.8.5-1.5.6-1.5s.1.8-.1 1.6-.5 1.5-.6 1.5c-.1 0-.1-.7.1-1.6zm-4.6 4.2c.1-.8.4-1.4.5-1.3.2 0 .2.7.1 1.4-.1.8-.4 1.4-.5 1.3-.2 0-.2-.7-.1-1.4zm-3.4 6.4c.7-.5 1.6-1.2 2.8-2.2 2.3-1.9 5.5-4.5 8.9-7.4 3.5-2.9 6.6-5.6 8.9-7.5s3.7-3 3.8-3c.1.1-1.2 1.4-3.4 3.4s-5.3 4.7-8.7 7.7c-3.5 2.9-6.7 5.5-9.1 7.3-1.2.9-2.2 1.6-2.9 2-.7.4-1.2.6-1.2.5-.2-.1.2-.3.9-.8zM56 79.9c.7.5 1.3 1.1 1.6 1.6.4.5.5.8.4.9-.1 0-.3-.2-.7-.6l-.1-.1-1.2-1c-.1-.1-.2-.2-.3-.2-1.4-1-2.5-1.9-2.4-2 0-.3 1.3.3 2.7 1.4zm-1.4-6.2l5.2-2-5 2.7-.2-.7zm8.3 4.6c-.1.1-.7-.1-1.4-.4-.7-.4-1.2-.8-1.1-.9.1-.1.7.1 1.4.4s1.1.8 1.1.9zm6.2-1c-.1.1-.8 0-1.5-.4s-1.4-.8-1.3-1 .8 0 1.5.4c.8.5 1.4.9 1.3 1zm5.3-1.7c-.1.1-.8 0-1.5-.4-.8-.4-1.3-.8-1.3-.9s.8 0 1.5.4c.8.3 1.4.7 1.3.9zm2.7-3c.4.1 1 .3 1.7.6 1.1.5 1.9 1 1.9 1.1s-1-.1-2.1-.6c-1-.4-1.7-.9-1.9-1.1-1.2.3-2.6.6-3.9.8-4 .8-7.7 1.3-10.3 1.6-2.7.3-4.3.4-4.3.3 0-.1 1.6-.4 4.2-.9s6.3-1.1 10.3-1.9c1.5-.3 2.9-.6 4.3-.9 0-.2.5-.9 1.2-1.6.8-.8 1.5-1.4 1.6-1.3.1.1-.4.9-1.2 1.7-.5.5-1 1-1.3 1.2 2.1-.4 4-.9 5.5-1.3 1.3-.3 2.3-.7 3-.9.2-.1.3-.1.5-.2.1-.1.2-.1.3-.1.2-.1.3-.1.3-.1l-.2.2c-.1.1-.2.1-.3.2-.1.1-.3.1-.4.2-.7.3-1.7.8-3 1.2-1.6.7-3.6 1.3-5.9 1.8z"></path>
+                </svg>
+              </div>
+              <div class="emojis" v-if="sixtyNine.active"><span class="emoji penis">{{sixtyNine.penis}}</span><span class="emoji mouth">{{sixtyNine.mouth}}</span><span class="emoji vagina">{{sixtyNine.vagina}}</span><span class="emoji tongue">{{sixtyNine.tongue}}</span><span class="emoji orgasm">{{sixtyNine.orgasm}}</span></div>
+            </div>
             <div class="sub" v-if="!onBreak" v-html="underTotalText">Money goes to the <b>National Network of Abortion Funds</b></div>
           </div>
           <div class="cta-box box">
@@ -378,95 +385,111 @@
         }
         
         
-        let value = {
-          displayName: "Hello it's me Lemon, and I'm curious if there's any sort of maximum length to the display name field, because if there is then I'd like to know what that limit is, but if there's not then I'd truncate it, and actually I probably want to truncate it anyway because it's a problem to have a name this long.",
-          message: "Praesent at varius turpis. Aliquam laoreet libero vitae vulputate iaculis. Integer ex felis, efficitur sit amet suscipit nec, pharetra quis ante. Morbi varius odio vel libero ornare consequat. Donec consectetur auctor est, a volutpat leo faucibus sed. Sed pulvinar volutpat nunc non fringilla. Pellentesque sed tincidunt mauris. Integer et rhoncus magna. Pellentesque non justo vitae nibh facilisis commodo. Vivamus ultrices dictum sapien id egestas. Etiam molestie aliquet urna.",
-          //amount: Math.floor(Math.random() * (20 - 5) + 5) + (Math.floor(Math.random() * (99 - 1) + 1) / 100)
-          amount: "123.45",
-        }
+        function makeToast() {
         
+          // Let's look at that donation amount...
+          let formattedNumber;
         
-        // Let's look at that donation amount...
-        let formattedNumber;
-        
-        if (Number(value.amount) === value.amount && value.amount % 1 !== 0) {
-          // This is a float!
-          let f = value.amount.toFixed(2).toString().split('.');
-          formattedNumber = "$" + f[0] + '<sup style="font-size:60%; text-decoration:underline;">' + f[1] + "</sup>";
-        } else {
-          // this is an integer
-          formattedNumber = "$" + parseInt(value.amount) + "<sup></sup>";
-        }
-        
-        let amount = parseInt(value.amount);
-        let donationType
-        if (!amount || isNaN(value.amount) || isNaN(amount)) {
-          donationType = "error";
-        } else if (amount < 2)  {
-          donationType = "tiny";
-        } else if (amount < 10)  {
-          donationType = "small";
-        } else if (amount < 99)  {
-          donationType = "regular";
-        } else {
-          donationType = "big";
-        } 
-        
-        // Let's look at the name of the donator...
-        let notifyTitle;
-        if (!value.displayName || value.displayName == "" || value.message.length < 2 || value.message.toLowerCase().includes("anony")) {
-          notifyTitle = "Anonymous $"+ value.amount + " Donation";
-        } else {
-        
-          let notifyName;
-          if (value.displayName.length > 25) {
-            notifyName = value.displayName.substring(0,25) + '...';
+          if (Number(value.amount) === value.amount && value.amount % 1 !== 0) {
+            // This is a float!
+            let f = value.amount.toFixed(2).toString().split('.');
+            formattedNumber = "$" + f[0] + '<sup style="font-size:60%; text-decoration:underline;">' + f[1] + "</sup>";
           } else {
-            notifyName = value.displayName
+            // this is an integer
+            formattedNumber = "$" + parseInt(value.amount) + "<sup></sup>";
           }
         
-          notifyTitle = formattedNumber + " | " + notifyName;
+          let amount = parseInt(value.amount);
+          let donationType;
+          if (!amount || isNaN(value.amount) || isNaN(amount)) {
+            donationType = "error";
+          } else if (amount < 2)  {
+            donationType = "tiny";
+          } else if (amount < 10)  {
+            donationType = "small";
+          } else if (amount < 99)  {
+            donationType = "regular";
+          } else {
+            donationType = "big";
+          } 
+        
+          // Let's look at the name of the donator...
+          let notifyTitle;
+          if (!value.displayname || value.displayname == "" || value.message.length < 2 || value.message.toLowerCase().includes("anony")) {
+            notifyTitle = "Anonymous $"+ value.amount + " Donation";
+          } else {
+        
+            let notifyName;
+            if (value.displayname.length > 25) {
+              notifyName = value.displayname.substring(0,25) + '...';
+            } else {
+              notifyName = value.displayname;
+            }
+        
+            notifyTitle = formattedNumber + " | " + notifyName;
+          }
+        
+          // Let's look at the donation message...
+          if (!value.message || value.message == "" || value.message.length < 2) {
+            notifyMessage = "";
+          } else if (value.message.length > 64) {
+            notifyMessage = value.message.substring(0,64) + '...';
+          } else {
+            notifyMessage = value.message;
+          }
+        
+          if (donationType == "error") {
+            new PNotify({
+              title: "SOMETHING FUCKED UP!",
+              type: "error",
+              delay: 30000
+            });
+          } else if (donationType == "tiny") {
+            new PNotify({
+              text: "someone donated $" + value.amount,
+              delay: 10000
+            });
+          } else if (donationType == "small") {
+            new PNotify({
+              text: '<b>' + notifyTitle + '</b>',
+              delay: 10000
+            });
+          } else if (donationType == "regular") {
+            new PNotify({
+              title: notifyTitle,
+              text: notifyMessage,
+              delay: 30000
+            });
+          } else if (donationType == "big") {
+            new PNotify({
+              title: formattedNumber + " | " + value.displayname,
+              text: value.message,
+              delay: 90000
+            });
+          }
         }
         
-        // Let's look at the donation message...
-        if (!value.message || value.message == "" || value.message.length < 2) {
-          notifyMessage = "";
-        } else if (value.message.length > 64) {
-          notifyMessage = value.message.substring(0,64) + '...';
-        } else {
-          notifyMessage = value.message;
+        /*
+        let value = {
+          displayname: "Hello it's me Lemon, and I'm curious if there's any sort of maximum length to the display name field, because if there is then I'd like to know what that limit is, but if there's not then I'd truncate it, and actually I probably want to truncate it anyway because it's a problem to have a name this long.",
+          message: "Praesent at varius turpis. Aliquam laoreet libero vitae vulputate iaculis. Integer ex felis, efficitur sit amet suscipit nec, pharetra quis ante. Morbi varius odio vel libero ornare consequat. Donec consectetur auctor est, a volutpat leo faucibus sed. Sed pulvinar volutpat nunc non fringilla. Pellentesque sed tincidunt mauris. Integer et rhoncus magna. Pellentesque non justo vitae nibh facilisis commodo. Vivamus ultrices dictum sapien id egestas. Etiam molestie aliquet urna.",
+          
+          amount: Math.floor(Math.random() * (10 - 1) + 1) + (Math.floor(Math.random() * (99 - 1) + 1) / 100)
         }
-        
-        if (donationType == "error") {
-          new PNotify({
-            title: "SOMETHING FUCKED UP!",
-            type: "error",
-            delay: 30000
-          });
-        } else if (donationType == "tiny") {
-          new PNotify({
-            text: "someone donated $" + value.amount,
-            delay: 10000
-          });
-        } else if (donationType == "small") {
-          new PNotify({
-            text: '<b>' + notifyTitle + '</b>',
-            delay: 10000
-          });
-        } else if (donationType == "regular") {
-          new PNotify({
-            title: notifyTitle,
-            text: notifyMessage,
-            delay: 30000
-          });
-        } else if (donationType == "big") {
-          new PNotify({
-            title: formattedNumber + " | " + value.displayName,
-            text: value.message,
-            delay: 90000
-          });
+        makeToast();
+        value = {
+          displayname: "Hello it's me Lemon, and I'm curious if there's any sort of maximum length to the display name field, because if there is then I'd like to know what that limit is, but if there's not then I'd truncate it, and actually I probably want to truncate it anyway because it's a problem to have a name this long.",
+          message: "Praesent at varius turpis. Aliquam laoreet libero vitae vulputate iaculis. Integer ex felis, efficitur sit amet suscipit nec, pharetra quis ante. Morbi varius odio vel libero ornare consequat. Donec consectetur auctor est, a volutpat leo faucibus sed. Sed pulvinar volutpat nunc non fringilla. Pellentesque sed tincidunt mauris. Integer et rhoncus magna. Pellentesque non justo vitae nibh facilisis commodo. Vivamus ultrices dictum sapien id egestas. Etiam molestie aliquet urna.",
+          amount: Math.floor(Math.random() * (99 - 10) + 10) + (Math.floor(Math.random() * (99 - 1) + 1) / 100)
         }
-        
+        makeToast();
+        value = {
+          displayname: "Hello it's me Lemon, and I'm curious if there's any sort of maximum length to the display name field, because if there is then I'd like to know what that limit is, but if there's not then I'd truncate it, and actually I probably want to truncate it anyway because it's a problem to have a name this long.",
+          message: "Praesent at varius turpis. Aliquam laoreet libero vitae vulputate iaculis. Integer ex felis, efficitur sit amet suscipit nec, pharetra quis ante. Morbi varius odio vel libero ornare consequat. Donec consectetur auctor est, a volutpat leo faucibus sed. Sed pulvinar volutpat nunc non fringilla. Pellentesque sed tincidunt mauris. Integer et rhoncus magna. Pellentesque non justo vitae nibh facilisis commodo. Vivamus ultrices dictum sapien id egestas. Etiam molestie aliquet urna.",
+          amount: Math.floor(Math.random() * (150 - 99) + 99) + (Math.floor(Math.random() * (99 - 1) + 1) / 100)
+        }
+        makeToast();
+        */
         
         
       </script>

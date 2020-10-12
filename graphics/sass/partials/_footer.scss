@@ -1,11 +1,44 @@
 @keyframes dollarbounce {
 	0%   { transform: translateY(0%);   }
-  70%  { transform: translateY(-15px);   }
-  90% { transform: translateY(10px); }
+  70%  { transform: translateY(-25px);   }
+  90%  { transform: translateY(10px); }
 }
 
+@keyframes weedsmoke {
+  0%    { color: rgba(0,0,0,0); transform: scale(4); text-shadow: 0 0 0.5em rgba(lime,0.5);  } 
+  50%   { color: rgba(0,0,0,0); transform: scale(2); text-shadow: 0 0 0.2em rgba(lime,0.5); } 
+  100%  { color: rgba(lime,1); transform: scale(1); text-shadow: none; } 
+}
+@keyframes leafwipe {
+  0%    { transform:translateX(100vw); filter:blur(0); } 
+  50%   { transform:translateX(40vw) scale(1.5); filter:blur(3px); } 
+  100%  { transform:translateX(-20vw); filter:blur(0); } 
+}
 
+@keyframes sixtyninetransition {
+  0%    { transform: translateX(300%); opacity: 1; } 
+  80%  { transform: translateX(0) scale(1); opacity: 1; } 
+  90%  { transform: translateX(0) scale(2); opacity: 1; } 
+  100%  { transform: translateX(0) scale(1); opacity: 1; } 
+}
 
+@keyframes emojiappear {
+  0%    { transform: translateX(200%); opacity: 0.5; } 
+  80%  { transform: translateX(0) scale(1); opacity: 1; } 
+  90%  { transform: translateX(0) scale(2); opacity: 1; } 
+  100%  { transform: translateX(0) scale(1); opacity: 1; } 
+}
+@keyframes finalemojiappear {
+  0%    { transform: translateX(300%); opacity: 1; } 
+  40%  { transform: translateX(0) scale(1); opacity: 1; } 
+  80%  { transform: translateX(0) scale(3); opacity: 1; } 
+  100%  { transform: translateX(0) scale(1); opacity: 1; } 
+}
+
+@keyframes emojisdisappear {
+  0%    { transform: translateX(0); opacity: 1; } 
+  100%  { transform: translateY(-200%); opacity: 0; } 
+}
 
 
 footer { @include flex-container(); color:$offwhite; font-family: $font; font-weight: $light; font-size:18px; padding-top: 12px; padding-left: 40px;
@@ -39,9 +72,33 @@ footer { @include flex-container(); color:$offwhite; font-family: $font; font-we
     }
   }
   
+
+
   .total-box {
-    .number { font-size:225%;
-      &.hanson-active { color:lime; font-weight: bold; animation:dollarbounce 0.55s infinite ease; }
+    .number { font-size:225%; position: relative;
+      &.hanson-active { font-weight: bold; animation:dollarbounce 0.55s infinite ease; }
+
+      .amount-holder { transition: filter 1s ease; }
+      .weed {  display:inline-block; 
+        animation-name: weedsmoke; animation-duration: 3s; animation-iteration-count: infinite; animation-timing-function: linear;
+      }
+      .sixty-nine { filter:blur(3px); }
+
+      .emojis { position:absolute; top:-20px; left:0;
+        .emoji { opacity: 0; display: inline-block; transform: translateX(300%); font-size:125%; margin-left: -0.35em;
+          animation-name: emojiappear; animation-duration: 0.75s; animation-fill-mode: forwards;
+          animation-timing-function: cubic-bezier(.36,.09,.72,1.51);
+          &:nth-child(2) { animation-delay: 0.75s; }
+          &:nth-child(3) { animation-delay: 1.5s; }
+          &:nth-child(4) { animation-delay: 2.25s; }
+          &:nth-child(5) {animation-name: finalemojiappear; animation-duration:1.5s; animation-delay: 3.25s; margin-left:unset; }
+        }
+      }
+
+    }
+    .pot-leaf { position: fixed; left:0; bottom:0; width:25vh; height:25vh;
+      animation-name: leafwipe; animation-duration: 3s; animation-iteration-count: infinite; animation-timing-function: linear;
+      * { fill:lime; }
     }
     .sub { font-size:80%; }
   }
