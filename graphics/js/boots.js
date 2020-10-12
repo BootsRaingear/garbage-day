@@ -166,6 +166,7 @@ nodecg.listenFor('donationAlert', value => {
 	}
 
 	// Let's look at the donation message...
+	let notifyMessage;
 	if (!value.message || value.message == "" || value.message.length < 2) {
 		notifyMessage = "";
 	} else if (value.message.length > 64) {
@@ -227,8 +228,11 @@ function getCastFullName(name)
 
 function updateCast(segment)
 {
-
-	app.artist = getCastFullName(segment.artistName);
+	if (segment.artistName) {
+		app.artist = getCastFullName(segment.artistName);
+	} else {
+		app.artist = "";
+	}
 
 	app.primaryStream.url = segment.artistURL;
 	app.title = segment.title;
