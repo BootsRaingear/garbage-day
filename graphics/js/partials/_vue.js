@@ -232,10 +232,6 @@ var app = new Vue({
   },
   mounted() {
     
-    let self = this;
-    window.setInterval(function(){
-      //self.smokeWeed();
-      //self.haveASixtyNine();
-    }, 10000);
+    
   }
 });
