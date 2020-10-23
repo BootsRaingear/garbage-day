@@ -257,11 +257,6 @@ function updateCast(segment)
 		app.primaryStream.url = segment.artistURL;
 	}
 
-
-
-
-
-
 	app.title = segment.title;
 	app.provider = segment.docProvider;
 	var iReaders = [];
@@ -286,6 +281,8 @@ function updateCast(segment)
 	app.secondaryStream.name = segment.streamtwoName;
 	app.secondaryStream.url = segment.streamtwoURL;
 
+
+	// Same URL trickery, but this time with the second stream
 	if (segment.streamtwoURL && segment.streamtwoURL.includes("youtu")) {
 		youTube = true;
 		slug = youtube_parser(segment.streamtwoURL);

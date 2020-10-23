@@ -28,7 +28,7 @@ var app = new Vue({
     primaryStream: {
       show: true,
       name: "Sanguinary Novel draws things",
-      url: "https://player.twitch.tv/?channel=saltybet&parent=localhost"
+      url: "https://www.youtube.com/embed/AkammjlX_qs?autoplay=1&controls=0&origin=https://urbanwizards.com"
       //url: "https://1-edge4-us-east.picarto.tv/mp4/Amarynceus.mp4"
     },
 
@@ -44,6 +44,7 @@ var app = new Vue({
       active: false,
       video: 'video/hanson0.mp4'
     },
+    
     weed: {
       active: false
     },
