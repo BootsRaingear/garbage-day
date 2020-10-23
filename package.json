@@ -22,7 +22,7 @@
 				"name": "soundboard",
 				"title": "SoundBoard",
 				"allowedTypes": [
-					"mp3", "ogg", "wav"
+					"mp3", "ogg", "wav", "opus"
 				]
 			},
 			{
@@ -50,7 +50,7 @@
 				"name": "themesongs",
 				"title": "Theme Songs",
 				"allowedTypes": [
-					"mp3", "wav", "ogg"
+					"mp3", "wav", "ogg", "opus"
 				]
 			},
 			{

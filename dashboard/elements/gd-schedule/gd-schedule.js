@@ -40,6 +40,7 @@
 				for (var i = 0; i < cast.value.length; i++)
 				{
 					this.castNames.push(cast.value[i].name);
+					nodecg.log.info(cast.value[i].name);
 				}
 			});
 		}
