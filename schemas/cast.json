@@ -54,6 +54,12 @@
         {"name": "hux","displayName": "Hux","streamUrl": ""},
         {"name": "ameat","displayName": "A Meat","streamUrl": ""},
         {"name": "kthor", "displayName": "K Thor Jensen", "streamUrl": ""},
-        {"name": "sauce", "displayName": "Sauce", "streamUrl": ""}        
+        {"name": "lesbiathan", "displayName": "Lesbiathan", "streamUrl": ""},
+        {"name": "stress", "displayName": "Positive Stress", "streamUrl": ""},
+        {"name": "ganymede", "displayName": "Ganymede", "streamUrl": ""},
+        {"name": "mix", "displayName": "Mix", "streamUrl": ""},
+        {"name": "heavenator", "displayName": "The Heavenator", "streamUrl": ""},
+        {"name": "Malt", "displayName": "Malt", "streamUrl": ""},
+        {"name": "turtle", "displayName": "Turtle", "streamUrl": ""}
     ]        
 }

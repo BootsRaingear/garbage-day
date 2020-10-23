@@ -97,13 +97,17 @@ function GrabRecentDonations() {
 }
 
 function GetDonationTotal() {
-	let query = "SELECT SUM(amount) AS total FROM Donations WHERE STRFTIME('%s', timestamp) > " + nodecg.bundleConfig.marathonStart;
+	let query = "SELECT SUM(amount) AS total FROM Donations";
 	var total = -1;
 	db.all(query, [], (err, rows) => {
 		if(err) {
 			nodecg.log.info(err);
 		}else{
-			total = rows[0].total;
+			if (rows[0].total == null) 
+				total = 0;
+			else 
+				total = rows[0].total;
+
 			if (donationTotal.value != total) {
 				donationTotal.value = total;
 				checkMmmbop(total);
@@ -196,16 +200,11 @@ function checkFunNumbers(total) {
 	var isFourTwenty = false;
 	var isSixNine = false;
 
-	// check for 420s
+	// check for 420s and 69s
 	for (i = 0; i <= digits.length -3; i++)
 	{
 		if (digits[i] == 4 && digits[i+1] == 2 && digits[i+2] == 0)
 			isFourTwenty = true;
-	}
-
-	// check for 69s
-	for (i = 0; i <= digits.length -2; i++)
-	{
 		if (digits[i] == 6 && digits[i+1] == 9)
 			isSixNine = true;
 	}
