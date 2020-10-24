@@ -109,7 +109,7 @@ nodecg.listenFor('playMmmbop', value => {
 		milles = Math.floor(app.totalDonations / 1000);
 	//var filename = '/assets/garbage-day/mmmbopvideos/canson' + milles + '.mp4';
 	var filename = "http://localhost:8000/canson" + milles + '.mp4';
-	app.hanson.video = filename;
+	//app.hanson.video = filename;
 });
 
 nodecg.listenFor('sixNine', value => {
@@ -269,7 +269,7 @@ function updateCast(segment)
 		iReaders[3] = getCastFullName(segment.ridiculist4);
 	if (segment.ridiculist5 && segment.ridiculist5 !== "")	
 		iReaders[4] = getCastFullName(segment.ridiculist5);
-	if (segment.ridiculist7 && segment.ridiculist6 !== "")	
+	if (segment.ridiculist6 && segment.ridiculist6 !== "")	
 		iReaders[5] = getCastFullName(segment.ridiculist6);
 	if (segment.ridiculist7 && segment.ridiculist7 !== "")	
 		iReaders[6] = getCastFullName(segment.ridiculist7);
