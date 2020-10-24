@@ -151,7 +151,7 @@ nodecg.listenFor('donationAlert', value => {
 
 	// Let's look at the name of the donator...
 	let notifyTitle;
-	if (!value.displayname || value.displayname == "" || value.message.length < 2 || value.message.toLowerCase().includes("anony")) {
+	if (!value.displayname || value.displayname == "" || value.message.toLowerCase().includes("anony")) {
 		notifyTitle = "Anonymous $"+ value.amount + " Donation";
 	} else {
 
