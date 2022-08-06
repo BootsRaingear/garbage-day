@@ -44,7 +44,7 @@ const albertKeywords = {
 	"purple": ["purple", "mauve", "violet", "boysenberry", "lavender", "plum", "magenta", "lilac", "grape", "periwinkle", "sangria", "eggplant", "jam", "iris", "heather", "amethyst", "raisin", "orchid", "mulberry"]
 };
 
-
+/*
 let db = new sqlite3.Database('/srv/gd2020nnaf/gd_nnaf.db', (err) => {
 	if (err) {
 		nodecg.log.info(err.message);
@@ -117,7 +117,13 @@ function GetDonationTotal() {
 	});
 }
 
+*/
+
+
+
 // grab recent donations from streamlabs api every 2 seconds
+
+/*
 setInterval(() => {
 	GrabNewDonations();
 	GrabRecentDonations();
@@ -131,6 +137,7 @@ amount
 dtime
 */
 
+/*
 function checkBattle(msg) {
 	if (battle.value.active)
 	{
@@ -221,3 +228,5 @@ function checkFunNumbers(total) {
 		nodecg.log.info("Found a Six Nine!");
 	}
 }
+
+*/

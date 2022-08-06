@@ -2,7 +2,6 @@
 	"name": "Garbage-Day",
 	"version": "0.7.0",
 	"dependencies": {
-		"axios": "^0.21.1",
 		"bower-npm-resolver": "^0.9.1",
 		"clone": "^2.1.1",
 		"moment": "^2.21.0",
