@@ -9,6 +9,20 @@ main
       source(:src="secondaryStream.url" )
     iframe(:src="secondaryStream.url" frameborder="0" allowfullscreen="false" scrolling="no" v-else)
     
+
+  
+  .relative-worth(v-if="comparativeItem.show")
+    .notice(:class="{ 'visible': comparativeItem.showing }")
+      figure
+        img(v-if="comparativeItem.pic" :src="'img/relative-items/'+comparativeItem.pic")
+      .text-wrapper
+        .text Your donation is worth 
+          strong.worth
+            span.count(v-if="comparativeItem.count > 0") {{comparativeItem.count}} 
+            span.thing {{comparativeItem.name}}
+            | .
+
+
   include _battle.pug
   include _goal.pug
   include _prize.pug

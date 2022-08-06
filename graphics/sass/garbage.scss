@@ -5,6 +5,9 @@
 @import "globals/_extends";
 @import "globals/_z-index";
 
+
+@import "libraries/animate.css";
+
 // SITE SPECIFIC
 @import "partials/_variables";
 @import "partials/_defaults";
@@ -19,5 +22,7 @@
 @import "partials/_prize";
 @import "partials/_freewrite";
 @import "partials/_hanson";
+
+@import "partials/_relative-worth";
 
 @import "partials/_break";
