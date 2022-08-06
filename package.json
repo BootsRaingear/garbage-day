@@ -1,5 +1,5 @@
 {
-	"name": "Garbage-Day",
+	"name": "garbage-day",
 	"version": "0.7.0",
 	"dependencies": {
 		"bower-npm-resolver": "^0.9.1",
