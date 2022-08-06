@@ -15,7 +15,7 @@ module.exports = function (nodecg) {
 	require('./schedule');
 	require('./soundboard');
 	//require('./donations');
-	require('./fsdonations');
+	//require('./fsdonations');
 	//require('./donation-alert');
 	require('./general');
 };
