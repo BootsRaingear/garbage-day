@@ -39,24 +39,10 @@
 				]
 			},
 			{
-				"name": "mmmbopvideos",
-				"title": "Mmmbop Videos",
-				"allowedTypes": [
-					"mp4"
-				]
-			},
-			{
 				"name": "themesongs",
 				"title": "Theme Songs",
 				"allowedTypes": [
 					"mp3", "wav", "ogg", "opus"
-				]
-			},
-			{
-				"name": "kumquatsoundboard",
-				"title": "Kumquat Soundboard",
-				"allowedTypes": [
-					"ogg"
 				]
 			},
 			{
@@ -92,7 +78,7 @@
 			{
 				"name": "soundboard",
 				"title": "Sound Board",
-				"width": 3,
+				"width": 4,
 				"file": "soundboard.html",
 				"workspace": "Stream"
 			},
@@ -111,24 +97,10 @@
 				"workspace": "Setup"
 			},
 			{
-				"name": "battle",
-				"title": "Battle", 
-				"width": 3,
-				"file": "battle-panel.html",
-				"workspace": "Setup"
-			},
-			{
 				"name": "freewrite",
 				"title": "Stream Adjust", 
 				"width": 3,
 				"file": "freewrite-panel.html",
-				"workspace": "Setup"
-			},
-			{
-				"name": "prize",
-				"title": "Prize", 
-				"width": 3,
-				"file": "prize-panel.html",
 				"workspace": "Setup"
 			},
 			{

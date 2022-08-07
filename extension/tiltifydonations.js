@@ -7,13 +7,12 @@ const alldonations = nodecg.Replicant('alldonations','nodecg-tiltify');
 const donationtotal = nodecg.Replicant('total','nodecg-tiltify');
 const donationpolls = nodecg.Replicant('donationpolls','nodecg-tiltify');
 const rewards = nodecg.Replicant('rewards','nodecg-tiltify');
-const milestones = nodecg.Replicant('milestone')
+const milestones = nodecg.Replicant('milestone');
 const activeRewardId = nodecg.Replicant('activeRewardId');
 const activePollId = nodecg.Replicant('activePollId');
 
 const mmmbop = nodecg.Replicant('mmmbop');
 const albertClass = nodecg.Replicant('albertClass');
-
 
 const albertCategories = ["jogging", "lsd", "throb", "storm", "cataracts", "vibrate", "rave", "drunk", "sepia", "oversaturate", "huerotate", "no-outlines", "no-trash", "contrast", "invert", "black", "blue", "brown", "green", "greyscale", "white", "tan", "yellow", "orange", "red", "pink", "purple", "teal", "spin"];
 const albertKeywords = {
@@ -53,6 +52,7 @@ const albertKeywords = {
 nodecg.log.info("Donation Total: " + donationtotal.value);
 GetActiveReward(rewards.value);
 GetActivePoll(donationpolls.value);
+checkMmmbop(donationtotal.value);
     
 rewards.on('change', newVal => {
     GetActiveReward(newVal);
@@ -98,17 +98,23 @@ function GetNewDonations(array) {
     {
         if (donation.read) continue;
         // do something with new donation?
-            
+        nodecg.log.info("read new donation! " + donation.comment + " : " + donation.amount);
+        checkAlbert(donation.amount, donation.comment);
     }
+    // mark all donations as read
+    nodecg.sendMessageToBundle('clear-donations', 'nodecg-tiltify');
     checkMmmbop(donationtotal.value);
-    checkAlbert(donationtotal.value);
     checkFunNumbers(donationtotal.value);
 }
 
-function checkMmmbop(dTotal) {
-    var nextMilestone = mmmbop.value.nextMilestone;
-    var mmmbopsAvailable = mmmbop.value.mmmbopsAvailable;
-    while (dTotal > nextMilestone)
+
+
+function checkMmmbop(total) {
+    if (total == null) return;
+    
+    let nextMilestone = mmmbop.value.nextMilestone;
+    let mmmbopsAvailable = mmmbop.value.mmmbopsAvailable;
+    while (total > nextMilestone)
     {
         mmmbopsAvailable++;
         nextMilestone += 100;
@@ -117,38 +123,50 @@ function checkMmmbop(dTotal) {
     mmmbop.value.nextMilestone = nextMilestone;
 }
 
-function checkAlbert(msg) {
-    var donationAmt = parseFloat(msg.amount);
-    let message = msg.message.toLowerCase();
-    if (donationAmt >= 0.5)
-    {
-        for (var i = 0; i < albertCategories.length; i++)
-        {
-            var curKeyword = albertCategories[i];
-            for (var j = 0; j < (albertKeywords[curKeyword]).length; j++)
-            {
-                if (message.indexOf(albertKeywords[curKeyword][j]) !== -1)
-                {
-                    nodecg.log.info("Changing Albert state to: " + curKeyword);
-                    albertClass.value = curKeyword;
-                    return;
-                }
+function checkAlbert(amount, comment) {
+    if (comment == null || amount == null) return;
+    let donationAmt = parseFloat(amount);
+    let message = comment.toLowerCase();
+    if (donationAmt < 0.5) {
+        return;
+    }
+    
+    for (let i = 0; i < albertCategories.length; i++) {
+        const curKeyword = albertCategories[i];
+        for (let j = 0; j < (albertKeywords[curKeyword]).length; j++) {
+            if (message.indexOf(albertKeywords[curKeyword][j]) !== -1) {
+                nodecg.log.info("Changing Albert state to: " + curKeyword);
+                albertClass.value = curKeyword;
+                return;
             }
         }
     }
 }
 
 function checkFunNumbers(total) {
-    var n = total.toFixed(2).replace('.', '');
-    var digits = ("" + n).split("");
-    var isFourTwenty = false;
-    var isSixNine = false;
+    if (total == null) return;
+    
+    let n = total.toFixed(2).replace('.', '');
+    let digits = ("" + n).split("");
+    let isFourTwenty = false;
+    let isSixNine = false;
 
     // check for 420s and 69s
-    for (var i = 0; i <= digits.length - 3; i++) {
-        if (digits[i] == 4 && digits[i + 1] == 2 && digits[i + 2] == 0)
+    for (let i = 0; i <= digits.length - 3; i++) {
+        if (digits[i] === '4' && digits[i + 1] === '2' && digits[i + 2] === '0')
             isFourTwenty = true;
-        if (digits[i] == 6 && digits[i + 1] == 9)
+        if (digits[i] === '6' && digits[i + 1] === '9')
             isSixNine = true;
     }
+    if (isFourTwenty)
+    {
+        nodecg.sendMessage('fourTwenty', null);
+        nodecg.log.info("Found a Four Twenty!");
+    }
+
+    if (isSixNine)
+    {
+        nodecg.sendMessage('sixNine', null);
+        nodecg.log.info("Found a Six Nine!");
+    }    
 }
