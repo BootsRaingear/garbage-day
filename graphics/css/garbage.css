@@ -3357,11 +3357,12 @@ figure.logo.ghost {
   border-radius: 5rem;
   -webkit-box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
           box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
-  -webkit-transition: -webkit-transform 1.5s ease-out;
-  transition: -webkit-transform 1.5s ease-out;
-  -o-transition: transform 1.5s ease-out;
-  transition: transform 1.5s ease-out;
-  transition: transform 1.5s ease-out, -webkit-transform 1.5s ease-out;
+  -webkit-transition: opacity 0.2s linear, -webkit-transform 0.5s linear;
+  transition: opacity 0.2s linear, -webkit-transform 0.5s linear;
+  -o-transition: transform 0.5s linear, opacity 0.2s linear;
+  transition: transform 0.5s linear, opacity 0.2s linear;
+  transition: transform 0.5s linear, opacity 0.2s linear, -webkit-transform 0.5s linear;
+  opacity: 0.2;
   -webkit-transform: translateY(170px) scale(0.2);
       -ms-transform: translateY(170px) scale(0.2);
           transform: translateY(170px) scale(0.2);
@@ -3383,9 +3384,19 @@ figure.logo.ghost {
   padding-right: 1em;
 }
 .relative-worth .notice.visible {
+  opacity: 1;
   -webkit-transform: translateY(0) scale(1);
       -ms-transform: translateY(0) scale(1);
           transform: translateY(0) scale(1);
+  -webkit-transition-duration: 1s, 0.2s;
+       -o-transition-duration: 1s, 0.2s;
+          transition-duration: 1s, 0.2s;
+  -webkit-transition-timing-function: cubic-bezier(0.5, 0, 0.56, 1.95), linear;
+       -o-transition-timing-function: cubic-bezier(0.5, 0, 0.56, 1.95), linear;
+          transition-timing-function: cubic-bezier(0.5, 0, 0.56, 1.95), linear;
+  -webkit-transition-delay: 0, 0.25s;
+       -o-transition-delay: 0, 0.25s;
+          transition-delay: 0, 0.25s;
 }
 
 .break-screen {

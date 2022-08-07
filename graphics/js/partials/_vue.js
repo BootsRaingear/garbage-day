@@ -160,8 +160,10 @@ var app = new Vue({
     findComparativeItem() {
       const self = this;
 
-      self.comparativeItem.showing = false;
-      self.comparativeItem.show = false;
+      if (self.comparativeItem.showing || self.comparativeItem.show) {
+        return false;
+      }
+
       let tries = 0;
       let foundOne = false;
       let randomItem;
@@ -190,8 +192,8 @@ var app = new Vue({
         foundOne = false;
         tries = 0;
         self.comparativeItem.showing = false;
-        setTimeout(function(){ self.comparativeItem.show = false;}, 1800);
-      }, 3000);
+        setTimeout(function(){ self.comparativeItem.show = false;}, 500);
+      }, 12000);
       
     }
 
