@@ -7,11 +7,6 @@
 			"value": 1523116800000,
 			"description": "Unix timestamp (in milliseconds)"
 		},
-		"wfSecret": {
-			"type": "string",
-			"value": "",
-			"description": "NNAF Formstack webhook secret"			
-		},
 		"obs": {
 			"type": "object",
 			"value": {
@@ -20,46 +15,6 @@
 					"value": ""
 				},
 				"liveScene": {
-					"type": "string",
-					"value": ""
-				}
-			}
-		},
-		"streamlabs" : {
-			"type": "object",
-			"additionalProperties": false,
-			"properties": {
-				"clientId": {
-					"type": "string",
-					"value": "",
-					"description": "The Client Id"
-				},
-				"clientSecret": {
-					"type": "string",
-					"value": "",
-					"description": "The Client Secret"
-				},
-				"redirectUrl": {
-					"type": "string",
-					"value": "",
-					"description": "The RedirectUrl with format 'http://yourdomain/callback'"
-				},
-				"scopes": {
-					"type": "string",
-					"value": "donations.read donations.create alerts.create socket.token",
-					"description": "They are 4 scopes: donations.read donations.create alerts.create socket.token"
-				
-				},
-				"socketToken": {
-					"type": "string",
-					"value": "",
-					"description": "The socket_token used to connect to StreamLabs"
-				},
-				"accessToken": {
-					"type": "string",
-					"value": ""
-				},
-				"code": {
 					"type": "string",
 					"value": ""
 				}

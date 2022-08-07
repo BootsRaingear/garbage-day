@@ -5,7 +5,7 @@ const fs = require('fs');
 const path = require('path');
 const {exec} = require('child_process');
 
-const OBSUtility = require('nodecg-utility-obs');
+const {OBSUtility} = require('nodecg-utility-obs');
 
 const nodecg = require('./util/nodecg-api-context').get();
 

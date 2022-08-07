@@ -10,12 +10,11 @@ const nodecgApiContext = require('./util/nodecg-api-context');
 module.exports = function (nodecg) {		
 	nodecgApiContext.set(nodecg);
 	
-	require('./obs');
-	require('./obs-control');	
+	//require('./obs');
+	//require('./obs-control');	
 	require('./schedule');
 	require('./soundboard');
-	//require('./donations');
-	//require('./fsdonations');
+	require('./tiltifydonations');
 	//require('./donation-alert');
 	require('./general');
 };
