@@ -8,7 +8,7 @@ var app = new Vue({
     title: "Bitch Loser Sex Madness",
     readers: [
       "Lemon",
-      "Boots Raingear",
+      "Boots Raingear", 
       "Kumquatxop",
       "Isfahan",
       "Adam Bozarth",
@@ -104,6 +104,16 @@ var app = new Vue({
       // VALID LOCATIONS: center, top, right, bottom, left, top-left, top-right, bottom-left, bottom-right
       content: 'Hello, I am some text!',
       img: ''
+    },
+
+    comparativeItems: relativeValues,
+
+    comparativeItem: {
+      show: false,
+      showing: false,
+      name: "none",
+      count: 99,
+      pic: "healing-pyramid.jpg"
     }
     
   },
@@ -144,6 +154,48 @@ var app = new Vue({
       setTimeout(function () {
         self.sixtyNine.active = false;  
       }, 6000);
+      
+    },
+
+    findComparativeItem() {
+      const self = this;
+
+      if (self.comparativeItem.showing || self.comparativeItem.show) {
+        return false;
+      }
+
+      let tries = 0;
+      let foundOne = false;
+      let randomItem;
+
+      while (tries < 10 && !foundOne) {
+        randomItem = randomFrom(self.comparativeItems);
+        let count = Math.floor(self.totalDonations / randomItem.cost);
+        if (randomItem.name == self.comparativeItem.name) {
+          foundOne = false;
+        } else if (count > 0) {
+          self.comparativeItem.show = true;
+          setTimeout(function(){ self.comparativeItem.showing = true;}, 100);
+          self.comparativeItem.count = count;
+          foundOne = true;
+        }
+      }
+      
+      self.comparativeItem.pic = randomItem.pic;
+
+      if (self.comparativeItem.count > 1) {
+        self.comparativeItem.name = randomItem.plural;
+      } else {
+        self.comparativeItem.name = randomItem.name;
+      }
+
+
+      setTimeout(function(){ 
+        foundOne = false;
+        tries = 0;
+        self.comparativeItem.showing = false;
+        setTimeout(function(){ self.comparativeItem.show = false;}, 500);
+      }, 12000);
       
     }
 
@@ -232,7 +284,7 @@ var app = new Vue({
     }
   },
   mounted() {
-    
-    
+    const self = this;
+    //self.findARelativeValue();
   }
 });
