@@ -3343,15 +3343,15 @@ figure.logo.ghost {
 }
 .relative-worth .notice {
   width: 100%;
-  max-width: 760px;
+  max-width: 960px;
   margin-left: auto;
   margin-right: auto;
   background: white;
   padding: 1rem;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 90px 20px 1fr;
-  grid-template-columns: 90px 1fr;
+  -ms-grid-columns: 120px 20px 1fr;
+  grid-template-columns: 120px 1fr;
   gap: 20px;
   border: 2px solid rgba(0, 0, 0, 0.2);
   border-radius: 5rem;

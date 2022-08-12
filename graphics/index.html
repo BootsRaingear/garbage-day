@@ -25,7 +25,7 @@
             <div class="notice" :class="{ 'visible': comparativeItem.showing }">
               <figure><img v-if="comparativeItem.pic" :src="'img/relative-items/'+comparativeItem.pic"></figure>
               <div class="text-wrapper">
-                <div class="text">Your donation is worth <strong class="worth"><span class="count" v-if="comparativeItem.count &gt; 0">{{comparativeItem.count}} </span><span class="thing">{{comparativeItem.name}}</span>.</strong></div>
+                <div class="text">Your donations are worth <strong class="worth"><span class="count" v-if="comparativeItem.count &gt; 0">{{comparativeItem.count.toLocaleString("en-US")}} </span><span class="thing">{{comparativeItem.name}}</span>.</strong></div>
               </div>
             </div>
           </div>

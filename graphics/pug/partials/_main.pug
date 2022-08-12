@@ -16,9 +16,9 @@ main
       figure
         img(v-if="comparativeItem.pic" :src="'img/relative-items/'+comparativeItem.pic")
       .text-wrapper
-        .text Your donation is worth 
+        .text Your donations are worth 
           strong.worth
-            span.count(v-if="comparativeItem.count > 0") {{comparativeItem.count}} 
+            span.count(v-if="comparativeItem.count > 0") {{comparativeItem.count.toLocaleString("en-US")}} 
             span.thing {{comparativeItem.name}}
             | .
 

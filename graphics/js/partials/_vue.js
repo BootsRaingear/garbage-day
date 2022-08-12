@@ -171,7 +171,9 @@ var app = new Vue({
       while (tries < 10 && !foundOne) {
         randomItem = randomFrom(self.comparativeItems);
         let count = Math.floor(self.totalDonations / randomItem.cost);
-        if (count > 0) {
+        if (randomItem.name == self.comparativeItem.name) {
+          foundOne = false;
+        } else if (count > 0) {
           self.comparativeItem.show = true;
           setTimeout(function(){ self.comparativeItem.showing = true;}, 100);
           self.comparativeItem.count = count;
