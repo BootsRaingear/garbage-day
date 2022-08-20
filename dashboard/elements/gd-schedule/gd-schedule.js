@@ -90,21 +90,21 @@
 			if (0 <= this.hour && this.hour <= 24)
 			{
 				segment.value.hour = this.hour;
-				segment.value.title = this.title;
-				segment.value.docProvider = this.docProvider;
-				segment.value.docURL = this.docURL;
-				segment.value.ridiculist1 = this.ridiculist1;
-				segment.value.ridiculist2 = this.ridiculist2;
-				segment.value.ridiculist3 = this.ridiculist3;
-				segment.value.ridiculist4 = this.ridiculist4;
-				segment.value.ridiculist5 = this.ridiculist5;
-				segment.value.ridiculist6 = this.ridiculist6;
-				segment.value.ridiculist7 = this.ridiculist7;
-				segment.value.ridiculist8 = this.ridiculist8;
-				segment.value.artistName = this.artistName;
-				segment.value.artistURL = this.artistURL;
-				segment.value.streamtwoName = this.streamtwoName;
-				segment.value.streamtwoURL = this.streamtwoURL;
+				segment.value.title = this.title || '';
+				segment.value.docProvider = this.docProvider || '';
+				segment.value.docURL = this.docURL || '';
+				segment.value.ridiculist1 = this.ridiculist1 || '';
+				segment.value.ridiculist2 = this.ridiculist2 || '';
+				segment.value.ridiculist3 = this.ridiculist3 || '';
+				segment.value.ridiculist4 = this.ridiculist4 || '';
+				segment.value.ridiculist5 = this.ridiculist5 || '';
+				segment.value.ridiculist6 = this.ridiculist6 || '';
+				segment.value.ridiculist7 = this.ridiculist7 || '';
+				segment.value.ridiculist8 = this.ridiculist8 || '';
+				segment.value.artistName = this.artistName || '';
+				segment.value.artistURL = this.artistURL || '';
+				segment.value.streamtwoName = this.streamtwoName || '';
+				segment.value.streamtwoURL = this.streamtwoURL || '';
 				segment.value.updateMe = true;
 			} else {
 				console.log("[garbage-day] schedule.js, update() - hour out of range, idiot");

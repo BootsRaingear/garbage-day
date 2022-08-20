@@ -220,6 +220,7 @@ function findCastInList(name)
 }
 function getCastFullName(name)
 {
+	console.log("Checking name: " + name);
 	var idx = findCastInList(name);
 	if (idx >= 0)
 		return cast.value[idx].displayName
