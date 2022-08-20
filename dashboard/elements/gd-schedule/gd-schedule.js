@@ -40,7 +40,6 @@
 				for (var i = 0; i < cast.value.length; i++)
 				{
 					this.castNames.push(cast.value[i].name);
-					nodecg.log.info(cast.value[i].name);
 				}
 			});
 		}
@@ -89,6 +88,7 @@
 		update() {
 			if (0 <= this.hour && this.hour <= 24)
 			{
+				console.log("ridiculist 3 = " + this.ridiculist3);
 				segment.value.hour = this.hour;
 				segment.value.title = this.title || '';
 				segment.value.docProvider = this.docProvider || '';
