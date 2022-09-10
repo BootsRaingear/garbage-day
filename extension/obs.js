@@ -17,7 +17,7 @@ const onBreak = nodecg.Replicant('onBreak');
 
 const currentScene = nodecg.Replicant('currentScene');
 
-
+/*
 function stopObsRecording(obs) {
 	return new Promise((resolve,reject) => {
 		let rejected = false;
@@ -82,3 +82,4 @@ module.exports = {
 
 	
 }
+*/

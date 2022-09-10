@@ -1,0 +1,56 @@
+<link rel="import" href="../../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../../../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../../../bower_components/paper-input/paper-textarea.html">
+<link rel="import" href="../../../bower_components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../../../bower_components/iron-list/iron-list.html">
+
+<dom-module id="gd-tiltify-test">
+	<template>
+		<style>
+			:host {
+				margin-right: 24px;
+				@apply --layout-vertical;
+			}
+			paper-button {
+				--paper-button: {
+					background-color: #5BA664;
+					color: white;
+				};
+			}
+
+			.divider { border-bottom: 6px solid #737373; margin: 30px -20px; }
+		</style>	
+
+
+		<div id="tiltify_test_body">
+			<div id="inputs">
+				<paper-input
+						label="Name"
+						value="{{dname}}"
+						always-float-label>
+				</paper-input>
+				<paper-input
+						label="Amount"
+						value="{{damount}}"
+						always-float-label>
+
+				</paper-input>
+				<paper-textarea
+						label="Message"
+						value="{{dmsg}}"
+						always-float-label>
+				</paper-textarea>
+				
+	
+			</div>
+			<div id="controls">
+				<paper-button id="submit_button" on-tap="submitDonation">
+					Submit
+				</paper-button>
+			</div>
+		</div>
+	</template>
+	
+	<script src="gd-tiltify-test.js"></script>
+</dom-module>

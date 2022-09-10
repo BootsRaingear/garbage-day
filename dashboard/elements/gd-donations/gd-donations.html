@@ -49,10 +49,10 @@ table .row:nth-child(even) {
       <tbody>
         <template is="dom-repeat" items="{{donationList}}">
           <tr class="row">
-            <td class="timestamp">{{item.ftime}}</td>
-            <td class="displayname">{{item.displayname}}</td>
-            <td class="amount">${{item.amount}}</td>
-            <td class="message">{{item.message}}</td>
+            <td class="timestamp">{{item.datetime}}</td>
+            <td class="displayname">{{item.name}}</td>
+            <td class="amount">{{item.formatAmount}}</td>
+            <td class="message">{{item.comment}}</td>
           </tr>
         </template>
       </tbody>

@@ -20,9 +20,9 @@ dom-module#gd-donations
       tbody
         template(is="dom-repeat" items="{{donationList}}")
           tr.row
-            td.timestamp {{item.ftime}}
-            td.displayname {{item.displayname}}
-            td.amount ${{item.amount}}
-            td.message {{item.message}}
+            td.timestamp {{item.datetime}}
+            td.displayname {{item.name}}
+            td.amount {{item.formatAmount}}
+            td.message {{item.comment}}
   script(src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js")
   script(src="gd-donations.js")
