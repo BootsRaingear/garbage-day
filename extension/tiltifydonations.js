@@ -16,37 +16,50 @@ const albertClass = nodecg.Replicant('albertClass');
 
 const albertCategories = ["jogging", "lsd", "throb", "storm", "cataracts", "vibrate", "rave", "drunk", "sepia", "oversaturate", "huerotate", "no-outlines", "no-trash", "contrast", "invert", "black", "blue", "brown", "green", "greyscale", "white", "tan", "yellow", "orange", "red", "pink", "purple", "teal", "spin"];
 const albertKeywords = {
-    "jogging": ["jog", "run", "trot", "sprint", "ran", "sped", "speed", "fast", "sonic"],
-    "lsd": ["lsd", "drug", "trip", "acid", "psychedelic","woooo","whoa"],
+
+    // ANIMATIONS
+    "jogging": ["jogging", "jog", "run", "trot", "sprint", "ran", "sped", "speed", ],
+    "running": [ "running", "run", "ran", "sprint", "fast", "sonic" ],
     "throb": ["throb", "pulse", "pulsar", "quasar", "heart"],
-    "spin": ["spin", "rotate", "turn", "beer", "twirl","whirl", "swirl", "anakin", "roll", "spiral"],
-    "storm": ["storm","flash", "lightning", "cold", "rain", "maelstrom"],
+    "spin": ["spin", "rotate", "turn", "beer", "twirl", "whirl", "swirl", "anakin", "roll", "spiral"],
+    "storm": ["storm", "flash", "lightning", "cold", "rain", "maelstrom"],
     "cataracts": ["cataracts", "blur", "fuzz", "vision", "blind"],
-    "vibrate": ["vibrate", "shake", "rattle", "quiver", "tremble", "trembling", "shaking", "vibrating", "vibration", "quake"],
-    "dance": ["dance", "bop", "pony", "twist", "apart", "chubby", "beat", "shimmy", "ballet", "jive", "disco"],
-    "rave": ["rave"],
-    "drunk": ["drunk"],
+    "vibrate": ["vibrate", "stoke", "stoked", "shake", "rattle", "quiver", "tremble", "trembling", "shaking", "vibrating", "vibration", "quake"],
+    "rave": ["rave", "lsd", "drug", "trip", "acid", "psychedelic","woooo","whoa"],
+    "drunk": ["drunk", "booze"],
+    "flipping": [ "flipping", "coin toss", "coin flip", "flippin"],
+    "ghost": [ "ghost", "undead", "floating"],
+    
+    // OTHER VISUAL EFFECTS
+    
     "no-outlines": ["no-outlines", "waver", "pale", "flat", "line", "pasty", "pasta", "pastel", "bleach", "line"],
     "no-trash": ["no-trash", "empty", "clean", "tidy", "free", "parkour", "diggity"],
     "dropshadow": ["dropshadow", "shadow", "creepy", "hole", "abyss", "space", "darkness", "vortex"],
-    "sepia": ["sepia", "old", "ancient", "aged", "prospector", "instagram", "poser", "poseur"],
+    "queen": [ "queen", "elizabeth", "royal", "dignity", "respect" ],
+    "censored": [ "censored", "censor", "nudity", "too hot" ],
+    "huge": [ "huge", "giant", "gigantic", "massive"],
+    "backwards": [ "backwards", "opposite", "flipped"],
+    "aibert": [ "aibert", "dall-e", "dalle", "dall e", "midjourney"],
+
+    // COLOR PALETTES
     "oversaturate": ["saturate", "bright", "sun", "lightening", "pretentious"],
-    "huerotate": ["huerotate","groovy","circle","blink","wow"],
     "invert": ["invert", "flip", "over", "ugly", "fugly", "negative"],
+    "sepia": ["sepia", "old", "ancient", "aged", "prospector", "instagram", "poser", "poseur"],
     "contrast": ["contrast", "opposite", "not"],
     "black": ["black", "ebony", "crow", "midnight", "ink", "raven", "oil", "grease", "maroon", "onyx", "pitch", "soot", "sable", "jet", "coal", "metal", "obsidian", "jade", "spider", "leather"],
     "blue": ["blue", "slate", "sky", "navy", "indigo", "cobalt", "ocean", "peacock", "azure", "lapis", "spruce", "stone", "aegean", "berry", "denim", "admiral", "arctic"],
     "brown": ["brown", "coffee", "mocha", "peanut", "carob", "hickory", "wood", "pecan", "walnut", "caramel", "gingerbread", "syrup", "chocolate", "tortilla", "umber", "tawny", "brunette", "cinnamon", "penny", "cedar"],
     "green": ["green", "chartreuse", "juniper", "sage", "lime", "fern", "olive", "emerald", "pear", "moss", "shamrock", "pine", "parakeet", "mint", "seaweed", "pickle", "pistachio", "basil", "crocodile"],
     "teal": ["teal", "aqua", "sapphire", "cerulean", "seafoam", "cyan", "turquoise"],
-    "greyscale": ["grey", "shadow", "graphite", "iron", "pewter", "cloud", "silver", "smoke", "slate", "anchor", "ash", "porpoise", "dove", "fog", "flint", "charcoal", "pebble", "lead", "coin", "fossil"],
+    "grayscale": ["grayscale", "greyscale", "shadow", "graphite", "iron", "pewter", "cloud", "silver", "smoke", "slate", "anchor", "ash", "porpoise", "dove", "fog", "flint", "charcoal", "pebble", "lead", "coin", "fossil"],
     "white": ["white", "pearl", "alabaster", "snow", "ivory", "cream", "eggshell", "cotton", "chiffon", "salt", "lace", "coconut", "linen", "bone", "daisy", "powder", "frost", "porcelain", "parchment", "rice", "diamond"],
     "tan": ["tan", "beige", "macaroon", "hazelwood", "granola", "oat", "egg nog", "fawn", "sand", "sepia", "latte", "oyster", "biscotti", "parmesan", "hazelnut", "sandcastle", "buttermilk", "shortbread"],
     "yellow": ["yellow", "canary", "gold", "daffodil", "flaxen", "butter", "lemon", "mustard", "corn", "medallion", "dandelion", "fire", "bumblebee", "banana", "butterscotch", "dijon", "honey", "blonde", "pineapple"],
     "orange": ["orange", "tangerine", "merigold", "cider", "rust", "ginger", "tiger", "fire", "bronze", "cantaloupe", "apricot", "clay", "honey", "carrot", "squash", "spice", "marmalade", "amber", "sandstone", "yam"],
     "red": ["red", "cherry", "amaranth", "rose", "jam", "merlot", "garnet", "crimson", "ruby", "scarlet", "wine", "brick", "apple", "mahogany", "blood", "sangria", "berry", "currant", "blush", "candy", "lipstick"],
     "pink": ["pink", "rose", "fuchsia", "punch", "blush", "watermelon", "flamingo", "rouge", "salmon", "coral", "peach", "strawberry", "rosewood", "lemonade", "taffy", "bubblegum", "crepe", "magenta"],
-    "purple": ["purple", "mauve", "violet", "boysenberry", "lavender", "plum", "magenta", "lilac", "grape", "periwinkle", "sangria", "eggplant", "jam", "iris", "heather", "amethyst", "raisin", "orchid", "mulberry"]
+    "purple": ["purple", "mauve", "violet", "boysenberry", "lavender", "plum", "magenta", "lilac", "grape", "periwinkle", "sangria", "eggplant", "jam", "iris", "heather", "amethyst", "raisin", "orchid", "mulberry"],
+    
 };
 
 nodecg.log.info("Donation Total: " + donationtotal.value);
@@ -137,10 +150,20 @@ function checkAlbert(amount, comment) {
             if (message.indexOf(albertKeywords[curKeyword][j]) !== -1) {
                 nodecg.log.info("Changing Albert state to: " + curKeyword);
                 albertClass.value = curKeyword;
+
+
+                if (curKeyword == "aibert") {
+                    const i =  Math.floor(Math.random() * (8 - 1 + 1) + 1)
+                    albertClass.value = "aibert-"+i;
+                }
+
                 return;
             }
         }
     }
+
+
+
 }
 
 function checkFunNumbers(total) {

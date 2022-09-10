@@ -2,25 +2,25 @@
 var app = new Vue({
   el: '#app',
   data: {
-    hour: 9,
+    hour: 10,
     onBreak: false,
     breakPic: 'https://unsplash.it/1600/900?random',
-    title: "Bitch Loser Sex Madness",
+    title: "Teach Me How To Jelq",
     readers: [
-      "Lemon",
+      "Jack Chick",
       "Boots Raingear", 
-      "Kumquatxop",
-      "Isfahan",
+      "Lemon", 
       "Adam Bozarth",
-      "STOG"
+      "John Toast",
+      "Dijon Du Jour"
     ],
     
     introText: '<p>This is <b>Garbage Day</b>!</p><p>A 24 hour marathon of terrible writing in support of the <b>National Network of Abortion Funds</b>.</p>',
     underTotalText: 'Money goes to the <strong>National Network of Abortion Funds</strong>',
     
-    provider: "T. Azimuth Schwitters",
+    provider: "Cat Examiner",
     
-    artist: "Sanguinary Novel",
+    artist: "Sauce",
     
     donateURL: "garbage.live",
     logoURL: "https://thefpl.us/assets/24th/img/24th.gif",
@@ -32,7 +32,8 @@ var app = new Vue({
       //url: "https://1-edge4-us-east.picarto.tv/mp4/Amarynceus.mp4"
     },
 
-    albertClass: "",
+    albertClass: "aibert-8",
+
     secondaryStream: {
       show: false,
       name: "Frank West plays some dumb bullshit",
