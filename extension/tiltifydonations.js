@@ -18,7 +18,11 @@ const activePollId = nodecg.Replicant('activePollId');
 const mmmbop = nodecg.Replicant('mmmbop');
 const albertClass = nodecg.Replicant('albertClass');
 
-const albertCategories = ["jogging", "lsd", "throb", "storm", "cataracts", "vibrate", "rave", "drunk", "sepia", "oversaturate", "huerotate", "no-outlines", "no-trash", "contrast", "invert", "black", "blue", "brown", "green", "greyscale", "white", "tan", "yellow", "orange", "red", "pink", "purple", "teal", "spin"];
+const albertCategories = ["jogging", "running", "throb", "spin", "storm", "cataracts", "vibrate", "rave", "drunk", "flipping", "ghost", 
+    "no-outlines", "no-trash", "dropshadow", "queen", "censored", "huge", "backwards", "aibert",
+    "oversaturate", "invert", "sepia", "contrast", "black", "blue", "brown", "green", "teal", "grayscale", "white", "tan", "yellow", "orange", "red", "pink", "purple"];
+    
+    
 const albertKeywords = {
 
     // ANIMATIONS
@@ -114,6 +118,7 @@ function GetNewDonations(array) {
         nodecg.sendMessage('donationAlert', donation);
         nodecg.log.info("read new donation! " + donation.comment + " : " + donation.amount);
         checkAlbert(donation.amount, donation.comment);
+        donation.read = true;
     }
     // mark all donations as read
     nodecg.sendMessageToBundle('clear-donations', 'nodecg-tiltify');
