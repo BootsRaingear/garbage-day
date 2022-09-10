@@ -143,7 +143,7 @@ nodecg.listenFor('donationAlert', value => {
 		formattedNumber = "$" + parseInt(value.amount) + "<sup></sup>";
 	}
 
-	let amount = parseInt(value.amount);
+	let amount = parseFloat(value.amount);
 	let donationType;
 	if (!amount || isNaN(value.amount) || isNaN(amount)) {
 		donationType = "error";
