@@ -1,6 +1,6 @@
 'use strict';
 
-const donationTotal = nodecg.Replicant('donationTotal');
+//const donationTotal = nodecg.Replicant('donationTotal');
 const currentHour = nodecg.Replicant('currentHour');
 const segments = nodecg.Replicant('segments');
 const battle = nodecg.Replicant('battle');
@@ -10,16 +10,24 @@ const prize = nodecg.Replicant('prize');
 const streamtwoControl = nodecg.Replicant('streamtwoControl');
 const breakImages = nodecg.Replicant('assets:breakimages');
 const mmmbop = nodecg.Replicant('mmmbop');
-const mmmbopVideos = nodecg.Replicant('assets:hansonvideos');
+//const mmmbopVideos = nodecg.Replicant('assets:hansonvideos');
 const currentBreakImage = nodecg.Replicant('currentBreakImage');
 const streamtext = nodecg.Replicant('streamtext');
 const cast = nodecg.Replicant('cast');
 const albertClass = nodecg.Replicant('albertClass');
 
+var testmode = true;
+//const donation = testmode ? nodecg.Replicant('tiltTestDonations') : nodecg.Replicant('donations', 'nodecg-tiltify');
+const alldonations = testmode ? nodecg.Replicant('tiltTestAllDonations') : nodecg.Replicant('alldonations', 'nodecg-tiltify');
+const donationTotal = testmode ? nodecg.Replicant('tiltTestTotal') : nodecg.Replicant('total', 'nodecg-tiltify');
+const donationpolls = nodecg.Replicant('donationpolls','nodecg-tiltify');
+const rewards = nodecg.Replicant('rewards','nodecg-tiltify');
+
 var stream2active = false;
 
 donationTotal.on('change', newVal => {
-	app.totalDonations = newVal.toFixed(2);
+	var dTotal = Number(newVal);
+	app.totalDonations = dTotal.toFixed(2);
 });
 
 currentHour.on('change', newVal => {
@@ -121,7 +129,7 @@ nodecg.listenFor('fourTwenty', value => {
 });
 
 nodecg.listenFor('donationAlert', value => {	
-	console.table([value.displayname, value.amount, value.message]);
+	console.table([value.name, value.amount, value.comment]);
 
 	// Let's look at that donation amount...
 	let formattedNumber;
@@ -151,15 +159,15 @@ nodecg.listenFor('donationAlert', value => {
 
 	// Let's look at the name of the donator...
 	let notifyTitle;
-	if (!value.displayname || value.displayname == "" || value.message.toLowerCase().includes("anony")) {
+	if (!value.name || value.name == "" || value.comment.toLowerCase().includes("anony")) {
 		notifyTitle = "Anonymous $"+ value.amount + " Donation";
 	} else {
 
 		let notifyName;
-		if (value.displayname.length > 25) {
-			notifyName = value.displayname.substring(0,25) + '...';
+		if (value.name.length > 25) {
+			notifyName = value.name.substring(0,25) + '...';
 		} else {
-			notifyName = value.displayname;
+			notifyName = value.name;
 		}
 
 		notifyTitle = formattedNumber + " | " + notifyName;
@@ -167,12 +175,12 @@ nodecg.listenFor('donationAlert', value => {
 
 	// Let's look at the donation message...
 	let notifyMessage;
-	if (!value.message || value.message == "" || value.message.length < 2) {
+	if (!value.comment || value.comment == "" || value.comment.length < 2) {
 		notifyMessage = "";
-	} else if (value.message.length > 64) {
-		notifyMessage = value.message.substring(0,64) + '...';
+	} else if (value.comment.length > 64) {
+		notifyMessage = value.comment.substring(0,64) + '...';
 	} else {
-		notifyMessage = value.message;
+		notifyMessage = value.comment;
 	}
 
 	if (donationType == "error") {
@@ -199,12 +207,11 @@ nodecg.listenFor('donationAlert', value => {
 		});
 	} else if (donationType == "big") {
 		new PNotify({
-			title: formattedNumber + " | " + value.displayname,
-			text: value.message,
+			title: formattedNumber + " | " + value.name,
+			text: value.comment,
 			delay: 60000
 		});
 	}
-
 });
 
 function findCastInList(name)

@@ -2,11 +2,15 @@
 const app = require('express')();
 const nodecg = require('./util/nodecg-api-context').get();
 
-const donations = nodecg.Replicant('donations','nodecg-tiltify');
-const alldonations = nodecg.Replicant('alldonations','nodecg-tiltify');
-const donationtotal = nodecg.Replicant('total','nodecg-tiltify');
+const testmode = true;
+
+const donations = testmode ? nodecg.Replicant('tiltTestDonations') : nodecg.Replicant('donations', 'nodecg-tiltify');
+const alldonations = testmode ? nodecg.Replicant('tiltTestAllDonations') : nodecg.Replicant('alldonations', 'nodecg-tiltify'); 
+const donationtotal = testmode ? nodecg.Replicant('tiltTestTotal') : nodecg.Replicant('total', 'nodecg-tiltify');
+
 const donationpolls = nodecg.Replicant('donationpolls','nodecg-tiltify');
 const rewards = nodecg.Replicant('rewards','nodecg-tiltify');
+
 const milestones = nodecg.Replicant('milestone');
 const activeRewardId = nodecg.Replicant('activeRewardId');
 const activePollId = nodecg.Replicant('activePollId');
@@ -80,8 +84,7 @@ donations.on('change', newVal => {
 });
 
 function GetActiveReward(array) {
-    for(const reward of Object.values(array))
-    {
+    for(const reward of Object.values(array))    {
         if (reward.active === true)        {
             activeRewardId.value = reward.id;
             nodecg.log.info("Active reward is: " + reward.id + " - " + reward.name);
@@ -93,10 +96,8 @@ function GetActiveReward(array) {
 }
 
 function GetActivePoll(array) {
-    for(const poll of Object.values(array))
-    {
-        if (poll.active === true)
-        {
+    for(const poll of Object.values(array))    {
+        if (poll.active === true) {
             nodecg.log.info("Active poll is: " + poll.id + " - " + poll.name);
             activePollId.value = poll.id;
             return;
@@ -107,10 +108,10 @@ function GetActivePoll(array) {
 }
 
 function GetNewDonations(array) {
-    for(const donation of Object.values(array))
-    {
+    for(const donation of Object.values(array))  {
         if (donation.read) continue;
         // do something with new donation?
+        nodecg.sendMessage('donationAlert', donation);
         nodecg.log.info("read new donation! " + donation.comment + " : " + donation.amount);
         checkAlbert(donation.amount, donation.comment);
     }
@@ -121,14 +122,12 @@ function GetNewDonations(array) {
 }
 
 
-
 function checkMmmbop(total) {
     if (total == null) return;
     
     let nextMilestone = mmmbop.value.nextMilestone;
     let mmmbopsAvailable = mmmbop.value.mmmbopsAvailable;
-    while (total > nextMilestone)
-    {
+    while (total > nextMilestone) {
         mmmbopsAvailable++;
         nextMilestone += 100;
     }
@@ -169,7 +168,7 @@ function checkAlbert(amount, comment) {
 function checkFunNumbers(total) {
     if (total == null) return;
     
-    let n = total.toFixed(2).replace('.', '');
+    let n = Number(total).toFixed(2).replace('.', '');
     let digits = ("" + n).split("");
     let isFourTwenty = false;
     let isSixNine = false;
@@ -181,14 +180,12 @@ function checkFunNumbers(total) {
         if (digits[i] === '6' && digits[i + 1] === '9')
             isSixNine = true;
     }
-    if (isFourTwenty)
-    {
+    if (isFourTwenty) {
         nodecg.sendMessage('fourTwenty', null);
         nodecg.log.info("Found a Four Twenty!");
     }
 
-    if (isSixNine)
-    {
+    if (isSixNine) {
         nodecg.sendMessage('sixNine', null);
         nodecg.log.info("Found a Six Nine!");
     }    

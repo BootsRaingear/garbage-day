@@ -1,6 +1,6 @@
 'use strict';
 
-// Native
+
 const fs = require('fs');
 const path = require('path');
 const {exec} = require('child_process');
@@ -19,12 +19,17 @@ const sceneList = nodecg.Replicant('OBS:sceneList');
 onBreak.on('change', newVal => {
 	if (onBreak.value === true) {
 		nodecg.log.info('starting break');		
-		obs.setCurrentScene(nodecg.bundleConfig.obs.breakScene);
-		obs.stopRecording();
+		ChangeScene(nodecg.bundleConfig.obs.breakScene);
+		//obs.stopRecording();
 	} else {
 		nodecg.log.info('ending break');
-		obs.startRecording();
-		obs.setCurrentScene(nodecg.bundleConfig.obs.liveScene);
+		//obs.startRecording();
+		ChangeScene(nodecg.bundleConfig.obs.liveScene);
 	}
 });
+
+function ChangeScene (scenename)
+{
+	nodecg.sendMessage('obs:transition', 'Fade', 1, scenename);
+}
 
