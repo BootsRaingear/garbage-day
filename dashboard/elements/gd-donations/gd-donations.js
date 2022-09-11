@@ -47,6 +47,8 @@
 					newDonationList[i].datetime = timeFormatter.format(new Date(newDonationList[i].completedAt));
 				}
 				
+				newDonationList = newDonationList.reverse();
+				newDonationList.length(19);
 				this.donationList = newDonationList;
 
 			});
