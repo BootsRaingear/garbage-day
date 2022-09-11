@@ -62,6 +62,11 @@
 			});
 		}
 
+		_handleShowComparativeItem() {
+			nodecg.sendMessage('showComparativeItem', "true");
+		}
+		
+		
 		_handlePlayMmmbop() {
 			buttonCooldowns.value.mmmbopCooldown = Date.now() + 3500;
 			buttonCooldowns.value.mmmbopDisabled = true;

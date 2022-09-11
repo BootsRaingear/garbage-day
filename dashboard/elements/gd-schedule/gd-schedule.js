@@ -39,7 +39,7 @@
 				this.castNames = new Array();
 				for (var i = 0; i < cast.value.length; i++)
 				{
-					this.castNames.push(cast.value[i].name);
+					this.castNames.push(cast.value[i].displayName);
 				}
 			});
 		}

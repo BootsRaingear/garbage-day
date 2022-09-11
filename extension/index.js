@@ -15,6 +15,5 @@ module.exports = function (nodecg) {
 	require('./schedule');
 	require('./soundboard');
 	require('./tiltifydonations');
-	//require('./donation-alert');
 	require('./general');
 };

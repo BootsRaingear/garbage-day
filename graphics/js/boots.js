@@ -120,6 +120,11 @@ nodecg.listenFor('playMmmbop', value => {
 	//app.hanson.video = filename;
 });
 
+nodecg.listenFor('showComparativeItem', value => {
+	console.log("showing comparative item");
+	app.findComparativeItem();
+})
+
 nodecg.listenFor('sixNine', value => {
 	app.haveASixtyNine();
 });
@@ -159,7 +164,7 @@ nodecg.listenFor('donationAlert', value => {
 
 	// Let's look at the name of the donator...
 	let notifyTitle;
-	if (!value.name || value.name == "" || value.comment.toLowerCase().includes("anony")) {
+	if (!value.name || value.name === "" || value.comment.toLowerCase().includes("anony")) {
 		notifyTitle = "Anonymous $"+ value.amount + " Donation";
 	} else {
 
@@ -175,7 +180,7 @@ nodecg.listenFor('donationAlert', value => {
 
 	// Let's look at the donation message...
 	let notifyMessage;
-	if (!value.comment || value.comment == "" || value.comment.length < 2) {
+	if (!value.comment || value.comment === "" || value.comment.length < 2) {
 		notifyMessage = "";
 	} else if (value.comment.length > 64) {
 		notifyMessage = value.comment.substring(0,64) + '...';
@@ -183,29 +188,29 @@ nodecg.listenFor('donationAlert', value => {
 		notifyMessage = value.comment;
 	}
 
-	if (donationType == "error") {
+	if (donationType === "error") {
 		new PNotify({
 			title: "SOMETHING FUCKED UP!",
 			type: "error",
 			delay: 30000
 		});
-	} else if (donationType == "tiny") {
+	} else if (donationType === "tiny") {
 		new PNotify({
 			text: "someone donated $" + value.amount,
 			delay: 10000
 		});
-	} else if (donationType == "small") {
+	} else if (donationType === "small") {
 		new PNotify({
 			text: '<b>' + notifyTitle + '</b>',
 			delay: 10000
 		});
-	} else if (donationType == "regular") {
+	} else if (donationType === "regular") {
 		new PNotify({
 			title: notifyTitle,
 			text: notifyMessage,
 			delay: 30000
 		});
-	} else if (donationType == "big") {
+	} else if (donationType === "big") {
 		new PNotify({
 			title: formattedNumber + " | " + value.name,
 			text: value.comment,
@@ -251,7 +256,7 @@ function updateCast(segment)
 	function youtube_parser(url){
 		var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
 		var match = url.match(regExp);
-		return (match&&match[7].length==11)? match[7] : false;
+		return (match&&match[7].length===11)? match[7] : false;
 	}
 
 	let youTube = false;

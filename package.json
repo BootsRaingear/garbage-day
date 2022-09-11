@@ -116,13 +116,7 @@
 				"width": 5,
 				"file": "donations-panel.html",
 				"workspace": "Stream"			
-			},			{
-				"name": "secondaryStream",
-				"title": "Secondary Stream",
-				"width": 2,
-				"file": "streamtwoControl.html",
-				"workspace": "Stream"			
-			},
+			},			
 			{
 				"name": "streamtext",
 				"title": "Stream Text",

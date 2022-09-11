@@ -4,7 +4,7 @@
 	"properties": {	
 		"disabled": {
 			"type": "boolean",
-			"default": false
+			"default": true
 		},
 		"swap": {
 			"type": "boolean",

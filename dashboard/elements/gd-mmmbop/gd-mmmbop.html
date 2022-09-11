@@ -38,23 +38,32 @@
 					width: 100%;
 				};				
 			}
-
-			#introButton {
+			
+			#comparativeButton {
 				@apply --layout-flex;
 				--paper-button: {
 					background-color: #5BA664;
 					color: white;
 					width: 100%;
-				}
+				};
 			}
-			
+
+
+
+
 		</style>		
 		<div id="soundboard">
 			<div class="soundclips">
 				<paper-button class="playThemeSong" id="themeSongButton" on-tap="_handlePlayThemeSong" disabled=[[themeSongDisabled]] alt="Play This Hour's Theme Song" raised>
 					Theme Song
 				</paper-button>
-			</div>		
+			</div>
+
+			<div class="soundclips">
+				<paper-button class="showComparativeItem" id="comparativeButton" on-tap="_handleShowComparativeItem" alt="Show Comparative Item" raised>
+					Show Comparitive Item
+				</paper-button>
+			</div>
 
 			<div class="soundclips">
 				<paper-button class="playMmmbop" id="mmmbopButton" on-tap="_handlePlayMmmbop" disabled=[[mmmbopDisabled]] alt="Play Sound" raised>

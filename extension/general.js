@@ -77,7 +77,7 @@ function checkHour(onbreak = false) {
 			nodecg.log.info("It is now hour: " + newHour);
 			
 			// reset settings for second stream
-			streamtwoControl.value.disabled = false;
+			streamtwoControl.value.disabled = true;
 			streamtwoControl.value.swap = false;
 		}
 		

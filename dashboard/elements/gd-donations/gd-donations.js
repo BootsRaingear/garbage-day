@@ -39,7 +39,7 @@
 				const timeFormatter = new Intl.DateTimeFormat('en-US', {
 					dateStyle: 'short',
 					timeStyle: 'short',
-					timeZone: 'EST'
+					timeZone: 'America/Toronto'
 				})
 				
 				for (let i = 0; i < newDonationList.length; i++) {
