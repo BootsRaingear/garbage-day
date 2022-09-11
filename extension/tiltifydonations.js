@@ -15,6 +15,8 @@ const milestones = nodecg.Replicant('milestone');
 const activeRewardId = nodecg.Replicant('activeRewardId');
 const activePollId = nodecg.Replicant('activePollId');
 
+const prize = nodecg.Replicant('prize');
+
 const mmmbop = nodecg.Replicant('mmmbop');
 const albertClass = nodecg.Replicant('albertClass');
 
@@ -74,6 +76,7 @@ const albertKeywords = {
 };
 
 nodecg.log.info("Donation Total: " + donationtotal.value);
+activeRewardId.value = 0;
 GetActiveReward(rewards.value);
 GetActivePoll(donationpolls.value);
 checkMmmbop(donationtotal.value);
@@ -91,24 +94,21 @@ donations.on('change', newVal => {
 });
 
 function GetActiveReward(array) {
-    for(const reward of Object.values(array))    {
-        // check for oldest active reward
-        if (reward.active === true) {
-            if (activeRewardId.value !== reward.id) {
-                if (activeRewardId === 0) 
-                    nodecg.sendMessage('showReward', 'true');
-                
-                activeRewardId.value = reward.id;
-            }
+    
+    for (const reward of Object.values(array).reverse()) {
+        if (reward.active) {
             nodecg.log.info("Active reward is: " + reward.id + " - " + reward.name);
-            break;
+            activeRewardId.value = reward.id
+            prize.value.active = true;
+            prize.value.description = reward.name;
+            prize.value.amount = reward.amount;
+            prize.value.awardProvider = reward.description;
+            prize.value.claimed = false;
+            return;
         }
     }
+    prize.value.active = false;
     nodecg.log.info("There is no active reward");
-    if (activeRewardId.value !== 0) {
-        nodecg.sendMessage('showReward', 'false');
-        activeRewardId.value = 0;
-    }
 }
 
 function GetActivePoll(array) {

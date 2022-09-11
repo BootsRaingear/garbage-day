@@ -50,7 +50,7 @@ nodecg.listenFor('playMmmbop', value => {
 });
 
 // on the hour, change currentHour
-var changeHour = cron.scheduleJob('0 * * * *', function() {	
+const changeHour = cron.scheduleJob('0 * * * *', function() {	
 
 	// add last hour's fetish prize winner to array, clear current fetish prize
 	if ((currentHour.value > 0) && (currentHour.value <= 24)) {
@@ -58,7 +58,7 @@ var changeHour = cron.scheduleJob('0 * * * *', function() {
 		currentFetishPrize.value.topDonor = "";
 		currentFetishPrize.value.topDonorAmount = 0;
 	}
-
+	
 	checkHour();
 });
 

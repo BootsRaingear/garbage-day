@@ -9,11 +9,13 @@ const freewrite = nodecg.Replicant('freewrite');
 const streamtwoControl = nodecg.Replicant('streamtwoControl');
 const breakImages = nodecg.Replicant('assets:breakimages');
 const mmmbop = nodecg.Replicant('mmmbop');
+const prize = nodecg.Replicant('prize');
 //const mmmbopVideos = nodecg.Replicant('assets:hansonvideos');
 const currentBreakImage = nodecg.Replicant('currentBreakImage');
 const streamtext = nodecg.Replicant('streamtext');
 const cast = nodecg.Replicant('cast');
 const albertClass = nodecg.Replicant('albertClass');
+
 
 var testmode = true;
 //const donation = testmode ? nodecg.Replicant('tiltTestDonations') : nodecg.Replicant('donations', 'nodecg-tiltify');
@@ -70,30 +72,26 @@ freewrite.on('change', newVal => {
 	app.freewrite.location = newVal.location;
 });
 
+/*
 nodecg.listenFor('showReward', value => {
 	if (value === 'true') {
 		app.prize.active = true;
 	} else
 		app.prize.avtive = false;
 })
+*/
 
-activeRewardId.on('change', newVal => {
-	app.prize.amount = rewards.value[newVal].amount;
-	app.prize.text = rewards.value[newVal].name;
-	app.prize.provider = rewards.value[newVal].description;
-})
 
-/*
 prize.on('change', newVal => {
+	console.log("detected active reward change");
 	app.prize.active = newVal.active;
 	app.prize.amount = newVal.amount;
 	app.prize.claimed = newVal.claimed;
 	app.prize.claimedBy = newVal.claimedBy;
 	app.prize.provider = newVal.awardProvider;
 	app.prize.text = newVal.description;
-//	app.prize.claimAmount = newVal.claimAmount;
 });
-*/
+
 
 streamtwoControl.on('change', newVal => {
 	if (!newVal.disabled) {
