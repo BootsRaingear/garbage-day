@@ -186,6 +186,7 @@ var app = new Vue({
           self.comparativeItem.count = count;
           foundOne = true;
         }
+        tries++;
       }
       
       self.comparativeItem.pic = randomItem.pic;
