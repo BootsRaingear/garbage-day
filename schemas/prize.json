@@ -29,6 +29,10 @@
 		"claimAmount": {
 			"type": "number",
 			"default": 0
+		},
+		"image": {
+			"type": "object",
+			"default": 0
 		}
 	}
 }

@@ -16,6 +16,7 @@ const activeRewardId = nodecg.Replicant('activeRewardId');
 const activePollId = nodecg.Replicant('activePollId');
 
 const prize = nodecg.Replicant('prize');
+const battle = nodecg.Replicant('battle');
 
 const mmmbop = nodecg.Replicant('mmmbop');
 const albertClass = nodecg.Replicant('albertClass');
@@ -95,7 +96,7 @@ donations.on('change', newVal => {
 
 function GetActiveReward(array) {
     
-    for (const reward of Object.values(array).reverse()) {
+    for (const reward of Object.values(array)) {
         if (reward.active) {
             nodecg.log.info("Active reward is: " + reward.id + " - " + reward.name);
             activeRewardId.value = reward.id
@@ -104,6 +105,7 @@ function GetActiveReward(array) {
             prize.value.amount = reward.amount;
             prize.value.awardProvider = reward.description;
             prize.value.claimed = false;
+            prize.value.image = JSON.parse(JSON.stringify(reward.image));
             return;
         }
     }

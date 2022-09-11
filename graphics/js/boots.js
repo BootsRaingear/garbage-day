@@ -90,6 +90,7 @@ prize.on('change', newVal => {
 	app.prize.claimedBy = newVal.claimedBy;
 	app.prize.provider = newVal.awardProvider;
 	app.prize.text = newVal.description;
+	app.prize.image = newVal.image;
 });
 
 
@@ -136,7 +137,6 @@ nodecg.listenFor('playMmmbop', value => {
 });
 
 nodecg.listenFor('showComparativeItem', value => {
-	console.log("showing comparative item");
 	app.findComparativeItem();
 })
 

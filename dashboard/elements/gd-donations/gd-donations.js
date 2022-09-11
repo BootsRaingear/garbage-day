@@ -48,8 +48,7 @@
 				}
 				
 				newDonationList = newDonationList.reverse();
-				newDonationList.length(19);
-				this.donationList = newDonationList;
+				this.donationList = newDonationList.splice(0,19);
 
 			});
 
