@@ -327,7 +327,8 @@
             <div class="topic" v-if="title">
               <div class="label" v-if="onBreak">Up Next</div>
               <div class="label" v-else>Currently reading</div>
-              <div class="title">{{title}}</div>
+              <div class="title" v-if="title == 'wikihow'"><img class="wikihow-logo" src="img/wikihow-logo.svg"></div>
+              <div class="title" v-else><span>{{title}}</span></div>
             </div>
             <div class="provider" v-if="provider &amp;&amp; !onBreak">
               <div class="label">Provided by</div>
@@ -504,7 +505,7 @@
         
       </script>
       <script src="js/min/garbage.min.js"></script>
-      <script src="js/boots.js" ></script>
+      <script src="js/boots.js"></script>
     </div>
   </body>
 </html>

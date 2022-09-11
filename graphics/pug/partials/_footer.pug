@@ -10,7 +10,11 @@ footer(v-cloak v-bind:class="{ break: onBreak }")
     .topic(v-if="title")
       .label(v-if="onBreak") Up Next
       .label(v-else) Currently reading
-      .title {{title}}
+      
+      .title(v-if="title == 'wikihow'")
+        img.wikihow-logo(src="img/wikihow-logo.svg")
+      .title(v-else)
+        span {{title}}
     .provider(v-if="provider && !onBreak")
       .label Provided by
       .name {{provider}}

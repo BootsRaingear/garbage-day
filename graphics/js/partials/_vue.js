@@ -5,7 +5,7 @@ var app = new Vue({
     hour: 10,
     onBreak: false,
     breakPic: 'https://unsplash.it/1600/900?random',
-    title: "Teach Me How To Jelq",
+    title: "wikiWho?",
     readers: [
       "Jack Chick",
       "Boots Raingear", 
