@@ -6,7 +6,6 @@ const segments = nodecg.Replicant('segments');
 const battle = nodecg.Replicant('battle');
 const donationGoal = nodecg.Replicant('donationGoal');
 const freewrite = nodecg.Replicant('freewrite');
-const prize = nodecg.Replicant('prize');
 const streamtwoControl = nodecg.Replicant('streamtwoControl');
 const breakImages = nodecg.Replicant('assets:breakimages');
 const mmmbop = nodecg.Replicant('mmmbop');
@@ -23,7 +22,10 @@ const donationTotal = testmode ? nodecg.Replicant('tiltTestTotal') : nodecg.Repl
 const donationpolls = nodecg.Replicant('donationpolls','nodecg-tiltify');
 const rewards = nodecg.Replicant('rewards','nodecg-tiltify');
 
+const activeRewardId = nodecg.Replicant('activeRewardId');
+
 var stream2active = false;
+
 
 donationTotal.on('change', newVal => {
 	var dTotal = Number(newVal);
@@ -68,6 +70,20 @@ freewrite.on('change', newVal => {
 	app.freewrite.location = newVal.location;
 });
 
+nodecg.listenFor('showReward', value => {
+	if (value === 'true') {
+		app.prize.active = true;
+	} else
+		app.prize.avtive = false;
+})
+
+activeRewardId.on('change', newVal => {
+	app.prize.amount = rewards.value[newVal].amount;
+	app.prize.text = rewards.value[newVal].name;
+	app.prize.provider = rewards.value[newVal].description;
+})
+
+/*
 prize.on('change', newVal => {
 	app.prize.active = newVal.active;
 	app.prize.amount = newVal.amount;
@@ -77,6 +93,7 @@ prize.on('change', newVal => {
 	app.prize.text = newVal.description;
 //	app.prize.claimAmount = newVal.claimAmount;
 });
+*/
 
 streamtwoControl.on('change', newVal => {
 	if (!newVal.disabled) {

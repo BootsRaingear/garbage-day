@@ -18,7 +18,8 @@ const activePollId = nodecg.Replicant('activePollId');
 const mmmbop = nodecg.Replicant('mmmbop');
 const albertClass = nodecg.Replicant('albertClass');
 
-const albertCategories = ["jogging", "running", "throb", "spin", "storm", "cataracts", "vibrate", "rave", "drunk", "flipping", "ghost", 
+const albertCategories = ["reset",
+    "jogging", "running", "throb", "spin", "storm", "cataracts", "vibrate", "rave", "drunk", "flipping", "ghost", 
     "no-outlines", "no-trash", "dropshadow", "queen", "censored", "huge", "backwards", "aibert",
     "oversaturate", "invert", "sepia", "contrast", "black", "blue", "brown", "green", "teal", "grayscale", "white", "tan", "yellow", "orange", "red", "pink", "purple"];
     
@@ -91,14 +92,23 @@ donations.on('change', newVal => {
 
 function GetActiveReward(array) {
     for(const reward of Object.values(array))    {
-        if (reward.active === true)        {
-            activeRewardId.value = reward.id;
+        // check for oldest active reward
+        if (reward.active === true) {
+            if (activeRewardId.value !== reward.id) {
+                if (activeRewardId === 0) 
+                    nodecg.sendMessage('showReward', 'true');
+                
+                activeRewardId.value = reward.id;
+            }
             nodecg.log.info("Active reward is: " + reward.id + " - " + reward.name);
-            return;
+            break;
         }
     }
     nodecg.log.info("There is no active reward");
-    activeRewardId.value = 0;
+    if (activeRewardId.value !== 0) {
+        nodecg.sendMessage('showReward', 'false');
+        activeRewardId.value = 0;
+    }
 }
 
 function GetActivePoll(array) {
@@ -116,11 +126,8 @@ function GetActivePoll(array) {
 function GetNewDonations(array) {
     for(const donation of Object.values(array))  {
         if (donation.read) continue;
-        // do something with new donation?
         nodecg.sendMessage('donationAlert', donation);
-        nodecg.log.info("read new donation! " + donation.comment + " : " + donation.amount);
         checkAlbert(donation.amount, donation.comment);
-        donation.read = true;
     }
     // mark all donations as read
     nodecg.sendMessageToBundle('clear-donations', 'nodecg-tiltify');

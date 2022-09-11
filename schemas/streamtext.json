@@ -4,7 +4,7 @@
 	"properties": {	
 		"introText": {
 			"type": "string",
-			"default": "<p>This is <b>Garbage Day</b>!</p><p>A 24 hour marathon of terrible writing in support of the <b>Southern Poverty Law Center</b>.</p>"
+			"default": "<p>This is <b>Garbage Day</b>!</p><p>A 24 hour marathon of terrible writing in support of the <b>National Network of Abortion Funds</b>.</p>"
 		},
 		"breakText": {
 			"type": "string",
@@ -16,7 +16,7 @@
 		},
 		"underTotalText": {
 			"type": "string",
-			"default": "Money goes to the <b>Southern Poverty Law Center</b>"
+			"default": "Money goes to the <b>National Network of Abortion Funds</b>"
 		}
 	}
 }
