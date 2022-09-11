@@ -19,6 +19,8 @@
     .donate { transform: translateY(-1.2em); display: inline-block; margin-right: 0.3em; }
     .number { font-size: 330%; font-weight: $bold; color:$green; animation: zoomBounce 3s infinite alternate; display: inline-block; }
   }
+
+  figure { margin-bottom: 1rem; }
   
   .prize-claimed { font-size:225%; color:$red; font-weight: $bold; text-shadow: 2px 2px 0 rgba($black,0.8); text-transform: uppercase; animation: bounce 1s infinite alternate; }
   .claimed-by {

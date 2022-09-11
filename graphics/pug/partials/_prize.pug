@@ -9,6 +9,9 @@
 
     .text.available(v-if="prize.text" v-html="prize.text")
 
+    figure.prize-pic(v-if="prize.image && prize.image.src")
+      img(:src="prize.image.src")
+
     .provider(v-if="prize.provider") provided by 
       b {{prize.provider}}
       

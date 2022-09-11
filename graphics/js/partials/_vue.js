@@ -91,11 +91,17 @@ var app = new Vue({
     },
     
     prize: {
-      active: false,
+      active: true,
       amount: 50,
-      text: "mp3s of motivational tautalogies (yelled)",
-      provider: "Jack Chick",
-      claimed: true,
+      text: "This Placeholder Image!",
+      image: {
+        src: 'https://picsum.photos/1200/600',
+        alt: "Nothing to see here",
+        width: 600,
+        height: 400,
+      },
+      provider: "Unsplash",
+      claimed: false,
       claimedBy: "fuckface25"
     },
     

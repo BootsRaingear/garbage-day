@@ -3276,6 +3276,9 @@ figure.logo.queen .respect img {
           animation: zoomBounce 3s infinite alternate;
   display: inline-block;
 }
+.prize figure {
+  margin-bottom: 1rem;
+}
 .prize .prize-claimed {
   font-size: 225%;
   color: #ee2a2a;
