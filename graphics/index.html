@@ -59,7 +59,7 @@
               <div class="amount"><span class="donate">donate </span><span class="number">{{dollarAmount(prize.amount)}}</span><span class="or-more"> or more</span></div>
               <div class="text available" v-if="prize.text" v-html="prize.text"></div>
               <figure class="prize-pic" v-if="prize.image &amp;&amp; prize.image.src"><img :src="prize.image.src"></figure>
-              <div class="provider" v-if="prize.provider">provided by <b>{{prize.provider}}</b></div>
+              <div class="provider" v-if="prize.provider"><span>{{prize.provider}}</span></div>
             </div>
             <div class="prize-box" v-else>
               <h2 class="prize-claimed">Prize Claimed!</h2>

@@ -100,7 +100,7 @@ var app = new Vue({
         width: 600,
         height: 400,
       },
-      provider: "Unsplash",
+      provider: "provided by Unsplash",
       claimed: false,
       claimedBy: "fuckface25"
     },

@@ -12,8 +12,8 @@
     figure.prize-pic(v-if="prize.image && prize.image.src")
       img(:src="prize.image.src")
 
-    .provider(v-if="prize.provider") provided by 
-      b {{prize.provider}}
+    .provider(v-if="prize.provider")
+      span {{prize.provider}}
       
   .prize-box(v-else)
     h2.prize-claimed Prize Claimed!
