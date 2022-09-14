@@ -2,7 +2,7 @@
 const app = require('express')();
 const nodecg = require('./util/nodecg-api-context').get();
 
-const testmode = true;
+const testmode = false;
 
 const donations = testmode ? nodecg.Replicant('tiltTestDonations') : nodecg.Replicant('donations', 'nodecg-tiltify');
 const alldonations = testmode ? nodecg.Replicant('tiltTestAllDonations') : nodecg.Replicant('alldonations', 'nodecg-tiltify'); 
@@ -77,7 +77,6 @@ const albertKeywords = {
 };
 
 nodecg.log.info("Donation Total: " + donationtotal.value);
-activeRewardId.value = 0;
 GetActiveReward(rewards.value);
 GetActivePoll(donationpolls.value);
 checkMmmbop(donationtotal.value);
@@ -99,13 +98,17 @@ function GetActiveReward(array) {
     for (const reward of Object.values(array)) {
         if (reward.active) {
             nodecg.log.info("Active reward is: " + reward.id + " - " + reward.name);
-            activeRewardId.value = reward.id
-            prize.value.active = true;
-            prize.value.description = reward.name;
-            prize.value.amount = reward.amount;
-            prize.value.awardProvider = reward.description;
-            prize.value.claimed = false;
-            prize.value.image = JSON.parse(JSON.stringify(reward.image));
+            if (activeRewardId.value !== reward.id) {
+                activeRewardId.vaclue = reward.id
+                prize.claimed = false;
+                prize.claimedBy = "";
+                prize.value.active = true;
+                prize.value.description = reward.name;
+                prize.value.amount = reward.amount;
+                prize.value.awardProvider = reward.description;
+                prize.value.claimed = false;
+                prize.value.image = JSON.parse(JSON.stringify(reward.image));
+            }
             return;
         }
     }
@@ -136,6 +139,9 @@ function GetNewDonations(array) {
         if (donation.read) continue;
         nodecg.sendMessage('donationAlert', donation);
         checkAlbert(donation.amount, donation.comment);
+        checkRewards(donation.rewardId, donation.name);
+        if (testmode)
+            donation.read = false;
     }
     // mark all donations as read
     nodecg.sendMessageToBundle('clear-donations', 'nodecg-tiltify');
@@ -143,6 +149,16 @@ function GetNewDonations(array) {
     checkFunNumbers(donationtotal.value);
 }
 
+
+function checkRewards(rewardId, name)
+{
+    nodecg.log.info("Checking if current reward has been claimed: " + rewardId + " : " + activeRewardId.value);
+    if (Number(rewardId) === Number(activeRewardId.value)) {
+        
+        prize.value.claimed = true;
+        prize.value.claimedBy = name;
+    }
+}
 
 function checkMmmbop(total) {
     if (total == null) return;

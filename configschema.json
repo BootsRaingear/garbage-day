@@ -12,11 +12,11 @@
 			"value": {
 				"breakScene": {
 					"type": "string",
-					"value": ""
+					"value": "break"
 				},
 				"liveScene": {
 					"type": "string",
-					"value": ""
+					"value": "live"
 				}
 			}
 		},

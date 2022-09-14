@@ -15,21 +15,3 @@ const currentScene = nodecg.Replicant('currentScene');
 
 const sceneList = nodecg.Replicant('OBS:sceneList');
 
-
-onBreak.on('change', newVal => {
-	if (onBreak.value === true) {
-		nodecg.log.info('starting break');		
-		ChangeScene(nodecg.bundleConfig.obs.breakScene);
-		//obs.stopRecording();
-	} else {
-		nodecg.log.info('ending break');
-		//obs.startRecording();
-		ChangeScene(nodecg.bundleConfig.obs.liveScene);
-	}
-});
-
-function ChangeScene (scenename)
-{
-	nodecg.sendMessage('obs:transition', 'Fade', 1, scenename);
-}
-

@@ -1,4 +1,5 @@
 'use strict';
+var testmode = false;
 
 //const donationTotal = nodecg.Replicant('donationTotal');
 const currentHour = nodecg.Replicant('currentHour');
@@ -17,7 +18,6 @@ const cast = nodecg.Replicant('cast');
 const albertClass = nodecg.Replicant('albertClass');
 
 
-var testmode = true;
 //const donation = testmode ? nodecg.Replicant('tiltTestDonations') : nodecg.Replicant('donations', 'nodecg-tiltify');
 const alldonations = testmode ? nodecg.Replicant('tiltTestAllDonations') : nodecg.Replicant('alldonations', 'nodecg-tiltify');
 const donationTotal = testmode ? nodecg.Replicant('tiltTestTotal') : nodecg.Replicant('total', 'nodecg-tiltify');
