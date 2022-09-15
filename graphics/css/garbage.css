@@ -3063,6 +3063,16 @@ figure.logo.intensifiez {
   -webkit-animation-direction: alternate;
           animation-direction: alternate;
 }
+figure.logo.ghost {
+  opacity: 0.32;
+  -webkit-transform: scale(1.25);
+      -ms-transform: scale(1.25);
+          transform: scale(1.25);
+}
+figure.logo.ghost svg {
+  -webkit-animation: float 6s ease-in-out infinite;
+          animation: float 6s ease-in-out infinite;
+}
 figure.logo.no-outlines .albert-linework {
   display: none;
 }
@@ -3072,23 +3082,34 @@ figure.logo.no-outlines .trash-lines {
 figure.logo.no-outlines .trashpopout-lines {
   display: none;
 }
-figure.logo.no-trash .trash-lines {
+figure.logo.no-trash .trash-lines,
+figure.logo.no-trash .trashpopout-lines,
+figure.logo.no-trash .trashbag,
+figure.logo.no-trash .trash-shade,
+figure.logo.no-trash .trash-highlights,
+figure.logo.no-trash .trashpopout-flats,
+figure.logo.no-trash .trashpopout-shade,
+figure.logo.no-trash .trashpopout-highlights {
   display: none;
 }
-figure.logo.no-trash .trashpopout-lines {
+figure.logo.only-trash #Albert_flats,
+figure.logo.only-trash #Albert_Shade,
+figure.logo.only-trash #Albert_highlights,
+figure.logo.only-trash .albert-linework {
   display: none;
 }
-figure.logo.no-trash .trashbag {
-  display: none;
+figure.logo.only-trash svg {
+  -webkit-transform-origin: top left;
+      -ms-transform-origin: top left;
+          transform-origin: top left;
+  -webkit-transform: scale(1.65) translate(-70px, 20px);
+      -ms-transform: scale(1.65) translate(-70px, 20px);
+          transform: scale(1.65) translate(-70px, 20px);
 }
-figure.logo.no-trash .trash-shade {
-  display: none;
-}
-figure.logo.no-trash .trash-highlights {
-  display: none;
-}
-figure.logo.no-trash .trashpopout-flats, figure.logo.no-trash .trashpopout-shade, figure.logo.no-trash .trashpopout-highlights {
-  display: none;
+figure.logo.only-trash #FPlus_logo {
+  -webkit-transform: translate(21px, -190px) scale(1.1);
+      -ms-transform: translate(21px, -190px) scale(1.1);
+          transform: translate(21px, -190px) scale(1.1);
 }
 figure.logo.dropshadow {
   -webkit-filter: drop-shadow(-32px -32px 24px rgba(0, 0, 0, 0.9));
@@ -3122,6 +3143,82 @@ figure.logo.censored .censored-bar.upper {
       -ms-transform: rotate(-9deg);
           transform: rotate(-9deg);
 }
+figure.logo.backwards svg {
+  -webkit-transform: rotateY(190deg);
+          transform: rotateY(190deg);
+}
+figure.logo.backwards #FPlus_logo {
+  -webkit-transform: rotateY(190deg) translate(-70px);
+          transform: rotateY(190deg) translate(-70px);
+  -webkit-transform-origin: center;
+      -ms-transform-origin: center;
+          transform-origin: center;
+}
+figure.logo[class*=aibert] {
+  bottom: 5px !important;
+}
+figure.logo[class*=aibert] .pic {
+  -webkit-transform: scale(1.42);
+      -ms-transform: scale(1.42);
+          transform: scale(1.42);
+}
+figure.logo[class*=aibert] svg {
+  display: none;
+}
+figure.logo.portaxx .pic {
+  -webkit-transform-origin: bottom right;
+      -ms-transform-origin: bottom right;
+          transform-origin: bottom right;
+  -webkit-transform: scale(1.7) translate(34px, -44px);
+      -ms-transform: scale(1.7) translate(34px, -44px);
+          transform: scale(1.7) translate(34px, -44px);
+}
+figure.logo.portaxx svg {
+  display: none;
+}
+figure.logo.queen {
+  -webkit-animation: jogging 1s infinite ease;
+          animation: jogging 1s infinite ease;
+}
+figure.logo.queen .trash-lines {
+  display: none;
+}
+figure.logo.queen .trashpopout-lines {
+  display: none;
+}
+figure.logo.queen .trashbag {
+  display: none;
+}
+figure.logo.queen .trash-shade {
+  display: none;
+}
+figure.logo.queen .trash-highlights {
+  display: none;
+}
+figure.logo.queen .trashpopout-flats, figure.logo.queen .trashpopout-shade, figure.logo.queen .trashpopout-highlights {
+  display: none;
+}
+figure.logo.queen .respect {
+  position: absolute;
+  width: 100%;
+  left: 32px;
+  top: 0px;
+  -webkit-animation: gelatine 2s infinite;
+          animation: gelatine 2s infinite;
+}
+figure.logo.queen .respect img {
+  width: auto;
+  height: 220px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  -webkit-transform: rotate(87deg);
+      -ms-transform: rotate(87deg);
+          transform: rotate(87deg);
+  -webkit-transform-origin: center;
+      -ms-transform-origin: center;
+          transform-origin: center;
+}
 figure.logo.grayscale {
   -webkit-filter: grayscale(1);
           filter: grayscale(1);
@@ -3145,17 +3242,6 @@ figure.logo.invert {
 figure.logo.contrast {
   -webkit-filter: contrast(3);
           filter: contrast(3);
-}
-figure.logo.backwards svg {
-  -webkit-transform: rotateY(190deg);
-          transform: rotateY(190deg);
-}
-figure.logo.backwards #FPlus_logo {
-  -webkit-transform: rotateY(190deg) translate(-70px);
-          transform: rotateY(190deg) translate(-70px);
-  -webkit-transform-origin: center;
-      -ms-transform-origin: center;
-          transform-origin: center;
 }
 figure.logo.green .racoon-body {
   fill: #01FF70;
@@ -3408,70 +3494,6 @@ figure.logo.black .trash-shade * {
 }
 figure.logo.black .trash-highlights *, figure.logo.black .st2 {
   fill: rgba(255, 255, 255, 0.5);
-}
-figure.logo.ghost {
-  opacity: 0.32;
-  -webkit-transform: scale(1.25);
-      -ms-transform: scale(1.25);
-          transform: scale(1.25);
-}
-figure.logo.ghost svg {
-  -webkit-animation: float 6s ease-in-out infinite;
-          animation: float 6s ease-in-out infinite;
-}
-figure.logo[class*=aibert] {
-  bottom: 5px !important;
-}
-figure.logo[class*=aibert] .pic {
-  -webkit-transform: scale(1.42);
-      -ms-transform: scale(1.42);
-          transform: scale(1.42);
-}
-figure.logo[class*=aibert] svg {
-  display: none;
-}
-figure.logo.queen {
-  -webkit-animation: jogging 1s infinite ease;
-          animation: jogging 1s infinite ease;
-}
-figure.logo.queen .trash-lines {
-  display: none;
-}
-figure.logo.queen .trashpopout-lines {
-  display: none;
-}
-figure.logo.queen .trashbag {
-  display: none;
-}
-figure.logo.queen .trash-shade {
-  display: none;
-}
-figure.logo.queen .trash-highlights {
-  display: none;
-}
-figure.logo.queen .trashpopout-flats, figure.logo.queen .trashpopout-shade, figure.logo.queen .trashpopout-highlights {
-  display: none;
-}
-figure.logo.queen .respect {
-  position: absolute;
-  width: 100%;
-  left: 32px;
-  top: 0px;
-  -webkit-animation: gelatine 2s infinite;
-          animation: gelatine 2s infinite;
-}
-figure.logo.queen .respect img {
-  width: auto;
-  height: 220px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  -webkit-transform: rotate(87deg);
-      -ms-transform: rotate(87deg);
-          transform: rotate(87deg);
-  -webkit-transform-origin: center;
-      -ms-transform-origin: center;
-          transform-origin: center;
 }
 
 .battle-screen {

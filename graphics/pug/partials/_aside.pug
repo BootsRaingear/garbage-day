@@ -23,6 +23,9 @@ aside
       img.pic(src="img/aibert/06.png" v-else-if="albertClass == 'aibert-6'" )
       img.pic(src="img/aibert/07.png" v-else-if="albertClass == 'aibert-7'" )
       img.pic(src="img/aibert/08.png" v-else-if="albertClass == 'aibert-8'" )
+    
+    figure.portaxx(v-if="albertClass == 'portaxx'")
+      img.pic(src="img/aibert/portaxx.png")
 
     figure.respect(v-if="albertClass == 'queen'")
       img.queen(src="img/queen-head.png")

@@ -92,6 +92,7 @@
           </div>
           <figure class="logo" v-bind:class="albertClass" @click="findComparativeItem">
             <figure class="aibert" v-if="albertClass.includes('aibert')"><img class="pic" src="img/aibert/01.png" v-if="albertClass == 'aibert-1'"><img class="pic" src="img/aibert/02.png" v-else-if="albertClass == 'aibert-2'"><img class="pic" src="img/aibert/03.png" v-else-if="albertClass == 'aibert-3'"><img class="pic" src="img/aibert/04.png" v-else-if="albertClass == 'aibert-4'"><img class="pic" src="img/aibert/05.png" v-else-if="albertClass == 'aibert-5'"><img class="pic" src="img/aibert/06.png" v-else-if="albertClass == 'aibert-6'"><img class="pic" src="img/aibert/07.png" v-else-if="albertClass == 'aibert-7'"><img class="pic" src="img/aibert/08.png" v-else-if="albertClass == 'aibert-8'"></figure>
+            <figure class="portaxx" v-if="albertClass == 'portaxx'"><img class="pic" src="img/aibert/portaxx.png"></figure>
             <figure class="respect" v-if="albertClass == 'queen'"><img class="queen" src="img/queen-head.png"></figure>
             <div class="censored-bar lower" v-if="albertClass == 'censored'"><span>CENSORED</span></div>
             <div class="censored-bar upper" v-if="albertClass == 'censored'"><span>TOO HOT FOR TWITCH</span></div><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 375.74 525.05">

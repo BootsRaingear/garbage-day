@@ -60,6 +60,9 @@ figure.logo { width:32vw;
     animation-delay: 3s;
     animation-direction: alternate;
   }
+  &.ghost { opacity: 0.32; transform: scale(1.25);
+    svg { animation: float 6s ease-in-out infinite; }
+  }
 
 
   // OTHER VISUAL EFFECTS
@@ -69,12 +72,22 @@ figure.logo { width:32vw;
     .trashpopout-lines { display: none; }
   }
   &.no-trash {
-    .trash-lines { display: none; }
-    .trashpopout-lines { display: none; }
-    .trashbag { display: none; }
-    .trash-shade { display: none; }
-    .trash-highlights { display: none; }
-    .trashpopout-flats, .trashpopout-shade, .trashpopout-highlights { display:none; }
+    .trash-lines,
+    .trashpopout-lines,
+    .trashbag,
+    .trash-shade,
+    .trash-highlights,
+    .trashpopout-flats,
+    .trashpopout-shade,
+    .trashpopout-highlights { display:none; }
+  }
+  &.only-trash {
+    #Albert_flats,
+    #Albert_Shade,
+    #Albert_highlights,
+    .albert-linework { display: none; }
+    svg { transform-origin: top left; transform: scale(1.65) translate(-70px,20px);}
+    #FPlus_logo { transform: translate(21px,-190px) scale(1.1); }
   }
   &.dropshadow { filter:drop-shadow(-32px -32px 24px rgba(0,0,0,0.9)); }
   &.huge { transform: scale(13) translate(-18%,2%); opacity: 0.3; mix-blend-mode: color-dodge; pointer-events: none; }
@@ -84,23 +97,40 @@ figure.logo { width:32vw;
       &.upper { top: 176px; left: 81px; transform: rotate(-9deg);}
     }
   }
+  &.backwards {
+    svg { transform:rotateY(190deg) }
+    #FPlus_logo { transform:rotateY(190deg) translate(-70px); transform-origin: center }
+  }
+  &[class*="aibert"] { bottom:5px !important;
+    .pic { transform: scale(1.42);} 
+    svg { display: none; }
+  }
+  &.portaxx {
+    .pic { transform-origin: bottom right; transform: scale(1.7) translate(34px, -44px); }
+    svg { display:none; }
+  }
+  &.queen { animation:jogging 1s infinite ease;
+    .trash-lines { display: none; }
+    .trashpopout-lines { display: none; }
+    .trashbag { display: none; }
+    .trash-shade { display: none; }
+    .trash-highlights { display: none; }
+    .trashpopout-flats, .trashpopout-shade, .trashpopout-highlights { display:none; }
+
+    .respect { position: absolute; width:100%; left:32px; top:0px; animation: gelatine 2s infinite;
+      img { width:auto; height:220px; display:block; margin-left: auto; margin-right: auto; transform: rotate(87deg); transform-origin: center; }
+    }
+  }
   
 
-  // FILTERS 
+  // COLOR TREATMENTS
   &.grayscale { filter: grayscale(1); }
   &.sepia { filter: sepia(1); }
   &.oversaturate { filter: saturate(4);  }
   &.huerotate { filter:saturate(3) hue-rotate(180deg); }
   &.invert { filter:invert(1); }
   &.contrast { filter:contrast(3); }
-
-
-  &.backwards {
-    svg { transform:rotateY(190deg) }
-    #FPlus_logo { transform:rotateY(190deg) translate(-70px); transform-origin: center }
-  }
   
-  // COLOR SWAPS
   &.green {
     @include useColor(#01FF70);
     @include stripeColor(#034420);
@@ -121,7 +151,6 @@ figure.logo { width:32vw;
     @include stripeColor(#ffbcfc);
     @include bagColor(#991199);
   }
-
   &.red {
     @include useColor(#FF4136);
     @include stripeColor(#a50014);
@@ -132,66 +161,34 @@ figure.logo { width:32vw;
     @include stripeColor(#fff308);
     @include bagColor(#aaaaaa);
   }
-
   &.blue {
     @include useColor(#0074D9);
     @include stripeColor(#002fc2);
     @include bagColor(#85144b);
   }
-
   &.white {
     @include useColor(#ffffff);
     @include bagColor(#444);
     @include tongue(#222);
   }
-
   &.tan {
     @include useColor(#DEB887);
     @include stripeColor(#b68532);
     @include bagColor(#b43864);
   }
-
   &.purple {
     @include useColor(#9855e0);
     @include stripeColor(#fffb3a);
     @include bagColor(#82dd61);
   }
-
   &.brown {
     @include useColor(#A0522D);
     @include stripeColor(#751f00);
     @include bagColor(#FFD700);
   }
-
   &.black {
     @include useColor(#333);
     @include stripeColor(#666);
     @include bagColor(#eee);
   }
-
-  &.ghost { opacity: 0.32; transform: scale(1.25);
-    svg { animation: float 6s ease-in-out infinite; }
-  }
-  &[class*="aibert"] { bottom:5px !important;
-    .pic { transform: scale(1.42);} 
-    svg { display: none; }
-  }
-
-
-  &.queen { animation:jogging 1s infinite ease;
-    .trash-lines { display: none; }
-    .trashpopout-lines { display: none; }
-    .trashbag { display: none; }
-    .trash-shade { display: none; }
-    .trash-highlights { display: none; }
-    .trashpopout-flats, .trashpopout-shade, .trashpopout-highlights { display:none; }
-
-    .respect { position: absolute; width:100%; left:32px; top:0px; animation: gelatine 2s infinite;
-      img { width:auto; height:220px; display:block; margin-left: auto; margin-right: auto; transform: rotate(87deg); transform-origin: center; }
-    }
-  }
-  
-
-
-  //.trashbag { transform: scale(1.2); transform-origin: center; }
 }

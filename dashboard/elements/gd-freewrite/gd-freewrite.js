@@ -53,11 +53,13 @@
 						// Other Visual Effecs
 						"no-outlines",
 						"no-trash",
+						"only-trash",
 						"dropshadow",
 						"queen",
 						"censored",
 						"huge",
 						"backwards",
+						"portaxx",
 						"aibert-1",
 						"aibert-2",
 						"aibert-3",

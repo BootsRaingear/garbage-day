@@ -32,7 +32,7 @@ var app = new Vue({
       //url: "https://1-edge4-us-east.picarto.tv/mp4/Amarynceus.mp4"
     },
 
-    albertClass: "aibert-8",
+    albertClass: "reset",
 
     secondaryStream: {
       show: false,
@@ -84,14 +84,14 @@ var app = new Vue({
     },
     
     goal: {
-      active: false,
-      text: "Fuckin', like, I dunno, we stop doing this?",
-      amount: 40000,
-      startAmount: 20000
+      active: true,
+      text: "We'll finally finish off our Notion checklist.",
+      amount: 720,
+      startAmount: 100
     },
     
     prize: {
-      active: true,
+      active: false,
       amount: 50,
       text: "This Placeholder Image!",
       image: {
@@ -188,7 +188,7 @@ var app = new Vue({
         }
         tries++;
       }
-      
+
       self.comparativeItem.pic = randomItem.pic;
 
       if (self.comparativeItem.count > 1) {
