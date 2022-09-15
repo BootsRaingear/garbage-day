@@ -23,7 +23,7 @@ const albertClass = nodecg.Replicant('albertClass');
 
 const albertCategories = ["reset",
     "jogging", "running", "throb", "spin", "storm", "cataracts", "vibrate", "rave", "drunk", "flipping", "ghost", 
-    "no-outlines", "no-trash", "dropshadow", "queen", "censored", "huge", "backwards", "aibert",
+    "no-outlines", "no-trash", "only-trash", "dropshadow", "queen", "censored", "huge", "backwards", "portaxx", "aibert",
     "oversaturate", "invert", "sepia", "contrast", "black", "blue", "brown", "green", "teal", "grayscale", "white", "tan", "yellow", "orange", "red", "pink", "purple"];
     
     
@@ -48,11 +48,13 @@ const albertKeywords = {
     // OTHER VISUAL EFFECTS
     "no-outlines":  ["no-outlines", "no outlines"],
     "no-trash":     ["no-trash", "no trash", "empty"],
+    "only-trash":   ["only-trash", "no albert", "only trash", "just garbage"],
     "dropshadow":   ["dropshadow", "shadow" ],
     "queen":        [ "queen", "elizabeth","dignity", "respect" ],
     "censored":     [ "censored", "censor", "nudity", "too hot" ],
     "huge":         [ "huge", "giant", "gigantic", "massive"],
     "backwards":    [ "backwards", "opposite", "flipped"],
+    "portaxx":      [ "portaxx", "monster", "eldritch"],
     "aibert":       [ "aibert", "dall-e", "dalle", "dall e", "midjourney"],
 
     // COLOR PALETTES
