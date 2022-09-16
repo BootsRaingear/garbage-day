@@ -101,7 +101,7 @@ function GetActiveReward(array) {
         if (reward.active) {
             nodecg.log.info("Active reward is: " + reward.id + " - " + reward.name);
             if (activeRewardId.value !== reward.id) {
-                activeRewardId.vaclue = reward.id
+                activeRewardId.value = reward.id
                 prize.claimed = false;
                 prize.claimedBy = "";
                 prize.value.active = true;
