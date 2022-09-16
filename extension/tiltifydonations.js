@@ -126,9 +126,9 @@ function GetActivePoll(array) {
             activePollId.value = poll.id;
             battle.value.active = true;
             battle.value.option1title = poll.options[0].name;
-            battle.value.option1total = poll.options[0].totalAmountRaised;
+            battle.value.option1total = Number(poll.options[0].totalAmountRaised);
             battle.value.option2title = poll.options[1].name;
-            battle.value.option2total = poll.options[1].totalAmountRaised;
+            battle.value.option2total = Number(poll.options[1].totalAmountRaised);
             return;
         }
     }
