@@ -9,10 +9,10 @@ aside
       li.reader(v-if="reader" v-text="reader")
   
   .artist-box(v-if="artist")
-    .label Your artist:
-    .name {{artist}}
+    .label(@click="smokeWeed()") Your artist:
+    .name(@click="haveASixtyNine()") {{artist}}
   
-  figure.logo(v-bind:class="albertClass" @click="findComparativeItem")
+  figure.logo(v-bind:class="albertClass")
 
     figure.aibert(v-if="albertClass.includes('aibert')")
       img.pic(src="img/aibert/01.png" v-if="albertClass == 'aibert-1'" )
