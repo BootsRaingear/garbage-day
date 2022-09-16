@@ -68,6 +68,18 @@
 						"aibert-6",
 						"aibert-7",
 						"aibert-8",
+						"aibert-9",
+						"aibert-10",
+						"aibert-11",
+						"aibert-12",
+						"aibert-13",
+						"aibert-14",
+						"aibert-15",
+						"aibert-16",
+						"aibert-17",
+						"aibert-18",
+						"aibert-19",
+						"aibert-20",
 
 
 						// Colors

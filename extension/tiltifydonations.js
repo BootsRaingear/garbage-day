@@ -192,7 +192,7 @@ function checkAlbert(amount, comment) {
 
 
                 if (curKeyword == "aibert") {
-                    const i =  Math.floor(Math.random() * (8 - 1 + 1) + 1)
+                    const i =  Math.floor(Math.random() * (20 - 1 + 1) + 1)
                     albertClass.value = "aibert-"+i;
                 }
 
