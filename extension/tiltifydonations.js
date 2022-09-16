@@ -101,7 +101,7 @@ function GetActiveReward(array) {
         if (reward.active) {
             nodecg.log.info("Active reward is: " + reward.id + " - " + reward.name);
             if (activeRewardId.value !== reward.id) {
-                activeRewardId.vaclue = reward.id
+                activeRewardId.value = reward.id
                 prize.claimed = false;
                 prize.claimedBy = "";
                 prize.value.active = true;
@@ -115,6 +115,7 @@ function GetActiveReward(array) {
         }
     }
     prize.value.active = false;
+    activeRewardId.value = 0;
     nodecg.log.info("There is no active reward");
 }
 
@@ -125,9 +126,9 @@ function GetActivePoll(array) {
             activePollId.value = poll.id;
             battle.value.active = true;
             battle.value.option1title = poll.options[0].name;
-            battle.value.option1total = poll.options[0].totalAmountRaised;
+            battle.value.option1total = Number(poll.options[0].totalAmountRaised);
             battle.value.option2title = poll.options[1].name;
-            battle.value.option2total = poll.options[1].totalAmountRaised;
+            battle.value.option2total = Number(poll.options[1].totalAmountRaised);
             return;
         }
     }
@@ -140,8 +141,15 @@ function GetNewDonations(array) {
     for(const donation of Object.values(array))  {
         if (donation.read) continue;
         nodecg.sendMessage('donationAlert', donation);
+        // check if anonymous
+        let dName = "";
+        if ("name" in donation)
+            dName = donation.name;
+        else
+            dName = "Anonymous";
+            
         checkAlbert(donation.amount, donation.comment);
-        checkRewards(donation.rewardId, donation.name);
+        checkRewards(donation.rewardId, dName);
         if (testmode)
             donation.read = false;
     }

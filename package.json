@@ -123,13 +123,6 @@
 				"file": "streamtext-panel.html",
 				"width": 4,
 				"workspace": "Setup"			
-			},
-			{
-				"name": "testdonations",
-				"title": "Test Donations",
-				"file": "tiltify-test.html",
-				"width": 4,
-				"workspace": "Setup"
 			}
 		],
 		"graphics": [
