@@ -115,6 +115,7 @@ function GetActiveReward(array) {
         }
     }
     prize.value.active = false;
+    activeRewardId.value = 0;
     nodecg.log.info("There is no active reward");
 }
 
@@ -140,8 +141,15 @@ function GetNewDonations(array) {
     for(const donation of Object.values(array))  {
         if (donation.read) continue;
         nodecg.sendMessage('donationAlert', donation);
+        // check if anonymous
+        let dName = "";
+        if ("name" in donation)
+            dName = donation.name;
+        else
+            dName = "Anonymous";
+            
         checkAlbert(donation.amount, donation.comment);
-        checkRewards(donation.rewardId, donation.name);
+        checkRewards(donation.rewardId, dName);
         if (testmode)
             donation.read = false;
     }
