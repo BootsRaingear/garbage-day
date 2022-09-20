@@ -1,7 +1,7 @@
 (function () {
 	const onBreak = nodecg.Replicant('onBreak');
 	const currentHour = nodecg.Replicant('currentHour');
-	const donationTotal = nodecg.Replicant('donationTotal');
+	const donationTotal = nodecg.Replicant('total', 'nodecg-tiltify');
 	const battle = nodecg.Replicant('battle');
 	const segments = nodecg.Replicant('segments');
 	

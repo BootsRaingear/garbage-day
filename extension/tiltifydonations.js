@@ -95,6 +95,10 @@ donations.on('change', newVal => {
    GetNewDonations(newVal); 
 });
 
+donationtotal.on('change', newVal => {
+   checkMmmbop(newVal);
+});
+
 function GetActiveReward(array) {
     
     for (const reward of Object.values(array)) {
@@ -155,7 +159,7 @@ function GetNewDonations(array) {
     }
     // mark all donations as read
     nodecg.sendMessageToBundle('clear-donations', 'nodecg-tiltify');
-    checkMmmbop(donationtotal.value);
+    //checkMmmbop(donationtotal.value);
     checkFunNumbers(donationtotal.value);
 }
 
