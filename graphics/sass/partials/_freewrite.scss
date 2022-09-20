@@ -7,7 +7,7 @@
 .freewrite-box {
   
   &.center { top:0; right:0; bottom: 0; left:0; @include flex-center();
-    .inside { max-width: 65%; box-shadow: 0 0 12px rgba(0,0,0,0.65); }
+    .inside { max-width: 76ch; box-shadow: 0 0 12px rgba(0,0,0,0.65); }
   }
   
   &.top { top:$offset; left:$offset; right:$offset; @include flex-center(); padding-bottom: 20px;

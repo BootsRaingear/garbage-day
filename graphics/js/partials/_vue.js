@@ -32,7 +32,7 @@ var app = new Vue({
       //url: "https://1-edge4-us-east.picarto.tv/mp4/Amarynceus.mp4"
     },
 
-    albertClass: "aibert-19",
+    albertClass: "reset",
 
     secondaryStream: {
       show: false,
@@ -69,22 +69,22 @@ var app = new Vue({
     
     swapStreams: false,
     
-    totalDonations: 420.69,
+    totalDonations: 900.69,
     
     donations: [],
     
     battle: {
       active: false,
-      option1title: "we will mutually masturbate each other",
-      option1keyword: "jerk",
-      option1total: 50,
-      option2title: "we will commit suicide under horrific circumstances",
-      option2keyword: "die",
-      option2total: 100
+      option1title: "Short, Erotic Statements About Political Figures",
+      //option1keyword: "Short, Erotic Statements About Political Figures",
+      option1total: 250.05,
+      option2title: "Let's All Fuck The Coronavirus",
+      //option2keyword: "Let's All Fuck The Coronavirus",
+      option2total: 50.69
     },
     
     goal: {
-      active: true,
+      active: false,
       text: "We'll finally finish off our Notion checklist.",
       amount: 720,
       startAmount: 100
@@ -109,7 +109,8 @@ var app = new Vue({
       active: false,
       location: 'center',
       // VALID LOCATIONS: center, top, right, bottom, left, top-left, top-right, bottom-left, bottom-right
-      content: 'Hello, I am some text!',
+      content: `<p>How’s business? Boomin. Surround yourself with angels, positive energy, beautiful people, beautiful souls, clean heart, angel. Another one. You do know, you do know that they don’t want you to have lunch. I’m keeping it real with you, so what you going do is have lunch. To be successful you’ve got to work hard, to make history, simple, you’ve got to make it. Learning is cool, but knowing is better, and I know the key to success.</p>
+                <img src="https://picsum.photos/600/400" />`,
       img: ''
     },
 
@@ -118,7 +119,7 @@ var app = new Vue({
     comparativeItem: {
       show: false,
       showing: false,
-      name: "none",
+      name: "orgone healing pyramids",
       count: 99,
       pic: "healing-pyramid.jpg"
     }

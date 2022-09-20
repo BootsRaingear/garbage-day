@@ -3500,8 +3500,8 @@ figure.logo.black .trash-highlights *, figure.logo.black .st2 {
   position: absolute;
   right: 15px;
   bottom: 15px;
-  width: 32em;
-  z-index: 8;
+  width: 46em;
+  z-index: 11;
 }
 .battle-screen .battle {
   display: -webkit-box;
@@ -3560,7 +3560,7 @@ figure.logo.black .trash-highlights *, figure.logo.black .st2 {
       align-self: auto;
   position: relative;
   text-align: center;
-  padding-top: 3.6em;
+  padding-top: 2.6em;
 }
 .battle-screen .vs span {
   font-size: 160%;
@@ -3583,10 +3583,11 @@ figure.logo.black .trash-highlights *, figure.logo.black .st2 {
   font-weight: 600;
 }
 .battle-screen .total {
-  font-size: 240%;
+  font-size: 2.8rem;
+  font-weight: 600;
 }
 .battle-screen .desc {
-  font-size: 80%;
+  font-size: 1.25rem;
 }
 
 .goal .thermometer {
@@ -3766,7 +3767,7 @@ figure.logo.black .trash-highlights *, figure.logo.black .st2 {
           justify-content: center;
 }
 .freewrite-box.center .inside {
-  max-width: 65%;
+  max-width: 76ch;
   -webkit-box-shadow: 0 0 12px rgba(0, 0, 0, 0.65);
           box-shadow: 0 0 12px rgba(0, 0, 0, 0.65);
 }
@@ -3918,7 +3919,7 @@ figure.logo.black .trash-highlights *, figure.logo.black .st2 {
 }
 
 .hanson-wrapper {
-  z-index: 9;
+  z-index: 19;
 }
 .hanson-wrapper video {
   width: 640px;
@@ -3977,8 +3978,9 @@ figure.logo.black .trash-highlights *, figure.logo.black .st2 {
 .relative-worth {
   position: absolute;
   left: 0;
-  bottom: 3rem;
+  bottom: 15px;
   right: 0;
+  z-index: 12;
 }
 .relative-worth .notice {
   width: 100%;
